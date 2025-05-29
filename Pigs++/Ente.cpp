@@ -1,6 +1,6 @@
 #include "Ente.h"
 
-// Usando isso aqui pra não precisar chama "PigsCpp::" toda hora
+// Usando isso aqui pra nï¿½o precisar chama "PigsCpp::" toda hora
 using namespace PigsCpp;
 
 
@@ -9,11 +9,12 @@ using namespace PigsCpp;
 Ente::Ente() :
 	corpo(sf::Vector2f(100.f, 100.f))
 {
+	//
 	this->operator++();
 	printf("%d", id);
 
 };
-// Definindo aqui fora por ser estático
+// Definindo aqui fora por ser estï¿½tico
 int Ente::id(0);
 
 // Deleta o objeto quando for removido
@@ -21,7 +22,7 @@ Ente::~Ente() {
 	delete this;
 };
 
-// Sobrecarga do ++, que vai aumentar o id (é privado, então só vai ser usado aqui)
+// Sobrecarga do ++, que vai aumentar o id (ï¿½ privado, entï¿½o sï¿½ vai ser usado aqui)
 const void Ente::operator++() { id++; };
 
 // Aqui ele vai apontar o campo janela para uma janela qualquer
@@ -29,7 +30,7 @@ const void Ente::setJanela(sf::RenderWindow* j) {
 	janela = j;
 }
 
-// E aqui o ente está apontando desenhará ele mesmo
+// E aqui o ente estï¿½ apontando desenharï¿½ ele mesmo
 const void Ente::desenhar() {
 	janela->draw(corpo);
 }
