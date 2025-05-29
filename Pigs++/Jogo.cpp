@@ -2,26 +2,23 @@
 
 using namespace PigsCpp;
 
-
-Jogo::Jogo():
-    // Construtora: Necessário inicializar as variáveis dentro do construtor porém forá das { },
-    // Por conta da versão do C++ de 2003
-
-	window(sf::VideoMode({ 1000, 1000 }), "Pigs++"),
-	shape(sf::Vector2f(100.f, 100.f))
+// Construtora: Necessário inicializar as variáveis dentro do construtor porém forá das { },
+// Por conta da versão do C++ de 2003
+Jogo::Jogo() :
+    
+    // Janela que vai ser usada no projeto
+    window(sf::VideoMode({ 1000, 1000 }), "Pigs++")
 {
-	shape.setFillColor(sf::Color::Green);
-}
+    jogador1.setJanela(&window);
+    jogador1.setPos(250.f, 100.f);
+   
+};
 
 Jogo::~Jogo() {
-
 }
 const void Jogo::executar() {
 
-    // Carregando a textura do arquivo
-    // sf::Texture texture;
-    // texture.loadFromFile("texture.png");
-    // 
+    
     // Loop que vai executar em cada frame do jogo, para verificação de eventos
     while (window.isOpen())
     {
@@ -31,15 +28,14 @@ const void Jogo::executar() {
                 window.close();
         }
 
-
-        // Teclado, movendo o objeto para a direita
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-        {
-            shape.move(sf::Vector2f(0.1f, 0.f));
-        }
-
+        // Chame todas as funções de executarentre o while e window.clear
+        jogador1.executar();
+       
+        // ATENÇÃO:
+        // Para toda entidade, ela precisa ser desenhada entre o clear e display
+        // Por conta do ciclo clear --> draw --> display
         window.clear();
-        window.draw(shape);
+        jogador1.desenhar();
         window.display();
     }
 }

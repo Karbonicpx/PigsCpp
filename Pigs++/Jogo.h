@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "Jogador.h"
 
 // Namespace principal do projeto
 namespace PigsCpp {
@@ -9,7 +10,7 @@ namespace PigsCpp {
 	{
 		private:
 		sf::RenderWindow window;
-		sf::RectangleShape shape;
+		Jogador jogador1;
 
 		public:
 		Jogo();

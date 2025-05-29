@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Entidades">
+      <UniqueIdentifier>{fd7a504f-3088-4091-8512-d80101f4e716}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entidades">
+      <UniqueIdentifier>{8fab6c8f-cb35-43a3-b91b-3f88e42ea700}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -24,6 +30,15 @@
     <ClCompile Include="Ente.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Entidade.cpp">
+      <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Personagem.cpp">
+      <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Jogador.cpp">
+      <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -31,6 +46,15 @@
     </ClInclude>
     <ClInclude Include="Ente.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entidade.h">
+      <Filter>Header Files\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Personagem.h">
+      <Filter>Header Files\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Jogador.h">
+      <Filter>Header Files\Entidades</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

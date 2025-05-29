@@ -1,5 +1,11 @@
 #pragma once
 #include "Entidade.h"
+#include <SFML/Graphics.hpp>
+
+using namespace PigsCpp;
+using namespace Entidades;
+using namespace sf;
+using namespace Keyboard;
 
 namespace PigsCpp {
 
@@ -13,8 +19,10 @@ namespace PigsCpp {
 			public:
 			Personagem();
 			~Personagem();
+			const int getVidas() const;
+			const void setVidas(const int v);
 			const virtual void mover();
-			virtual void executar() = 0;
+			const virtual void executar() = 0;
 		};
 	};
 };
