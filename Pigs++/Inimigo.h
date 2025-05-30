@@ -2,7 +2,7 @@
 #include "Personagem.h"
 #include <SFML/Graphics.hpp>
 
-namespace Pigscpp{
+namespace PigsCpp{
     namespace Entidades{
 
         class Inimigo : public Personagem{
@@ -18,9 +18,9 @@ namespace Pigscpp{
             int getMaldade();
             void setMaldade(int m);
             void salvarDataBuffer();
-            virtual void exercutar() = 0;
+            virtual void executar() = 0;
             virtual void danificar(Jogador* p) = 0;
 
-        }
+        };
     }
 }

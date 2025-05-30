@@ -4,11 +4,13 @@
 using namespace PigsCpp;
 using namespace Entidades;
 
-Inimigo::Inimigo():Personagem(){    // setar maldade
+Inimigo::Inimigo():Personagem(), nivel_maldade(0){
+    // Colocando cor s� pra ver o inimigo
+    corpo.setFillColor(sf::Color::Red);
 
 }
 
-Inimigo::~Inimigo(){        // maldade -1
+Inimigo::~Inimigo(){
     setMaldade(-1);
 }
 
@@ -21,6 +23,3 @@ void Inimigo::setMaldade(int m){
 void Inimigo::salvarDataBuffer(){        // terminar
 
 }
-virtual void Inimigo::exercutar() = 0{}
-
-virtual void Inimigo::danificar(Jogador* p) = 0{}
