@@ -23,3 +23,6 @@ void Inimigo::setMaldade(int m){
 void Inimigo::salvarDataBuffer(){        // terminar
 
 }
+void Inimigo::mover() {
+    // Implementar logica de movimento do inimigo
+}

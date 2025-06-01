@@ -18,8 +18,10 @@ namespace PigsCpp{
             int getMaldade();
             void setMaldade(int m);
             void salvarDataBuffer();
+            void mover();
             virtual void executar() = 0;
             virtual void danificar(Jogador* p) = 0;
+            virtual void salva() = 0;
 
         };
     }
