@@ -1,11 +1,10 @@
 #pragma once
 #include "Inimigo.h"
 
-using namespace PigsCpp;
-using namespace Entidades;
+using namespace PigsCpp::Entidades::Personagens;
 
 Inimigo::Inimigo():Personagem(), nivel_maldade(0){
-    // Colocando cor s� pra ver o inimigo
+    // Colocando cor só pra ver o inimigo
     corpo.setFillColor(sf::Color::Red);
 
 }
@@ -14,12 +13,12 @@ Inimigo::~Inimigo(){
     setMaldade(-1);
 }
 
-int Inimigo::getMaldade(){
+const int Inimigo::getMaldade() const {
     return nivel_maldade;
 }
-void Inimigo::setMaldade(int m){
+const void Inimigo::setMaldade(int m){
     nivel_maldade = m;
 }
-void Inimigo::salvarDataBuffer(){        // terminar
+const void Inimigo::salvarDataBuffer(){        // terminar
 
 }

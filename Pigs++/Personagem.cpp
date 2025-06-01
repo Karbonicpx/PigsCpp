@@ -1,8 +1,7 @@
 #include "Personagem.h"
 
 
-using namespace PigsCpp;
-using namespace Entidades;
+using namespace PigsCpp::Entidades::Personagens;
 
 Personagem::Personagem():
 	Entidade(),
