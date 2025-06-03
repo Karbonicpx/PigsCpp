@@ -11,7 +11,7 @@ Ente::Ente() :
 {
 	//
 	this->operator++();
-	printf("%d", id);
+	printf("%d\n", id);
 
 };
 // Definindo aqui fora por ser est�tico
@@ -21,6 +21,15 @@ int Ente::id(0);
 Ente::~Ente() {
 	delete this;
 };
+
+// Pegando o ID do ente
+const int Ente::getId() const {
+	return id;
+}	
+
+RectangleShape Ente::getCorpo() const {
+	return corpo;
+}
 
 // Sobrecarga do ++, que vai aumentar o id (� privado, ent�o s� vai ser usado aqui)
 const void Ente::operator++() { id++; };

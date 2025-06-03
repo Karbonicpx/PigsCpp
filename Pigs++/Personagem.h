@@ -11,18 +11,21 @@ namespace PigsCpp {
 
 	namespace Entidades {
 
-		class Personagem : public Entidade {
+		namespace Personagens {	
+
+			class Personagem : public Entidade {
 
 			protected:
-			int numVidas;
+				int numVidas;
 
 			public:
-			Personagem();
-			~Personagem();
-			const int getVidas() const;
-			const void setVidas(const int v);
-			const virtual void mover();
-			const virtual void executar() = 0;
+				Personagem();
+				~Personagem();
+				const int getVidas() const;
+				const void setVidas(const int v);
+				const virtual void mover();
+				const virtual void executar() = 0;
+			};
 		};
 	};
 };

@@ -1,5 +1,6 @@
 #include "Jogador.h"
 
+using namespace PigsCpp::Entidades::Personagens;
 
 
 Jogador::Jogador() :
@@ -7,7 +8,12 @@ Jogador::Jogador() :
 	pontos(0)
 {
 	// Colocando cor só pra ver o jogador
-	corpo.setFillColor(sf::Color::Green);
+	if (getId() == 1) {
+		corpo.setFillColor(sf::Color::Green);
+	}
+	else {
+		corpo.setFillColor(sf::Color::Red);
+	}
 };
 Jogador::~Jogador() {
 
