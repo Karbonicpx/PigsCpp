@@ -3,10 +3,11 @@
 
 using namespace PigsCpp;
 using namespace Entidades;
+using namespace Personagens;
 
 Toucinho::Toucinho() : Inimigo(), raio(15.0f), tamanho(0), forca(0) {
     // Cor do tocinho para visualizacao
-    corpo.setFillColor(sf::Color::Purple);
+    corpo.setFillColor(sf::Color::Cyan);
 }
 Toucinho::~Toucinho() {
     setForca(0);
@@ -30,9 +31,9 @@ const void Toucinho::mover() {
     // Implementar logica de movimento
 }
 // Getters e Setters
-const int Toucinho::getForca() {return forca;}
-const int Toucinho::getTamanho() {return tamanho;}
-const int Toucinho::getRaio() {return static_cast<int>(raio);}
+const int Toucinho::getForca() const {return forca;}
+const short int Toucinho::getTamanho() const {return tamanho;}
+const int Toucinho::getRaio() const {return static_cast<int>(raio);}
 const void Toucinho::setForca(int f) {forca = f;}
-const void Toucinho::setTamanho(int t) {tamanho = t;}
+const void Toucinho::setTamanho(short int t) {tamanho = t;}
 const void Toucinho::setRaio(float r) {raio = r;}

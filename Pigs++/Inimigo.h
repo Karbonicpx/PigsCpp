@@ -1,10 +1,8 @@
 #pragma once
-#include "Personagem.h"
 #include "Jogador.h"
-#include <SFML/Graphics.hpp>
 
-namespace PigsCpp{
-    namespace Entidades{
+namespace PigsCpp {
+    namespace Entidades {
         namespace Personagens {
             class Inimigo : public Personagem {
 
@@ -23,6 +21,7 @@ namespace PigsCpp{
                 const virtual void danificar(Jogador* p) = 0;
                 const virtual void salva() = 0;
                 const virtual void mover() = 0;
+            };
         };
-    }
-}
+    };
+};

@@ -21,6 +21,8 @@ namespace PigsCpp {
 		public:
 		Ente();
 		~Ente();
+		const int getId() const;
+		const sf::RectangleShape getCorpo() const;
 		const virtual void executar() = 0;
 		const void desenhar();
 		const void setJanela(sf::RenderWindow* j);

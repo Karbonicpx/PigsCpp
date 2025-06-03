@@ -14,13 +14,13 @@ namespace PigsCpp {
         bool ativo;
 
         public:
-        Projetil();
+        Projetil(float x, float y, float vel, sf::Vector2f dir);
         virtual ~Projetil();
         const void mover();
         const void desativar();
         const bool isAtivo() const;
-        const void executar(sf::RenderWindow& window) override;
-        const void salvar() override;
+        const void executar(sf::RenderWindow& window);
+        const void salvar();
         };
     };
 };

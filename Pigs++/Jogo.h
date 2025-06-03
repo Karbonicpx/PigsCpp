@@ -2,21 +2,23 @@
 
 #include <SFML/Graphics.hpp>
 #include "Jogador.h"
+#include "Gerenciador_Grafico.h"
+#include "Gerenciador_Colisao.h"
 
-// Namespace principal do projeto
+// Namespace e classe principal do projeto
 namespace PigsCpp {
 
 	class Jogo
 	{
-		private:
-		sf::RenderWindow window;
-		Jogador jogador1;
+	private:
+		Personagens::Jogador jogador1;
+		Personagens::Jogador jogador2;
+		Gerenciadores::Gerenciador_Grafico GG;
+		Gerenciadores::Gerenciador_Colisao GC;
 
-		public:
+	public:
 		Jogo();
 		~Jogo();
 		const void executar();
 	};
 };
-
-

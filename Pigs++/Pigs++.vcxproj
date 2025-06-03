@@ -133,19 +133,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Baconzilla.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
+    <ClCompile Include="Gerenciador_Colisao.cpp" />
+    <ClCompile Include="Gerenciador_Grafico.cpp" />
+    <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Jogador.cpp" />
+    <ClCompile Include="Leitao.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Projetil.cpp" />
+    <ClCompile Include="Toucinho.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Baconzilla.h" />
+    <ClInclude Include="Elemento.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
+    <ClInclude Include="Gerenciador_Colisao.h" />
+    <ClInclude Include="Gerenciador_Grafico.h" />
+    <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Jogador.h" />
+    <ClInclude Include="Leitao.h" />
+    <ClInclude Include="Lista.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Jogo.h" />
+    <ClInclude Include="Projetil.h" />
+    <ClInclude Include="Toucinho.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

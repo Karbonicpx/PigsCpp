@@ -22,6 +22,14 @@ Ente::~Ente() {
 	delete this;
 };
 
+const int Ente::getId() const {
+	return id;
+};
+
+const sf::RectangleShape Ente::getCorpo() const {
+	return corpo;
+};
+
 // Sobrecarga do ++, que vai aumentar o id (� privado, ent�o s� vai ser usado aqui)
 const void Ente::operator++() { id++; };
 

@@ -1,5 +1,6 @@
 #include "Jogador.h"
 
+using namespace PigsCpp::Entidades::Personagens;
 
 
 Jogador::Jogador() :
@@ -7,7 +8,12 @@ Jogador::Jogador() :
 	pontos(0)
 {
 	// Colocando cor só pra ver o jogador
-	corpo.setFillColor(sf::Color::Green);
+	if (getId() == 1) {
+		corpo.setFillColor(sf::Color::Green);
+	}
+	else {
+		corpo.setFillColor(sf::Color::Red);
+	}
 };
 Jogador::~Jogador() {
 
@@ -15,8 +21,8 @@ Jogador::~Jogador() {
 
 // Método que vai realizar comportamento de mover o jogador para uma direção
 // Através de uma tecla escolhida e uma "velocidade"
-const void Jogador::apertarTecla(Key tecla, float spdX, float spdY){
-	
+const void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
+
 	if (isKeyPressed(tecla)) {
 
 		corpo.move(Vector2f(spdX, spdY));
