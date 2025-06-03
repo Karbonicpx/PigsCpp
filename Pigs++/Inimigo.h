@@ -1,28 +1,28 @@
 #pragma once
 #include "Personagem.h"
+#include "Jogador.h"
 #include <SFML/Graphics.hpp>
 
 namespace PigsCpp{
     namespace Entidades{
+        namespace Personagens {
+            class Inimigo : public Personagem {
 
-        class Inimigo : public Personagem{
+            protected:
 
-        protected:
+                int nivel_maldade;
 
-            int nivel_maldade;
+            public:
 
-        public:
-
-            Inimigo();
-            ~Inimigo();
-            int getMaldade();
-            void setMaldade(int m);
-            void salvarDataBuffer();
-            void mover();
-            virtual void executar() = 0;
-            virtual void danificar(Jogador* p) = 0;
-            virtual void salva() = 0;
-
+                Inimigo();
+                ~Inimigo();
+                const int getMaldade() const;
+                const void setMaldade(int m);
+                const void salvarDataBuffer();
+                const virtual void executar() = 0;
+                const virtual void danificar(Jogador* p) = 0;
+                const virtual void salva() = 0;
+                const virtual void mover() = 0;
         };
     }
 }

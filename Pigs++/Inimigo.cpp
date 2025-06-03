@@ -14,15 +14,12 @@ Inimigo::~Inimigo(){
     setMaldade(-1);
 }
 
-int Inimigo::getMaldade(){
+const int Inimigo::getMaldade(){
     return nivel_maldade;
 }
-void Inimigo::setMaldade(int m){
+const void Inimigo::setMaldade(int m){
     nivel_maldade = m;
 }
-void Inimigo::salvarDataBuffer(){        // terminar
+const void Inimigo::salvarDataBuffer(){        // terminar
 
-}
-void Inimigo::mover() {
-    // Implementar logica de movimento do inimigo
 }
