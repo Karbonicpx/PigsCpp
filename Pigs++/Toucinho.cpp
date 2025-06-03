@@ -13,23 +13,26 @@ Toucinho::~Toucinho() {
     setTamanho(0);
     setRaio(0.0f);
 }
-void Toucinho::executar() {
+const void Toucinho::executar() {
     // Comportamento do tocinho aqui
 }
-void Toucinho::danificar(Jogador* p) {
+const void Toucinho::danificar(Jogador* p) {
     // Dano ao jogador
     if (p) {
         int dano = 15; // Exemplo de dano
         p->setVidas(p->getVidas() - dano);
     }
 }
-void Toucinho::salva() {
+const void Toucinho::salva() {
     // Implementar logica de salvamento
 }
+const void Toucinho::mover() {
+    // Implementar logica de movimento
+}
 // Getters e Setters
-int Toucinho::getForca() {return forca;}
-int Toucinho::getTamanho() {return tamanho;}
-int Toucinho::getRaio() {return static_cast<int>(raio);}
-void Toucinho::setForca(int f) {forca = f;}
-void Toucinho::setTamanho(int t) {tamanho = t;}
-void Toucinho::setRaio(float r) {raio = r;}
+const int Toucinho::getForca() {return forca;}
+const int Toucinho::getTamanho() {return tamanho;}
+const int Toucinho::getRaio() {return static_cast<int>(raio);}
+const void Toucinho::setForca(int f) {forca = f;}
+const void Toucinho::setTamanho(int t) {tamanho = t;}
+const void Toucinho::setRaio(float r) {raio = r;}

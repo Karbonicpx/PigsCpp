@@ -15,15 +15,16 @@ namespace PigsCpp {
         public:
             Toucinho();
             ~Toucinho();
-            void executar() override;
-            void danificar(Jogador* p) override;
-            void salva();
-            int getForca();
-            int getTamanho();
-            int getRaio();
-            void setForca(int f);
-            void setTamanho(int t);
-            void setRaio(float r);
+            const void executar() override;
+            const void danificar(Jogador* p) override;
+            const void salva();
+            const void mover();
+            const int getForca() const;
+            const int getTamanho() const;
+            const int getRaio() const;
+            const void setForca(int f);
+            const void setTamanho(int t);
+            const void setRaio(float r);
         };
 
     }

@@ -13,27 +13,30 @@ Leitao::~Leitao() {
     setTamanho(0);
     setRaio(0.0f);
 }
-void Leitao::executar() {
+const void Leitao::executar() {
     // Comportamento do leitao aqui
 }
-void Leitao::danificar(Jogador* p) {
+const void Leitao::danificar(Jogador* p) {
     // Dano ao jogador
     if (p) {
         int dano = 10; // Exemplo de dano
         p->setVidas(p->getVidas() - dano);
     }
 }
-void Leitao::salvarDataBuffer() {
+const void Leitao::salvarDataBuffer() {
     // Logica para salvar dados do leitao
 }
-void Leitao::salva() {
+const void Leitao::salva() {
     // Implementar logica de salvamento
 }
+const void Leitao::mover(){
+    
+}
 // Getters e Setters
-int Leitao::getForca() {return forca;} 
-int Leitao::getTamanho() {return tamanho;}
-int Leitao::getRaio() {return static_cast<int>(raio);}
-void Leitao::setForca(int f) {forca = f;}
-void Leitao::setTamanho(int t) {tamanho = t;}
-void Leitao::setRaio(float r) {raio = r;}
+const int Leitao::getForca() {return forca;} 
+const int Leitao::getTamanho() {return tamanho;}
+const int Leitao::getRaio() {return static_cast<int>(raio);}
+const void Leitao::setForca(int f) {forca = f;}
+const void Leitao::setTamanho(int t) {tamanho = t;}
+const void Leitao::setRaio(float r) {raio = r;}
 
