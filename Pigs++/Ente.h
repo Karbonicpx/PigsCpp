@@ -25,8 +25,6 @@ namespace PigsCpp {
 		const int getId() const;
 		const sf::RectangleShape getCorpo() const;
 		const virtual void executar() = 0;
-		const int getId() const;
-		RectangleShape getCorpo() const;
 		const void desenhar();
 		const void setJanela(sf::RenderWindow* j);
 		

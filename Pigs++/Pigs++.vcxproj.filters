@@ -21,6 +21,15 @@
     <Filter Include="Source Files\Gerenciadores">
       <UniqueIdentifier>{a014ac06-726a-4cbd-87ed-4000f1289396}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entidades\Inimigos">
+      <UniqueIdentifier>{124afc27-6968-4cf1-b419-acb0d64dad11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Listas">
+      <UniqueIdentifier>{397360e2-053a-4cc7-a30d-99a240abfd4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entidades\Inimigos">
+      <UniqueIdentifier>{9c92a36f-e568-4906-8b3f-ec8f477e1e81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -41,14 +50,26 @@
     <ClCompile Include="Jogador.cpp">
       <Filter>Source Files\Entidades</Filter>
     </ClCompile>
-    <ClCompile Include="Inimigo.cpp">
-      <Filter>Source Files\Entidades</Filter>
-    </ClCompile>
     <ClCompile Include="Gerenciador_Grafico.cpp">
       <Filter>Source Files\Gerenciadores</Filter>
     </ClCompile>
-    <ClCompile Include="Gerenciador_Colisoes.cpp">
+    <ClCompile Include="Gerenciador_Colisao.cpp">
       <Filter>Source Files\Gerenciadores</Filter>
+    </ClCompile>
+    <ClCompile Include="Inimigo.cpp">
+      <Filter>Source Files\Entidades\Inimigos</Filter>
+    </ClCompile>
+    <ClCompile Include="Leitao.cpp">
+      <Filter>Source Files\Entidades\Inimigos</Filter>
+    </ClCompile>
+    <ClCompile Include="Projetil.cpp">
+      <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Toucinho.cpp">
+      <Filter>Source Files\Entidades\Inimigos</Filter>
+    </ClCompile>
+    <ClCompile Include="Baconzilla.cpp">
+      <Filter>Source Files\Entidades\Inimigos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -58,23 +79,41 @@
     <ClInclude Include="Ente.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Entidade.h">
-      <Filter>Header Files\Entidades</Filter>
-    </ClInclude>
     <ClInclude Include="Personagem.h">
       <Filter>Header Files\Entidades</Filter>
     </ClInclude>
     <ClInclude Include="Jogador.h">
       <Filter>Header Files\Entidades</Filter>
     </ClInclude>
-    <ClInclude Include="Inimigo.h">
-      <Filter>Header Files\Entidades</Filter>
-    </ClInclude>
     <ClInclude Include="Gerenciador_Grafico.h">
       <Filter>Header Files\Gerenciadores</Filter>
     </ClInclude>
-    <ClInclude Include="Gerenciador_Colisoes.h">
+    <ClInclude Include="Gerenciador_Colisao.h">
       <Filter>Header Files\Gerenciadores</Filter>
+    </ClInclude>
+    <ClInclude Include="Entidade.h">
+      <Filter>Header Files\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Baconzilla.h">
+      <Filter>Header Files\Entidades\Inimigos</Filter>
+    </ClInclude>
+    <ClInclude Include="Toucinho.h">
+      <Filter>Header Files\Entidades\Inimigos</Filter>
+    </ClInclude>
+    <ClInclude Include="Projetil.h">
+      <Filter>Header Files\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Leitao.h">
+      <Filter>Header Files\Entidades\Inimigos</Filter>
+    </ClInclude>
+    <ClInclude Include="Lista.h">
+      <Filter>Header Files\Listas</Filter>
+    </ClInclude>
+    <ClInclude Include="Elemento.h">
+      <Filter>Header Files\Listas</Filter>
+    </ClInclude>
+    <ClInclude Include="Inimigo.h">
+      <Filter>Header Files\Entidades\Inimigos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

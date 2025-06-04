@@ -1,2 +1,14 @@
-﻿  Jogador.cpp
+﻿  Baconzilla.cpp
+  Ente.cpp
+  Entidade.cpp
+  Gerenciador_Colisao.cpp
+  Inimigo.cpp
+  Jogador.cpp
+  Leitao.cpp
+  Personagem.cpp
+  Jogo.cpp
+  main.cpp
+  Projetil.cpp
+  Toucinho.cpp
+  Generating Code...
   Pigs++.vcxproj -> S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\x64\Debug\Pigs++.exe
