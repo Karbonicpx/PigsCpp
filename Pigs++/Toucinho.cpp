@@ -24,7 +24,7 @@ const void Toucinho::danificar(Jogador* p) {
         p->setVidas(p->getVidas() - dano);
     }
 }
-const void Toucinho::salva() {
+const void Toucinho::salvar() {
     // Implementar logica de salvamento
 }
 const void Toucinho::mover() {

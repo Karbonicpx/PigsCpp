@@ -23,7 +23,7 @@ const void Leitao::danificar(Jogador* p) {
         p->setVidas(p->getVidas() - dano);
     }
 }
-const void Leitao::salva() {
+const void Leitao::salvar() {
     // Implementar logica de salvamento
 }
 const void Leitao::mover(){

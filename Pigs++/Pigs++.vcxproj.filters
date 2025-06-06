@@ -30,6 +30,12 @@
     <Filter Include="Source Files\Entidades\Inimigos">
       <UniqueIdentifier>{9c92a36f-e568-4906-8b3f-ec8f477e1e81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Fases">
+      <UniqueIdentifier>{66d88751-b3e8-4317-8fd1-7b41ff06b3c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fases">
+      <UniqueIdentifier>{154668f8-fe3e-4e2e-b6b5-26e91dfd5cc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -70,6 +76,12 @@
     </ClCompile>
     <ClCompile Include="Baconzilla.cpp">
       <Filter>Source Files\Entidades\Inimigos</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaEntidades.cpp">
+      <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Fase.cpp">
+      <Filter>Source Files\Fases</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +126,12 @@
     </ClInclude>
     <ClInclude Include="Inimigo.h">
       <Filter>Header Files\Entidades\Inimigos</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEntidades.h">
+      <Filter>Header Files\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Fase.h">
+      <Filter>Header Files\Fases</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 #include "Jogador.h"
+#include "ListaEntidades.h"
+#include "Fase.h"
 #include "Gerenciador_Grafico.h"
 #include "Gerenciador_Colisao.h"
 
@@ -11,10 +13,11 @@ namespace PigsCpp {
 	class Jogo
 	{
 	private:
-		Personagens::Jogador jogador1;
-		Personagens::Jogador jogador2;
-		Gerenciadores::Gerenciador_Grafico GG;
-		Gerenciadores::Gerenciador_Colisao GC;
+		Personagens::Jogador* jogador1;
+		Gerenciadores::Gerenciador_Grafico& GG;
+		Fases::Fase* f;
+		Listas::ListaEntidades* LEs;
+		
 
 	public:
 		Jogo();

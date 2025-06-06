@@ -19,7 +19,7 @@ namespace PigsCpp {
                 const void salvarDataBuffer();
                 const virtual void executar() = 0;
                 const virtual void danificar(Jogador* p) = 0;
-                const virtual void salva() = 0;
+                const virtual void salvar() = 0;
                 const virtual void mover() = 0;
             };
         };

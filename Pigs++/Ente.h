@@ -1,9 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Gerenciador_Grafico.h"
 
 // Classe mais abstrata das entidades no projeto, onde vai ter as funções de:
 // Registrar id, acessar o endereço da janela, definir o body das entidades assim como desenhalas
 // OBS: Esse namespace vai estar em todo o projeto
+
+using namespace PigsCpp::Gerenciadores;
+
 namespace PigsCpp {
 
 	using namespace sf;
@@ -13,7 +17,7 @@ namespace PigsCpp {
 	protected:
 		static int id;
 		RectangleShape corpo;
-		RenderWindow* janela;
+		static Gerenciador_Grafico* pGG;
 		
 
 	private:
@@ -26,7 +30,7 @@ namespace PigsCpp {
 		const sf::RectangleShape getCorpo() const;
 		const virtual void executar() = 0;
 		const void desenhar();
-		const void setJanela(sf::RenderWindow* j);
+		const static void setGG(Gerenciador_Grafico* gg);
 		
 			
 	};

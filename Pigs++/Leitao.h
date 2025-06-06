@@ -15,7 +15,7 @@ namespace PigsCpp {
                 ~Leitao();
                 const void executar();
                 const void danificar(Jogador* p);
-                const void salva();
+                const void salvar();
                 const void mover();
                 const int getForca() const;
                 short const int getTamanho() const;
