@@ -31,12 +31,12 @@ namespace PigsCpp {
 			Fase(Jogador* pJ1, Jogador* pJ2);
 			~Fase();
 			// const virtual void executar();
-			const void gerenciarColisoes();
-			const void criarTouc();
-			const void criarPlataformas();
+			void gerenciarColisoes();
+			void criarTouc();
+			void criarPlataformas();
 			// virtual void criarInimigos() = 0;
 			// virtual void criarObstaculo() = 0;
-			const void criarCenario();
+			void criarCenario();
 
 			ListaEntidades* getListaEntidades() const;
 		};

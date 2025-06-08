@@ -13,26 +13,26 @@ Baconzilla::~Baconzilla() {
     setTamanho(0);
     setRaio(0.0f);
 };
-const void Baconzilla::executar() {
+void Baconzilla::executar() {
     // Comportamento do Baconzilla aqui
 };
-const void Baconzilla::danificar(Jogador* p) {
+void Baconzilla::danificar(Jogador* p) {
     // Dano ao jogador
     if (p) {
         int dano = 20; // Exemplo de dano
         p->setVidas(p->getVidas() - dano);
     }
 };
-const void Baconzilla::salva() {
+void Baconzilla::salva() {
     // Implementar logica de salvamento
 };
-const void Baconzilla::mover() {
+void Baconzilla::mover() {
 
 };
 // Getters e Setters
-const int Baconzilla::getForca() const { return forca; }
-const short int Baconzilla::getTamanho() const { return tamanho; }
+const short int Baconzilla::getForca() const { return forca; }
+const int Baconzilla::getTamanho() const { return tamanho; }
 const int Baconzilla::getRaio() const { return static_cast<int>(raio); }
-const void Baconzilla::setForca(int f) { forca = f; }
-const void Baconzilla::setTamanho(short int t) { tamanho = t; }
-const void Baconzilla::setRaio(float r) { raio = r; }
+void Baconzilla::setForca(short int f) { forca = f; }
+void Baconzilla::setTamanho(int t) { tamanho = t; }
+void Baconzilla::setRaio(float r) { raio = r; }

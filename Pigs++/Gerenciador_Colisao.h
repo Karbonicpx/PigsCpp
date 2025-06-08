@@ -25,14 +25,14 @@ namespace PigsCpp {
         public:
             Gerenciador_Colisao();
             ~Gerenciador_Colisao();
-            const void setJogadores(Personagens::Jogador* j1, Personagens::Jogador* j2);
-            const void includeEntidade(Entidade* ent);
-            const void removeEntidade(Entidade* ent);
+            void setJogadores(Personagens::Jogador* j1, Personagens::Jogador* j2);
+            void includeEntidade(Entidade* ent);
+            void removeEntidade(Entidade* ent);
             const bool veriColisao(Entidade* ent1, Entidade* ent2);
-            const void verificaObs();
-            const void verificaIni();
-            const void veriProjetil();
-            const void executar();
+            void verificaObs();
+            void verificaInim();
+            void verificaProjetil();
+            void executar();
         };
     }
 }

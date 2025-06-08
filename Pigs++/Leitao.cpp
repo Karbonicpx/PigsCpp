@@ -13,24 +13,24 @@ Leitao::~Leitao() {
     setForca(0);
     setTamanho(0);
 }
-const void Leitao::executar() {
+void Leitao::executar() {
     // Comportamento do leitao aqui
 }
-const void Leitao::danificar(Jogador* p) {
+void Leitao::danificar(Jogador* p) {
     // Dano ao jogador
     if (p) {
         int dano = 10; // Exemplo de dano
         p->setVidas(p->getVidas() - dano);
     }
 }
-const void Leitao::salvar() {
+void Leitao::salvar() {
     // Implementar logica de salvamento
 }
-const void Leitao::mover(){
+void Leitao::mover(){
     
 }
 // Getters e Setters
-const int Leitao::getForca() const {return forca;} 
-const short int Leitao::getTamanho() const {return tamanho;}
-const void Leitao::setForca(int f) {forca = f;}
-const void Leitao::setTamanho(short int t) {tamanho = t;}
+const short int Leitao::getForca() const {return forca;} 
+const int Leitao::getTamanho() const {return tamanho;}
+void Leitao::setForca(short int f) {forca = f;}
+void Leitao::setTamanho(short int t) {tamanho = t;}

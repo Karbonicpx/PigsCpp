@@ -11,7 +11,7 @@ Personagem::Personagem():
 }
 Personagem::~Personagem() {}
 
-const void Personagem::mover() {
+void Personagem::mover() {
 
 	// Atenção: Essa vai ser a implementação padrão do método mover CASO ele não seja 
 	// Redefinido nas classes que herdaram esta
@@ -22,6 +22,10 @@ const int Personagem::getVidas() const {
 	return numVidas;
 }
 
-const void Personagem::setVidas(const int v)  {
+void Personagem::setVidas(const int v)  {
 	numVidas = v;
+}
+
+void Personagem::salvarDataBuffer() {
+
 }

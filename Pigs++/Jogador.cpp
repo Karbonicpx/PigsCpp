@@ -21,7 +21,7 @@ Jogador::~Jogador() {
 
 // Método que vai realizar comportamento de mover o jogador para uma direção
 // Através de uma tecla escolhida e uma "velocidade"
-const void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
+void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 
 	if (isKeyPressed(tecla)) {
 
@@ -30,7 +30,7 @@ const void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 }
 
 // Redefinição do método mover de personagem!
-const void Jogador::mover() {
+void Jogador::mover() {
 
 	// Mude a velocidade vertical e horizontal como desejar
 	float spdX = 0.1f;
@@ -47,11 +47,11 @@ const void Jogador::mover() {
 }
 
 // Executando o mover, e futuros eventos relacionados ao jogador
-const void Jogador::executar() {
+void Jogador::executar() {
 	mover();
 }
 
 // Implementar depois
-const void Jogador::salvar() {
+void Jogador::salvar() {
 
 }

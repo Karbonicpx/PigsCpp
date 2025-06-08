@@ -21,18 +21,16 @@ namespace PigsCpp {
 		
 
 	private:
-		const void operator++();
+		void operator++();
 
 	public:
 		Ente();
-		~Ente();
-		const int getId() const;
+		virtual ~Ente();
 		const sf::RectangleShape getCorpo() const;
-		const virtual void executar() = 0;
-		const void desenhar();
-		const static void setGG(Gerenciador_Grafico* gg);
-		
-			
+		virtual void executar() = 0;
+		static void setGG(Gerenciador_Grafico* gg);
+		const int getId() const;
+		void desenhar();
 	};
 };
 

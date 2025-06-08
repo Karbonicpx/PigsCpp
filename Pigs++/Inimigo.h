@@ -15,12 +15,12 @@ namespace PigsCpp {
                 Inimigo();
                 ~Inimigo();
                 const int getMaldade() const;
-                const void setMaldade(int m);
-                const void salvarDataBuffer();
-                const virtual void executar() = 0;
-                const virtual void danificar(Jogador* p) = 0;
-                const virtual void salvar() = 0;
-                const virtual void mover() = 0;
+                void setMaldade(int m);
+                void salvarDataBuffer();
+                virtual void executar() = 0;
+                virtual void danificar(Jogador* p) = 0;
+                virtual void salvar() = 0;
+                virtual void mover() = 0;
             };
         };
     };

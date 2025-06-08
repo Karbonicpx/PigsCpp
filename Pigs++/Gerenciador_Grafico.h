@@ -34,13 +34,13 @@ namespace PigsCpp {
             ~Gerenciador_Grafico();
 
             RenderWindow* getWindow() const;
-            const void setCorpo(RectangleShape corpo);
+            void setCorpo(RectangleShape corpo);
             const bool estaAberta() const;
-            const void clear();
-            const void desenhar();
-            const void desenhar(const Texture* textura);
-            const void mostrar();
-            const void fechar();
+            void clear();
+            void desenhar();
+            void desenhar(const Texture* textura);
+            void mostrar();
+            void fechar();
         };
     };
 };

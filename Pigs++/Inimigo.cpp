@@ -15,9 +15,9 @@ Inimigo::~Inimigo(){
 const int Inimigo::getMaldade() const {
     return nivel_maldade;
 }
-const void Inimigo::setMaldade(int m){
+void Inimigo::setMaldade(int m){
     nivel_maldade = m;
 }
-const void Inimigo::salvarDataBuffer(){        // terminar
+void Inimigo::salvarDataBuffer(){        // terminar
 
 }

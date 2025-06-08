@@ -18,7 +18,7 @@ Entidade::~Entidade() {
 
 // Função que vai redefinir as coordenadas inicias X e Y
 // E vai redefinir a posição inicial do objeto
-const void Entidade::setPos(const float xP, const float yP) {
+void Entidade::setPos(const float xP, const float yP) {
 	
 	x = xP;
 	y = yP;
@@ -26,7 +26,7 @@ const void Entidade::setPos(const float xP, const float yP) {
 }
 
 // Implementar depois
-const void Entidade::salvarDataBuffer() {
+void Entidade::salvarDataBuffer() {
 
 }
 

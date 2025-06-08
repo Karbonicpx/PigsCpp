@@ -22,6 +22,6 @@ namespace PigsCpp {
 	public:
 		Jogo();
 		~Jogo();
-		const void executar();
+		void executar();
 	};
 };

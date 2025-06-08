@@ -34,7 +34,7 @@ Jogo::Jogo():
 Jogo::~Jogo() {
 }
 
-const void Jogo::executar() {
+void Jogo::executar() {
 
     
 

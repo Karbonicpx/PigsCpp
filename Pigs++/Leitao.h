@@ -7,22 +7,20 @@ namespace PigsCpp {
         namespace Personagens {
             class Leitao : public Inimigo {
             private:
-                short int tamanho;
+                int tamanho;
                 short int forca;
 
             public:
                 Leitao();
                 ~Leitao();
-                const void executar();
-                const void danificar(Jogador* p);
-                const void salvar();
-                const void mover();
-                const int getForca() const;
-                short const int getTamanho() const;
-                const void setForca(int f);
-                const void setTamanho(short int t);
-                
-
+                void executar();
+                void danificar(Jogador* p);
+                void salvar();
+                void mover();
+                const short int getForca() const;
+                const int getTamanho() const;
+                void setForca(short int f);
+                void setTamanho(short int t);
             };
         };
     };

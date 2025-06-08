@@ -14,13 +14,15 @@ namespace PigsCpp {
 			float y; // Posição y
 
 			// std::ostream buffer; // implementar depois
+		protected:
+			void salvarDataBuffer(); // implementar depois
+
 		public:
 			Entidade();
 			virtual ~Entidade();
-			const virtual void executar() = 0;
-			const virtual void salvar() = 0;
-			const void setPos(const float xP, const float yP); // Função para redefinir as coordenadas X e Y
-			const void salvarDataBuffer(); // implementar depois
+			virtual void executar() = 0;
+			virtual void salvar() = 0;
+			void setPos(const float xP, const float yP); // Função para redefinir as coordenadas X e Y
 		};
 	};
 

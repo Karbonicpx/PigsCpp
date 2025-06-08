@@ -34,11 +34,11 @@ const sf::RectangleShape Ente::getCorpo() const {
 };
 
 // Sobrecarga do ++, que vai aumentar o id (� privado, ent�o s� vai ser usado aqui)
-const void Ente::operator++() { id++; };
+void Ente::operator++() { id++; };
 
 
 // E aqui, o ente vai servir de parâmetro pro gerenciador gráfico desenhar ele
-const void Ente::desenhar() {
+void Ente::desenhar() {
 	pGG->setCorpo(corpo);
 	pGG->desenhar();
 };
@@ -46,6 +46,6 @@ const void Ente::desenhar() {
 // Setando a instância do gerenciador gráfico dentro da classe ente
 // Como o pGG é um ponteiro estático, todos os objetos que derivam da classe ente
 // Vão apontar para o mesmo gerenciador gráfico
-const void Ente::setGG(Gerenciador_Grafico* gg) {
+void Ente::setGG(Gerenciador_Grafico* gg) {
 	pGG = gg;
 }

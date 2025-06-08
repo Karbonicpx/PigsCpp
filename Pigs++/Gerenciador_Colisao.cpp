@@ -20,14 +20,14 @@ Gerenciador_Colisao::~Gerenciador_Colisao() {
 }
 
 // Setando os jogadores
-const void Gerenciador_Colisao::setJogadores(Personagens::Jogador* j1, Personagens::Jogador* j2) {
+void Gerenciador_Colisao::setJogadores(Personagens::Jogador* j1, Personagens::Jogador* j2) {
     jog1 = j1;
     jog2 = j2;
 }
 
 // Basicamente, vamos verificar quem é quem através dos IDs dos entes
 // e adicioná-los às listas de acordo com o "tipo" de entidade que são
-const void Gerenciador_Colisao::includeEntidade(Entidade* ent) {
+void Gerenciador_Colisao::includeEntidade(Entidade* ent) {
     if (ent->getId() == 3 || ent->getId() == 9 || ent->getId() == 8 || ent->getId() == 11) { // obstaculo
         // LObst.push_back(static_cast<Obstaculos::Obstaculo*>(ent));
     }
@@ -54,7 +54,7 @@ const void Gerenciador_Colisao::includeEntidade(Entidade* ent) {
 }
 
 // Removendo as entidades das listas quando elas "morrem" ou saiem da tela
-const void Gerenciador_Colisao::removeEntidade(Entidade* ent) {
+void Gerenciador_Colisao::removeEntidade(Entidade* ent) {
     if (ent->getId() == 4) {
         // LInimigo.remove(static_cast<Personagens::Inimigo*>(ent));
     }
@@ -100,24 +100,24 @@ const bool Gerenciador_Colisao::veriColisao(Entidade* ent1, Entidade* ent2) {
 }
 
 // Implementar após as listas serem criadas
-const void Gerenciador_Colisao::verificaObs() {
+void Gerenciador_Colisao::verificaObs() {
 
 }
 
 // Implementar após as listas serem criadas
-const void Gerenciador_Colisao::verificaIni() {
+void Gerenciador_Colisao::verificaInim() {
 
 }
 
 // Implementar após as listas serem criadas
-const void Gerenciador_Colisao::veriProjetil() {
+void Gerenciador_Colisao::verificaProjetil() {
 
 }
 
 
 
 // Aqui vamos checar a colisão de todos os tipos de entidade em uma só função
-const void Gerenciador_Colisao::executar() {
+void Gerenciador_Colisao::executar() {
     verificaIni();
     verificaObs();
     veriProjetil();

@@ -13,7 +13,7 @@ Projetil::Projetil(float x, float y, float vel, sf::Vector2f dir):
 
 Projetil::~Projetil() {}
 
-const void Projetil::mover() {  // Mover o projétil na direção especificada
+void Projetil::mover() {  // Mover o projétil na direção especificada
     if (ativo) {
         x += direcao.x * velocidade;
         y += direcao.y * velocidade;
@@ -21,17 +21,17 @@ const void Projetil::mover() {  // Mover o projétil na direção especificada
     }
 }
 
-const void Projetil::desativar() {
+void Projetil::desativar() {
     ativo = false;
 }
 
 const bool Projetil::isAtivo() const {return ativo;}
 
-const void Projetil::executar(sf::RenderWindow& window){
+void Projetil::executar(sf::RenderWindow& window){
     mover();
     window.draw(forma);
 }
 
-const void Projetil::salvar(){
+void Projetil::salvar(){
     // Implementar lógica de salvamento
 }

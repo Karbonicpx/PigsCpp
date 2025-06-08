@@ -42,7 +42,7 @@ RenderWindow* Gerenciador_Grafico::getWindow() const
 	return janela;
 }
 
-const void Gerenciador_Grafico::setCorpo(RectangleShape c) {
+void Gerenciador_Grafico::setCorpo(RectangleShape c) {
 	corpo = c;
 }
 
@@ -52,27 +52,27 @@ const bool Gerenciador_Grafico::estaAberta() const {
 }
 
 // Faz a janela mostrar as entidades que foram desenhadas
-const void Gerenciador_Grafico::mostrar() {
+void Gerenciador_Grafico::mostrar() {
 	janela->display();
 }
 
 
 // Desenha o corpo (RectangleShape, sem textura)
-const void Gerenciador_Grafico::desenhar() {
+void Gerenciador_Grafico::desenhar() {
 	janela->draw(corpo);
 }
 
 // Desenha a textura do corpo
-const void Gerenciador_Grafico::desenhar(const Texture* textura) {
+void Gerenciador_Grafico::desenhar(const Texture* textura) {
 	corpo.setTexture(textura); // Define a textura do corpo
 }
 
 // Limpa a janela
-const void Gerenciador_Grafico::clear() {
+void Gerenciador_Grafico::clear() {
 	janela->clear();
 }
 
 // Fechar a janela (Literalmente fecha o jogo)
-const void Gerenciador_Grafico::fechar() {
+void Gerenciador_Grafico::fechar() {
 	janela->close();
 }

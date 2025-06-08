@@ -6,17 +6,17 @@ namespace PigsCpp {
 		namespace Personagens {
 			class Jogador : public Personagem
 			{
-			private:
+			protected:
 
 				int pontos;
-				const void apertarTecla(sf::Keyboard::Key tecla, float spdX, float spdY);
+				void apertarTecla(sf::Keyboard::Key tecla, float spdX, float spdY);
 			public:
 
 				Jogador();
 				~Jogador();
-				const void mover();
-				const void executar();
-				const void salvar();
+				void mover();
+				void executar();
+				void salvar();
 
 			};
 		}

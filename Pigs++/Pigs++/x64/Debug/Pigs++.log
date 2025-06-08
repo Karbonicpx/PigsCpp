@@ -1,17 +1,1 @@
-﻿  Baconzilla.cpp
-  Ente.cpp
-  Entidade.cpp
-  Fase.cpp
-  Gerenciador_Colisao.cpp
-  Gerenciador_Grafico.cpp
-  Inimigo.cpp
-  Jogador.cpp
-  Jogo.cpp
-  Leitao.cpp
-  ListaEntidades.cpp
-  Personagem.cpp
-  Projetil.cpp
-  Toucinho.cpp
-  main.cpp
-  Generating Code...
-  Pigs++.vcxproj -> S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\x64\Debug\Pigs++.exe
+﻿LINK : fatal error LNK1104: não é possível abrir o arquivo 'openal32.lib'

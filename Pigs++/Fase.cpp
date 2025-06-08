@@ -38,22 +38,22 @@ ListaEntidades* Fase::getListaEntidades() const {
 
 
 // Fazer depois
-const void Fase::gerenciarColisoes() {
+void Fase::gerenciarColisoes() {
 
 }
 
 // Fazer depois
-const void Fase::criarTouc() {
+void Fase::criarTouc() {
 
 }
 
 // Fazer depois
-const void Fase::criarPlataformas() {
+void Fase::criarPlataformas() {
 
 }
 
 // Fazer depois
-const void Fase::criarCenario() {
+void Fase::criarCenario() {
 
 }
 
