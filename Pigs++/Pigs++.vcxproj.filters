@@ -83,6 +83,15 @@
     <ClCompile Include="Fase.cpp">
       <Filter>Source Files\Fases</Filter>
     </ClCompile>
+    <ClCompile Include="Obstaculo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Castelo.cpp">
+      <Filter>Source Files\Fases</Filter>
+    </ClCompile>
+    <ClCompile Include="Floresta.cpp">
+      <Filter>Source Files\Fases</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -131,6 +140,15 @@
       <Filter>Header Files\Entidades</Filter>
     </ClInclude>
     <ClInclude Include="Fase.h">
+      <Filter>Header Files\Fases</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstaculo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Castelo.h">
+      <Filter>Header Files\Fases</Filter>
+    </ClInclude>
+    <ClInclude Include="Floresta.h">
       <Filter>Header Files\Fases</Filter>
     </ClInclude>
   </ItemGroup>

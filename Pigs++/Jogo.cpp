@@ -19,11 +19,7 @@ Jogo::Jogo():
 {
     // Inicializando jogador
     jogador1 = new Jogador();
-    
-    // Fase "abstrata" tendo apenas um jogador
-    f = new Fase(jogador1);
-    LEs = f->getListaEntidades();
-    jogador1->setPos(250.f, 100.f);
+    f = new Fase(jogador1, "fasesjson/Floresta.json");
 
     // Fazendo com que os entes tenham sua variável pGG apontando para a instância única
     Ente::setGG(Gerenciador_Grafico::getInstancia());
@@ -36,9 +32,7 @@ Jogo::~Jogo() {
 
 void Jogo::executar() {
 
-    
-
-    
+    f->criarEntidades(&GG);
     while (GG.estaAberta())
     {
         // Loop que vai rodar para cada frame do jogo
@@ -52,18 +46,16 @@ void Jogo::executar() {
         // Toda entidade que faz alguma coisa, deve ter seu método executar 
         // Chamado embaixo desse comentário
         jogador1->executar();
+       
 
         // Renderização (sempre no ciclo clear --> draw --> display)
         GG.clear();
+		f->desenharPlataformas(&GG, "textures/Floresta.png");
+        for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
 
-        // Aqui é um for loop que vai iterar sobre todos os itens dentro da
-        // Lista de entidades e desenhar eles
-        for (int i = 0; i < LEs->listaEntidades.getLen(); i++) {
-
-            Entidade* temp = LEs->listaEntidades.getItem(i);
+            Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
             temp->desenhar();
-
-        }     
+        }
         GG.mostrar();
     }
 }

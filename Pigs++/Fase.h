@@ -5,40 +5,54 @@
 #include "Toucinho.h"
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisao.h"
+#include "nlohmann/json.hpp"
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <string>
+#include <SFML/Graphics.hpp>
 
 using namespace PigsCpp::Entidades::Personagens;
 using namespace PigsCpp::Gerenciadores;
 
 
-// LEIA!
-// OBS: Todos os créditos ao uso de partes do código desenvolvido nesse arquivo, por Felipe Alvez Barboza,
-// retirado através de um tutorial de uma playlist feita pelo mesmo, no canal "Dev Felipe", 
-// ensinando a como desenvolver uma lista template.
-
+// OBS:
+// Código de geração de tilemap retirado do manual da oficina PETECO,
+// no link: https://github.com/Nixxye/Project-Simas-PETECO/tree/main/Tilemap
 namespace PigsCpp {
 
 	namespace Fases {
-		class Fase {
+		class Fase : public Ente {
 
 		private:
 			Gerenciador_Colisao* GC;
 			ListaEntidades* LEs;
 			Jogador* j1;
 			Jogador* j2;
+			nlohmann::json mapa; // mapa.json  
+		protected:
+			std::vector< std::pair<int, sf::Vector2f> > posicoesEntidades;
 
 		public:
-			Fase(Jogador* pJ);
-			Fase(Jogador* pJ1, Jogador* pJ2);
+			Fase();
+			Fase(Jogador* pJ, std::string jsonPath);
+			Fase(Jogador* pJ1, Jogador* pJ2, std::string jsonPath);
 			~Fase();
-			// const virtual void executar();
+			virtual void executar();
+			// virtual void criarInimigos() = 0;
+			// virtual void criarObstaculo() = 0;
+
 			void gerenciarColisoes();
 			void criarTouc();
 			void criarPlataformas();
-			// virtual void criarInimigos() = 0;
-			// virtual void criarObstaculo() = 0;
 			void criarCenario();
-
 			ListaEntidades* getListaEntidades() const;
+			
+
+			void setMapa(std::string jsonPath);
+			void criarMapa();
+			virtual void criarEntidades(Gerenciador_Grafico* GG);
+			void desenharPlataformas(Gerenciador_Grafico* GG, std::string tilesetPath);
 		};
 	};
 };

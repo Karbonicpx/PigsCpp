@@ -16,7 +16,6 @@ namespace PigsCpp {
 		Personagens::Jogador* jogador1;
 		Gerenciadores::Gerenciador_Grafico& GG;
 		Fases::Fase* f;
-		Listas::ListaEntidades* LEs;
 		
 
 	public:

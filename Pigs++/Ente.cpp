@@ -9,7 +9,7 @@ using namespace PigsCpp::Gerenciadores;
 // Aqui ele vai definir o body como um quadrado 100x100
 // E o operator vai incrementar a ID em 1, e mostrar na tela
 Ente::Ente() :
-	corpo(sf::Vector2f(100.f, 100.f))
+	corpo(sf::Vector2f(32.0f, 32.0f))
 {
 	this->operator++();
 	printf("%d\n", id);
@@ -17,7 +17,7 @@ Ente::Ente() :
 };
 
 // Definindo fora da construtora por ser estático
-int Ente::id(0);
+int Ente::id(-1);
 Gerenciador_Grafico* Ente::pGG = nullptr;
 
 

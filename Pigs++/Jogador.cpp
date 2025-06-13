@@ -8,12 +8,7 @@ Jogador::Jogador() :
 	pontos(0)
 {
 	// Colocando cor só pra ver o jogador
-	if (getId() == 1) {
-		corpo.setFillColor(sf::Color::Green);
-	}
-	else {
-		corpo.setFillColor(sf::Color::Red);
-	}
+	corpo.setFillColor(Color::Green);
 };
 Jogador::~Jogador() {
 

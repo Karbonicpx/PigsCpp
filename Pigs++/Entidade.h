@@ -22,7 +22,9 @@ namespace PigsCpp {
 			virtual ~Entidade();
 			virtual void executar() = 0;
 			virtual void salvar() = 0;
-			void setPos(const float xP, const float yP); // Função para redefinir as coordenadas X e Y
+
+			void setPos(const float x, const float y);
+			void setTamanho(const float largura, const float altura);
 		};
 	};
 
