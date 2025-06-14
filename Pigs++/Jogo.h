@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Jogador.h"
 #include "ListaEntidades.h"
-#include "Fase.h"
+#include "Floresta.h"
 #include "Gerenciador_Grafico.h"
 #include "Gerenciador_Colisao.h"
 
@@ -15,12 +15,13 @@ namespace PigsCpp {
 	private:
 		Personagens::Jogador* jogador1;
 		Gerenciadores::Gerenciador_Grafico& GG;
-		Fases::Fase* f;
+		Fases::Floresta* f1;
 		
 
 	public:
 		Jogo();
 		~Jogo();
 		void executar();
+		void criarEntidades(Gerenciador_Grafico* GG);
 	};
 };

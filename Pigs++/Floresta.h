@@ -10,12 +10,19 @@ namespace PigsCpp {
 		private:
 
 			const int maxInimMedios;
+			
 
 		public:
+			Floresta(Jogador* pJ);
+			Floresta(Jogador* pJ1, Jogador* pJ2);
 			Floresta();
 			~Floresta();
-			void criarInimMedios();
-			void criarObstMedios();
+			void criarLeitao();
+			void criarLago();
+			void criarInimigos();
+			void criarPlataformas();
+			void criarObstaculo();
+			void criarEntidades(Gerenciador_Grafico* GG);
 			
 		};
 

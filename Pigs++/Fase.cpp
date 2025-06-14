@@ -6,7 +6,8 @@ using namespace std;
 // 2 tipos de construtores: Um quando for apenas um jogador, e um quando for 2
 Fase::Fase(Jogador* pJ, string jsonPath):
 	j1(pJ),
-	j2(nullptr)
+	j2(nullptr),
+	ent(nullptr)
 	
 {
 
@@ -20,7 +21,8 @@ Fase::Fase(Jogador* pJ, string jsonPath):
 
 Fase::Fase(Jogador* pJ1, Jogador* pJ2, string jsonPath):
 	j1(pJ1),
-	j2(pJ2)
+	j2(pJ2),
+	ent(nullptr)
 	
 {
 	GC = new Gerenciador_Colisao();
@@ -32,7 +34,8 @@ Fase::Fase(Jogador* pJ1, Jogador* pJ2, string jsonPath):
 
 Fase::Fase() :
 	j1(nullptr),
-	j2(nullptr)
+	j2(nullptr),
+	ent(nullptr)
 {
 	GC = new Gerenciador_Colisao();
 	LEs = new ListaEntidades();
@@ -45,6 +48,7 @@ Fase::~Fase() {
 	LEs->listaEntidades.limpar();
 	j1 = nullptr;
 	j2 = nullptr;
+	ent = nullptr;
 	delete(LEs);
 	delete(GC);
 };
@@ -52,6 +56,10 @@ Fase::~Fase() {
 ListaEntidades* Fase::getListaEntidades() const {
 	return LEs;
 }
+
+Gerenciador_Colisao* Fase::getGC() const {
+	return GC;
+};
 
 void Fase::setMapa(string jsonPath) {
 
@@ -96,7 +104,7 @@ void Fase::criarMapa() {
 	}
 }
 
-void Fase::desenharPlataformas(Gerenciador_Grafico* GG, string tilesetPath) {
+void Fase::desenharTileset(Gerenciador_Grafico* GG, string tilesetPath) {
 	int tileSize = mapa["tilewidth"];
 	int largura = mapa["width"];
 	int altura = mapa["height"];
@@ -139,68 +147,6 @@ void Fase::desenharPlataformas(Gerenciador_Grafico* GG, string tilesetPath) {
 }
 
 
-void Fase::criarEntidades(Gerenciador_Grafico* GG) {
-
-
-	for (unsigned int i = 0; i < posicoesEntidades.size(); i++) {
-		int tileId = posicoesEntidades[i].first;
-		sf::Vector2f pos = posicoesEntidades[i].second;
-		float tamanho = 32.0f; // Tamanho padrão das entidades	
-
-		Entidade* ent = nullptr;
-
-		switch (tileId) {
-		case 67: // Plataforma
-			// ent = new Plataforma(); // agora sem parâmetros
-			break;
-
-	
-
-		case 70: // Toucinho (inimigo fácil)
-			ent = static_cast<Entidade*>(new Toucinho());
-			
-			break;
-
-		case 71: // Leitao (inimigo médio)
-			ent = static_cast<Entidade*>(new Leitao());
-			
-			break;
-
-		case 72: // Obstáculo
-			// ent = new Obstaculo();
-			break;
-
-		case 73: // Jogador
-			if (j1 != nullptr && j2 == nullptr) {
-
-				ent = static_cast<Entidade*>(j1);
-
-			}
-			else {
-
-				ent = static_cast<Entidade*>(j1);
-				ent = static_cast<Entidade*>(j2);
-
-			}
-			break;
-
-		default:
-			break;
-
-			
-				
-		}
-		if (ent != nullptr) {
-			ent->setPos(pos.x, pos.y);
-			ent->setTamanho(tamanho, tamanho);
-			LEs->listaEntidades.incluir(ent);
-		}
-	}
-
-	
-}
-
-
 // Fazer depois
 void Fase::gerenciarColisoes() {
 
@@ -208,12 +154,12 @@ void Fase::gerenciarColisoes() {
 
 // Fazer depois
 void Fase::criarTouc() {
-
+	ent = static_cast<Entidade*>(new Toucinho());
 }
 
 // Fazer depois
 void Fase::criarPlataformas() {
-
+	// ent = new Plataforma(); // agora sem parâmetros
 }
 
 // Fazer depois

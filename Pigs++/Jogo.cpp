@@ -19,7 +19,7 @@ Jogo::Jogo():
 {
     // Inicializando jogador
     jogador1 = new Jogador();
-    f = new Fase(jogador1, "fasesjson/Floresta.json");
+    f1 = new Floresta(jogador1);
 
     // Fazendo com que os entes tenham sua variável pGG apontando para a instância única
     Ente::setGG(Gerenciador_Grafico::getInstancia());
@@ -32,7 +32,7 @@ Jogo::~Jogo() {
 
 void Jogo::executar() {
 
-    f->criarEntidades(&GG);
+    f1->criarEntidades(&GG);
     while (GG.estaAberta())
     {
         // Loop que vai rodar para cada frame do jogo
@@ -50,10 +50,10 @@ void Jogo::executar() {
 
         // Renderização (sempre no ciclo clear --> draw --> display)
         GG.clear();
-		f->desenharPlataformas(&GG, "textures/Floresta.png");
-        for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
+		f1->desenharTileset(&GG, "textures/Floresta.png");
+        for (int i = 0; i < f1->getListaEntidades()->listaEntidades.getLen(); i++) {
 
-            Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
+            Entidade* temp = f1->getListaEntidades()->listaEntidades.getItem(i);
             temp->desenhar();
         }
         GG.mostrar();
