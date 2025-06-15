@@ -1,7 +1,7 @@
 // Inimigo Medio
 #pragma once
 #include "Inimigo.h"
-#include "Projetil.h"
+#include "Bomba.h"
 #include <vector>
 
 namespace PigsCpp {
@@ -10,7 +10,7 @@ namespace PigsCpp {
             class Toucinho : public Inimigo {
             private:
                 short int forca;
-                std::vector <Projetil> bombas;
+                std::vector <Bomba> bombas;
                 int tempoAtaque;
 
             public:

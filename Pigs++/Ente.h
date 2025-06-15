@@ -19,7 +19,6 @@ namespace PigsCpp {
 		RectangleShape corpo;
 		static Gerenciador_Grafico* pGG;
 		
-		
 
 	public:
 		Ente();

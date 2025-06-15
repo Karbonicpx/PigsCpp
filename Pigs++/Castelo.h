@@ -1,5 +1,7 @@
 #pragma once
 #include "Fase.h"
+#include "Baconzilla.h"
+
 
 namespace PigsCpp {
 
@@ -13,7 +15,7 @@ namespace PigsCpp {
 			Castelo();
 			~Castelo();
 
-			void criarChefoes();
+			void criarZilla();
 			void criarProjeteis();
 			void criarLago();
 

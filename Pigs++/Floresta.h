@@ -16,7 +16,7 @@ namespace PigsCpp {
 			Floresta();
 			~Floresta();
 
-			void criarLeitao();
+			void criarTouc();
 			void criarLago();
 			void criarTronco();
 

@@ -68,7 +68,7 @@
     <ClCompile Include="Leitao.cpp">
       <Filter>Source Files\Entidades\Inimigos</Filter>
     </ClCompile>
-    <ClCompile Include="Projetil.cpp">
+    <ClCompile Include="Bomba.cpp">
       <Filter>Source Files\Entidades</Filter>
     </ClCompile>
     <ClCompile Include="Toucinho.cpp">
@@ -121,7 +121,7 @@
     <ClInclude Include="Toucinho.h">
       <Filter>Header Files\Entidades\Inimigos</Filter>
     </ClInclude>
-    <ClInclude Include="Projetil.h">
+    <ClInclude Include="Bomba.h">
       <Filter>Header Files\Entidades</Filter>
     </ClInclude>
     <ClInclude Include="Leitao.h">

@@ -17,16 +17,16 @@ Floresta::~Floresta() {
 }
 
 
-void Floresta::criarLeitao() {
-	ent = static_cast<Entidade*>(new Leitao());
+void Floresta::criarTouc() {
+	ent = static_cast<Entidade*>(new Toucinho());
 }
 
 void Floresta::criarLago() {
-	// ent = new Lago();
+	// ent = static_cast<Entidade*>(new Lago());
 }
 
 void Floresta::criarTronco() {
-	// ent = new Tronco();
+	// ent = static_cast<Entidade*>(new Tronco());
 }
 
 
@@ -38,11 +38,12 @@ void Floresta::criarInimigos() {
 
 void Floresta::criarObstaculo() {
 	criarLago();
+    criarTronco();
 }
 
 
+// Método que vai criar as entidades na posição obtida dos tiles da camada "Entidades" na fase
 void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
-    const float tamanho = 32.0f;
 
     for (unsigned int i = 0; i < posicoesEntidades.size(); i++) {
         int tileId = posicoesEntidades[i].first;
@@ -51,8 +52,9 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
         ent = nullptr;
 
         switch (tileId) {
-        case 73: // Plataforma lógica (colisão, não desenha)
-            // Pode usar para colisão, ou ignorar se já trata no tilemap
+        case 73: // Plataforma lógica (apenas colisão, não desenha)
+            
+
             break;
 		case 74: // Lago (obstáculo)
             criarLago();
@@ -66,7 +68,7 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
             criarLeitao();
             break;
 
-        case 79: // Jogador
+        case 79: // Jogador(es)
             criarJogador();
             break;
 
@@ -79,11 +81,6 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
             break;
         }
 
-        if (ent != nullptr) {
-            ent->setPos(pos.x, pos.y);
-            ent->setTamanho(tamanho, tamanho);
-            getListaEntidades()->listaEntidades.incluir(ent);
-            ent = nullptr;
-        }
+        inicializarEntidades(ent, pos.x, pos.y, spriteSize);
     }
 }

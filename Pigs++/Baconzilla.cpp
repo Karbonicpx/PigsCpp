@@ -1,8 +1,6 @@
 #include "Baconzilla.h"
 
-using namespace PigsCpp;
-using namespace Entidades;
-using namespace Personagens;
+using namespace PigsCpp::Entidades::Personagens;
 
 Baconzilla::Baconzilla():tamanho(1), forca(8) {
     // Cor do Baconzilla para visualizacao
@@ -12,9 +10,16 @@ Baconzilla::Baconzilla():tamanho(1), forca(8) {
 Baconzilla::~Baconzilla() {
 
 };
-void Baconzilla::executar(Jogador* j, std::vector<Projetil*>& projeteis) {
+
+// Método virtual puro
+void Baconzilla::executar() {
+
+};
+
+// Executar que vamos usar
+void Baconzilla::executar(Jogador* j, std::vector<Bomba*>& bombas) {
     mover(j);
-	atirarProjetil(j, projeteis);
+	atirarProjetil(j, bombas);
 };
 void Baconzilla::danificar(Jogador* p) { // chamado quando o projetil colidir com o jogador
     // Dano ao jogador
@@ -22,9 +27,16 @@ void Baconzilla::danificar(Jogador* p) { // chamado quando o projetil colidir co
         p->setVidas(p->getVidas() - (forca + getMaldade() + tamanho));
     }
 };
-void Baconzilla::salva() {
+void Baconzilla::salvar() {
     // Implementar logica de salvamento
 };
+
+// Método virtual puro, não usar
+void Baconzilla::mover() {
+
+};
+
+// Mover que vamos usar
 void Baconzilla::mover(Jogador* j) {
     if (!j) return;
 
@@ -45,7 +57,7 @@ void Baconzilla::mover(Jogador* j) {
 
     corpo.move(movimento);
 };
-void Baconzilla::atirarProjetil(Jogador* alvo, std::vector<Projetil*>& projeteis) {
+void Baconzilla::atirarProjetil(Jogador* alvo, std::vector<Bomba*>& projeteis) {
     if (!alvo) return;
 
     sf::Vector2f origem = corpo.getPosition();
@@ -56,7 +68,7 @@ void Baconzilla::atirarProjetil(Jogador* alvo, std::vector<Projetil*>& projeteis
         direcao /= comprimento;
 
     float velocidade = 5.0f;
-    Projetil* p = new Projetil(origem.x, origem.y, velocidade, direcao);
+    Bomba* p = new Bomba(origem.x, origem.y, velocidade, direcao);
     projeteis.push_back(p);
 }
 

@@ -11,8 +11,6 @@ using namespace PigsCpp::Gerenciadores;
 Ente::Ente() :
 	corpo(sf::Vector2f(32.0f, 32.0f))
 {
-	this->operator++();
-	printf("%d\n", id);
 
 };
 
@@ -33,7 +31,7 @@ const sf::RectangleShape Ente::getCorpo() const {
 	return corpo;
 };
 
-// Sobrecarga do ++, que vai aumentar o id (� privado, ent�o s� vai ser usado aqui)
+// Sobrecarga do ++, que vai aumentar o id
 void Ente::operator++() { id++; };
 
 

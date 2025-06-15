@@ -34,6 +34,7 @@ namespace PigsCpp {
 			Jogador* j1;
 			Jogador* j2;
 			std::vector< std::pair<int, sf::Vector2f> > posicoesEntidades;
+			const float spriteSize;
 
 		public:
 			Fase(std::string jsonPath);
@@ -44,7 +45,7 @@ namespace PigsCpp {
 			void criarJogador();
 
 			void gerenciarColisoes();
-			void criarTouc();
+			void criarLeitao();
 			void criarPlataformas();
 			void criarCenario();
 			ListaEntidades* getListaEntidades() const;
@@ -53,7 +54,8 @@ namespace PigsCpp {
 			
 
 			void setMapa(std::string jsonPath);
-			void criarMapa();		
+			void criarMapa();
+			void inicializarEntidades(Entidade* e, const float x, const float y, const float size);
 			virtual void desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath);
 			virtual void criarEntidades(Gerenciador_Grafico* GG) = 0;
 		};

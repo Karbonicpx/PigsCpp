@@ -8,8 +8,8 @@ using namespace PigsCpp::Fases;
 // Por conta da versão do C++ de 2003
 
 
-Jogo::Jogo():
- f2(nullptr),
+Jogo::Jogo() :
+    f2(nullptr),
 // O que está acontecendo aqui?
 // O gerenciador gráfico está no modelo de projeto chamado "singleton"
 // Nesse modelo, fazemos com que apenas uma instância static de uma classe específica possa existir
@@ -25,7 +25,7 @@ Jogo::Jogo():
     // Fazendo com que os entes tenham sua variável pGG apontando para a instância única
     Ente::setGG(Gerenciador_Grafico::getInstancia());
     
-
+   
 }
 
 Jogo::~Jogo() {
@@ -34,6 +34,7 @@ Jogo::~Jogo() {
 void Jogo::executar() {
 
     f1->criarEntidades(&GG);
+
     while (GG.estaAberta())
     {
         // Loop que vai rodar para cada frame do jogo
@@ -43,12 +44,13 @@ void Jogo::executar() {
             if (event->is<sf::Event::Closed>())
                 GG.fechar();
         }
-
-        // Toda entidade que faz alguma coisa, deve ter seu método executar 
-        // Chamado embaixo desse comentário
-        jogador1->executar();
        
+        // Toda entidade que faz alguma coisa, deve ter seu método executar, na qual esse loop vai chamar
+        for (int i = 0; i < f1->getListaEntidades()->listaEntidades.getLen(); i++) {
 
+            Entidade* temp = f1->getListaEntidades()->listaEntidades.getItem(i);
+            temp->executar();
+        }
         // Renderização (sempre no ciclo clear --> draw --> display)
         GG.clear();
 		f1->desenharTileset(&GG, "textures/Floresta.png");

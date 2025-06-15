@@ -1,4 +1,3 @@
-
 #include "Toucinho.h"
 
 using namespace PigsCpp;
@@ -39,5 +38,5 @@ void Toucinho::mover() {
 void Toucinho::tacarBomba() {
     sf::Vector2f origem = corpo.getPosition();
     sf::Vector2f dir(0.f, 1.f); // para baixo
-    bombas.push_back(Projetil(origem.x, origem.y, 4.0, dir));
+    bombas.push_back(Bomba(origem.x, origem.y, 4.0, dir));
 }

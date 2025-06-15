@@ -7,7 +7,8 @@ using namespace std;
 Fase::Fase(string jsonPath) :
 	j1(nullptr),
 	j2(nullptr),
-	ent(nullptr)
+	ent(nullptr),
+	spriteSize(32.0f)
 {
 	GC = new Gerenciador_Colisao();
 	LEs = new ListaEntidades();
@@ -40,8 +41,8 @@ void Fase::setJogadores(Jogador* pJ1, Jogador* pJ2) {
 	j2 = pJ2;
 
 	LEs->listaEntidades.incluir(j1);
-	if (j2 != nullptr)
-		LEs->listaEntidades.incluir(j2);
+	if (j2 != nullptr) { LEs->listaEntidades.incluir(j2); }
+		
 }
 
 void Fase::setMapa(string jsonPath) {
@@ -87,6 +88,7 @@ void Fase::criarMapa() {
 	}
 }
 
+// Método que vai desenhar apenas os tilesets da camada "Visual", sem criar nenhuma entidade
 void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 	int tileSize = mapa["tilewidth"];
 	int largura = mapa["width"];
@@ -116,7 +118,7 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 				// Criar o sprite (sem parâmetros no construtor)
 				sf::Sprite bloco(*tileset);
 
-				// Configurar a porção da textura
+				// Configurar a porção da textura do tileset
 				bloco.setTextureRect(sf::IntRect({ tu * tileSize, tv * tileSize }, { tileSize,tileSize }));
 
 				// Configurar posição
@@ -129,6 +131,17 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 	}
 }
 
+void Fase::inicializarEntidades(Entidade* e, const float x, const float y, const float size) {
+	if (e != nullptr) {
+		e->setPos(x, y);
+		e->setTamanho(size, size);
+		e->operator++();
+		printf("%d\n", e->getId());
+		getListaEntidades()->listaEntidades.incluir(e);
+		e = nullptr;
+	}
+}
+
 
 // Fazer depois
 void Fase::gerenciarColisoes() {
@@ -136,13 +149,13 @@ void Fase::gerenciarColisoes() {
 }
 
 // Fazer depois
-void Fase::criarTouc() {
-	ent = static_cast<Entidade*>(new Toucinho());
+void Fase::criarLeitao() {
+	ent = static_cast<Entidade*>(new Leitao());
 }
 
 // Fazer depois
 void Fase::criarPlataformas() {
-	// ent = new Plataforma(); // agora sem parâmetros
+	// ent = static_cast<Entidade*>(new Plataforma());
 }
 
 // Fazer depois
@@ -152,11 +165,13 @@ void Fase::criarCenario() {
 
 void Fase::criarJogador() {
 
+	// Se tiver apenas um jogador, crie apenas um
 	if (j1 != nullptr && j2 == nullptr) {
 
 		ent = static_cast<Entidade*>(j1);
 
 	}
+	// Se tiver 2, cria os dois
 	else {
 
 		ent = static_cast<Entidade*>(j1);

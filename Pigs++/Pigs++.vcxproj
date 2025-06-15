@@ -149,7 +149,7 @@
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Projetil.cpp" />
+    <ClCompile Include="Bomba.cpp" />
     <ClCompile Include="Toucinho.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -170,7 +170,7 @@
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Jogo.h" />
-    <ClInclude Include="Projetil.h" />
+    <ClInclude Include="Bomba.h" />
     <ClInclude Include="Toucinho.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

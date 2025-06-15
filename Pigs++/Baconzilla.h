@@ -2,7 +2,7 @@
 #pragma once
 #include "Inimigo.h"
 #include "Jogador.h"
-#include "Projetil.h"
+#include "Bomba.h"
 #include <cmath>
 
 namespace PigsCpp {
@@ -16,11 +16,13 @@ namespace PigsCpp {
             public:
                 Baconzilla();
                 ~Baconzilla();
-                void executar(Jogador* j, std::vector<Projetil*>& projeteis);
+                void executar(); // Pra cumprir com método virtual puro, não utilizar!
+                void executar(Jogador* j, std::vector<Bomba*>& bombas);
                 void danificar(Jogador* p);
-                void salva();
+                void salvar();
+                void mover(); // Pra cumprir com método virtual puro, não utilizar!
                 void mover(Jogador* j);
-                void atirarProjetil(Jogador* alvo, std::vector<Projetil*>& projeteis);
+                void atirarProjetil(Jogador* alvo, std::vector<Bomba*>& bombas);
 
             };
         };

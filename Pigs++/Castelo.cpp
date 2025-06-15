@@ -16,24 +16,25 @@ Castelo::~Castelo() {
 
 
 void Castelo::criarLago() {
-	// ent = new Lago();
+	// ent = static_cast<Entidade*>(new Lago());
 }
 
 void Castelo::criarEspinho() {
-	// ent = new Espinho();
+	// ent = static_cast<Entidade*>(new Espinho());
 }
 
-void Castelo::criarChefoes() {
-
+void Castelo::criarZilla() {
+    ent = static_cast<Entidade*>(new Baconzilla());
 }
 
+// Provável que não utilize isso, já que as bombas são criadas a partir de Bancozilla/Toucinho
 void Castelo::criarProjeteis() {
-
+    ent = static_cast<Entidade*>(new Bomba());
 }
 
 void Castelo::criarInimigos() {
-	criarTouc();
-	criarChefoes();
+	criarZilla();
+	criarLeitao();
 }
 
 
@@ -43,14 +44,14 @@ void Castelo::criarObstaculo() {
 }
 
 void Castelo::criarEntidades(Gerenciador_Grafico* GG) {
-    const float tamanho = 32.0f;
+    
 
     for (unsigned int i = 0; i < posicoesEntidades.size(); i++) {
         int tileId = posicoesEntidades[i].first;
         sf::Vector2f pos = posicoesEntidades[i].second;
 
         switch (tileId) {
-        case 274: // Plataforma lógica (não cria entidade visual)
+        case 274: // Plataforma lógica (só cria a entidade, não o visual)
       
             break;
 
@@ -58,12 +59,12 @@ void Castelo::criarEntidades(Gerenciador_Grafico* GG) {
             criarLago();
             break;
 
-        case 277: // Toucinho (inimigo fácil)
-            criarTouc();
+        case 277: // Leitao (inimigo fácil)
+            criarLeitao();
             break;
 
-        case 279: // Leitao (inimigo médio)
-            criarChefoes();
+        case 279: // Baconzilla (chefe)
+            criarZilla();
             break;
 
         case 280: // Jogador
@@ -78,11 +79,6 @@ void Castelo::criarEntidades(Gerenciador_Grafico* GG) {
             break;
         }
 
-        if (ent != nullptr) {
-            ent->setPos(pos.x, pos.y);
-            ent->setTamanho(tamanho, tamanho);
-            getListaEntidades()->listaEntidades.incluir(ent);
-            ent = nullptr;
-        }
+        inicializarEntidades(ent, pos.x, pos.y, spriteSize);
     }
 }
