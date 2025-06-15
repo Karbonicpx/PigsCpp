@@ -1,15 +1,17 @@
 // Inimigo Medio
 #pragma once
 #include "Inimigo.h"
+#include "Projetil.h"
+#include <vector>
 
 namespace PigsCpp {
     namespace Entidades {
         namespace Personagens {
             class Toucinho : public Inimigo {
             private:
-                float raio;
-                int tamanho;
                 short int forca;
+                std::vector <Projetil> bombas;
+                int tempoAtaque;
 
             public:
                 Toucinho();
@@ -18,12 +20,8 @@ namespace PigsCpp {
                 void danificar(Jogador* p);
                 void salvar();
                 void mover();
-                const short int getForca() const;
-                const int getTamanho() const;
-                const int getRaio() const;
-                void setForca(short int f);
-                void setTamanho(int t);
-                void setRaio(float r);
+                void tacarBomba();
+
             };
         };
     };

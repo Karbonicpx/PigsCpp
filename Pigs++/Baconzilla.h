@@ -1,29 +1,26 @@
 // Chefão
 #pragma once
 #include "Inimigo.h"
+#include "Jogador.h"
+#include "Projetil.h"
+#include <cmath>
 
 namespace PigsCpp {
     namespace Entidades {
         namespace Personagens {
             class Baconzilla : public Inimigo {
             private:
-                float raio;
                 int tamanho;
                 short int forca;
 
             public:
                 Baconzilla();
                 ~Baconzilla();
-                void executar();
+                void executar(Jogador* j, std::vector<Projetil*>& projeteis);
                 void danificar(Jogador* p);
                 void salva();
-                void mover();
-                const short int getForca() const;
-                const int getTamanho() const;
-                const int getRaio() const;
-                void setForca(short int f);
-                void setTamanho(int t);
-                void setRaio(float r);
+                void mover(Jogador* j);
+                void atirarProjetil(Jogador* alvo, std::vector<Projetil*>& projeteis);
 
             };
         };

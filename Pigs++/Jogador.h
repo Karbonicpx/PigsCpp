@@ -17,6 +17,7 @@ namespace PigsCpp {
 				void mover();
 				void executar();
 				void salvar();
+				sf::Vector2f getPosition() const;
 
 			};
 		}

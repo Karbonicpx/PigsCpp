@@ -15,11 +15,12 @@ namespace PigsCpp {
 
         public:
         Projetil(float x, float y, float vel, sf::Vector2f dir);
-        virtual ~Projetil();
+        ~Projetil();
         void mover();
         void desativar();
         const bool isAtivo() const;
         void executar(sf::RenderWindow& window);
+        void executar();
         void salvar();
         };
     };

@@ -1,39 +1,43 @@
-#pragma once
+
 #include "Toucinho.h"
 
 using namespace PigsCpp;
 using namespace Entidades;
 using namespace Personagens;
 
-Toucinho::Toucinho() : Inimigo(), raio(15.0f), tamanho(0), forca(0) {
+Toucinho::Toucinho() : Inimigo(), forca(5), tempoAtaque(0) {
     // Cor do tocinho para visualizacao
     corpo.setFillColor(sf::Color::Cyan);
+    setMaldade(5);
 }
 Toucinho::~Toucinho() {
-    setForca(0);
-    setTamanho(0);
-    setRaio(0.0f);
+
 }
 void Toucinho::executar() {
-    // Comportamento do tocinho aqui
+    // Fica parado
+    mover();
+
+    // Lança bomba a cada 2 segundos (supondo 60 FPS)
+    if (++tempoAtaque > 120) {
+        tacarBomba();
+        tempoAtaque = 0;
+    }
 }
-void Toucinho::danificar(Jogador* p) {
+void Toucinho::danificar(Jogador* p) { // chamado quando o projetil colidir com o jogador
     // Dano ao jogador
     if (p) {
         int dano = 15; // Exemplo de dano
-        p->setVidas(p->getVidas() - dano);
+        p->setVidas(p->getVidas() - (forca + getMaldade()));
     }
 }
 void Toucinho::salvar() {
     // Implementar logica de salvamento
 }
 void Toucinho::mover() {
-    // Implementar logica de movimento
+    // fica parado
 }
-// Getters e Setters
-const short int Toucinho::getForca() const {return forca;}
-const int Toucinho::getTamanho() const {return tamanho;}
-const int Toucinho::getRaio() const {return static_cast<int>(raio);}
-void Toucinho::setForca(short int f) {forca = f;}
-void Toucinho::setTamanho(int t) {tamanho = t;}
-void Toucinho::setRaio(float r) {raio = r;}
+void Toucinho::tacarBomba() {
+    sf::Vector2f origem = corpo.getPosition();
+    sf::Vector2f dir(0.f, 1.f); // para baixo
+    bombas.push_back(Projetil(origem.x, origem.y, 4.0, dir));
+}

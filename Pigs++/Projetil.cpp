@@ -35,3 +35,5 @@ void Projetil::executar(sf::RenderWindow& window){
 void Projetil::salvar(){
     // Implementar lógica de salvamento
 }
+
+void Projetil::executar() {}

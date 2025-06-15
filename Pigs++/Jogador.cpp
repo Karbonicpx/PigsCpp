@@ -50,3 +50,6 @@ void Jogador::executar() {
 void Jogador::salvar() {
 
 }
+sf::Vector2f Jogador::getPosition() const {
+	return corpo.getPosition();
+}
