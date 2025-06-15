@@ -3,42 +3,16 @@
 using namespace PigsCpp::Fases;
 using namespace std;
 
-// 2 tipos de construtores: Um quando for apenas um jogador, e um quando for 2
-Fase::Fase(Jogador* pJ, string jsonPath):
-	j1(pJ),
-	j2(nullptr),
-	ent(nullptr)
-	
-{
 
-	GC = new Gerenciador_Colisao();
-	LEs = new ListaEntidades();
-	setMapa(jsonPath);
-	criarMapa();
-
-	
-};
-
-Fase::Fase(Jogador* pJ1, Jogador* pJ2, string jsonPath):
-	j1(pJ1),
-	j2(pJ2),
-	ent(nullptr)
-	
-{
-	GC = new Gerenciador_Colisao();
-	LEs = new ListaEntidades();
-	setMapa(jsonPath);
-	criarMapa();
-	
-};
-
-Fase::Fase() :
+Fase::Fase(string jsonPath) :
 	j1(nullptr),
 	j2(nullptr),
 	ent(nullptr)
 {
 	GC = new Gerenciador_Colisao();
 	LEs = new ListaEntidades();
+	setMapa(jsonPath);
+	criarMapa();
 
 
 };
@@ -60,6 +34,15 @@ ListaEntidades* Fase::getListaEntidades() const {
 Gerenciador_Colisao* Fase::getGC() const {
 	return GC;
 };
+
+void Fase::setJogadores(Jogador* pJ1, Jogador* pJ2) {
+	j1 = pJ1;
+	j2 = pJ2;
+
+	LEs->listaEntidades.incluir(j1);
+	if (j2 != nullptr)
+		LEs->listaEntidades.incluir(j2);
+}
 
 void Fase::setMapa(string jsonPath) {
 
@@ -104,7 +87,7 @@ void Fase::criarMapa() {
 	}
 }
 
-void Fase::desenharTileset(Gerenciador_Grafico* GG, string tilesetPath) {
+void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 	int tileSize = mapa["tilewidth"];
 	int largura = mapa["width"];
 	int altura = mapa["height"];
@@ -115,7 +98,7 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, string tilesetPath) {
 
 	for (unsigned int i = 0; i < mapa["layers"].size(); i++) {
 		std::string nomeCamada = mapa["layers"][i]["name"];
-		if (nomeCamada != "Plataformas")
+		if (nomeCamada != "Visual")
 			continue;
 
 		std::vector<int> dados = mapa["layers"][i]["data"];
@@ -134,7 +117,7 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, string tilesetPath) {
 				sf::Sprite bloco(*tileset);
 
 				// Configurar a porção da textura
-				bloco.setTextureRect(sf::IntRect({ tu * tileSize, tv * tileSize }, { tileSize,tileSize } ));
+				bloco.setTextureRect(sf::IntRect({ tu * tileSize, tv * tileSize }, { tileSize,tileSize }));
 
 				// Configurar posição
 				bloco.setPosition(sf::Vector2f(static_cast<float>(x * tileSize), static_cast<float>(y * tileSize)));
@@ -165,6 +148,21 @@ void Fase::criarPlataformas() {
 // Fazer depois
 void Fase::criarCenario() {
 
+}
+
+void Fase::criarJogador() {
+
+	if (j1 != nullptr && j2 == nullptr) {
+
+		ent = static_cast<Entidade*>(j1);
+
+	}
+	else {
+
+		ent = static_cast<Entidade*>(j1);
+		ent = static_cast<Entidade*>(j2);
+
+	}
 }
 
 void Fase::executar() {

@@ -4,6 +4,7 @@
 #include "Jogador.h"
 #include "ListaEntidades.h"
 #include "Floresta.h"
+#include "Castelo.h"
 #include "Gerenciador_Grafico.h"
 #include "Gerenciador_Colisao.h"
 
@@ -16,6 +17,7 @@ namespace PigsCpp {
 		Personagens::Jogador* jogador1;
 		Gerenciadores::Gerenciador_Grafico& GG;
 		Fases::Floresta* f1;
+		Fases::Castelo* f2;
 		
 
 	public:

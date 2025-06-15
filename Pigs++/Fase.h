@@ -6,6 +6,7 @@
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisao.h"
 #include "nlohmann/json.hpp"
+
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -17,7 +18,7 @@ using namespace PigsCpp::Gerenciadores;
 
 
 // OBS:
-// Código de geração de tilemap retirado do manual da oficina PETECO,
+// Código de geração de tilemap adaptado do manual da oficina PETECO,
 // no link: https://github.com/Nixxye/Project-Simas-PETECO/tree/main/Tilemap
 namespace PigsCpp {
 
@@ -35,13 +36,12 @@ namespace PigsCpp {
 			std::vector< std::pair<int, sf::Vector2f> > posicoesEntidades;
 
 		public:
-			Fase();
-			Fase(Jogador* pJ, std::string jsonPath);
-			Fase(Jogador* pJ1, Jogador* pJ2, std::string jsonPath);
+			Fase(std::string jsonPath);
 			~Fase();
 			virtual void executar();
 			virtual void criarInimigos() = 0;
 			virtual void criarObstaculo() = 0;
+			void criarJogador();
 
 			void gerenciarColisoes();
 			void criarTouc();
@@ -49,11 +49,12 @@ namespace PigsCpp {
 			void criarCenario();
 			ListaEntidades* getListaEntidades() const;
 			Gerenciador_Colisao* getGC() const;
+			void setJogadores(Jogador* pJ1, Jogador* pJ2 = nullptr);
 			
 
 			void setMapa(std::string jsonPath);
 			void criarMapa();		
-			void desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath);
+			virtual void desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath);
 			virtual void criarEntidades(Gerenciador_Grafico* GG) = 0;
 		};
 	};

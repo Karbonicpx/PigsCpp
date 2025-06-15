@@ -9,7 +9,7 @@ using namespace PigsCpp::Fases;
 
 
 Jogo::Jogo():
-
+ f2(nullptr),
 // O que está acontecendo aqui?
 // O gerenciador gráfico está no modelo de projeto chamado "singleton"
 // Nesse modelo, fazemos com que apenas uma instância static de uma classe específica possa existir
@@ -19,7 +19,8 @@ Jogo::Jogo():
 {
     // Inicializando jogador
     jogador1 = new Jogador();
-    f1 = new Floresta(jogador1);
+    f1 = new Floresta();
+    f1->setJogadores(jogador1);
 
     // Fazendo com que os entes tenham sua variável pGG apontando para a instância única
     Ente::setGG(Gerenciador_Grafico::getInstancia());

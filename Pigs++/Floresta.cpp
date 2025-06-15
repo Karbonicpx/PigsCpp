@@ -3,21 +3,10 @@
 
 using namespace PigsCpp::Fases;
 
-Floresta::Floresta(Jogador* pJ) :
-	Fase(pJ, "fasesjson/Floresta.json"),
-	maxInimMedios(2)
-{
 
-}
-Floresta::Floresta(Jogador* pJ1, Jogador* pJ2):
-	Fase(pJ1, pJ2, "fasesjson/Floresta.json"),
-	maxInimMedios(2)
-
-{
-
-}
 
 Floresta::Floresta():
+	Fase("fasesjson/Floresta.json"),
 	maxInimMedios(2)
 {
 
@@ -36,6 +25,11 @@ void Floresta::criarLago() {
 	// ent = new Lago();
 }
 
+void Floresta::criarTronco() {
+	// ent = new Tronco();
+}
+
+
 void Floresta::criarInimigos() {
 	criarLeitao();
 	criarTouc();
@@ -48,63 +42,48 @@ void Floresta::criarObstaculo() {
 
 
 void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
+    const float tamanho = 32.0f;
 
+    for (unsigned int i = 0; i < posicoesEntidades.size(); i++) {
+        int tileId = posicoesEntidades[i].first;
+        sf::Vector2f pos = posicoesEntidades[i].second;
 
-	for (unsigned int i = 0; i < posicoesEntidades.size(); i++) {
-		int tileId = posicoesEntidades[i].first;
-		sf::Vector2f pos = posicoesEntidades[i].second;
-		float tamanho = 32.0f; // Tamanho padrão das entidades	
+        ent = nullptr;
 
-		
+        switch (tileId) {
+        case 73: // Plataforma lógica (colisão, não desenha)
+            // Pode usar para colisão, ou ignorar se já trata no tilemap
+            break;
+		case 74: // Lago (obstáculo)
+            criarLago();
+            break;
 
-		switch (tileId) {
-		case 67: // Plataforma
-			
-			break;
+        case 76: // Toucinho (inimigo fácil)
+            criarTouc();
+            break;
 
+        case 77: // Leitao (inimigo médio)
+            criarLeitao();
+            break;
 
+        case 79: // Jogador
+            criarJogador();
+            break;
 
-		case 70: // Toucinho (inimigo fácil)
-			ent = static_cast<Entidade*>(new Toucinho());
+		case 80: // Tronco (obstáculo)
+            criarTronco();
+            break;
+            
 
-			break;
+        default:
+            break;
+        }
 
-		case 71: // Leitao (inimigo médio)
-			ent = static_cast<Entidade*>(new Leitao());
-
-			break;
-
-		case 72: // Obstáculo
-			// ent = new Obstaculo();
-			break;
-
-		case 73: // Jogador
-			if (j1 != nullptr && j2 == nullptr) {
-
-				ent = static_cast<Entidade*>(j1);
-
-			}
-			else {
-
-				ent = static_cast<Entidade*>(j1);
-				ent = static_cast<Entidade*>(j2);
-
-			}
-			break;
-
-		default:
-			break;
-
-
-
-		}
-		if (ent != nullptr) {
-			ent->setPos(pos.x, pos.y);
-			ent->setTamanho(tamanho, tamanho);
-			getListaEntidades()->listaEntidades.incluir(ent);
-			ent = nullptr;
-		}
-	}
-
-
+        if (ent != nullptr) {
+            ent->setPos(pos.x, pos.y);
+            ent->setTamanho(tamanho, tamanho);
+            getListaEntidades()->listaEntidades.incluir(ent);
+            ent = nullptr;
+        }
+    }
 }

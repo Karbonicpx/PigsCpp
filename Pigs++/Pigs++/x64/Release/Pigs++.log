@@ -1,7 +1,7 @@
-﻿  Floresta.cpp
+﻿  Jogo.cpp
   Generating code
-  1 of 1861 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  1 of 1872 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Pigs++.vcxproj -> S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\x64\Release\Pigs++.exe

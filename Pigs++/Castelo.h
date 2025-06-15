@@ -10,9 +10,19 @@ namespace PigsCpp {
 		private:
 			const int maxChefoes;
 		public:
+			Castelo();
+			~Castelo();
+
 			void criarChefoes();
-			void criarObstMedios();
 			void criarProjeteis();
+			void criarLago();
+
+			void criarEspinho();
+			void criarInimigos();
+			void criarPlataformas();
+			void criarObstaculo();
+			void criarEntidades(Gerenciador_Grafico* GG);
+			
 		};
 
 	}

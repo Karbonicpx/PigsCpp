@@ -13,12 +13,13 @@ namespace PigsCpp {
 			
 
 		public:
-			Floresta(Jogador* pJ);
-			Floresta(Jogador* pJ1, Jogador* pJ2);
 			Floresta();
 			~Floresta();
+
 			void criarLeitao();
 			void criarLago();
+			void criarTronco();
+
 			void criarInimigos();
 			void criarPlataformas();
 			void criarObstaculo();
