@@ -136,7 +136,6 @@ void Fase::inicializarEntidades(Entidade* e, const float x, const float y, const
 		e->setPos(x, y);
 		e->setTamanho(size, size);
 		e->operator++();
-		printf("%d\n", e->getId());
 		getListaEntidades()->listaEntidades.incluir(e);
 		e = nullptr;
 	}

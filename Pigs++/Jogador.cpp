@@ -5,7 +5,8 @@ using namespace PigsCpp::Entidades::Personagens;
 
 Jogador::Jogador() :
 	Personagem(),
-	pontos(0)
+	pontos(0),
+	velocidade(0.5f)
 {
 	// Colocando cor só pra ver o jogador
 	corpo.setFillColor(Color::Green);

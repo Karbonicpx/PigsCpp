@@ -6,7 +6,6 @@ Leitao::Leitao() : Inimigo(), raio(40), velocidade(0.1f), direcao(1) {
     // Cor do leitao para visualizacao
     corpo.setFillColor(sf::Color::Magenta);
     setMaldade(1);
-    posInicial = corpo.getPosition().x;
 }
 Leitao::~Leitao() {
 
@@ -20,23 +19,21 @@ void Leitao::danificar(Jogador* p) {
         p->setVidas(p->getVidas() - getMaldade());
     }
 }
+
+
 void Leitao::salvar() {
     // Implementar logica de salvamento
 }
 void Leitao::mover() {
-    sf::Vector2f pos = corpo.getPosition();
-    pos.x += velocidade * direcao;
+    sf::Vector2f deslocamento(velocidade * direcao, 0);
+    corpo.move(deslocamento);
 
+    float posX = corpo.getPosition().x;
     float limite = posInicial + direcao * raio;
 
-    // Inverte direção se passar do limite
-    if ((direcao == 1 && pos.x >= limite) ||
-        (direcao == -1 && pos.x <= limite)) {
-
-        pos.x = limite;     // Corrige posição
-        direcao *= -1;      // Inverte direção
+    if ((direcao == 1 && posX >= limite) || (direcao == -1 && posX <= limite)) {
+        corpo.setPosition(sf::Vector2f(limite, corpo.getPosition().y));
+        direcao *= -1;
     }
-
-    corpo.setPosition(pos);
 }
 

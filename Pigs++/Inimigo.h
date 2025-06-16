@@ -9,6 +9,7 @@ namespace PigsCpp {
             protected:
 
                 int nivel_maldade;
+                
 
             public:
 
@@ -21,6 +22,7 @@ namespace PigsCpp {
                 virtual void danificar(Jogador* p) = 0;
                 virtual void salvar() = 0;
                 virtual void mover() = 0;
+
             };
         };
     };

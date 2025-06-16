@@ -10,7 +10,7 @@ namespace PigsCpp {
                 float velocidade;
                 float raio;
                 int direcao;
-                float posInicial;
+                
 
             public:
                 Leitao();
@@ -19,6 +19,8 @@ namespace PigsCpp {
                 void danificar(Jogador* p);
                 void salvar();
                 void mover();
+
+                
             };
         };
     };

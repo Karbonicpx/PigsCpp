@@ -12,6 +12,7 @@ namespace PigsCpp {
 		protected:
 			float x; // Posição x
 			float y; // Posição y
+			float posInicial;
 
 			// std::ostream buffer; // implementar depois
 		protected:

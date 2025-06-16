@@ -12,6 +12,8 @@ Inimigo::~Inimigo(){
     setMaldade(-1);
 }
 
+
+
 const int Inimigo::getMaldade() const {
     return nivel_maldade;
 }
