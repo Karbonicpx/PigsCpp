@@ -22,11 +22,21 @@ void Floresta::criarTouc() {
 }
 
 void Floresta::criarLago() {
-	// ent = static_cast<Entidade*>(new Lago());
+	ent = static_cast<Entidade*>(new Lago());
 }
 
 void Floresta::criarTronco() {
-	// ent = static_cast<Entidade*>(new Tronco());
+	ent = static_cast<Entidade*>(new Tronco());
+
+}
+
+void Floresta::criarTronco() {
+    ent = static_cast<Entidade*>(new Lago());
+}
+
+void Floresta::criarTronco() {
+	ent = static_cast<Entidade*>(new Tronco());
+
 }
 
 

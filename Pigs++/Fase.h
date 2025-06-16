@@ -3,6 +3,8 @@
 #include "Inimigo.h"
 #include "Leitao.h"
 #include "Toucinho.h"
+#include "Lago.h"
+#include "Tronco.h"	
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisao.h"
 #include "nlohmann/json.hpp"

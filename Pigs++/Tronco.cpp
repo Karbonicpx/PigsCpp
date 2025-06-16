@@ -1,0 +1,45 @@
+#include "Tronco.h"
+
+using namespace PigsCpp;
+using namespace Entidades;
+
+Tronco::Tronco():Obstaculo(), altura(10){
+	corpo.setFillColor(sf::Color::Transparent);
+}
+Tronco::~Tronco() {
+
+}
+void Tronco::executar() {
+
+}
+void Tronco::obstaculizar(Jogador* p) {
+
+    sf::Vector2f posTronco = corpo.getPosition();
+    sf::Vector2f tamTronco = corpo.getSize();
+
+    sf::Vector2f posJogador = p->getPosition();
+    sf::Vector2f tamJogador = p->getCorpo().getSize();
+
+    float jogadorBase = posJogador.y + tamJogador.y;
+    float troncoTopo = posTronco.y;
+
+    if (jogadorBase > troncoTopo && posJogador.y < troncoTopo) {
+        // Posiciona o jogador em cima do tronco
+        p->setPos(posJogador.x, troncoTopo - tamJogador.y);
+
+    }
+    else if (posJogador.x + tamJogador.x > posTronco.x && posJogador.x < posTronco.x) {
+        // Colisão pela esquerda
+        p->setPos(posTronco.x - tamJogador.x, posJogador.y);
+    }
+    else if (posJogador.x < posTronco.x + tamTronco.x && posJogador.x > posTronco.x) {
+        // Colisão pela direita
+        p->setPos(posTronco.x + tamTronco.x, posJogador.y);
+    }
+}
+void Tronco::salvar() {
+
+}
+void Tronco::salvarDataBuffer() {
+
+}

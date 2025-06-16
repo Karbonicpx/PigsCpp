@@ -28,8 +28,8 @@ void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 void Jogador::mover() {
 
 	// Mude a velocidade vertical e horizontal como desejar
-	float spdX = 0.1f;
-	float spdY = 0.1f;
+	float spdX = 0.1f * velocidade;
+	float spdY = 0.1f * velocidade;
 
 	// Movendo pra direita no D
 	apertarTecla(Key::D, spdX, 0.f);
@@ -53,3 +53,4 @@ void Jogador::salvar() {
 sf::Vector2f Jogador::getPosition() const {
 	return corpo.getPosition();
 }
+void Jogador::setVelocidade(float v) {velocidade = v;}

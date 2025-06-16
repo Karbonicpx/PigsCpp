@@ -10,6 +10,8 @@ namespace PigsCpp {
 
 				int pontos;
 				void apertarTecla(sf::Keyboard::Key tecla, float spdX, float spdY);
+				float velocidade;
+
 			public:
 
 				Jogador();
@@ -18,6 +20,7 @@ namespace PigsCpp {
 				void executar();
 				void salvar();
 				sf::Vector2f getPosition() const;
+				void setVelocidade(float v);
 
 			};
 		}
