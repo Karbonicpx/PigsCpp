@@ -1,9 +1,7 @@
-﻿  Bomba.cpp
-  Jogo.cpp
-  main.cpp
+﻿  Jogo.cpp
   Generating code
-  8 of 1929 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+  2 of 1929 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Pigs++.vcxproj -> S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\x64\Release\Pigs++.exe

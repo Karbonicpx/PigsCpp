@@ -1,20 +1,17 @@
-#pragma once
 #include "Leitao.h"
 
-using namespace PigsCpp;
-using namespace Entidades;
-using namespace Personagens;
+using namespace PigsCpp::Entidades::Personagens;
 
-Leitao::Leitao() : Inimigo(), raio(1), velocidade(0.5f){
+Leitao::Leitao() : Inimigo(), raio(40), velocidade(0.1f), direcao(1) {
     // Cor do leitao para visualizacao
     corpo.setFillColor(sf::Color::Magenta);
     setMaldade(1);
+    posInicial = corpo.getPosition().x;
 }
 Leitao::~Leitao() {
 
 }
 void Leitao::executar() {
-    // Comportamento do leitao aqui
     mover();
 }
 void Leitao::danificar(Jogador* p) {
@@ -26,31 +23,18 @@ void Leitao::danificar(Jogador* p) {
 void Leitao::salvar() {
     // Implementar logica de salvamento
 }
-void Leitao::mover(){
-    int direcao = 1; // 1 para direita, -1 para esquerda
-    float posInicial = -1.0f;
-
+void Leitao::mover() {
     sf::Vector2f pos = corpo.getPosition();
-
-    // Salva a posição inicial na primeira chamada
-    if (posInicial < 0.0f)
-        posInicial = pos.x;
-
     pos.x += velocidade * direcao;
 
-    // Limites de patrulha baseados no raio
-    float limiteDireita = posInicial + raio;
-    float limiteEsquerda = posInicial - raio;
+    float limite = posInicial + direcao * raio;
 
-    if (pos.x >= limiteDireita) {
-        pos.x = limiteDireita;
-        direcao = -1;
-        pos.x *= direcao;
-    }
-    else if (pos.x <= limiteEsquerda) {
-        pos.x = limiteEsquerda;
-        direcao = 1;
-        pos.x *= direcao;
+    // Inverte direção se passar do limite
+    if ((direcao == 1 && pos.x >= limite) ||
+        (direcao == -1 && pos.x <= limite)) {
+
+        pos.x = limite;     // Corrige posição
+        direcao *= -1;      // Inverte direção
     }
 
     corpo.setPosition(pos);

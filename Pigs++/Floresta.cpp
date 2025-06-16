@@ -22,20 +22,11 @@ void Floresta::criarTouc() {
 }
 
 void Floresta::criarLago() {
-	ent = static_cast<Entidade*>(new Lago());
+	// ent = static_cast<Entidade*>(new Lago());
 }
 
 void Floresta::criarTronco() {
-	ent = static_cast<Entidade*>(new Tronco());
-
-}
-
-void Floresta::criarTronco() {
-    ent = static_cast<Entidade*>(new Lago());
-}
-
-void Floresta::criarTronco() {
-	ent = static_cast<Entidade*>(new Tronco());
+	// ent = static_cast<Entidade*>(new Tronco());
 
 }
 
@@ -70,12 +61,12 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
             criarLago();
             break;
 
-        case 76: // Toucinho (inimigo fácil)
-            criarTouc();
+        case 76: // Leitao (inimigo fácil)
+            criarLeitao();
             break;
 
-        case 77: // Leitao (inimigo médio)
-            criarLeitao();
+        case 77: // Touc (inimigo médio)
+            criarTouc();
             break;
 
         case 79: // Jogador(es)

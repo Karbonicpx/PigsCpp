@@ -44,7 +44,9 @@ void Jogo::executar() {
             if (event->is<sf::Event::Closed>())
                 GG.fechar();
         }
-       
+        
+
+        jogador1->executar();
         // Toda entidade que faz alguma coisa, deve ter seu método executar, na qual esse loop vai chamar
         for (int i = 0; i < f1->getListaEntidades()->listaEntidades.getLen(); i++) {
 

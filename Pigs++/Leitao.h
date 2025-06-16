@@ -9,6 +9,8 @@ namespace PigsCpp {
             private:
                 float velocidade;
                 float raio;
+                int direcao;
+                float posInicial;
 
             public:
                 Leitao();
