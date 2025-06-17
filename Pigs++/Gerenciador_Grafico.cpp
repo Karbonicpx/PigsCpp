@@ -10,13 +10,13 @@ Gerenciador_Grafico::Gerenciador_Grafico() {
 
 	// Criando a janela onde vai aparecer o jogo, tamanho 1024, 768 (4:3)
 	janela = new RenderWindow(VideoMode(Vector2u{ 1024, 768 }), "PigsCpp");
-	// janela->setFramerateLimit(60); // Limitando os frames por segundo 
+	janela->setFramerateLimit(60); // Limitando os frames por segundo pra 60
 	corpo.setPosition(Vector2f(0, 0)); // Definindo a posição inicial do corpo
 };
 
 
 Gerenciador_Grafico::~Gerenciador_Grafico() {
-	
+	janela->close();
 };
 
 // Retornando instancia estática
@@ -25,14 +25,6 @@ Gerenciador_Grafico* Gerenciador_Grafico::getInstancia(){
 		instancia = new Gerenciador_Grafico();
 	}
 	return instancia;
-}
-
-// Deletando instancia estática
-void Gerenciador_Grafico::destruirInstancia() {
-	if (instancia != nullptr) {
-		delete instancia;
-		instancia = nullptr;
-	}
 }
 
 
@@ -56,16 +48,12 @@ void Gerenciador_Grafico::mostrar() {
 	janela->display();
 }
 
-
 // Desenha o corpo (RectangleShape, sem textura)
 void Gerenciador_Grafico::desenhar() {
 	janela->draw(corpo);
+	// janela->draw(corpo->getTexture())
 }
 
-// Desenha a textura do corpo
-void Gerenciador_Grafico::desenhar(const Texture* textura) {
-	corpo.setTexture(textura); // Define a textura do corpo
-}
 
 // Limpa a janela
 void Gerenciador_Grafico::clear() {

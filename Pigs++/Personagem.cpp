@@ -3,9 +3,18 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Personagem::Personagem():
+Personagem::Personagem(const float vel):
 	Entidade(),
-	numVidas(3)
+	numVidas(3),
+	velocidade(vel)
+{
+
+}
+
+Personagem::Personagem() :
+	Entidade(),
+	numVidas(0),
+	velocidade(0.f)
 {
 
 }

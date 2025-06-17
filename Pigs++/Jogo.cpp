@@ -9,58 +9,63 @@ using namespace PigsCpp::Fases;
 
 
 Jogo::Jogo() :
-    f2(nullptr),
+    f1(nullptr)
 // O que está acontecendo aqui?
 // O gerenciador gráfico está no modelo de projeto chamado "singleton"
 // Nesse modelo, fazemos com que apenas uma instância static de uma classe específica possa existir
 // Então, estamos fazendo com que GG receba essa instância como variável
 // Assim, só podendo existir um GG por jogo
- GG(*Gerenciador_Grafico::getInstancia())
 {
-    // Inicializando jogador
+    GG = Gerenciador_Grafico::getInstancia();
     jogador1 = new Jogador();
-    f1 = new Floresta();
-    f1->setJogadores(jogador1);
+    f2 = new Castelo();
+    f2->setJogadores(jogador1);
 
     // Fazendo com que os entes tenham sua variável pGG apontando para a instância única
     Ente::setGG(Gerenciador_Grafico::getInstancia());
-    
    
 }
+
+
 
 Jogo::~Jogo() {
 }
 
+
 void Jogo::executar() {
 
-    f1->criarEntidades(&GG);
-
-    while (GG.estaAberta())
+    f2->criarEntidades();
+    while (GG->estaAberta())
     {
+
+        std::cout << GG->getWindow() << std::endl;
         // Loop que vai rodar para cada frame do jogo
-        while (const std::optional event = GG.getWindow()->pollEvent())
+        while (const std::optional event = GG->getWindow()->pollEvent())
         {
             // Quando a janela fechar, o jogo fecha
-            if (event->is<sf::Event::Closed>())
-                GG.fechar();
+            if (event->is<sf::Event::Closed>()) {
+                GG->fechar();
+
+              
+            }
+                
         }
         
-
-        jogador1->executar();
         // Toda entidade que faz alguma coisa, deve ter seu método executar, na qual esse loop vai chamar
-        for (int i = 0; i < f1->getListaEntidades()->listaEntidades.getLen(); i++) {
+        for (int i = 0; i < f2->getListaEntidades()->listaEntidades.getLen(); i++) {
 
-            Entidade* temp = f1->getListaEntidades()->listaEntidades.getItem(i);
+            Entidade* temp = f2->getListaEntidades()->listaEntidades.getItem(i);
             temp->executar();
         }
         // Renderização (sempre no ciclo clear --> draw --> display)
-        GG.clear();
-		f1->desenharTileset(&GG, "textures/Floresta.png");
-        for (int i = 0; i < f1->getListaEntidades()->listaEntidades.getLen(); i++) {
+        GG->clear();
+		f2->desenharTileset(GG, "textures/Castelo.png");
+        for (int i = 0; i < f2->getListaEntidades()->listaEntidades.getLen(); i++) {
 
-            Entidade* temp = f1->getListaEntidades()->listaEntidades.getItem(i);
+            Entidade* temp = f2->getListaEntidades()->listaEntidades.getItem(i);
             temp->desenhar();
         }
-        GG.mostrar();
+        GG->mostrar();
     }
+  
 }

@@ -15,7 +15,7 @@ namespace PigsCpp {
 	{
 	private:
 		Personagens::Jogador* jogador1;
-		Gerenciadores::Gerenciador_Grafico& GG;
+		Gerenciadores::Gerenciador_Grafico* GG;
 		Fases::Floresta* f1;
 		Fases::Castelo* f2;
 		
@@ -24,6 +24,6 @@ namespace PigsCpp {
 		Jogo();
 		~Jogo();
 		void executar();
-		void criarEntidades(Gerenciador_Grafico* GG);
+		// void criarEntidades(Gerenciador_Grafico* GG);
 	};
 };

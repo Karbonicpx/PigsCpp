@@ -2,10 +2,16 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Inimigo::Inimigo():Personagem(), nivel_maldade(0){
-    // Colocando cor só pra ver o inimigo
-    corpo.setFillColor(sf::Color::Red);
 
+Inimigo::Inimigo(const float vel, const int dir) :
+    Personagem(vel), 
+    nivel_maldade(0), 
+    direcao(dir) {
+    
+}
+
+Inimigo::Inimigo():Personagem(), nivel_maldade(0), direcao(0){
+   
 }
 
 Inimigo::~Inimigo(){
@@ -23,3 +29,5 @@ void Inimigo::setMaldade(int m){
 void Inimigo::salvarDataBuffer(){        // terminar
 
 }
+
+

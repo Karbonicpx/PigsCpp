@@ -8,11 +8,14 @@ Entidade::Entidade() :
 	x(0.f),
 	y(0.f),
 	posInicial(0.f)
-{};
+{
+	
+};
 
 Entidade::~Entidade() {
 
 }
+
 
 void Entidade::setPos(const float x, const float y) {
 

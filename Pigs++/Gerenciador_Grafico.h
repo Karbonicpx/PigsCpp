@@ -19,6 +19,11 @@ namespace PigsCpp {
             RectangleShape corpo;
             RenderWindow* janela;
 
+            // Proteção
+            Gerenciador_Grafico();
+            ~Gerenciador_Grafico();
+
+
             // Instância estática (SINGLETON)
             static Gerenciador_Grafico* instancia;
 
@@ -27,20 +32,17 @@ namespace PigsCpp {
             // Método para acessar a única instância
             static Gerenciador_Grafico* getInstancia();
 
-            // Método opcional para destruir a instância
-            static void destruirInstancia();
-
-            Gerenciador_Grafico();
-            ~Gerenciador_Grafico();
-
             RenderWindow* getWindow() const;
             void setCorpo(RectangleShape corpo);
             const bool estaAberta() const;
             void clear();
             void desenhar();
-            void desenhar(const Texture* textura);
             void mostrar();
             void fechar();
+
+            // Proibir cópia
+            Gerenciador_Grafico(const Gerenciador_Grafico&);
+            Gerenciador_Grafico& operator=(const Gerenciador_Grafico&);
         };
     };
 };

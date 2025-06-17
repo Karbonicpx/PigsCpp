@@ -114,8 +114,6 @@ void Gerenciador_Colisao::verificaProjetil() {
 
 }
 
-
-
 // Aqui vamos checar a colisão de todos os tipos de entidade em uma só função
 void Gerenciador_Colisao::executar() {
     // verificaIni();
