@@ -23,7 +23,7 @@ namespace PigsCpp {
 			void criarInimigos();
 			void criarPlataformas();
 			void criarObstaculo();
-			void criarEntidades();
+			void criarEntidades(Gerenciador_Grafico* GG);
 			
 		};
 

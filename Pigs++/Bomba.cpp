@@ -26,7 +26,7 @@ void Bomba::mover() {  // Mover o projétil na direção especificada
     if (ativo) {
         x += direcao.x * velocidade;
         y += direcao.y * velocidade;
-        forma.move(sf::Vector2f(x,y));
+        forma.setPosition(sf::Vector2f(x,y));
     }
 }
 

@@ -59,7 +59,7 @@ namespace PigsCpp {
 			void criarMapa();
 			void inicializarEntidades(Entidade* e, const float x, const float y, const float size);
 			virtual void desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath);
-			virtual void criarEntidades() = 0;
+			virtual void criarEntidades(Gerenciador_Grafico* GG) = 0;
 		};
 	};
 };

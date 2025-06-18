@@ -17,10 +17,8 @@ namespace PigsCpp {
 
 			protected:
 				int numVidas;
-				float velocidade;
 
 			public:
-				Personagem(const float vel);
 				Personagem();
 				~Personagem();
 				const int getVidas() const;

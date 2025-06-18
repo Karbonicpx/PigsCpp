@@ -6,7 +6,7 @@ Castelo::Castelo():
 	Fase("fasesjson/Castelo.json"),
 	maxChefoes(1)
 {
-    
+
 }
 
 Castelo::~Castelo() {
@@ -43,7 +43,7 @@ void Castelo::criarObstaculo() {
 	criarEspinho();
 }
 
-void Castelo::criarEntidades() {
+void Castelo::criarEntidades(Gerenciador_Grafico* GG) {
     
 
     for (unsigned int i = 0; i < posicoesEntidades.size(); i++) {

@@ -44,7 +44,7 @@ void Floresta::criarObstaculo() {
 
 
 // Método que vai criar as entidades na posição obtida dos tiles da camada "Entidades" na fase
-void Floresta::criarEntidades() {
+void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
 
     for (unsigned int i = 0; i < posicoesEntidades.size(); i++) {
         int tileId = posicoesEntidades[i].first;

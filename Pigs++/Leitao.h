@@ -7,7 +7,9 @@ namespace PigsCpp {
         namespace Personagens {
             class Leitao : public Inimigo {
             private:
+                float velocidade;
                 float raio;
+                int direcao;
                 
 
             public:

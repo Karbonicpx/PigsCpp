@@ -4,8 +4,9 @@ using namespace PigsCpp::Entidades::Personagens;
 
 
 Jogador::Jogador() :
-	Personagem(1.5f),
-	pontos(0)
+	Personagem(),
+	pontos(0),
+	velocidade(0.5f)
 {
 	// Colocando cor só pra ver o jogador
 	corpo.setFillColor(Color::Green);
@@ -27,12 +28,18 @@ void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 // Redefinição do método mover de personagem!
 void Jogador::mover() {
 
-	// Mude a velocidade horizontal como desejar
+	// Mude a velocidade vertical e horizontal como desejar
+	float spdX = 0.1f * velocidade;
+	float spdY = 0.1f * velocidade;
 
 	// Movendo pra direita no D
-	apertarTecla(Key::D, velocidade, 0.f);
+	apertarTecla(Key::D, spdX, 0.f);
 	// Movendo pra esquerda no A
-	apertarTecla(Key::A, -velocidade, 0.f);
+	apertarTecla(Key::A, -spdX, 0.f);
+	// Movendo pra cima no W
+	apertarTecla(Key::W, 0.f, -spdY);
+	// Movendo pra baixo no S
+	apertarTecla(Key::S, 0.f, spdY);
 }
 
 // Executando o mover, e futuros eventos relacionados ao jogador

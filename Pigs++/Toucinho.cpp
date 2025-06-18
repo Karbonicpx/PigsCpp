@@ -6,7 +6,7 @@ using namespace Personagens;
 
 Toucinho::Toucinho() : Inimigo(), forca(5), tempoAtaque(0) {
     // Cor do tocinho para visualizacao
-    corpo.setFillColor(sf::Color::Magenta);
+    corpo.setFillColor(sf::Color::Cyan);
     setMaldade(5);
 }
 Toucinho::~Toucinho() {
