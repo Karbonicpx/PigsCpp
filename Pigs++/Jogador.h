@@ -10,7 +10,6 @@ namespace PigsCpp {
 
 				int pontos;
 				void apertarTecla(sf::Keyboard::Key tecla, float spdX, float spdY);
-				float velocidade;
 
 			public:
 

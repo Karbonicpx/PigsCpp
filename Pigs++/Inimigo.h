@@ -9,10 +9,10 @@ namespace PigsCpp {
             protected:
 
                 int nivel_maldade;
-                
 
             public:
 
+                Inimigo(const float v);
                 Inimigo();
                 ~Inimigo();
                 const int getMaldade() const;

@@ -9,7 +9,6 @@ using namespace PigsCpp::Fases;
 
 
 Jogo::Jogo() :
-    f2(nullptr),
 // O que está acontecendo aqui?
 // O gerenciador gráfico está no modelo de projeto chamado "singleton"
 // Nesse modelo, fazemos com que apenas uma instância static de uma classe específica possa existir
@@ -19,8 +18,8 @@ Jogo::Jogo() :
 {
     // Inicializando jogador
     jogador1 = new Jogador();
-    f1 = new Floresta();
-    f1->setJogadores(jogador1);
+    fase = new Floresta();
+    fase->setJogadores(jogador1);
 
     // Fazendo com que os entes tenham sua variável pGG apontando para a instância única
     Ente::setGG(Gerenciador_Grafico::getInstancia());
@@ -31,9 +30,8 @@ Jogo::Jogo() :
 Jogo::~Jogo() {
 }
 
-void Jogo::executar() {
-
-    f1->criarEntidades(&GG);
+void Jogo::inicializar(Fases::Floresta* f, std::string texturePath) {
+    f->criarEntidades(&GG);
 
     while (GG.estaAberta())
     {
@@ -44,23 +42,28 @@ void Jogo::executar() {
             if (event->is<sf::Event::Closed>())
                 GG.fechar();
         }
+
+
         
-
-        jogador1->executar();
         // Toda entidade que faz alguma coisa, deve ter seu método executar, na qual esse loop vai chamar
-        for (int i = 0; i < f1->getListaEntidades()->listaEntidades.getLen(); i++) {
+        for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
 
-            Entidade* temp = f1->getListaEntidades()->listaEntidades.getItem(i);
+            Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
             temp->executar();
         }
         // Renderização (sempre no ciclo clear --> draw --> display)
         GG.clear();
-		f1->desenharTileset(&GG, "textures/Floresta.png");
-        for (int i = 0; i < f1->getListaEntidades()->listaEntidades.getLen(); i++) {
+        f->desenharTileset(&GG, texturePath);
+        for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
 
-            Entidade* temp = f1->getListaEntidades()->listaEntidades.getItem(i);
+            Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
             temp->desenhar();
         }
         GG.mostrar();
     }
+}
+void Jogo::executar() {
+
+    inicializar(fase, "textures/Floresta.png");
+    
 }

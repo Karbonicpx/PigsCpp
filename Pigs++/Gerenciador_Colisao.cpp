@@ -25,60 +25,8 @@ void Gerenciador_Colisao::setJogadores(Personagens::Jogador* j1, Personagens::Jo
     jog2 = j2;
 }
 
-// Basicamente, vamos verificar quem é quem através dos IDs dos entes
-// e adicioná-los às listas de acordo com o "tipo" de entidade que são
-void Gerenciador_Colisao::includeEntidade(Entidade* ent) {
-    if (ent->getId() == 3 || ent->getId() == 9 || ent->getId() == 8 || ent->getId() == 11) { // obstaculo
-        // LObst.push_back(static_cast<Obstaculos::Obstaculo*>(ent));
-    }
 
-    if (ent->getId() == 12) {
-        // LObstaculo.push_back(static_cast<Obstaculos::Obstaculo*>(ent));
-    }
-
-    else if (ent->getId() == 4 || ent->getId() == 6 || ent->getId() == 7) { // inimigo
-        // LInimigo.push_back(static_cast<Personagens::Inimigo*>(ent));
-    }
-
-    else if (ent->getId() == 1) { // jogador 1
-        // jog1 = static_cast<Personagens::Jogador*>(ent);
-    }
-
-    else if (ent->getId() == 2) { // jogador 2
-        // jog2 = static_cast<Personagens::Jogador*>(ent);
-    }
-
-    else if (ent->getId() == 5) { // projetil
-        // LProjetil.push_back(static_cast<Projetil*>(ent));
-    }
-}
-
-// Removendo as entidades das listas quando elas "morrem" ou saiem da tela
-void Gerenciador_Colisao::removeEntidade(Entidade* ent) {
-    if (ent->getId() == 4) {
-        // LInimigo.remove(static_cast<Personagens::Inimigo*>(ent));
-    }
-
-    if (ent->getId() == 6) {
-        // LInimigo.remove(static_cast<Personagens::Inimigo*>(ent));
-    }
-
-    else if (ent->getId() == 1) {
-        setJogadores(nullptr, jog2);
-    }
-
-    else if (ent->getId() == 2) {
-        setJogadores(jog1, nullptr);
-    }
-
-    else if (ent->getId() == 12) {
-        // LObstaculo.remove(static_cast<Obstaculos::Plataforma*>(ent));
-    }
-
-}
-
-// Aqui vamos verificar a colisão entre duas entidades
-const bool Gerenciador_Colisao::veriColisao(Entidade* ent1, Entidade* ent2) {
+const bool Gerenciador_Colisao::verificarColisao(Entidade* ent1, Entidade* ent2) {
 
 
     // O que isso significa?
@@ -99,26 +47,48 @@ const bool Gerenciador_Colisao::veriColisao(Entidade* ent1, Entidade* ent2) {
     return rect1.findIntersection(rect2).has_value();
 }
 
-// Implementar após as listas serem criadas
-void Gerenciador_Colisao::verificaObs() {
+void Gerenciador_Colisao::tratarColisoesJogsObstacs() {
+
 
 }
 
-// Implementar após as listas serem criadas
-void Gerenciador_Colisao::verificaInim() {
+void Gerenciador_Colisao::tratarColisoesJogsInimgs() {
+
 
 }
 
-// Implementar após as listas serem criadas
-void Gerenciador_Colisao::verificaProjetil() {
+void Gerenciador_Colisao::tratarColisoesJogsBombas() {
+
 
 }
 
+void Gerenciador_Colisao::incluirInimigo() {
 
 
+}
+
+void Gerenciador_Colisao::incluirObstaculo() {
+
+}
+
+void Gerenciador_Colisao::incluirBomba() {
+
+}
+
+void Gerenciador_Colisao::removerInimigo() {
+
+}
+
+void Gerenciador_Colisao::removerObstaculo() {
+
+}
+
+void Gerenciador_Colisao::removerBomba() {
+
+}
 // Aqui vamos checar a colisão de todos os tipos de entidade em uma só função
 void Gerenciador_Colisao::executar() {
     // verificaIni();
-    verificaObs();
+    // verificaObs();
     // veriProjetil();
 };

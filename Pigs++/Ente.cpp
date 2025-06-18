@@ -38,7 +38,7 @@ void Ente::operator++() { id++; };
 // E aqui, o ente vai servir de parâmetro pro gerenciador gráfico desenhar ele
 void Ente::desenhar() {
 	pGG->setCorpo(corpo);
-	pGG->desenhar();
+	pGG->desenharEnte();
 };
 
 // Setando a instância do gerenciador gráfico dentro da classe ente

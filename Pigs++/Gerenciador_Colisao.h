@@ -1,9 +1,10 @@
 #pragma once
-#pragma once
 
 #include "Jogador.h"
 #include "Entidade.h"
-
+#include <list>
+#include <vector>
+#include <set>
 /* LEIA!!
  OBS: Todos os créditos ao código dos arquivos .h e .cpp dessa classe,
  se deve aos integrantes do grupo de extensão PETECO, na universidade UTFPR,
@@ -14,24 +15,33 @@
 
 namespace PigsCpp {
     namespace Gerenciadores {
+
+        using namespace Entidades;
+        using namespace std;
         class Gerenciador_Colisao {
         private:
-            // list<Obstaculos::Obstaculo*> LObst; // Implementar depois
-            // list<Personagens::Inimigo*> LIni; // Implementar depois
-            // list<Projetil*> LProjetil; // Implementar depois
+            // list<Obstaculo>* LOs; 
+            // vector<Inimigo> LIs; 
+            // set<Bomba>* LBs; 
             Personagens::Jogador* jog1;
             Personagens::Jogador* jog2;
+            const bool verificarColisao(Entidade* ent1, Entidade* ent2);
+            void tratarColisoesJogsObstacs();
+            void tratarColisoesJogsInimgs();
+            void tratarColisoesJogsBombas();
 
         public:
             Gerenciador_Colisao();
             ~Gerenciador_Colisao();
             void setJogadores(Personagens::Jogador* j1, Personagens::Jogador* j2);
-            void includeEntidade(Entidade* ent);
-            void removeEntidade(Entidade* ent);
-            const bool veriColisao(Entidade* ent1, Entidade* ent2);
-            void verificaObs();
-            void verificaInim();
-            void verificaProjetil();
+            void incluirInimigo();
+            void incluirObstaculo();
+            void incluirBomba();
+            void removerInimigo();
+            void removerObstaculo();
+            void removerBomba();
+
+
             void executar();
         };
     }

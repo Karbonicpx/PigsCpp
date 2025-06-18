@@ -4,7 +4,7 @@ using namespace PigsCpp;
 using namespace Entidades;
 using namespace Personagens;
 
-Toucinho::Toucinho() : Inimigo(), forca(5), tempoAtaque(0) {
+Toucinho::Toucinho() : Inimigo(0.f), forca(5), tempoAtaque(0) {
     // Cor do tocinho para visualizacao
     corpo.setFillColor(sf::Color::Cyan);
     setMaldade(5);

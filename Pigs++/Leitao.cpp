@@ -2,11 +2,13 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Leitao::Leitao() : Inimigo(), raio(40), velocidade(0.1f), direcao(1) {
+Leitao::Leitao() : Inimigo(1.5f), raio(40), direcao(1) {
     // Cor do leitao para visualizacao
     corpo.setFillColor(sf::Color::Magenta);
     setMaldade(1);
 }
+
+
 Leitao::~Leitao() {
 
 }

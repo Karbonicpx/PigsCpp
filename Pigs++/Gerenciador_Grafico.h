@@ -37,8 +37,7 @@ namespace PigsCpp {
             void setCorpo(RectangleShape corpo);
             const bool estaAberta() const;
             void clear();
-            void desenhar();
-            void desenhar(const Texture* textura);
+            void desenharEnte();
             void mostrar();
             void fechar();
         };

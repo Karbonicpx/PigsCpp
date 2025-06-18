@@ -2,11 +2,10 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-
 Jogador::Jogador() :
-	Personagem(),
-	pontos(0),
-	velocidade(0.5f)
+	Personagem(1.5f),
+	pontos(0)
+
 {
 	// Colocando cor só pra ver o jogador
 	corpo.setFillColor(Color::Green);
@@ -36,10 +35,6 @@ void Jogador::mover() {
 	apertarTecla(Key::D, spdX, 0.f);
 	// Movendo pra esquerda no A
 	apertarTecla(Key::A, -spdX, 0.f);
-	// Movendo pra cima no W
-	apertarTecla(Key::W, 0.f, -spdY);
-	// Movendo pra baixo no S
-	apertarTecla(Key::S, 0.f, spdY);
 }
 
 // Executando o mover, e futuros eventos relacionados ao jogador

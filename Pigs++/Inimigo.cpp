@@ -2,6 +2,12 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
+Inimigo::Inimigo(const float v): Personagem(v), nivel_maldade(0){
+    // Colocando cor só pra ver o inimigo
+    corpo.setFillColor(sf::Color::Red);
+
+}
+
 Inimigo::Inimigo():Personagem(), nivel_maldade(0){
     // Colocando cor só pra ver o inimigo
     corpo.setFillColor(sf::Color::Red);

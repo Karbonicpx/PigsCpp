@@ -16,14 +16,14 @@ namespace PigsCpp {
 	private:
 		Personagens::Jogador* jogador1;
 		Gerenciadores::Gerenciador_Grafico& GG;
-		Fases::Floresta* f1;
-		Fases::Castelo* f2;
+		Fases::Floresta* fase;
 		
 
 	public:
 		Jogo();
 		~Jogo();
 		void executar();
-		void criarEntidades(Gerenciador_Grafico* GG);
+		void inicializar(Fases::Floresta* f, std::string texturePath);
+		// void criarEntidades(Gerenciador_Grafico* GG);
 	};
 };
