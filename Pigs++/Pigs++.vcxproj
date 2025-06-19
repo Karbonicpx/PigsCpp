@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Baconzilla.cpp" />
+    <ClCompile Include="Bloco.cpp" />
     <ClCompile Include="Floresta.cpp" />
     <ClCompile Include="Castelo.cpp" />
     <ClCompile Include="Ente.cpp" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baconzilla.h" />
+    <ClInclude Include="Bloco.h" />
     <ClInclude Include="Floresta.h" />
     <ClInclude Include="Castelo.h" />
     <ClInclude Include="Elemento.h" />

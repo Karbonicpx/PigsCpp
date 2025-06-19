@@ -27,7 +27,8 @@ const int Ente::getId() const {
 	return id;
 };
 
-const sf::RectangleShape Ente::getCorpo() const {
+// Não tem const pois vamos manipular a gravidade do corpo
+sf::RectangleShape& Ente::getCorpo() {
 	return corpo;
 };
 

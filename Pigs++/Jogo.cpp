@@ -30,6 +30,12 @@ Jogo::Jogo() :
 Jogo::~Jogo() {
 }
 
+void Jogo::executar() {
+
+    inicializar(fase, "textures/Floresta.png");
+
+}
+
 void Jogo::inicializar(Fases::Floresta* f, std::string texturePath) {
     f->criarEntidades(&GG);
 
@@ -44,26 +50,34 @@ void Jogo::inicializar(Fases::Floresta* f, std::string texturePath) {
         }
 
 
-        
-        // Toda entidade que faz alguma coisa, deve ter seu método executar, na qual esse loop vai chamar
-        for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
+        // Aqui onde vai ser executado todos as entidades do jogo
+        executarEntidades(f);
 
-            Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
-            temp->executar();
-        }
+        // Tratamento de colisões da fase e gravidade
+        f->executar();
         // Renderização (sempre no ciclo clear --> draw --> display)
         GG.clear();
         f->desenharTileset(&GG, texturePath);
-        for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
-
-            Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
-            temp->desenhar();
-        }
+        desenharEntidades(f);
         GG.mostrar();
     }
 }
-void Jogo::executar() {
 
-    inicializar(fase, "textures/Floresta.png");
+void Jogo::desenharEntidades(Fases::Floresta* f) {
+   
+    for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
+
+        Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
+        temp->desenhar();
+    }
+}
+
+void Jogo::executarEntidades(Fases::Floresta* f) {
+    // Toda entidade que faz alguma coisa, deve ter seu método executar, na qual esse loop vai chamar
+    for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
+
+        Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
+        temp->executar();
+    }
     
 }

@@ -54,7 +54,7 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
 
         switch (tileId) {
         case 73: // Plataforma lógica (apenas colisão, não desenha)
-            
+            criarBloco();
 
             break;
 		case 74: // Lago (obstáculo)

@@ -24,6 +24,7 @@ namespace PigsCpp {
 		~Jogo();
 		void executar();
 		void inicializar(Fases::Floresta* f, std::string texturePath);
-		// void criarEntidades(Gerenciador_Grafico* GG);
+		void executarEntidades(Fases::Floresta* f);
+		void desenharEntidades(Fases::Floresta* f);
 	};
 };

@@ -5,6 +5,7 @@
 #include "Toucinho.h"
 #include "Lago.h"
 #include "Tronco.h"	
+#include "Bloco.h"
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisao.h"
 #include "nlohmann/json.hpp"
@@ -31,12 +32,16 @@ namespace PigsCpp {
 			Gerenciador_Colisao* GC;
 			ListaEntidades* LEs;
 			nlohmann::json mapa; // mapa.json  
+			static const float gravidade;
+			void aplicarGravidade();
 		protected:
 			Entidade* ent; // Entidade genérica que vai ser usada na função virtual de criar entidades
 			Jogador* j1;
 			Jogador* j2;
-			std::vector< std::pair<int, sf::Vector2f> > posicoesEntidades;
+			std::vector<std::pair<int, sf::Vector2f>> posicoesEntidades;
 			const float spriteSize;
+			
+			
 
 		public:
 			Fase(std::string jsonPath);
@@ -45,15 +50,13 @@ namespace PigsCpp {
 			virtual void criarInimigos() = 0;
 			virtual void criarObstaculo() = 0;
 			void criarJogador();
-
 			void gerenciarColisoes();
+			void criarBloco(); // Chão e paredes do jogo
 			void criarLeitao();
 			void criarPlataformas();
 			void criarCenario();
 			ListaEntidades* getListaEntidades() const;
-			Gerenciador_Colisao* getGC() const;
 			void setJogadores(Jogador* pJ1, Jogador* pJ2 = nullptr);
-			
 
 			void setMapa(std::string jsonPath);
 			void criarMapa();

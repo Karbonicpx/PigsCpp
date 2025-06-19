@@ -13,12 +13,14 @@ namespace PigsCpp {
 			float x; // Posição x
 			float y; // Posição y
 			float posInicial;
+			bool sofreGravidade;
 
 			// std::ostream buffer; // implementar depois
 		protected:
 			void salvarDataBuffer(); // implementar depois
 
 		public:
+			Entidade(const bool sG);
 			Entidade();
 			virtual ~Entidade();
 			virtual void executar() = 0;
@@ -26,6 +28,7 @@ namespace PigsCpp {
 
 			void setPos(const float x, const float y);
 			void setTamanho(const float largura, const float altura);
+			bool getSofreGravidade() const;
 		};
 	};
 

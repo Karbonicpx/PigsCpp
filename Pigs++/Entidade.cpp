@@ -1,13 +1,21 @@
 #include "Entidade.h"
 
-using namespace PigsCpp;
-using namespace Entidades;
+using namespace PigsCpp::Entidades;
 
+Entidade::Entidade(const bool b) :
+	x(0.f),
+	y(0.f),
+	posInicial(0.f),
+	sofreGravidade(b)
+{
+
+};
 
 Entidade::Entidade() :
 	x(0.f),
 	y(0.f),
-	posInicial(0.f)
+	posInicial(0.f),
+	sofreGravidade(false)
 {};
 
 Entidade::~Entidade() {
@@ -26,6 +34,10 @@ void Entidade::setPos(const float x, const float y) {
 
 void Entidade::setTamanho(const float largura, const float altura) {
 	corpo.setSize(sf::Vector2f(largura, altura));
+}
+
+bool Entidade::getSofreGravidade() const {
+	return sofreGravidade;
 }
 
 // Implementar depois

@@ -3,7 +3,7 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 Jogador::Jogador() :
-	Personagem(1.5f),
+	Personagem(3.0f),
 	pontos(0)
 
 {

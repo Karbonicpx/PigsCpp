@@ -9,14 +9,17 @@ Fase::Fase(string jsonPath) :
 	j2(nullptr),
 	ent(nullptr),
 	spriteSize(32.0f)
+	
 {
 	GC = new Gerenciador_Colisao();
 	LEs = new ListaEntidades();
 	setMapa(jsonPath);
 	criarMapa();
 
+	
 
 };
+const float Fase::gravidade(1.0f);
 
 Fase::~Fase() {
 
@@ -32,14 +35,12 @@ ListaEntidades* Fase::getListaEntidades() const {
 	return LEs;
 }
 
-Gerenciador_Colisao* Fase::getGC() const {
-	return GC;
-};
 
 void Fase::setJogadores(Jogador* pJ1, Jogador* pJ2) {
 	j1 = pJ1;
 	j2 = pJ2;
 
+	GC->setJogadores(j1, j2);
 	LEs->listaEntidades.incluir(j1);
 	if (j2 != nullptr) { LEs->listaEntidades.incluir(j2); }
 		
@@ -135,19 +136,44 @@ void Fase::inicializarEntidades(Entidade* e, const float x, const float y, const
 	if (e != nullptr) {
 		e->setPos(x, y);
 		e->setTamanho(size, size);
-		e->operator++();
+
+		// Se não for bloco, aumentar o ID
+		if (dynamic_cast<Bloco*>(e) == nullptr){
+			e->operator++();
+		}
+		
 		getListaEntidades()->listaEntidades.incluir(e);
+
+		// Inclusão no Gerenciador de Colisão, checa se é inimigo ou obstaculo
+		if (dynamic_cast<Inimigo*>(e) != nullptr) {
+			GC->incluirInimigo(static_cast<Inimigo*>(e));
+		}
+		else if (dynamic_cast<Obstaculo*>(e) != nullptr) {
+			GC->incluirObstaculo(static_cast<Obstaculo*>(e));
+		}
+
 		e = nullptr;
 	}
 }
 
 
-// Fazer depois
-void Fase::gerenciarColisoes() {
+void Fase::aplicarGravidade() {
+	for (int i = 0; i < LEs->listaEntidades.getLen(); i++) {
+		Entidade* ent = LEs->listaEntidades.getItem(i);
 
+		// Se a entidade pode sofrer gravidade...
+		if (ent->getSofreGravidade() == true) {
+			if (ent != nullptr) {
+				ent->getCorpo().move(sf::Vector2f(0.0f, gravidade));
+			}
+		}
+	}
 }
 
-// Fazer depois
+void Fase::criarBloco() {
+	ent = static_cast<Entidade*>(new Bloco());
+}
+
 void Fase::criarLeitao() {
 	ent = static_cast<Entidade*>(new Leitao());
 }
@@ -179,8 +205,14 @@ void Fase::criarJogador() {
 	}
 }
 
+void Fase::gerenciarColisoes() {
+	GC->setLE(LEs);
+	GC->executar();
+}
+
 void Fase::executar() {
 	gerenciarColisoes();
+	aplicarGravidade();
 }
 
 

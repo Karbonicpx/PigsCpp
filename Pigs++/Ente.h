@@ -23,7 +23,7 @@ namespace PigsCpp {
 	public:
 		Ente();
 		virtual ~Ente();
-		const sf::RectangleShape getCorpo() const;
+		sf::RectangleShape& getCorpo();
 		virtual void executar() = 0;
 		static void setGG(Gerenciador_Grafico* gg);
 		const int getId() const;

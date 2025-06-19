@@ -52,7 +52,7 @@ void Castelo::criarEntidades(Gerenciador_Grafico* GG) {
 
         switch (tileId) {
         case 274: // Plataforma lógica (só cria a entidade, não o visual)
-      
+            criarBloco();
             break;
 
         case 276: // Lago

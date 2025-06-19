@@ -4,7 +4,7 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 Personagem::Personagem(const float v) :
-	Entidade(),
+	Entidade(true),
 	numVidas(3),
 	velocidade(v)
 {
