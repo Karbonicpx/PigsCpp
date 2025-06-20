@@ -7,7 +7,7 @@ using namespace sf;
 
 // Construtor padrão, sem inicializações
 Bomba::Bomba():
-    Entidade(false),
+    Entidade(false, true),
     velocidade(0.f),
     direcao(sf::Vector2f(0.f, 0.f)),
     ativo(false)

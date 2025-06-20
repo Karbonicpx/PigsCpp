@@ -3,8 +3,9 @@
 using namespace PigsCpp;
 using namespace Entidades;
 
-Lago::Lago():Obstaculo(), largura(0){
-	corpo.setFillColor(sf::Color::Transparent);
+Lago::Lago():Obstaculo(true, false), largura(0){
+	
+    corpo.setFillColor(sf::Color::Blue);
 
 }
 Lago::~Lago() {
@@ -14,9 +15,12 @@ void Lago::executar(){
 
 }
 void Lago::obstaculizar(Jogador* p) {
-	if (p) {
-		p->setVelocidade(0.5); // Reduz a velocidade do jogador ao entrar no lago
-	}
+    if (p == nullptr) {
+        return;
+    }
+
+    // Aplica o efeito de lentidão
+    p->setPisandoPoca(true);
 }
 void Lago::salvar() {
 

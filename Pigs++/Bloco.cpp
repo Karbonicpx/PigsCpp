@@ -1,7 +1,7 @@
 #include "Bloco.h"
 
 using namespace PigsCpp::Entidades;
-Bloco::Bloco() : Entidade(false), blockSize(32.0f)  {
+Bloco::Bloco() : Entidade(false, true), blockSize(32.0f)  {
 
 	// Deixando ele "invisivel"
 	corpo.setFillColor(sf::Color(255, 255, 255, 0));
@@ -45,10 +45,14 @@ void Bloco::blocar(Entidade* e) {
         if (rectEnt.position.x < rectBloco.position.x) {
             // Pela esquerda
             e->setPos(rectBloco.position.x - rectEnt.size.x, rectEnt.position.y);
+
+           
         }
         else {
             // Pela direita
             e->setPos(rectBloco.position.x + rectBloco.size.x, rectEnt.position.y);
+
+            
         }
     }
     else {

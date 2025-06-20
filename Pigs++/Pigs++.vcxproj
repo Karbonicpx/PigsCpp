@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="Baconzilla.cpp" />
     <ClCompile Include="Bloco.cpp" />
+    <ClCompile Include="Espinho.cpp" />
     <ClCompile Include="Floresta.cpp" />
     <ClCompile Include="Castelo.cpp" />
     <ClCompile Include="Ente.cpp" />
@@ -144,6 +145,7 @@
     <ClCompile Include="Gerenciador_Grafico.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Jogador.cpp" />
+    <ClCompile Include="Lago.cpp" />
     <ClCompile Include="Leitao.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
@@ -152,10 +154,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Bomba.cpp" />
     <ClCompile Include="Toucinho.cpp" />
+    <ClCompile Include="Tronco.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baconzilla.h" />
     <ClInclude Include="Bloco.h" />
+    <ClInclude Include="Espinho.h" />
     <ClInclude Include="Floresta.h" />
     <ClInclude Include="Castelo.h" />
     <ClInclude Include="Elemento.h" />
@@ -166,6 +170,7 @@
     <ClInclude Include="Gerenciador_Grafico.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Jogador.h" />
+    <ClInclude Include="Lago.h" />
     <ClInclude Include="Leitao.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
@@ -174,6 +179,7 @@
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Bomba.h" />
     <ClInclude Include="Toucinho.h" />
+    <ClInclude Include="Tronco.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

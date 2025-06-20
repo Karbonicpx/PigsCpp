@@ -120,8 +120,11 @@ void Gerenciador_Colisao::tratarColisoesEntsBlocos() {
             // Verifica se b é um bloco
             if (b != nullptr && dynamic_cast<Bloco*>(b) != nullptr) {
 
+				// Verifica se a entidade colide com o bloco
                 if (ent != nullptr && verificarColisao(ent, b)) {
                     dynamic_cast<Bloco*>(b)->blocar(ent);
+
+                  
                 }
             }
         }

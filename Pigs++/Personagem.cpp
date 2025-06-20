@@ -3,10 +3,10 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Personagem::Personagem(const float v) :
-	Entidade(true),
+Personagem::Personagem(const float vel) :
+	Entidade(true, true),
 	numVidas(3),
-	velocidade(v)
+	velocidade(vel)
 {
 
 }
@@ -19,19 +19,16 @@ Personagem::Personagem() :
 }
 Personagem::~Personagem() {}
 
-void Personagem::mover() {
-
-	// Atenção: Essa vai ser a implementação padrão do método mover CASO ele não seja 
-	// Redefinido nas classes que herdaram esta
-	corpo.move(sf::Vector2f(0.1f, 0.f));
-}
-
 const int Personagem::getVidas() const {
 	return numVidas;
 }
 
 void Personagem::setVidas(const int v)  {
 	numVidas = v;
+}
+
+float Personagem::getVelX() {
+	return velocidade;
 }
 
 void Personagem::salvarDataBuffer() {

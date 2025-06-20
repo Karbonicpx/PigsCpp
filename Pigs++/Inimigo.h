@@ -9,6 +9,7 @@ namespace PigsCpp {
             protected:
 
                 int nivel_maldade;
+                int direcao;
 
             public:
 
@@ -16,7 +17,8 @@ namespace PigsCpp {
                 Inimigo();
                 ~Inimigo();
                 const int getMaldade() const;
-                void setMaldade(int m);
+                void setMaldade(const int m);
+                void inverterDir();
                 void salvarDataBuffer();
                 virtual void executar() = 0;
                 virtual void danificar(Jogador* p) = 0;

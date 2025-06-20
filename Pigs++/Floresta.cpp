@@ -22,12 +22,28 @@ void Floresta::criarTouc() {
 }
 
 void Floresta::criarLago() {
-	// ent = static_cast<Entidade*>(new Lago());
+	ent = static_cast<Entidade*>(new Lago());
 }
 
-void Floresta::criarTronco() {
-	// ent = static_cast<Entidade*>(new Tronco());
+// Precisamos fazer uma criação diferente, pois a posição do tronco é só uma no tilemap, na qual vai criar outros 3
+// Pois seu sprite é 64x64
+void Floresta::criarTronco(sf::Vector2f pos) {
+    sf::Vector2f offsets[4] = {
+        {0, 0},                       // Base
+        {spriteSize, 0},              // Direita
+        {0, -spriteSize},             // Cima
+        {spriteSize, -spriteSize}     // Canto superior direito
+    };
 
+    for (int i = 0; i < 4; i++) {
+        Entidade* tronco = static_cast<Entidade*>(new Tronco());
+
+        if (i != 0) {
+            dynamic_cast<Tronco*>(tronco)->setSpriteVisivel(false);
+        }
+
+        inicializarEntidades(tronco, pos.x + offsets[i].x, pos.y + offsets[i].y, spriteSize);
+    }
 }
 
 
@@ -39,7 +55,7 @@ void Floresta::criarInimigos() {
 
 void Floresta::criarObstaculo() {
 	criarLago();
-    criarTronco();
+    // criarTronco();
 }
 
 
@@ -70,11 +86,11 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
             break;
 
         case 79: // Jogador(es)
-            criarJogador();
+            criarJogador(pos.x, pos.y, spriteSize);
             break;
 
-		case 80: // Tronco (obstáculo)
-            criarTronco();
+		case 80: // Tronco (obstáculo sem dano)
+            criarTronco(pos);
             break;
             
 

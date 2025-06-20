@@ -2,11 +2,12 @@
 
 using namespace PigsCpp::Entidades;
 
-Entidade::Entidade(const bool b) :
+Entidade::Entidade(const bool sG, const bool sV) :
 	x(0.f),
 	y(0.f),
 	posInicial(0.f),
-	sofreGravidade(b)
+	sofreGravidade(sG),
+	spriteVisivel(sV)
 {
 
 };
@@ -15,7 +16,8 @@ Entidade::Entidade() :
 	x(0.f),
 	y(0.f),
 	posInicial(0.f),
-	sofreGravidade(false)
+	sofreGravidade(false),
+	spriteVisivel(false)
 {};
 
 Entidade::~Entidade() {
@@ -32,12 +34,17 @@ void Entidade::setPos(const float x, const float y) {
 	posInicial = x; // Sempre que definir posição, já salva
 }
 
-void Entidade::setTamanho(const float largura, const float altura) {
-	corpo.setSize(sf::Vector2f(largura, altura));
-}
 
 bool Entidade::getSofreGravidade() const {
 	return sofreGravidade;
+}
+
+void Entidade::setSofreGravidade(const bool sG) {
+	sofreGravidade = sG;
+}
+
+void Entidade::setSpriteVisivel(const bool sV) {
+	spriteVisivel = sV;
 }
 
 // Implementar depois

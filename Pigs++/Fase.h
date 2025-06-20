@@ -3,8 +3,11 @@
 #include "Inimigo.h"
 #include "Leitao.h"
 #include "Toucinho.h"
+#include "Baconzilla.h"
+#include "Obstaculo.h"
 #include "Lago.h"
 #include "Tronco.h"	
+#include "Espinho.h"
 #include "Bloco.h"
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisao.h"
@@ -30,7 +33,7 @@ namespace PigsCpp {
 
 		private:
 			Gerenciador_Colisao* GC;
-			ListaEntidades* LEs;
+			ListaEntidades* lista_entes;
 			nlohmann::json mapa; // mapa.json  
 			static const float gravidade;
 			void aplicarGravidade();
@@ -40,24 +43,23 @@ namespace PigsCpp {
 			Jogador* j2;
 			std::vector<std::pair<int, sf::Vector2f>> posicoesEntidades;
 			const float spriteSize;
-			
+			virtual void criarInimigos() = 0;
+			virtual void criarObstaculo() = 0;
+			void criarJogador(const float posX, const float posY, const float size);
+			void gerenciarColisoes();
+			void criarBloco(); // Chão e paredes do jogo
+			void criarLeitao();
+			void criarPlataformas();
+			void criarCenario();
 			
 
 		public:
 			Fase(std::string jsonPath);
 			~Fase();
 			virtual void executar();
-			virtual void criarInimigos() = 0;
-			virtual void criarObstaculo() = 0;
-			void criarJogador();
-			void gerenciarColisoes();
-			void criarBloco(); // Chão e paredes do jogo
-			void criarLeitao();
-			void criarPlataformas();
-			void criarCenario();
+			
 			ListaEntidades* getListaEntidades() const;
 			void setJogadores(Jogador* pJ1, Jogador* pJ2 = nullptr);
-
 			void setMapa(std::string jsonPath);
 			void criarMapa();
 			void inicializarEntidades(Entidade* e, const float x, const float y, const float size);

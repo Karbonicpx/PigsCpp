@@ -36,6 +36,12 @@
     <Filter Include="Source Files\Fases">
       <UniqueIdentifier>{154668f8-fe3e-4e2e-b6b5-26e91dfd5cc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entidades\Obstáculos">
+      <UniqueIdentifier>{d0c629f3-e68a-4da4-8475-3770c3e25012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entidades\Obstáculos">
+      <UniqueIdentifier>{bd04a177-ea09-46a5-a2e2-2dfd2fce6c83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -93,7 +99,16 @@
       <Filter>Source Files\Entidades</Filter>
     </ClCompile>
     <ClCompile Include="Obstaculo.cpp">
-      <Filter>Source Files\Entidades</Filter>
+      <Filter>Source Files\Entidades\Obstáculos</Filter>
+    </ClCompile>
+    <ClCompile Include="Espinho.cpp">
+      <Filter>Source Files\Entidades\Obstáculos</Filter>
+    </ClCompile>
+    <ClCompile Include="Tronco.cpp">
+      <Filter>Source Files\Entidades\Obstáculos</Filter>
+    </ClCompile>
+    <ClCompile Include="Lago.cpp">
+      <Filter>Source Files\Entidades\Obstáculos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,9 +154,6 @@
     <ClInclude Include="Inimigo.h">
       <Filter>Header Files\Entidades\Inimigos</Filter>
     </ClInclude>
-    <ClInclude Include="ListaEntidades.h">
-      <Filter>Header Files\Entidades</Filter>
-    </ClInclude>
     <ClInclude Include="Fase.h">
       <Filter>Header Files\Fases</Filter>
     </ClInclude>
@@ -155,7 +167,19 @@
       <Filter>Header Files\Entidades</Filter>
     </ClInclude>
     <ClInclude Include="Obstaculo.h">
-      <Filter>Header Files\Entidades</Filter>
+      <Filter>Header Files\Entidades\Obstáculos</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEntidades.h">
+      <Filter>Header Files\Listas</Filter>
+    </ClInclude>
+    <ClInclude Include="Espinho.h">
+      <Filter>Header Files\Entidades\Obstáculos</Filter>
+    </ClInclude>
+    <ClInclude Include="Lago.h">
+      <Filter>Header Files\Entidades\Obstáculos</Filter>
+    </ClInclude>
+    <ClInclude Include="Tronco.h">
+      <Filter>Header Files\Entidades\Obstáculos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

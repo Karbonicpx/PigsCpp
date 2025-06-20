@@ -2,7 +2,7 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Baconzilla::Baconzilla() : Inimigo(1.5f), tamanho(5), forca(8), tempoTrocaDirecao(2.0f), direcao(1) {
+Baconzilla::Baconzilla() : Inimigo(1.5f), tamanho(5), forca(8), tempoTrocaDirecao(2.0f) {
     // Cor do Baconzilla para visualizacao
     corpo.setFillColor(sf::Color::Red);
     setMaldade(10);
@@ -48,7 +48,7 @@ void Baconzilla::atirarProjetil(Jogador* alvo, std::vector<Bomba*>& projeteis) {
     if (!alvo) return;
 
     sf::Vector2f origem = corpo.getPosition();
-    sf::Vector2f destino = alvo->getPosition();
+    sf::Vector2f destino = alvo->getCorpo().getPosition();
     sf::Vector2f direcao = destino - origem;
     float comprimento = std::sqrt(direcao.x * direcao.x + direcao.y * direcao.y);
     if (comprimento != 0)

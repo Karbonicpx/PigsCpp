@@ -2,7 +2,7 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Leitao::Leitao() : Inimigo(1.5f), raio(40), direcao(1) {
+Leitao::Leitao() : Inimigo(1.5f), raio(5.0f){
     // Cor do leitao para visualizacao
     corpo.setFillColor(sf::Color::Magenta);
     setMaldade(1);
@@ -13,6 +13,7 @@ Leitao::~Leitao() {
 
 }
 void Leitao::executar() {
+    
     mover();
 }
 void Leitao::danificar(Jogador* p) {
@@ -26,8 +27,12 @@ void Leitao::danificar(Jogador* p) {
 void Leitao::salvar() {
     // Implementar logica de salvamento
 }
+
+
 void Leitao::mover() {
-    sf::Vector2f deslocamento(velocidade * direcao, 0);
+
+    
+    sf::Vector2f deslocamento(velocidade * direcao, 0.f);
     corpo.move(deslocamento);
 
     float posX = corpo.getPosition().x;
@@ -35,7 +40,8 @@ void Leitao::mover() {
 
     if ((direcao == 1 && posX >= limite) || (direcao == -1 && posX <= limite)) {
         corpo.setPosition(sf::Vector2f(limite, corpo.getPosition().y));
-        direcao *= -1;
+        inverterDir();
     }
 }
+
 

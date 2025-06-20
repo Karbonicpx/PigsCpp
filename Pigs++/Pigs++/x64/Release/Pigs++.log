@@ -1,8 +1,10 @@
-﻿  Entidade.cpp
-  Leitao.cpp
+﻿  Fase.cpp
+  Jogador.cpp
+  Jogo.cpp
+  main.cpp
   Generating code
-  18 of 2140 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    14 functions had inline decision re-evaluated but remain unchanged
+  10 of 2165 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    4 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Pigs++.vcxproj -> S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\x64\Release\Pigs++.exe

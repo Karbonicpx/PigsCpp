@@ -17,9 +17,10 @@ Jogo::Jogo() :
  GG(*Gerenciador_Grafico::getInstancia())
 {
     // Inicializando jogador
-    jogador1 = new Jogador();
-    fase = new Floresta();
-    fase->setJogadores(jogador1);
+    jogador1 = new Jogador(true);
+    jogador2 = new Jogador(false);
+    fase = new Castelo();
+    fase->setJogadores(jogador1, jogador2);
 
     // Fazendo com que os entes tenham sua variável pGG apontando para a instância única
     Ente::setGG(Gerenciador_Grafico::getInstancia());
@@ -32,11 +33,11 @@ Jogo::~Jogo() {
 
 void Jogo::executar() {
 
-    inicializar(fase, "textures/Floresta.png");
+    inicializar(fase, "textures/Castelo.png");
 
 }
 
-void Jogo::inicializar(Fases::Floresta* f, std::string texturePath) {
+void Jogo::inicializar(Fases::Castelo* f, std::string texturePath) {
     f->criarEntidades(&GG);
 
     while (GG.estaAberta())
@@ -63,7 +64,7 @@ void Jogo::inicializar(Fases::Floresta* f, std::string texturePath) {
     }
 }
 
-void Jogo::desenharEntidades(Fases::Floresta* f) {
+void Jogo::desenharEntidades(Fases::Castelo* f) {
    
     for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
 
@@ -72,7 +73,7 @@ void Jogo::desenharEntidades(Fases::Floresta* f) {
     }
 }
 
-void Jogo::executarEntidades(Fases::Floresta* f) {
+void Jogo::executarEntidades(Fases::Castelo* f) {
     // Toda entidade que faz alguma coisa, deve ter seu método executar, na qual esse loop vai chamar
     for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
 

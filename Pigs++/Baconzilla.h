@@ -11,7 +11,6 @@ namespace PigsCpp {
             class Baconzilla : public Inimigo {
             private:
                 int tamanho;
-                int direcao;
                 short int forca;
                 sf::Clock relogio;
                 float tempoTrocaDirecao; // em segundos

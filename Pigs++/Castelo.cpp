@@ -68,7 +68,7 @@ void Castelo::criarEntidades(Gerenciador_Grafico* GG) {
             break;
 
         case 280: // Jogador
-            criarJogador();
+            criarJogador(pos.x, pos.y, spriteSize);
             break;
 
         case 282: // Espinho

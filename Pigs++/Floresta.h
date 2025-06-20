@@ -18,7 +18,7 @@ namespace PigsCpp {
 
 			void criarTouc();
 			void criarLago();
-			void criarTronco();
+			void criarTronco(sf::Vector2f pos);
 
 			void criarInimigos();
 			void criarPlataformas();

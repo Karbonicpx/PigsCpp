@@ -20,7 +20,7 @@ namespace PigsCpp {
 				float velocidade;
 
 			public:
-				Personagem(const float v);
+				Personagem(const float vel);
 				Personagem();
 				~Personagem();
 				const int getVidas() const;
@@ -29,6 +29,7 @@ namespace PigsCpp {
 				virtual void executar() = 0;
 				virtual void salvar() = 0;
 				void salvarDataBuffer();
+				float getVelX();
 			};
 		};
 	};

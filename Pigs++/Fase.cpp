@@ -12,27 +12,28 @@ Fase::Fase(string jsonPath) :
 	
 {
 	GC = new Gerenciador_Colisao();
-	LEs = new ListaEntidades();
+	lista_entes = new ListaEntidades();
 	setMapa(jsonPath);
 	criarMapa();
+	this->operator++(); // Fase também é ente
 
 	
 
 };
-const float Fase::gravidade(1.0f);
+const float Fase::gravidade(1.8f);
 
 Fase::~Fase() {
 
-	LEs->listaEntidades.limpar();
+	lista_entes->listaEntidades.limpar();
 	j1 = nullptr;
 	j2 = nullptr;
 	ent = nullptr;
-	delete(LEs);
+	delete(lista_entes);
 	delete(GC);
 };
 
 ListaEntidades* Fase::getListaEntidades() const {
-	return LEs;
+	return lista_entes;
 }
 
 
@@ -41,8 +42,8 @@ void Fase::setJogadores(Jogador* pJ1, Jogador* pJ2) {
 	j2 = pJ2;
 
 	GC->setJogadores(j1, j2);
-	LEs->listaEntidades.incluir(j1);
-	if (j2 != nullptr) { LEs->listaEntidades.incluir(j2); }
+	lista_entes->listaEntidades.incluir(j1);
+	if (j2 != nullptr) { lista_entes->listaEntidades.incluir(j2); }
 		
 }
 
@@ -135,13 +136,13 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 void Fase::inicializarEntidades(Entidade* e, const float x, const float y, const float size) {
 	if (e != nullptr) {
 		e->setPos(x, y);
-		e->setTamanho(size, size);
+		e->getCorpo().setSize(sf::Vector2f(size, size));
 
 		// Se não for bloco, aumentar o ID
 		if (dynamic_cast<Bloco*>(e) == nullptr){
 			e->operator++();
 		}
-		
+
 		getListaEntidades()->listaEntidades.incluir(e);
 
 		// Inclusão no Gerenciador de Colisão, checa se é inimigo ou obstaculo
@@ -158,8 +159,8 @@ void Fase::inicializarEntidades(Entidade* e, const float x, const float y, const
 
 
 void Fase::aplicarGravidade() {
-	for (int i = 0; i < LEs->listaEntidades.getLen(); i++) {
-		Entidade* ent = LEs->listaEntidades.getItem(i);
+	for (int i = 0; i < lista_entes->listaEntidades.getLen(); i++) {
+		Entidade* ent = lista_entes->listaEntidades.getItem(i);
 
 		// Se a entidade pode sofrer gravidade...
 		if (ent->getSofreGravidade() == true) {
@@ -188,25 +189,33 @@ void Fase::criarCenario() {
 
 }
 
-void Fase::criarJogador() {
+void Fase::criarJogador(const float posX, const float posY, const float size) {
 
 	// Se tiver apenas um jogador, crie apenas um
 	if (j1 != nullptr && j2 == nullptr) {
 
-		ent = static_cast<Entidade*>(j1);
+		j1->setPos(posX, posY);
+		j1->getCorpo().setSize(sf::Vector2f(size, size));
+		j1->operator++();
 
 	}
 	// Se tiver 2, cria os dois
 	else {
 
-		ent = static_cast<Entidade*>(j1);
-		ent = static_cast<Entidade*>(j2);
+		j1->setPos(posX, posY);
+		j1->getCorpo().setSize(sf::Vector2f(size, size));
+		j1->operator++();
+
+		// Cria um segundo jogador do lado do primeiro
+		j2->setPos(posX + size, posY);
+		j2->getCorpo().setSize(sf::Vector2f(size, size));
+		j2->operator++();
 
 	}
 }
 
 void Fase::gerenciarColisoes() {
-	GC->setLE(LEs);
+	GC->setLE(lista_entes);
 	GC->executar();
 }
 
