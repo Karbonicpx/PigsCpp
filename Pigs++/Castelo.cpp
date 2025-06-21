@@ -2,11 +2,12 @@
 
 using namespace PigsCpp::Fases;
 
-Castelo::Castelo():
-	Fase("fasesjson/Castelo.json"),
-	maxChefoes(1)
+Castelo::Castelo():                 // 8 - 18          // 4 - 7
+	Fase("fasesjson/Castelo.json", (rand() % 9) + 10, (rand() % 5) + 3),
+    maxEspinhos((rand() % 20) + 10), // 0, 1, 2 ... 20 no rand, + 10 - 10, 11 ... 30  
+    maxBaconzillas((rand() % 4) + 1)  // 0, 1, 2, 3 no rand, + 1 - 1, 2, 3, 4
 {
-
+  
 }
 
 Castelo::~Castelo() {
@@ -16,11 +17,11 @@ Castelo::~Castelo() {
 
 
 void Castelo::criarLago() {
-	// ent = static_cast<Entidade*>(new Lago());
+	ent = static_cast<Entidade*>(new Lago());
 }
 
 void Castelo::criarEspinho() {
-	// ent = static_cast<Entidade*>(new Espinho());
+	ent = static_cast<Entidade*>(new Espinho());
 }
 
 void Castelo::criarZilla() {
@@ -45,6 +46,10 @@ void Castelo::criarObstaculo() {
 
 void Castelo::criarEntidades(Gerenciador_Grafico* GG) {
     
+    int maxZillaCounter = 0;
+    int maxEspinhoCounter = 0;
+    int maxLeitaoCounter = 0;
+    int maxLagoCounter = 0;
 
     for (unsigned int i = 0; i < posicoesEntidades.size(); i++) {
         int tileId = posicoesEntidades[i].first;
@@ -55,24 +60,41 @@ void Castelo::criarEntidades(Gerenciador_Grafico* GG) {
             criarBloco();
             break;
 
-        case 276: // Lago
+        case 275: // Lago
+            if (maxLagoCounter >= maxLagos) {
+                break;
+            }
             criarLago();
+            maxLagoCounter++;
+            break;
+
+        case 276: // Espinho
+            if (maxEspinhoCounter >= maxEspinhos) {
+                break;
+            }
+            criarEspinho();
+            maxEspinhoCounter++;
             break;
 
         case 277: // Leitao (inimigo fácil)
+            if (maxLeitaoCounter >= maxLeitaos) {
+                break;
+            }
             criarLeitao();
+            maxLeitaoCounter++;
             break;
 
         case 279: // Baconzilla (chefe)
+
+            if (maxZillaCounter >= maxBaconzillas) {
+                break;
+            }
             criarZilla();
+            maxZillaCounter++;
             break;
 
         case 280: // Jogador
             criarJogador(pos.x, pos.y, spriteSize);
-            break;
-
-        case 282: // Espinho
-            criarEspinho();
             break;
 
         default:

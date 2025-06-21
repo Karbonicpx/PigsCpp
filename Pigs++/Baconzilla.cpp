@@ -2,10 +2,14 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Baconzilla::Baconzilla() : Inimigo(1.5f), tamanho(5), forca(8), tempoTrocaDirecao(2.0f) {
+Baconzilla::Baconzilla() : 
+    Inimigo(gerarAleatorioFloat(1.0f, 1.7f), 3),
+    tempoTrocaDirecao(gerarAleatorioFloat(1.5, 2.0f)),
+    tamanho((rand() % 3) + 1), // 1 a 3
+    forca((rand() % 5) + 1) // 1 a 5
+{
     // Cor do Baconzilla para visualizacao
-    corpo.setFillColor(sf::Color::Red);
-    setMaldade(10);
+    corpo.setFillColor(sf::Color::Black);
 };
 Baconzilla::~Baconzilla() {
 

@@ -13,7 +13,6 @@ namespace PigsCpp {
 				sf::Clock relogioPulo;
 				float alturaMaximaPulo;
 				float deslocamentoPulo;
-				bool estaPulando;
 				bool podePular;
 				bool pisandoPoca;
 				bool ehJogador1;
@@ -32,6 +31,7 @@ namespace PigsCpp {
 				void salvar();
 				void setVelocidade(float v);
 				void setPisandoPoca(const bool pP);
+				void setPodePular(const bool pP);
 
 
 			};

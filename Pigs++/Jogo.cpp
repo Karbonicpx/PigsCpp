@@ -9,6 +9,8 @@ using namespace PigsCpp::Fases;
 
 
 Jogo::Jogo() :
+jogador2(nullptr), // Inicializando jogador2 como nullptr, caso o jogo queria apenas um jogador
+
 // O que está acontecendo aqui?
 // O gerenciador gráfico está no modelo de projeto chamado "singleton"
 // Nesse modelo, fazemos com que apenas uma instância static de uma classe específica possa existir
@@ -16,10 +18,14 @@ Jogo::Jogo() :
 // Assim, só podendo existir um GG por jogo
  GG(*Gerenciador_Grafico::getInstancia())
 {
-    // Inicializando jogador
+
+    // Inicializa o gerador de números aleatórios
+    srand((unsigned int)time(NULL));
+
+    // Inicializando jogador(es)
     jogador1 = new Jogador(true);
-    jogador2 = new Jogador(false);
-    fase = new Castelo();
+    // jogador2 = new Jogador(false);
+    fase = new Floresta();
     fase->setJogadores(jogador1, jogador2);
 
     // Fazendo com que os entes tenham sua variável pGG apontando para a instância única
@@ -33,11 +39,11 @@ Jogo::~Jogo() {
 
 void Jogo::executar() {
 
-    inicializar(fase, "textures/Castelo.png");
+    inicializar(fase, "textures/Floresta.png");
 
 }
 
-void Jogo::inicializar(Fases::Castelo* f, std::string texturePath) {
+void Jogo::inicializar(Fases::Floresta* f, std::string texturePath) {
     f->criarEntidades(&GG);
 
     while (GG.estaAberta())
@@ -64,7 +70,7 @@ void Jogo::inicializar(Fases::Castelo* f, std::string texturePath) {
     }
 }
 
-void Jogo::desenharEntidades(Fases::Castelo* f) {
+void Jogo::desenharEntidades(Fases::Floresta* f) {
    
     for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
 
@@ -73,7 +79,7 @@ void Jogo::desenharEntidades(Fases::Castelo* f) {
     }
 }
 
-void Jogo::executarEntidades(Fases::Castelo* f) {
+void Jogo::executarEntidades(Fases::Floresta* f) {
     // Toda entidade que faz alguma coisa, deve ter seu método executar, na qual esse loop vai chamar
     for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
 

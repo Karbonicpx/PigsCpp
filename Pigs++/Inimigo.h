@@ -13,7 +13,7 @@ namespace PigsCpp {
 
             public:
 
-                Inimigo(const float v);
+                Inimigo(const float v, const int vida);
                 Inimigo();
                 ~Inimigo();
                 const int getMaldade() const;

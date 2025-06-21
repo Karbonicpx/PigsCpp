@@ -4,11 +4,13 @@ using namespace PigsCpp::Fases;
 using namespace std;
 
 
-Fase::Fase(string jsonPath) :
+Fase::Fase(string jsonPath, const int mLG, const int mLT) :
 	j1(nullptr),
 	j2(nullptr),
 	ent(nullptr),
-	spriteSize(32.0f)
+	spriteSize(32.0f),
+	maxLagos(mLG),
+	maxLeitaos(mLT)
 	
 {
 	GC = new Gerenciador_Colisao();
@@ -16,11 +18,21 @@ Fase::Fase(string jsonPath) :
 	setMapa(jsonPath);
 	criarMapa();
 	this->operator++(); // Fase também é ente
-
-	
-
 };
-const float Fase::gravidade(1.8f);
+Fase::Fase() :
+	j1(nullptr),
+	j2(nullptr),
+	ent(nullptr),
+	GC(nullptr),
+	lista_entes(nullptr),
+	spriteSize(32.0f),
+	maxLagos(0),
+	maxLeitaos(0)
+
+{
+	
+};
+const float Fase::gravidade(2.3f);
 
 Fase::~Fase() {
 

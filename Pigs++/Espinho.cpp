@@ -2,8 +2,8 @@
 
 using namespace PigsCpp;
 using namespace Entidades;
-
-Espinho::Espinho():Obstaculo(true, true), danosidade(1) {
+                                                    // 1 - 3
+Espinho::Espinho():Obstaculo(true, true), danosidade((rand() % 3) + 1) {
     corpo.setFillColor(sf::Color::White);
 }
 Espinho::~Espinho() {

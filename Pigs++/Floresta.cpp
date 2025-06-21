@@ -5,11 +5,12 @@ using namespace PigsCpp::Fases;
 
 
 
-Floresta::Floresta():
-	Fase("fasesjson/Floresta.json"),
-	maxInimMedios(2)
+Floresta::Floresta() :              // 10 - 15         // 3 - 6
+    Fase("fasesjson/Floresta.json", (rand() % 5) + 10, (rand() % 4) + 3),
+    maxToucinhos((rand() % 3) + 3), // 0, 1, 2 no rand, e com + 3 fica 3, 4, 5
+    maxTroncos((rand() % 3) + 3) // 0, 1, 2 no rand, e com + 3 fica 3, 4, 5
 {
-
+  
 }
 
 Floresta::~Floresta() {
@@ -62,9 +63,14 @@ void Floresta::criarObstaculo() {
 // Método que vai criar as entidades na posição obtida dos tiles da camada "Entidades" na fase
 void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
 
+    int maxToucCounter = 0;
+    int maxTroncoCounter = 0;
+    int maxLagoCounter = 0;
+    int maxLeitaoCounter = 0;
+
     for (unsigned int i = 0; i < posicoesEntidades.size(); i++) {
-        int tileId = posicoesEntidades[i].first;
-        sf::Vector2f pos = posicoesEntidades[i].second;
+        int tileId = posicoesEntidades[i].first; // Pegando a lista dos tile IDS
+        sf::Vector2f pos = posicoesEntidades[i].second; // Pegando a posição das entidades
 
         ent = nullptr;
 
@@ -74,15 +80,30 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
 
             break;
 		case 74: // Lago (obstáculo)
+
+            if (maxLagoCounter >= maxLagos) {
+                break;
+            }
             criarLago();
+            maxLagoCounter++;
             break;
 
         case 76: // Leitao (inimigo fácil)
+
+            if (maxLeitaoCounter >= maxLeitaos) {
+                break;
+            }
             criarLeitao();
+            maxLeitaoCounter++;
             break;
 
         case 77: // Touc (inimigo médio)
+
+            if (maxToucCounter >= maxToucinhos) {
+                break;
+            }
             criarTouc();
+            maxToucCounter++;
             break;
 
         case 79: // Jogador(es)
@@ -90,7 +111,11 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
             break;
 
 		case 80: // Tronco (obstáculo sem dano)
+            if (maxTroncoCounter >= maxTroncos) {
+                break;
+            }
             criarTronco(pos);
+            maxTroncoCounter++;
             break;
             
 

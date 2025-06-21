@@ -7,6 +7,7 @@
 #include "Castelo.h"
 #include "Gerenciador_Grafico.h"
 #include "Gerenciador_Colisao.h"
+#include <ctime>
 
 // Namespace e classe principal do projeto
 namespace PigsCpp {
@@ -17,15 +18,15 @@ namespace PigsCpp {
 		Personagens::Jogador* jogador1;
 		Personagens::Jogador* jogador2;
 		Gerenciadores::Gerenciador_Grafico& GG;
-		Fases::Castelo* fase;
+		Fases::Floresta* fase;
 		
 
 	public:
 		Jogo();
 		~Jogo();
 		void executar();
-		void inicializar(Fases::Castelo* f, std::string texturePath);
-		void executarEntidades(Fases::Castelo* f);
-		void desenharEntidades(Fases::Castelo* f);
+		void inicializar(Fases::Floresta* f, std::string texturePath);
+		void executarEntidades(Fases::Floresta* f);
+		void desenharEntidades(Fases::Floresta* f);
 	};
 };

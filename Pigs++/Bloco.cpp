@@ -60,6 +60,11 @@ void Bloco::blocar(Entidade* e) {
         if (rectEnt.position.y < rectBloco.position.y) {
             // Por cima (pé no chão)
             e->setPos(rectEnt.position.x, rectBloco.position.y - rectEnt.size.y);
+
+            // Se for um jogador tocando no chão, permite ele pular
+            if (dynamic_cast<Jogador*>(e) != nullptr) {
+                dynamic_cast<Jogador*>(e)->setPodePular(true);
+			}
         }
         else {
             // Por baixo (bateu no teto)

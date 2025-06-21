@@ -148,9 +148,6 @@
     <ClInclude Include="Lista.h">
       <Filter>Header Files\Listas</Filter>
     </ClInclude>
-    <ClInclude Include="Elemento.h">
-      <Filter>Header Files\Listas</Filter>
-    </ClInclude>
     <ClInclude Include="Inimigo.h">
       <Filter>Header Files\Entidades\Inimigos</Filter>
     </ClInclude>

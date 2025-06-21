@@ -154,6 +154,7 @@ void Gerenciador_Colisao::removerInimigo(Inimigo* ini) {
     }
 }
 
+// Usado apenas para limpar no destrutor
 void Gerenciador_Colisao::removerObstaculo(Obstaculo* obs) {
     std::list<Obstaculo*>::iterator it = std::find(LOs.begin(), LOs.end(), obs);
     if (it != LOs.end()) {

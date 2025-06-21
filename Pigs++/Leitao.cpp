@@ -2,10 +2,13 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Leitao::Leitao() : Inimigo(1.5f), raio(5.0f){
+Leitao::Leitao() : 
+    Inimigo(gerarAleatorioFloat(1.0f, 2.0f), 1),
+    raio(gerarAleatorioFloat(15.0f, 20.0f))
+{
     // Cor do leitao para visualizacao
     corpo.setFillColor(sf::Color::Magenta);
-    setMaldade(1);
+   
 }
 
 

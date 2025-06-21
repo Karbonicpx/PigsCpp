@@ -43,28 +43,32 @@ namespace PigsCpp {
 			Jogador* j2;
 			std::vector<std::pair<int, sf::Vector2f>> posicoesEntidades;
 			const float spriteSize;
-			virtual void criarInimigos() = 0;
-			virtual void criarObstaculo() = 0;
-			void criarJogador(const float posX, const float posY, const float size);
+			const int maxLagos; // Numero máximo de lagos em ambas fases
+			const int maxLeitaos; // Numero máximo de leitaos em ambas fases
+
 			void gerenciarColisoes();
+			void criarJogador(const float posX, const float posY, const float size);
 			void criarBloco(); // Chão e paredes do jogo
 			void criarLeitao();
 			void criarPlataformas();
 			void criarCenario();
+			virtual void criarInimigos() = 0;
+			virtual void criarObstaculo() = 0;
 			
 
 		public:
-			Fase(std::string jsonPath);
+			Fase(std::string jsonPath, const int mLG, const int mLT);
+			Fase();
 			~Fase();
-			virtual void executar();
-			
-			ListaEntidades* getListaEntidades() const;
-			void setJogadores(Jogador* pJ1, Jogador* pJ2 = nullptr);
-			void setMapa(std::string jsonPath);
+			virtual void executar();	
 			void criarMapa();
 			void inicializarEntidades(Entidade* e, const float x, const float y, const float size);
 			virtual void desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath);
 			virtual void criarEntidades(Gerenciador_Grafico* GG) = 0;
+
+			ListaEntidades* getListaEntidades() const;
+			void setJogadores(Jogador* pJ1, Jogador* pJ2 = nullptr);
+			void setMapa(std::string jsonPath);
 		};
 	};
 };

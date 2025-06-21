@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Gerenciador_Grafico.h"
+#include <cstdlib>
 
 // Classe mais abstrata das entidades no projeto, onde vai ter as funções de:
 // Registrar id, acessar o endereço da janela, definir o body das entidades assim como desenhalas
@@ -29,6 +30,7 @@ namespace PigsCpp {
 		const int getId() const;
 		void desenhar();
 		void operator++();
+		float gerarAleatorioFloat(const float min, const float max);
 	};
 };
 

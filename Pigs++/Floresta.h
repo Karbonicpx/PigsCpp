@@ -9,8 +9,8 @@ namespace PigsCpp {
 
 		private:
 
-			const int maxInimMedios;
-			
+			const int maxToucinhos;
+			const int maxTroncos;	
 
 		public:
 			Floresta();
@@ -24,6 +24,8 @@ namespace PigsCpp {
 			void criarPlataformas();
 			void criarObstaculo();
 			void criarEntidades(Gerenciador_Grafico* GG);
+
+			
 			
 		};
 

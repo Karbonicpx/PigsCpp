@@ -48,3 +48,8 @@ void Ente::desenhar() {
 void Ente::setGG(Gerenciador_Grafico* gg) {
 	pGG = gg;
 }
+
+// Usado em casos que é preciso randomizar o valor de algum atributo em uma entidade
+float Ente::gerarAleatorioFloat(const float min, const float max) {
+	return min + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (max - min)));
+}

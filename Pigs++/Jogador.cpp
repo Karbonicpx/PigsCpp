@@ -4,15 +4,15 @@ using namespace PigsCpp::Entidades::Personagens;
 
 
 Jogador::Jogador(const bool ehJ1) :
-	Personagem(3.0f),
+	Personagem(3.0f, 1),
 	pontos(0),
 	alturaMaximaPulo(140.0f),
 	deslocamentoPulo(0.f),
 	relogioPulo(),
-	estaPulando(false),
 	podePular(true),
 	pisandoPoca(false),
 	ehJogador1(ehJ1)
+	
 
 {
 	// Colocando cor só pra ver o jogador
@@ -22,12 +22,11 @@ Jogador::Jogador(const bool ehJ1) :
 	
 };
 Jogador::Jogador() :
-	Personagem(2.0f),
+	Personagem(3.0f, 1),
 	pontos(0),
 	alturaMaximaPulo(140.0f),
 	deslocamentoPulo(0.f),
 	relogioPulo(),
-	estaPulando(false),
 	podePular(true),
 	pisandoPoca(false),
 	ehJogador1(true)
@@ -67,12 +66,12 @@ void Jogador::mover() {
 		apertarTecla(Key::A, -velocidade, 0.f);
 
 		// Lógica do pulo
-		if (isKeyPressed(Key::W) && podePular && !estaPulando) {
+		if (isKeyPressed(Key::W) && podePular) {
 			pisandoPoca = false;
 			iniciarPulo();
 		}
 
-		atualizarPulo();
+		if (podePular == false) { atualizarPulo(); }
 	}
 	// Jogador 2
 	else {
@@ -82,12 +81,13 @@ void Jogador::mover() {
 		apertarTecla(Key::Left, -velocidade, 0.f);
 
 		// Lógica do pulo
-		if (isKeyPressed(Key::Up) && podePular && !estaPulando) {
+		if (isKeyPressed(Key::Up) && podePular) {
 			pisandoPoca = false;
 			iniciarPulo();
 		}
 
-		atualizarPulo();
+		if (podePular == false) { atualizarPulo(); }
+		
 	}
 	
 
@@ -96,7 +96,6 @@ void Jogador::mover() {
 
 void Jogador::iniciarPulo() {
 	podePular = false;
-	estaPulando = true;
 	deslocamentoPulo = 0.0f;
 	relogioPulo.restart();
 	setSofreGravidade(false);
@@ -106,32 +105,25 @@ void Jogador::iniciarPulo() {
 
 
 void Jogador::atualizarPulo() {
-	if (estaPulando) {
-		float tempo = relogioPulo.getElapsedTime().asSeconds();
-		float duracao = 0.7f;
 
-		if (tempo <= duracao) {
-			float progresso = tempo / duracao;
+	float tempo = relogioPulo.getElapsedTime().asSeconds();
+	float duracao = 0.7f;
 
-			// Calcula o deslocamento desejado neste frame
-			float novoDeslocamento = alturaMaximaPulo * (1.0f - (2.0f * progresso - 1.0f) * (2.0f * progresso - 1.0f));
+	if (tempo <= duracao) {
+		float progresso = tempo / duracao;
 
-			// Move apenas a diferença desde o último frame
-			float diferenca = novoDeslocamento - deslocamentoPulo;
-			corpo.move(sf::Vector2f(0, -diferenca));  // Move para cima (eixo Y negativo)
+		// Calcula o deslocamento desejado neste frame
+		float novoDeslocamento = alturaMaximaPulo * (1.0f - (2.0f * progresso - 1.0f) * (2.0f * progresso - 1.0f));
 
-			// Detecta quando começa a descer (atingiu altura máxima)
-			if (novoDeslocamento < deslocamentoPulo) {
-				setSofreGravidade(true);
-			}
-			deslocamentoPulo = novoDeslocamento;
-		}
-		else {
-			// Finalização do pulo
-			estaPulando = false;
-			setSofreGravidade(true);
-			podePular = true;
-		}
+		// Move apenas a diferença desde o último frame
+		float diferenca = novoDeslocamento - deslocamentoPulo;
+		corpo.move(sf::Vector2f(0, -diferenca));  // Move para cima (eixo Y negativo)
+
+		deslocamentoPulo = novoDeslocamento;
+	}
+	else {
+		// Finalização do pulo
+		setSofreGravidade(true);
 	}
 }
 
@@ -148,3 +140,5 @@ void Jogador::salvar() {
 void Jogador::setVelocidade(float v) {velocidade = v;}
 
 void Jogador::setPisandoPoca(const bool pP) { pisandoPoca = pP; }
+
+void Jogador::setPodePular(const bool pP) { podePular = pP; }

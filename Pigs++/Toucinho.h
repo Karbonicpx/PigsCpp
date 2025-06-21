@@ -2,16 +2,18 @@
 #pragma once
 #include "Inimigo.h"
 #include "Bomba.h"
-#include <vector>
+#include <queue>
 
 namespace PigsCpp {
     namespace Entidades {
         namespace Personagens {
             class Toucinho : public Inimigo {
             private:
-                short int forca;
-                std::vector <Bomba> bombas;
+
+                // Usando isso aqui para ter um fluxo de bombas sendo alocadas e desalocadas da memoria
+                std::queue<Bomba*> filaBombas;
                 int tempoAtaque;
+                short int forca;
 
             public:
                 Toucinho();

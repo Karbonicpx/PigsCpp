@@ -32,6 +32,7 @@ namespace PigsCpp {
 			bool getSofreGravidade() const;		
 			void setSofreGravidade(const bool sV);
 			void setSpriteVisivel(const bool sV);
+			
 		};
 	};
 
