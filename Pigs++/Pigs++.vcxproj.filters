@@ -110,6 +110,9 @@
     <ClCompile Include="Lago.cpp">
       <Filter>Source Files\Entidades\Obstáculos</Filter>
     </ClCompile>
+    <ClCompile Include="Martelo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -177,6 +180,9 @@
     </ClInclude>
     <ClInclude Include="Tronco.h">
       <Filter>Header Files\Entidades\Obstáculos</Filter>
+    </ClInclude>
+    <ClInclude Include="Martelo.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

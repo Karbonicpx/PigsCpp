@@ -9,10 +9,11 @@ Jogador::Jogador(const bool ehJ1) :
 	alturaMaximaPulo(140.0f),
 	deslocamentoPulo(0.f),
 	relogioPulo(),
+	estaPulando(false),
 	podePular(true),
 	pisandoPoca(false),
-	ehJogador1(ehJ1)
-	
+	ehJogador1(ehJ1),
+	direcaoMartelo(1.0f)
 
 {
 	// Colocando cor só pra ver o jogador
@@ -27,9 +28,11 @@ Jogador::Jogador() :
 	alturaMaximaPulo(140.0f),
 	deslocamentoPulo(0.f),
 	relogioPulo(),
+	estaPulando(false),
 	podePular(true),
 	pisandoPoca(false),
-	ehJogador1(true)
+	ehJogador1(true), 
+	direcaoMartelo(1.0f) 
 
 {
 	// Colocando cor só pra ver o jogador
@@ -46,6 +49,8 @@ void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 	if (isKeyPressed(tecla)) {
 
 		corpo.move(Vector2f(spdX, spdY));
+		if (spdX > 0) direcaoMartelo = 1.f;
+		else if (spdX < 0) direcaoMartelo = -1.f;
 	}
 }
 
@@ -55,6 +60,8 @@ void Jogador::mover() {
 	
 	if (pisandoPoca) { velocidade = 2.0f; }
 	else { velocidade = 3.0f; }
+
+	static bool pressionouAtaque = false;
 
 	
 	// Jogador 1
@@ -69,6 +76,17 @@ void Jogador::mover() {
 		if (isKeyPressed(Key::W) && podePular) {
 			pisandoPoca = false;
 			iniciarPulo();
+		}
+		if (isKeyPressed(Key::Space)) {
+			if (!pressionouAtaque) {
+				Martelo* martelo = usarMartelo(8.0f);
+				// Adicione o martelo à sua lista de entidades global aqui!
+				// Exemplo: listaEntidades->listaEntidades.inserir(martelo);
+				pressionouAtaque = true;
+			}
+		}
+		else {
+			pressionouAtaque = false;
 		}
 
 		if (podePular == false) { atualizarPulo(); }
@@ -85,6 +103,16 @@ void Jogador::mover() {
 			pisandoPoca = false;
 			iniciarPulo();
 		}
+		if (isKeyPressed(Key::Enter)) {
+			if (!pressionouAtaque) {
+				Martelo* martelo = usarMartelo(8.0f);
+				// Adicione o martelo à sua lista de entidades global aqui!
+				pressionouAtaque = true;
+			}
+		}
+		else {
+			pressionouAtaque = false;
+		}
 
 		if (podePular == false) { atualizarPulo(); }
 		
@@ -96,6 +124,7 @@ void Jogador::mover() {
 
 void Jogador::iniciarPulo() {
 	podePular = false;
+	estaPulando = true;
 	deslocamentoPulo = 0.0f;
 	relogioPulo.restart();
 	setSofreGravidade(false);
@@ -119,14 +148,24 @@ void Jogador::atualizarPulo() {
 		float diferenca = novoDeslocamento - deslocamentoPulo;
 		corpo.move(sf::Vector2f(0, -diferenca));  // Move para cima (eixo Y negativo)
 
+		// Detecta quando começa a descer (atingiu altura máxima)
+		if (novoDeslocamento < deslocamentoPulo) {
+			setSofreGravidade(true);
+		}
 		deslocamentoPulo = novoDeslocamento;
 	}
 	else {
 		// Finalização do pulo
+		estaPulando = false;
 		setSofreGravidade(true);
+		podePular = true;
 	}
 }
-
+Martelo* Jogador::usarMartelo(float velocidade) {
+	sf::Vector2f origem = corpo.getPosition();
+	sf::Vector2f direcao(direcaoMartelo, 0.f); // horizontal
+	return new Martelo(origem.x, origem.y, velocidade, direcao);
+}
 // Executando o mover, e futuros eventos relacionados ao jogador
 void Jogador::executar() {
 	mover();

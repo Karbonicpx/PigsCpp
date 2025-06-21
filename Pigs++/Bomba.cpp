@@ -6,18 +6,20 @@ using namespace sf;
 
 
 // Construtor padrão, sem inicializações
-Bomba::Bomba():
+Bomba::Bomba() :
     Entidade(false, true),
     velocidade(0.f),
     direcao(sf::Vector2f(0.f, 0.f)),
     ativo(false)
 {
 
+
 }
 Bomba::Bomba(float x, float y, float vel, sf::Vector2f dir):
-    Entidade(), velocidade(vel), direcao(dir), ativo(true), forma(5.0f) { 
+    Entidade(), velocidade(vel), direcao(dir), ativo(true) { 
         setPos(x, y); // Isso aqui já faz a função de setar a posição inicial
-        forma.setFillColor(sf::Color::Yellow);
+        corpo.setFillColor(sf::Color::Yellow);
+        this->desenhar();
     }
 
 Bomba::~Bomba() {}
@@ -26,7 +28,7 @@ void Bomba::mover() {  // Mover o projétil na direção especificada
     if (ativo) {
         x += direcao.x * velocidade;
         y += direcao.y * velocidade;
-        forma.setPosition(sf::Vector2f(x,y));
+        corpo.setPosition(sf::Vector2f(x,y));
     }
 }
 
