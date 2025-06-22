@@ -2,16 +2,11 @@
 
 using namespace PigsCpp;
 
-int main()
-{
-   
-	Jogo jogoObj;
-	jogoObj.executar();
+int main() {
 
-	// Destruindo a instância estática
-	Gerenciador_Grafico::destruirInstancia();
-	return 0;
-	
-	
-	
+    Jogo jogoObj;
+    jogoObj.executar();
+
+    return 0;
+
 }

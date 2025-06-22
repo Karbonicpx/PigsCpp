@@ -3,6 +3,7 @@
 #include "Jogador.h"
 #include "Entidade.h"
 #include "Obstaculo.h"
+#include "Tronco.h"
 #include "Inimigo.h"
 #include "Bomba.h"
 #include "Bloco.h"
@@ -38,6 +39,7 @@ namespace PigsCpp {
             void tratarColisoesJogsInimgs();
             void tratarColisoesJogsBombas();
             void tratarColisoesEntsBlocos();
+            void tratarColisoesInimTroncos();
            
 
         public:
@@ -48,7 +50,6 @@ namespace PigsCpp {
             void incluirObstaculo(Obstaculo* obs);
             void incluirBomba(Bomba* b);
             void removerInimigo(Inimigo* ini);
-            void removerObstaculo(Obstaculo* obs);
             void removerBomba(Bomba* b);
 
             void setLE(ListaEntidades* LE);

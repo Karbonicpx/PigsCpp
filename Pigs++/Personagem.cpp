@@ -3,8 +3,8 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Personagem::Personagem(const float vel, const int vida) :
-	Entidade(true, true),
+Personagem::Personagem(const std::string texturePath, const float bodyX, const float bodyY, const float vel, const int vida) :
+	Entidade(texturePath, bodyX, bodyY, true, true),
 	numVidas(vida),
 	velocidade(vel)
 {

@@ -1,5 +1,7 @@
 #pragma once
 #include "Obstaculo.h"
+#include "Inimigo.h"
+#include "Leitao.h"
 
 namespace PigsCpp {
 	namespace Entidades {
@@ -11,6 +13,7 @@ namespace PigsCpp {
 			~Tronco();
 			void executar();
 			void obstaculizar(Jogador* p);
+			void obstaculizarIni(Inimigo* ini);
 			void salvar();
 			void salvarDataBuffer();
 		};

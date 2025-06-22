@@ -2,10 +2,10 @@
 
 using namespace PigsCpp;
 using namespace Entidades;
-                                        // 1 - 3
-Lago::Lago():Obstaculo(true, false), largura((rand() % 3) + 1){
-	
-    corpo.setFillColor(sf::Color::Blue);
+                                                                                    
+Lago::Lago():
+    Obstaculo("textures/Lago.png", 32.0f, 32.0f, false), 
+    largura((rand() % 3) + 1) { // 1 - 3
 
 }
 Lago::~Lago() {

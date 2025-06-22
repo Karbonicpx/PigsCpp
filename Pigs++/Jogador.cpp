@@ -80,6 +80,7 @@ void Jogador::mover() {
 		if (isKeyPressed(Key::Space)) {
 			if (!pressionouAtaque) {
 				Martelo* martelo = usarMartelo(8.0f);
+				martelo->executar();
 				// Adicione o martelo à sua lista de entidades global aqui!
 				// Exemplo: listaEntidades->listaEntidades.inserir(martelo);
 				pressionouAtaque = true;
@@ -106,6 +107,7 @@ void Jogador::mover() {
 		if (isKeyPressed(Key::Enter)) {
 			if (!pressionouAtaque) {
 				Martelo* martelo = usarMartelo(8.0f);
+				martelo->executar();
 				// Adicione o martelo à sua lista de entidades global aqui!
 				pressionouAtaque = true;
 			}

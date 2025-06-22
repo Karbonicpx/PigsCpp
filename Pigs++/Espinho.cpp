@@ -2,9 +2,10 @@
 
 using namespace PigsCpp;
 using namespace Entidades;
-                                                    // 1 - 3
-Espinho::Espinho():Obstaculo(true, true), danosidade((rand() % 3) + 1) {
-    corpo.setFillColor(sf::Color::White);
+                                                                                        
+Espinho::Espinho():
+    Obstaculo("textures/Espinho.png", 32.0f, 32.0f, true), 
+    danosidade((rand() % 3) + 1)  { // 1 - 3
 }
 Espinho::~Espinho() {
 

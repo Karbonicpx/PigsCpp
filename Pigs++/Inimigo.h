@@ -13,7 +13,7 @@ namespace PigsCpp {
 
             public:
 
-                Inimigo(const float v, const int vida);
+                Inimigo(const std::string texturePath, const float bodyX, const float bodyY, const float v, const int vida);
                 Inimigo();
                 ~Inimigo();
                 const int getMaldade() const;

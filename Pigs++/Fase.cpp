@@ -8,9 +8,10 @@ Fase::Fase(string jsonPath, const int mLG, const int mLT) :
 	j1(nullptr),
 	j2(nullptr),
 	ent(nullptr),
-	spriteSize(32.0f),
 	maxLagos(mLG),
-	maxLeitaos(mLT)
+	maxLeitaos(mLT),
+	texturaFundo("textures/Fase1BG.png"),
+	fundo(texturaFundo)
 	
 {
 	GC = new Gerenciador_Colisao();
@@ -25,14 +26,15 @@ Fase::Fase() :
 	ent(nullptr),
 	GC(nullptr),
 	lista_entes(nullptr),
-	spriteSize(32.0f),
 	maxLagos(0),
-	maxLeitaos(0)
+	maxLeitaos(0),
+	texturaFundo("textures/FundoFloresta.png"),
+	fundo(texturaFundo)
 
 {
 	
 };
-const float Fase::gravidade(2.3f);
+const float Fase::gravidade(3.0f);
 
 Fase::~Fase() {
 
@@ -42,6 +44,8 @@ Fase::~Fase() {
 	ent = nullptr;
 	delete(lista_entes);
 	delete(GC);
+	lista_entes = nullptr;
+	GC = nullptr;
 };
 
 ListaEntidades* Fase::getListaEntidades() const {
@@ -109,6 +113,7 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 	int altura = mapa["height"];
 	sf::Texture* tileset = new Texture(tilesetPath);
 
+	GG->getWindow()->draw(fundo); // Desenha o fundo primeiro
 
 	int colunasTileset = tileset->getSize().x / tileSize;
 
@@ -145,13 +150,22 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 	}
 }
 
-void Fase::inicializarEntidades(Entidade* e, const float x, const float y, const float size) {
+void Fase::inicializarEntidades(Entidade* e, const float x, const float y) {
 	if (e != nullptr) {
-		e->setPos(x, y);
-		e->getCorpo().setSize(sf::Vector2f(size, size));
 
-		// Se não for bloco, aumentar o ID
-		if (dynamic_cast<Bloco*>(e) == nullptr){
+		if (dynamic_cast<Leitao*>(e) != nullptr){
+			e->setPos(x, y + 8.0f);
+			e->setSofreGravidade(false);
+		}
+		else if (dynamic_cast<Baconzilla*>(e) != nullptr) {
+			e->setPos(x, y - 12.0f);
+			e->setSofreGravidade(false);
+		}
+		else e->setPos(x, y);
+		
+
+		// Se não for bloco ou obstaculo, aumentar o ID
+		if (dynamic_cast<Bloco*>(e) == nullptr || dynamic_cast<Obstaculo*>(e) == nullptr){
 			e->operator++();
 		}
 
@@ -198,16 +212,18 @@ void Fase::criarPlataformas() {
 
 // Fazer depois
 void Fase::criarCenario() {
-
+	texturaFundo.loadFromFile("textures/Fase1BG.png");
+	fundo.setTexture(texturaFundo);
+	fundo.setPosition(sf::Vector2f(0.f, 0.f));
 }
 
-void Fase::criarJogador(const float posX, const float posY, const float size) {
+void Fase::criarJogador(const float posX, const float posY) {
 
 	// Se tiver apenas um jogador, crie apenas um
 	if (j1 != nullptr && j2 == nullptr) {
 
 		j1->setPos(posX, posY);
-		j1->getCorpo().setSize(sf::Vector2f(size, size));
+		j1->setPosRespawn(posX, posY);
 		j1->operator++();
 
 	}
@@ -215,12 +231,12 @@ void Fase::criarJogador(const float posX, const float posY, const float size) {
 	else {
 
 		j1->setPos(posX, posY);
-		j1->getCorpo().setSize(sf::Vector2f(size, size));
+		j1->setPosRespawn(posX, posY);
 		j1->operator++();
 
 		// Cria um segundo jogador do lado do primeiro
-		j2->setPos(posX + size, posY);
-		j2->getCorpo().setSize(sf::Vector2f(size, size));
+		j2->setPos(posX + j1->getCorpo().getSize().x, posY);
+		j2->setPosRespawn(posX + j1->getCorpo().getSize().x, posY);
 		j2->operator++();
 
 	}
@@ -229,6 +245,38 @@ void Fase::criarJogador(const float posX, const float posY, const float size) {
 void Fase::gerenciarColisoes() {
 	GC->setLE(lista_entes);
 	GC->executar();
+
+	for (int i = 0; i < lista_entes->listaEntidades.getLen(); i++) {
+
+		Entidade* e = lista_entes->listaEntidades.getItem(i);
+
+		// Verifica se é um personagem
+		Personagem* p = dynamic_cast<Personagem*>(e);
+
+		if (p != nullptr) {
+			if (p->getVidas() <= 0 && dynamic_cast<Jogador*>(p) == nullptr) {
+
+				// Remove da lista
+				lista_entes->listaEntidades.remover(e);
+
+				// Se for inimigo, remove do Gerenciador de Colisão
+				Inimigo* inim = dynamic_cast<Inimigo*>(p);
+				if (inim != nullptr) {
+					GC->removerInimigo(inim);
+				}
+
+				// Libera a memória
+				delete p;
+				p = nullptr;
+
+				// Decrementa len porque a lista foi encurtada após remover
+				lista_entes--;
+			}
+			else if (p->getVidas() <= 0 && dynamic_cast<Jogador*>(p) != nullptr) {
+				
+			}
+		}
+	}
 }
 
 void Fase::executar() {

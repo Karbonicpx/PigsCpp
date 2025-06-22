@@ -16,18 +16,27 @@ namespace PigsCpp {
 	{
 		
 	protected:
-		static int id;
+		int idIndividual; // Id individual de cada entidade
+		static int id; // Contador globao
+		bool spriteVisivel;
 		RectangleShape corpo;
+		Texture* textura;
+
 		static Gerenciador_Grafico* pGG;
 		
 
 	public:
+		Ente(const std::string texturePath, const float bodyX, const float bodyY, const bool sV);
 		Ente();
 		virtual ~Ente();
-		sf::RectangleShape& getCorpo();
-		virtual void executar() = 0;
-		static void setGG(Gerenciador_Grafico* gg);
+		RectangleShape& getCorpo();
+		bool getSpriteVisivel() const;
 		const int getId() const;
+		virtual void executar() = 0;
+
+		void setSpriteVisivel(const bool sV);
+		static void setGG(Gerenciador_Grafico* gg);
+		
 		void desenhar();
 		void operator++();
 		float gerarAleatorioFloat(const float min, const float max);

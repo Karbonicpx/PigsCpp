@@ -17,7 +17,7 @@ namespace PigsCpp {
 			bool danoso;
 
 		public:
-			Obstaculo(const bool sV, const bool dN);
+			Obstaculo(const std::string texturePath, const float bodyX, const float bodyY, const bool dN);
 			Obstaculo();
 			virtual ~Obstaculo();
 			void salvarDataBuffer();

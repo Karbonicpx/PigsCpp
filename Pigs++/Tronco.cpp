@@ -1,9 +1,12 @@
 #include "Tronco.h"
 
 using namespace PigsCpp::Entidades;
-                                                // 5 - 10
-Tronco::Tronco():Obstaculo(true, false), altura((rand() % 5) + 5){
-    corpo.setFillColor(sf::Color::Yellow);
+                                                
+Tronco::Tronco():
+    Obstaculo("textures/Tronco.png", 64.0f, 64.0f, false),
+    altura((rand() % 5) + 5)  // 5 - 10
+
+{ 
 }
 Tronco::~Tronco() {
 
@@ -41,6 +44,49 @@ void Tronco::obstaculizar(Jogador* p) {
         p->setPos(posTronco.x + tamTronco.x, posJogador.y);
     }
     
+}
+
+// Mesma coisa que obstaculizar, porém para inimigos
+void Tronco::obstaculizarIni(Inimigo* ini) {
+    sf::Vector2f posTronco = corpo.getPosition();
+
+    // Altura influencia diretamente no tamanho do tronco
+    sf::Vector2f tamTronco = sf::Vector2f(corpo.getSize().x, corpo.getSize().y - altura);
+
+    sf::Vector2f posInimigo = ini->getCorpo().getPosition();
+    sf::Vector2f tamInimigo = ini->getCorpo().getSize();
+
+    float jogadorBase = posInimigo.y + tamInimigo.y;
+    float troncoTopo = posTronco.y;
+
+    if (jogadorBase > troncoTopo && posInimigo.y < troncoTopo) {
+        // Posiciona o jogador em cima do tronco
+        ini->setPos(posInimigo.x, troncoTopo - tamInimigo.y);
+
+    }
+    else if (posInimigo.x + tamInimigo.x > posTronco.x && posInimigo.x < posTronco.x) {
+        
+
+        if (dynamic_cast<Leitao*>(ini) != nullptr) 
+        { 
+            ini->inverterDir();
+            dynamic_cast<Leitao*>(ini)->setRaio(dynamic_cast<Leitao*>(ini)->getRaio() + 1.f);
+        }
+        // Colisão pela esquerda
+        ini->setPos(posTronco.x - tamInimigo.x, posInimigo.y);
+    }
+    else if (posInimigo.x < posTronco.x + tamTronco.x && posInimigo.x > posTronco.x) {
+        
+
+        if (dynamic_cast<Leitao*>(ini) != nullptr)
+        {
+            ini->inverterDir();
+            dynamic_cast<Leitao*>(ini)->setRaio(dynamic_cast<Leitao*>(ini)->getRaio() + 1.f);
+        }
+
+        // Colisão pela direita
+        ini->setPos(posTronco.x + tamTronco.x, posInimigo.y);
+    }
 }
 void Tronco::salvar() {
 

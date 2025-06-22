@@ -148,6 +148,7 @@
     <ClCompile Include="Lago.cpp" />
     <ClCompile Include="Leitao.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
+    <ClCompile Include="Martelo.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Jogo.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Leitao.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
+    <ClInclude Include="Martelo.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Jogo.h" />

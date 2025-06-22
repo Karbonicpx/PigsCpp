@@ -60,7 +60,6 @@ void Gerenciador_Grafico::mostrar() {
 // Desenha o corpo (RectangleShape, sem textura)
 void Gerenciador_Grafico::desenharEnte() {
 	janela->draw(corpo);
-	// corpo.setTexture(textura); // Define a textura do corpo
 }
 
 // Limpa a janela

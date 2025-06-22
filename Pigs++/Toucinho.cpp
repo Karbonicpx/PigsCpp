@@ -2,9 +2,12 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Toucinho::Toucinho() : Inimigo(0.f, 2), tempoAtaque(0), forca((rand() % 5) + 1) {
-    // Cor do toucinho para visualizacao
-    corpo.setFillColor(sf::Color::Cyan);
+Toucinho::Toucinho() : 
+    Inimigo("textures/Toucinho.png", 35.0f, 35.0f, 0.f, 2),
+    tempoAtaque(0), 
+    forca((rand() % 5) + 1) {
+    
+  
 }
 
 /*Toucinho::Toucinho() : Inimigo(0.f), forca(5), tempoAtaque(0) {
@@ -55,7 +58,7 @@ void Toucinho::executar() {
     }
 
     // Percorrer bombas
-    int tamanho = filaBombas.size();
+    int tamanho = static_cast<int>(filaBombas.size());
     for (int i = 0; i < tamanho; i++) {
         Bomba* b = filaBombas.front();
         filaBombas.pop();

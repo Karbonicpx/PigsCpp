@@ -18,7 +18,6 @@ namespace PigsCpp {
                 short int forca;
                 static std::vector<Bomba*> bombas;
                 int tempoAtaque;
-                short int forca;
 
             public:
                 Toucinho();
