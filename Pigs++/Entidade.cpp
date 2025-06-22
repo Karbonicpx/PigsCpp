@@ -2,12 +2,12 @@
 
 using namespace PigsCpp::Entidades;
 
-Entidade::Entidade(const bool sG, const bool sV) :
+Entidade::Entidade(const std::string texturePath, const float bodyX, const float bodyY, const bool sV, const bool sG) :
+	Ente(texturePath, bodyX, bodyY, sV),
 	x(0.f),
 	y(0.f),
 	posInicial(0.f),
-	sofreGravidade(sG),
-	spriteVisivel(sV)
+	sofreGravidade(sG)
 {
 
 };
@@ -16,8 +16,7 @@ Entidade::Entidade() :
 	x(0.f),
 	y(0.f),
 	posInicial(0.f),
-	sofreGravidade(false),
-	spriteVisivel(false)
+	sofreGravidade(false)
 {};
 
 Entidade::~Entidade() {
@@ -43,9 +42,7 @@ void Entidade::setSofreGravidade(const bool sG) {
 	sofreGravidade = sG;
 }
 
-void Entidade::setSpriteVisivel(const bool sV) {
-	spriteVisivel = sV;
-}
+
 
 // Implementar depois
 void Entidade::salvarDataBuffer() {

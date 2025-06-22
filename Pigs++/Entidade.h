@@ -14,7 +14,6 @@ namespace PigsCpp {
 			float y; // Posição y
 			float posInicial;
 			bool sofreGravidade;
-			bool spriteVisivel;
 			
 
 			// std::ostream buffer; // implementar depois
@@ -22,7 +21,7 @@ namespace PigsCpp {
 			void salvarDataBuffer(); // implementar depois
 
 		public:
-			Entidade(const bool sG, const bool sV);
+			Entidade(const std::string texturePath, const float bodyX, const float bodyY, const bool sV, const bool sG);
 			Entidade();
 			virtual ~Entidade();
 			virtual void executar() = 0;
@@ -31,7 +30,6 @@ namespace PigsCpp {
 			void setPos(const float x, const float y);
 			bool getSofreGravidade() const;		
 			void setSofreGravidade(const bool sV);
-			void setSpriteVisivel(const bool sV);
 			
 		};
 	};

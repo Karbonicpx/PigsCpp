@@ -37,17 +37,17 @@ namespace PigsCpp {
 			nlohmann::json mapa; // mapa.json  
 			static const float gravidade;
 			void aplicarGravidade();
+
 		protected:
 			Entidade* ent; // Entidade genérica que vai ser usada na função virtual de criar entidades
 			Jogador* j1;
 			Jogador* j2;
 			std::vector<std::pair<int, sf::Vector2f>> posicoesEntidades;
-			const float spriteSize;
 			const int maxLagos; // Numero máximo de lagos em ambas fases
 			const int maxLeitaos; // Numero máximo de leitaos em ambas fases
 
 			void gerenciarColisoes();
-			void criarJogador(const float posX, const float posY, const float size);
+			void criarJogador(const float posX, const float posY);
 			void criarBloco(); // Chão e paredes do jogo
 			void criarLeitao();
 			void criarPlataformas();
@@ -62,7 +62,7 @@ namespace PigsCpp {
 			~Fase();
 			virtual void executar();	
 			void criarMapa();
-			void inicializarEntidades(Entidade* e, const float x, const float y, const float size);
+			void inicializarEntidades(Entidade* e, const float x, const float y);
 			virtual void desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath);
 			virtual void criarEntidades(Gerenciador_Grafico* GG) = 0;
 

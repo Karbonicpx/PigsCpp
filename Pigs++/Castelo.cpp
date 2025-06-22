@@ -94,13 +94,13 @@ void Castelo::criarEntidades(Gerenciador_Grafico* GG) {
             break;
 
         case 280: // Jogador
-            criarJogador(pos.x, pos.y, spriteSize);
+            criarJogador(pos.x, pos.y);
             break;
 
         default:
             break;
         }
 
-        inicializarEntidades(ent, pos.x, pos.y, spriteSize);
+        inicializarEntidades(ent, pos.x, pos.y);
     }
 }

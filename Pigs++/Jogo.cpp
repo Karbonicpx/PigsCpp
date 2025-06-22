@@ -9,29 +9,29 @@ using namespace PigsCpp::Fases;
 
 
 Jogo::Jogo() :
-jogador2(nullptr), // Inicializando jogador2 como nullptr, caso o jogo queria apenas um jogador
+    jogador2(nullptr), // Inicializando jogador2 como nullptr, caso o jogo queria apenas um jogador
 
-// O que está acontecendo aqui?
-// O gerenciador gráfico está no modelo de projeto chamado "singleton"
-// Nesse modelo, fazemos com que apenas uma instância static de uma classe específica possa existir
-// Então, estamos fazendo com que GG receba essa instância como variável
-// Assim, só podendo existir um GG por jogo
- GG(*Gerenciador_Grafico::getInstancia())
+    // O que está acontecendo aqui?
+    // O gerenciador gráfico está no modelo de projeto chamado "singleton"
+    // Nesse modelo, fazemos com que apenas uma instância static de uma classe específica possa existir
+    // Então, estamos fazendo com que GG receba essa instância como variável
+    // Assim, só podendo existir um GG por jogo
+    GG(*Gerenciador_Grafico::getInstancia())
 {
 
     // Inicializa o gerador de números aleatórios
     srand((unsigned int)time(NULL));
 
     // Inicializando jogador(es)
-    jogador1 = new Jogador(true);
-    // jogador2 = new Jogador(false);
+    jogador1 = new Jogador("textures/Jogador1.png", true);
+    // jogador2 = new Jogador("textures/Jogador2".png, false);
     fase = new Floresta();
     fase->setJogadores(jogador1, jogador2);
 
     // Fazendo com que os entes tenham sua variável pGG apontando para a instância única
     Ente::setGG(Gerenciador_Grafico::getInstancia());
-    
-   
+
+
 }
 
 Jogo::~Jogo() {
@@ -62,6 +62,7 @@ void Jogo::inicializar(Fases::Floresta* f, std::string texturePath) {
 
         // Tratamento de colisões da fase e gravidade
         f->executar();
+
         // Renderização (sempre no ciclo clear --> draw --> display)
         GG.clear();
         f->desenharTileset(&GG, texturePath);
@@ -71,7 +72,7 @@ void Jogo::inicializar(Fases::Floresta* f, std::string texturePath) {
 }
 
 void Jogo::desenharEntidades(Fases::Floresta* f) {
-   
+
     for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
 
         Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
@@ -86,5 +87,5 @@ void Jogo::executarEntidades(Fases::Floresta* f) {
         Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
         temp->executar();
     }
-    
+
 }

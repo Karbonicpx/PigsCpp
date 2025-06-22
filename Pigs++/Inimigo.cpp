@@ -2,7 +2,9 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Inimigo::Inimigo(const float v, const int vida): Personagem(v, vida), direcao(1){
+Inimigo::Inimigo(const std::string texturePath, const float bodyX, const float bodyY, const float v, const int vida):
+    Personagem(texturePath, bodyX, bodyY, v, vida), 
+    direcao(1){
     
     // Aleatorizando o nivel maldade de 1 a 3
     nivel_maldade = (rand() % 3) + 1;

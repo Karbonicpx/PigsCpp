@@ -165,6 +165,7 @@
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Fase.h" />
+    <ClInclude Include="GerenciadorEstados.h" />
     <ClInclude Include="Gerenciador_Colisao.h" />
     <ClInclude Include="Gerenciador_Grafico.h" />
     <ClInclude Include="Inimigo.h" />

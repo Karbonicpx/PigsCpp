@@ -23,7 +23,7 @@ namespace PigsCpp {
 
 			public:
 
-				Jogador(const bool ehJogador1);
+				Jogador(const std::string jTexturePath, const bool ehJogador1);
 				Jogador();
 				~Jogador();
 				void mover();

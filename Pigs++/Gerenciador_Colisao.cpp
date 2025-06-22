@@ -106,8 +106,8 @@ void Gerenciador_Colisao::tratarColisoesEntsBlocos() {
 
         Entidade* ent = LEsGC->listaEntidades.getItem(i);
 
-        // Se a entidade for nula ou for um bloco, não testa (blocos não colidem com blocos)
-        if (ent == nullptr || dynamic_cast<Bloco*>(ent) != nullptr) {
+        // Se a entidade for nula ou não ser uma entidade com ID (obstáculo e bloco)
+        if (ent == nullptr || dynamic_cast<Bloco*>(ent) != nullptr || ent->getId() < 0) {
             continue;
         }
 

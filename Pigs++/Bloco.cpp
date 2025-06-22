@@ -1,7 +1,9 @@
 #include "Bloco.h"
 
 using namespace PigsCpp::Entidades;
-Bloco::Bloco() : Entidade(false, true), blockSize(32.0f)  {
+Bloco::Bloco() : 
+    Entidade("textures/Bloco.png", 32.0f, 32.0f, false, false), 
+    blockSize(32.0f) {
 
 	// Deixando ele "invisivel"
 	corpo.setFillColor(sf::Color(255, 255, 255, 0));
@@ -69,6 +71,10 @@ void Bloco::blocar(Entidade* e) {
         else {
             // Por baixo (bateu no teto)
             e->setPos(rectEnt.position.x, rectBloco.position.y + rectBloco.size.y);
+
+            if (dynamic_cast<Jogador*>(e) != nullptr) {
+                dynamic_cast<Jogador*>(e)->setSofreGravidade(true);
+            }
         }
     }
     

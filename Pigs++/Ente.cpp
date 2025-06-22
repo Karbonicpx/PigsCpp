@@ -1,26 +1,39 @@
 #include "Ente.h"
+#include <iostream>
 
-// Usando isso aqui pra n�o precisar chama "PigsCpp::" toda hora
+// Usando isso aqui pra não precisar chama "PigsCpp::" toda hora
 using namespace PigsCpp;
 using namespace PigsCpp::Gerenciadores;
 
 
-
-// Aqui ele vai definir o body como um quadrado 100x100
-// E o operator vai incrementar a ID em 1, e mostrar na tela
-Ente::Ente() :
-	corpo(sf::Vector2f(32.0f, 32.0f))
+Ente::Ente(const std::string texturePath, const float bodyX, const float bodyY, const bool sV) :
+	corpo(sf::Vector2f(bodyX, bodyY)),
+	spriteVisivel(sV),
+	idIndividual(-1), // Setando como -1, por que entidades com valor do id >= 0 vão ser usadas para checagem de colisão entre blocos.
+	textura(new Texture(texturePath))
 {
+	corpo.setTexture(textura);
+};
 
+Ente::Ente() :
+	corpo(sf::Vector2f(32.0f, 32.0f)),
+	idIndividual(-1),
+	spriteVisivel(false),
+	textura(new Texture("textures/Template.png"))
+	
+{
+	corpo.setTexture(textura);
 };
 
 // Definindo fora da construtora por ser estático
 int Ente::id(-1);
-Gerenciador_Grafico* Ente::pGG = nullptr;
+Gerenciador_Grafico* Ente::pGG(nullptr);
 
 
 Ente::~Ente() {
 	
+	delete textura;
+	textura = nullptr;
 };
 
 const int Ente::getId() const {
@@ -32,8 +45,20 @@ sf::RectangleShape& Ente::getCorpo() {
 	return corpo;
 };
 
+bool Ente::getSpriteVisivel() const  {
+	return spriteVisivel;
+}
+
+void Ente::setSpriteVisivel(const bool sV) {
+	spriteVisivel = sV;
+}
+
 // Sobrecarga do ++, que vai aumentar o id
-void Ente::operator++() { id++; };
+void Ente::operator++() 
+{ 
+	idIndividual = id;
+	id++;
+};
 
 
 // E aqui, o ente vai servir de parâmetro pro gerenciador gráfico desenhar ele

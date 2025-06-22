@@ -3,13 +3,12 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 Baconzilla::Baconzilla() : 
-    Inimigo(gerarAleatorioFloat(1.0f, 1.7f), 3),
+    Inimigo("textures/Baconzilla.png", 45.0f, 45.0f, gerarAleatorioFloat(1.0f, 1.7f), 3),
     tempoTrocaDirecao(gerarAleatorioFloat(1.5, 2.0f)),
     tamanho((rand() % 3) + 1), // 1 a 3
     forca((rand() % 5) + 1) // 1 a 5
 {
-    // Cor do Baconzilla para visualizacao
-    corpo.setFillColor(sf::Color::Black);
+  
 };
 Baconzilla::~Baconzilla() {
 

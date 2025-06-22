@@ -4,21 +4,22 @@
 using namespace PigsCpp::Entidades;
 using namespace sf;
 
+Bomba::Bomba(float x, float y, float vel, sf::Vector2f dir) :
+    Entidade("textures/Bomba.png", 13.0f, 16.0f, false, true), 
+    velocidade(vel), direcao(dir), ativo(true), forma(5.0f) {
+    setPos(x, y); // Isso aqui já faz a função de setar a posição inicial
+}
 
 // Construtor padrão, sem inicializações
 Bomba::Bomba():
-    Entidade(false, true),
+    Entidade("textures/Bomba.png", 13.0f, 16.0f, false, true),
     velocidade(0.f),
     direcao(sf::Vector2f(0.f, 0.f)),
     ativo(false)
 {
 
 }
-Bomba::Bomba(float x, float y, float vel, sf::Vector2f dir):
-    Entidade(), velocidade(vel), direcao(dir), ativo(true), forma(5.0f) { 
-        setPos(x, y); // Isso aqui já faz a função de setar a posição inicial
-        forma.setFillColor(sf::Color::Yellow);
-    }
+
 
 Bomba::~Bomba() {}
 

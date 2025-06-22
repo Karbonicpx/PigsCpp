@@ -31,19 +31,22 @@ void Floresta::criarLago() {
 void Floresta::criarTronco(sf::Vector2f pos) {
     sf::Vector2f offsets[4] = {
         {0, 0},                       // Base
-        {spriteSize, 0},              // Direita
-        {0, -spriteSize},             // Cima
-        {spriteSize, -spriteSize}     // Canto superior direito
+        {32.0f, 0},              // Direita
+        {0, -32.0f},             // Cima
+        {32.0f, -32.0f}     // Canto superior direito
     };
 
     for (int i = 0; i < 4; i++) {
         Entidade* tronco = static_cast<Entidade*>(new Tronco());
 
-        if (i != 0) {
-            dynamic_cast<Tronco*>(tronco)->setSpriteVisivel(false);
+        if (i == 0) {
+            dynamic_cast<Tronco*>(tronco)->setSpriteVisivel(true);
+        }
+        else {
+            dynamic_cast<Tronco*>(tronco)->setSpriteVisivel(true);
         }
 
-        inicializarEntidades(tronco, pos.x + offsets[i].x, pos.y + offsets[i].y, spriteSize);
+        inicializarEntidades(tronco, pos.x + offsets[i].x, pos.y + offsets[i].y);
     }
 }
 
@@ -107,7 +110,7 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
             break;
 
         case 79: // Jogador(es)
-            criarJogador(pos.x, pos.y, spriteSize);
+            criarJogador(pos.x, pos.y);
             break;
 
 		case 80: // Tronco (obstáculo sem dano)
@@ -123,6 +126,6 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
             break;
         }
 
-        inicializarEntidades(ent, pos.x, pos.y, spriteSize);
+        inicializarEntidades(ent, pos.x, pos.y);
     }
 }

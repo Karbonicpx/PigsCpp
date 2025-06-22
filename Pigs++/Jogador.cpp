@@ -3,8 +3,8 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 
-Jogador::Jogador(const bool ehJ1) :
-	Personagem(3.0f, 1),
+Jogador::Jogador(const std::string jTexturePath, const bool ehJ1) :
+	Personagem(jTexturePath, 47.0f, 36.0f, 3.0f, 1),
 	pontos(0),
 	alturaMaximaPulo(140.0f),
 	deslocamentoPulo(0.f),
@@ -15,14 +15,10 @@ Jogador::Jogador(const bool ehJ1) :
 	
 
 {
-	// Colocando cor só pra ver o jogador
-
-	if (ehJogador1) { corpo.setFillColor(Color::Green); }
-	else { corpo.setFillColor(Color::Red); }
 	
 };
 Jogador::Jogador() :
-	Personagem(3.0f, 1),
+	Personagem(),
 	pontos(0),
 	alturaMaximaPulo(140.0f),
 	deslocamentoPulo(0.f),
@@ -32,8 +28,7 @@ Jogador::Jogador() :
 	ehJogador1(true)
 
 {
-	// Colocando cor só pra ver o jogador
-	corpo.setFillColor(Color::Green);
+	
 };
 Jogador::~Jogador() {
 

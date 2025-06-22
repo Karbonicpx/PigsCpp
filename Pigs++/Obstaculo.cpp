@@ -2,11 +2,15 @@
 
 using namespace PigsCpp::Entidades;
 
-Obstaculo::Obstaculo(const bool sV, const bool dN) : Entidade(false, sV), danoso(dN){
+Obstaculo::Obstaculo(const std::string texturePath, const float bodyX, const float bodyY, const bool dN) :
+	Entidade(texturePath, bodyX, bodyY, true, false), 
+	danoso(dN){
 
 }
 
-Obstaculo::Obstaculo() : Entidade(false, false), danoso(false) {
+Obstaculo::Obstaculo() : 
+	Entidade(), 
+	danoso(false) {
 
 }
 Obstaculo::~Obstaculo() {

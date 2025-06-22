@@ -20,7 +20,7 @@ namespace PigsCpp {
 				float velocidade;
 
 			public:
-				Personagem(const float vel, const int vida);
+				Personagem(const std::string texturePath, const float bodyX, const float bodyY, const float vel, const int vida);
 				Personagem();
 				~Personagem();
 				const int getVidas() const;

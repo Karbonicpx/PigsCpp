@@ -8,7 +8,6 @@ Fase::Fase(string jsonPath, const int mLG, const int mLT) :
 	j1(nullptr),
 	j2(nullptr),
 	ent(nullptr),
-	spriteSize(32.0f),
 	maxLagos(mLG),
 	maxLeitaos(mLT)
 	
@@ -25,14 +24,13 @@ Fase::Fase() :
 	ent(nullptr),
 	GC(nullptr),
 	lista_entes(nullptr),
-	spriteSize(32.0f),
 	maxLagos(0),
 	maxLeitaos(0)
 
 {
 	
 };
-const float Fase::gravidade(2.3f);
+const float Fase::gravidade(3.0f);
 
 Fase::~Fase() {
 
@@ -42,6 +40,8 @@ Fase::~Fase() {
 	ent = nullptr;
 	delete(lista_entes);
 	delete(GC);
+	lista_entes = nullptr;
+	GC = nullptr;
 };
 
 ListaEntidades* Fase::getListaEntidades() const {
@@ -145,13 +145,12 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 	}
 }
 
-void Fase::inicializarEntidades(Entidade* e, const float x, const float y, const float size) {
+void Fase::inicializarEntidades(Entidade* e, const float x, const float y) {
 	if (e != nullptr) {
 		e->setPos(x, y);
-		e->getCorpo().setSize(sf::Vector2f(size, size));
 
-		// Se não for bloco, aumentar o ID
-		if (dynamic_cast<Bloco*>(e) == nullptr){
+		// Se não for bloco ou obstaculo, aumentar o ID
+		if (dynamic_cast<Bloco*>(e) == nullptr || dynamic_cast<Obstaculo*>(e) == nullptr){
 			e->operator++();
 		}
 
@@ -201,13 +200,12 @@ void Fase::criarCenario() {
 
 }
 
-void Fase::criarJogador(const float posX, const float posY, const float size) {
+void Fase::criarJogador(const float posX, const float posY) {
 
 	// Se tiver apenas um jogador, crie apenas um
 	if (j1 != nullptr && j2 == nullptr) {
 
 		j1->setPos(posX, posY);
-		j1->getCorpo().setSize(sf::Vector2f(size, size));
 		j1->operator++();
 
 	}
@@ -215,12 +213,10 @@ void Fase::criarJogador(const float posX, const float posY, const float size) {
 	else {
 
 		j1->setPos(posX, posY);
-		j1->getCorpo().setSize(sf::Vector2f(size, size));
 		j1->operator++();
 
 		// Cria um segundo jogador do lado do primeiro
-		j2->setPos(posX + size, posY);
-		j2->getCorpo().setSize(sf::Vector2f(size, size));
+		j2->setPos(posX + j1->getCorpo().getSize().x, posY);
 		j2->operator++();
 
 	}

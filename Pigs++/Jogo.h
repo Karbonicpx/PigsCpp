@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include <SFML/Graphics.hpp>
@@ -19,7 +20,7 @@ namespace PigsCpp {
 		Personagens::Jogador* jogador2;
 		Gerenciadores::Gerenciador_Grafico& GG;
 		Fases::Floresta* fase;
-		
+
 
 	public:
 		Jogo();

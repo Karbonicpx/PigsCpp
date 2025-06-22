@@ -3,11 +3,9 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 Leitao::Leitao() : 
-    Inimigo(gerarAleatorioFloat(1.0f, 2.0f), 1),
+    Inimigo("textures/Leitao.png", 25.0f, 25.0f, gerarAleatorioFloat(1.0f, 2.0f), 1),
     raio(gerarAleatorioFloat(15.0f, 20.0f))
 {
-    // Cor do leitao para visualizacao
-    corpo.setFillColor(sf::Color::Magenta);
    
 }
 

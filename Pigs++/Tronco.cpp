@@ -1,9 +1,10 @@
 #include "Tronco.h"
 
 using namespace PigsCpp::Entidades;
-                                                // 5 - 10
-Tronco::Tronco():Obstaculo(true, false), altura((rand() % 5) + 5){
-    corpo.setFillColor(sf::Color::Yellow);
+                                                
+Tronco::Tronco():
+    Obstaculo("textures/Tronco.png", 64.0f, 64.0f, false),
+    altura((rand() % 5) + 5) { // 5 - 10
 }
 Tronco::~Tronco() {
 
