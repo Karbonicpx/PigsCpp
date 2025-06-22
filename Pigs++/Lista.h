@@ -34,6 +34,8 @@ namespace PigsCpp {
 
             int getLen() { return len; }
 
+            void operator--() { len--; }
+
             TL* getItem(int posicao) {
                 Elemento* temp = pPrimeiro;
                 if (posicao == 0)
@@ -80,6 +82,7 @@ namespace PigsCpp {
                     tempAnt->setProx(temp->getProx());
                 }
                 delete temp;
+				temp = nullptr;
                 len--;
             }
 

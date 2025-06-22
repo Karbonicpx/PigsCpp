@@ -45,23 +45,32 @@ void Bloco::blocar(Entidade* e) {
     if (interWidth < interHeight) {
         // Colisão no eixo X (esquerda ou direita)
         if (rectEnt.position.x < rectBloco.position.x) {
-            // Pela esquerda
-            e->setPos(rectBloco.position.x - rectEnt.size.x, rectEnt.position.y);
 
-           
+            // Se não for toucinho ou baconzilla, seta a colisão pela esquerda
+            if (dynamic_cast<Leitao*>(e) == nullptr && dynamic_cast<Baconzilla*>(e) == nullptr) {
+                e->setPos(rectBloco.position.x - rectEnt.size.x, rectEnt.position.y);
+            }
+              
         }
         else {
             // Pela direita
-            e->setPos(rectBloco.position.x + rectBloco.size.x, rectEnt.position.y);
-
             
+
+            // Se não for toucinho ou baconzilla, seta a colisão pela direita
+            if (dynamic_cast<Leitao*>(e) == nullptr && dynamic_cast<Baconzilla*>(e) == nullptr) {
+                e->setPos(rectBloco.position.x + rectBloco.size.x, rectEnt.position.y);
+            }
         }
     }
     else {
         // Colisão no eixo Y (cima ou baixo)
         if (rectEnt.position.y < rectBloco.position.y) {
-            // Por cima (pé no chão)
-            e->setPos(rectEnt.position.x, rectBloco.position.y - rectEnt.size.y);
+
+            // Se não for toucinho ou baconzilla, seta a colisão por cima
+            if (dynamic_cast<Leitao*>(e) == nullptr && dynamic_cast<Baconzilla*>(e) == nullptr) {
+                e->setPos(rectEnt.position.x, rectBloco.position.y - rectEnt.size.y);
+            }
+           
 
             // Se for um jogador tocando no chão, permite ele pular
             if (dynamic_cast<Jogador*>(e) != nullptr) {
@@ -69,8 +78,11 @@ void Bloco::blocar(Entidade* e) {
 			}
         }
         else {
-            // Por baixo (bateu no teto)
-            e->setPos(rectEnt.position.x, rectBloco.position.y + rectBloco.size.y);
+            // Se não for toucinho ou baconzilla, seta a colisão por baixo
+            if (dynamic_cast<Leitao*>(e) == nullptr && dynamic_cast<Baconzilla*>(e) == nullptr) {
+                e->setPos(rectEnt.position.x, rectBloco.position.y + rectBloco.size.y);
+            }
+           
 
             if (dynamic_cast<Jogador*>(e) != nullptr) {
                 dynamic_cast<Jogador*>(e)->setSofreGravidade(true);

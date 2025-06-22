@@ -30,20 +30,20 @@ void Floresta::criarLago() {
 // Pois seu sprite é 64x64
 void Floresta::criarTronco(sf::Vector2f pos) {
     sf::Vector2f offsets[4] = {
-        {0, 0},                       // Base
-        {32.0f, 0},              // Direita
-        {0, -32.0f},             // Cima
-        {32.0f, -32.0f}     // Canto superior direito
+        {0, 0},                     // Base
+        {32.0f, 0},                 // Direita
+        {0, -32.0f},                // Cima
+        {32.0f, -32.0f}             // Canto superior direito
     };
 
     for (int i = 0; i < 4; i++) {
         Entidade* tronco = static_cast<Entidade*>(new Tronco());
 
         if (i == 0) {
-            dynamic_cast<Tronco*>(tronco)->setSpriteVisivel(true);
+            dynamic_cast<Tronco*>(tronco)->setSpriteVisivel(false);  // Só esse tem sprite
         }
         else {
-            dynamic_cast<Tronco*>(tronco)->setSpriteVisivel(true);
+            dynamic_cast<Tronco*>(tronco)->setSpriteVisivel(false); // Os outros são invisíveis (só colisão)
         }
 
         inicializarEntidades(tronco, pos.x + offsets[i].x, pos.y + offsets[i].y);

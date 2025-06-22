@@ -1,6 +1,8 @@
 #pragma once
 #include "Obstaculo.h"
 #include "Inimigo.h"
+#include "Leitao.h"
+#include "Baconzilla.h"
 
 namespace PigsCpp {
 	namespace Entidades {

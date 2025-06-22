@@ -172,9 +172,6 @@
     <ClInclude Include="Tronco.h">
       <Filter>Header Files\Entidades\Obstáculos</Filter>
     </ClInclude>
-    <ClInclude Include="GerenciadorEstados.h">
-      <Filter>Header Files\Gerenciadores</Filter>
-    </ClInclude>
     <ClInclude Include="Personagem.h">
       <Filter>Header Files\Entidades\Abstratas</Filter>
     </ClInclude>

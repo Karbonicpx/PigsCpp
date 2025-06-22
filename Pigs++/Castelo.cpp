@@ -5,7 +5,7 @@ using namespace PigsCpp::Fases;
 Castelo::Castelo():                 // 8 - 18          // 4 - 7
 	Fase("fasesjson/Castelo.json", (rand() % 9) + 10, (rand() % 5) + 3),
     maxEspinhos((rand() % 20) + 10), // 0, 1, 2 ... 20 no rand, + 10 - 10, 11 ... 30  
-    maxBaconzillas((rand() % 4) + 1)  // 0, 1, 2, 3 no rand, + 1 - 1, 2, 3, 4
+    maxBaconzillas((rand() % 3) + 1)  // 0, 1, 2, 3 no rand, + 1 - 1, 2, 3, 4
 {
   
 }
@@ -25,7 +25,7 @@ void Castelo::criarEspinho() {
 }
 
 void Castelo::criarZilla() {
-    ent = static_cast<Entidade*>(new Baconzilla());
+    // ent = static_cast<Entidade*>(new Baconzilla());
 }
 
 // Provável que não utilize isso, já que as bombas são criadas a partir de Bancozilla/Toucinho

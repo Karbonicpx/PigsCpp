@@ -3,10 +3,10 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 Leitao::Leitao() : 
-    Inimigo("textures/Leitao.png", 25.0f, 25.0f, gerarAleatorioFloat(1.0f, 2.0f), 1),
-    raio(gerarAleatorioFloat(15.0f, 20.0f))
+    Inimigo("textures/Leitao.png", 25.0f, 25.0f, gerarAleatorioFloat(1.5f, 2.5f), 1),
+    raio(gerarAleatorioFloat(20.0f, 30.0f))
 {
-   
+    direcao = -1;
 }
 
 
@@ -43,6 +43,14 @@ void Leitao::mover() {
         corpo.setPosition(sf::Vector2f(limite, corpo.getPosition().y));
         inverterDir();
     }
+}
+
+void Leitao::setRaio(const float r) {
+    raio = r;
+}
+
+float Leitao::getRaio() const {
+    return raio;
 }
 
 

@@ -9,7 +9,9 @@ Fase::Fase(string jsonPath, const int mLG, const int mLT) :
 	j2(nullptr),
 	ent(nullptr),
 	maxLagos(mLG),
-	maxLeitaos(mLT)
+	maxLeitaos(mLT),
+	texturaFundo("textures/Fase1BG.png"),
+	fundo(texturaFundo)
 	
 {
 	GC = new Gerenciador_Colisao();
@@ -25,7 +27,9 @@ Fase::Fase() :
 	GC(nullptr),
 	lista_entes(nullptr),
 	maxLagos(0),
-	maxLeitaos(0)
+	maxLeitaos(0),
+	texturaFundo("textures/FundoFloresta.png"),
+	fundo(texturaFundo)
 
 {
 	
@@ -109,6 +113,7 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 	int altura = mapa["height"];
 	sf::Texture* tileset = new Texture(tilesetPath);
 
+	GG->getWindow()->draw(fundo); // Desenha o fundo primeiro
 
 	int colunasTileset = tileset->getSize().x / tileSize;
 
@@ -147,7 +152,17 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 
 void Fase::inicializarEntidades(Entidade* e, const float x, const float y) {
 	if (e != nullptr) {
-		e->setPos(x, y);
+
+		if (dynamic_cast<Leitao*>(e) != nullptr){
+			e->setPos(x, y + 8.0f);
+			e->setSofreGravidade(false);
+		}
+		else if (dynamic_cast<Baconzilla*>(e) != nullptr) {
+			e->setPos(x, y - 12.0f);
+			e->setSofreGravidade(false);
+		}
+		else e->setPos(x, y);
+		
 
 		// Se não for bloco ou obstaculo, aumentar o ID
 		if (dynamic_cast<Bloco*>(e) == nullptr || dynamic_cast<Obstaculo*>(e) == nullptr){
@@ -197,7 +212,9 @@ void Fase::criarPlataformas() {
 
 // Fazer depois
 void Fase::criarCenario() {
-
+	texturaFundo.loadFromFile("textures/Fase1BG.png");
+	fundo.setTexture(texturaFundo);
+	fundo.setPosition(sf::Vector2f(0.f, 0.f));
 }
 
 void Fase::criarJogador(const float posX, const float posY) {
@@ -206,6 +223,7 @@ void Fase::criarJogador(const float posX, const float posY) {
 	if (j1 != nullptr && j2 == nullptr) {
 
 		j1->setPos(posX, posY);
+		j1->setPosRespawn(posX, posY);
 		j1->operator++();
 
 	}
@@ -213,10 +231,12 @@ void Fase::criarJogador(const float posX, const float posY) {
 	else {
 
 		j1->setPos(posX, posY);
+		j1->setPosRespawn(posX, posY);
 		j1->operator++();
 
 		// Cria um segundo jogador do lado do primeiro
 		j2->setPos(posX + j1->getCorpo().getSize().x, posY);
+		j2->setPosRespawn(posX + j1->getCorpo().getSize().x, posY);
 		j2->operator++();
 
 	}
@@ -225,6 +245,38 @@ void Fase::criarJogador(const float posX, const float posY) {
 void Fase::gerenciarColisoes() {
 	GC->setLE(lista_entes);
 	GC->executar();
+
+	for (int i = 0; i < lista_entes->listaEntidades.getLen(); i++) {
+
+		Entidade* e = lista_entes->listaEntidades.getItem(i);
+
+		// Verifica se é um personagem
+		Personagem* p = dynamic_cast<Personagem*>(e);
+
+		if (p != nullptr) {
+			if (p->getVidas() <= 0 && dynamic_cast<Jogador*>(p) == nullptr) {
+
+				// Remove da lista
+				lista_entes->listaEntidades.remover(e);
+
+				// Se for inimigo, remove do Gerenciador de Colisão
+				Inimigo* inim = dynamic_cast<Inimigo*>(p);
+				if (inim != nullptr) {
+					GC->removerInimigo(inim);
+				}
+
+				// Libera a memória
+				delete p;
+				p = nullptr;
+
+				// Decrementa len porque a lista foi encurtada após remover
+				lista_entes--;
+			}
+			else if (p->getVidas() <= 0 && dynamic_cast<Jogador*>(p) != nullptr) {
+				
+			}
+		}
+	}
 }
 
 void Fase::executar() {

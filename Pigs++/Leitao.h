@@ -18,6 +18,8 @@ namespace PigsCpp {
                 void danificar(Jogador* p);
                 void salvar();
                 void mover();
+                float getRaio() const;
+                void setRaio(const float r);
 
                 
             };

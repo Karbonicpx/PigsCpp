@@ -24,7 +24,7 @@ Jogo::Jogo() :
 
     // Inicializando jogador(es)
     jogador1 = new Jogador("textures/Jogador1.png", true);
-    // jogador2 = new Jogador("textures/Jogador2".png, false);
+    jogador2 = new Jogador("textures/Jogador2.png", false);
     fase = new Floresta();
     fase->setJogadores(jogador1, jogador2);
 

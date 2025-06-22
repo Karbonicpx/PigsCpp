@@ -3,12 +3,14 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 Baconzilla::Baconzilla() : 
-    Inimigo("textures/Baconzilla.png", 45.0f, 45.0f, gerarAleatorioFloat(1.0f, 1.7f), 3),
-    tempoTrocaDirecao(gerarAleatorioFloat(1.5, 2.0f)),
+    Inimigo("textures/Baconzilla.png", 45.0f, 45.0f, gerarAleatorioFloat(0.2f, 0.3f), 3),
+    tempoTrocaDirecao(gerarAleatorioFloat(0.5, 1.0f)),
     tamanho((rand() % 3) + 1), // 1 a 3
     forca((rand() % 5) + 1) // 1 a 5
 {
-  
+    velocidade = gerarAleatorioFloat(0.1f, 0.2f);
+    direcao = -1;
+    
 };
 Baconzilla::~Baconzilla() {
 
@@ -41,7 +43,7 @@ void Baconzilla::mover() {
         int troca = rand() % 2;
 
         if (troca == 1) {
-            direcao *= -1; // inverte direção
+            inverterDir(); // inverte direção
         }
     }
 }

@@ -132,6 +132,38 @@ void Gerenciador_Colisao::tratarColisoesEntsBlocos() {
     
 }
 
+void Gerenciador_Colisao::tratarColisoesInimTroncos() {
+
+    for (int i = 0; i < LEsGC->listaEntidades.getLen(); i++) {
+
+        Entidade* ent = LEsGC->listaEntidades.getItem(i);
+
+        // Verifica se é um inimigo válido (tem ID e é realmente um inimigo)
+        Inimigo* inim = dynamic_cast<Inimigo*>(ent);
+
+        if (inim == nullptr || inim->getId() < 0) {
+            continue;
+        }
+
+        // Verifica contra todos os troncos da lista
+        for (int j = 0; j < LEsGC->listaEntidades.getLen(); j++) {
+
+            Entidade* e = LEsGC->listaEntidades.getItem(j);
+
+            // Se não for tronco, ignora
+            Tronco* tronco = dynamic_cast<Tronco*>(e);
+            if (tronco == nullptr) {
+                continue;
+            }
+
+            // Verifica se há colisão entre o inimigo e o tronco
+            if (verificarColisao(inim, tronco)) {
+                tronco->obstaculizarIni(inim);
+            }
+        }
+    }
+}
+
 // Incluir entidades
 void Gerenciador_Colisao::incluirInimigo(Inimigo* ini) {
     LIs.push_back(ini);
@@ -154,14 +186,6 @@ void Gerenciador_Colisao::removerInimigo(Inimigo* ini) {
     }
 }
 
-// Usado apenas para limpar no destrutor
-void Gerenciador_Colisao::removerObstaculo(Obstaculo* obs) {
-    std::list<Obstaculo*>::iterator it = std::find(LOs.begin(), LOs.end(), obs);
-    if (it != LOs.end()) {
-        LOs.erase(it);
-    }
-}
-
 void Gerenciador_Colisao::removerBomba(Bomba* b) {
     std::set<Bomba*>::iterator it = std::find(LBs.begin(), LBs.end(), b);
     if (it != LBs.end()) {
@@ -175,4 +199,5 @@ void Gerenciador_Colisao::executar() {
     tratarColisoesJogsInimgs();
     tratarColisoesJogsBombas();
     tratarColisoesEntsBlocos();
+    tratarColisoesInimTroncos();
 }

@@ -37,6 +37,8 @@ namespace PigsCpp {
 			nlohmann::json mapa; // mapa.json  
 			static const float gravidade;
 			void aplicarGravidade();
+			sf::Texture texturaFundo;
+			sf::Sprite fundo;
 
 		protected:
 			Entidade* ent; // Entidade genérica que vai ser usada na função virtual de criar entidades
