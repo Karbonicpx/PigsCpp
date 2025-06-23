@@ -53,6 +53,9 @@ int Porta::getIdProxFase() {
     return idProximaFase;
 }
 
-void Porta::salvar() {
+void Porta::salvar(std::ofstream& arq) {
     // Se precisar salvar no futuro
+    //podeEntrar;
+    //int idProximaFase;
+    //bool trocarFase;
 }

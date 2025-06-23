@@ -3,10 +3,12 @@
 using namespace PigsCpp::Entidades;
 
 Martelo::Martelo(float x, float y, float vel, sf::Vector2f dir) :
-	Entidade("Martelo.png", 33.0f, 13.0f, false, true), dano(10), velocidade(vel), direcao(dir), ativo(true) {
-	setPos(x, y);{
+	Entidade("Martelo.png", 33.0f, 13.0f, false, true), dano(10), velocidade(vel), direcao(dir), ativo(true)
+{
+	setPos(x, y);
 }
-Martelo::~Martelo() {}
+Martelo::~Martelo() {
+}
 void Martelo::mover() {
 	if (ativo) {
 		x += direcao.x * velocidade;
