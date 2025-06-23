@@ -42,8 +42,14 @@ void Bloco::blocar(Entidade* e) {
         return;
     }
 
+    // Colisão no eixo X (esquerda ou direita)
     if (interWidth < interHeight) {
-        // Colisão no eixo X (esquerda ou direita)
+
+        // Independente daonde a bomba cair, ela tem que ser deletava
+        if (dynamic_cast<Bomba*>(e) != nullptr) {
+            dynamic_cast<Bomba*>(e)->desativar();
+        }
+  
         if (rectEnt.position.x < rectBloco.position.x) {
 
             // Se não for toucinho ou baconzilla, seta a colisão pela esquerda
@@ -62,8 +68,16 @@ void Bloco::blocar(Entidade* e) {
             }
         }
     }
+
+    // Colisão no eixo Y (cima ou baixo)
     else {
-        // Colisão no eixo Y (cima ou baixo)
+
+        // Independente daonde a bomba cair, ela tem que ser deletada
+        if (dynamic_cast<Bomba*>(e) != nullptr) {
+            dynamic_cast<Bomba*>(e)->desativar();
+        }
+
+        
         if (rectEnt.position.y < rectBloco.position.y) {
 
             // Se não for toucinho ou baconzilla, seta a colisão por cima

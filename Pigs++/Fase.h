@@ -58,7 +58,8 @@ namespace PigsCpp {
 			void criarPorta(int idFase);
 			virtual void criarInimigos() = 0;
 			virtual void criarObstaculo() = 0;
-			
+			void gerenciarMorteInimigo();
+			void gerenciarCriacaoProjeteis();
 
 		public:
 			Fase(std::string jsonPath, const int mLG, const int mLT);

@@ -1,54 +1,57 @@
-#pragma once 
 #include "Bomba.h"
 
 using namespace PigsCpp::Entidades;
 using namespace sf;
 
-Bomba::Bomba(float x, float y, float vel, sf::Vector2f dir) :
-    Entidade("textures/Bomba.png", 13.0f, 16.0f, false, true), 
-    velocidade(vel), direcao(dir), ativo(true) 
+Bomba::Bomba(float x, float y, sf::Vector2f vel) :
+    Entidade("textures/Bomba.png", 13.f, 16.f, false, true),
+    velocidade(vel),
+    aceleracao(0.f, 0.3f), // Simula gravidade
+    ativo(true),
+    dano(1)
 {
-	corpo.setFillColor(sf::Color::Black); // Define a cor do corpo como transparente
-    setPos(x, y); // Isso aqui já faz a função de setar a posição inicial
+    setPos(x, y);
 }
 
-// Construtor padrão, sem inicializações
-Bomba::Bomba():
-    Entidade("textures/Bomba.png", 13.0f, 16.0f, false, true),
-    velocidade(0.f),
-    direcao(sf::Vector2f(0.f, 0.f)),
-    ativo(false)
+Bomba::Bomba() :
+    Entidade("textures/Bomba.png", 13.f, 16.f, false, true),
+    velocidade(0.f, 0.f),
+    aceleracao(0.f, 0.35f),
+    ativo(false),
+    dano(0)
 {
-
 }
-
 
 Bomba::~Bomba() {}
 
-void Bomba::mover() {  // Mover o projétil na direção especificada
+int Bomba::explodir() {
+    return dano;
+}
+void Bomba::mover() {
+    
+    velocidade += aceleracao;
+    corpo.move(velocidade);
+}
+
+void Bomba::executar() {
     if (ativo) {
-        x += direcao.x * velocidade;
-        y += direcao.y * velocidade;
-        corpo.setPosition(sf::Vector2f(x,y));
+        mover();
+    }
+    else {
+
+        dano = 0;
+        corpo.setFillColor(sf::Color(255, 255, 255, 0));
     }
 }
 
-const bool Bomba::isAtivo() const {return ativo;}
-
-// True para false, ou false para true
-void Bomba::inverterAtivo() { ativo = !ativo; }
-
-const float Bomba::getVel() const { return velocidade; }
-
-void Bomba::executar(){
-    mover();
-    // Quando for desativada (tocar no jogador, chão ou parede), a bomba é removida do jogo
-    if (ativo == false) {
-        delete this;
-    }
+void Bomba::salvar() {
+    // Implementar lógica de salvamento depois
 }
 
-void Bomba::salvar(){
-    // Implementar lógica de salvamento
+const bool Bomba::isAtivo() const {
+    return ativo;
 }
 
+void Bomba::desativar() {
+    ativo = false;
+}

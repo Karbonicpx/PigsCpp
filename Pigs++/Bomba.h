@@ -4,26 +4,27 @@
 
 namespace PigsCpp {
     namespace Entidades {
-        
-        // Projétil
-        class Bomba : public Entidade {
 
-        protected:
-        float velocidade;
-        sf::Vector2f direcao;
-        bool ativo; // Quando estiver ativo, ela estará no jogo. Quando ela colidir com alguma coisa, a bomba é removida
+        class Bomba : public Entidade {
+        private:
+            sf::Vector2f velocidade;
+            sf::Vector2f aceleracao;
+            bool ativo;
+            int dano;
 
         public:
-        Bomba();
-        Bomba(float x, float y, float vel, sf::Vector2f dir);
-        ~Bomba();
-        void mover();
-        const bool isAtivo() const;
-        void inverterAtivo();
-        void executar();
-        void salvar();
+            Bomba();
+            Bomba(float x, float y, sf::Vector2f vel);
+            ~Bomba();
 
-        const float getVel() const;
+            void mover();
+            void executar();
+            void salvar();
+            
+            int explodir(); // Causa dano
+
+            const bool isAtivo() const;
+            void desativar();
         };
-    };
-};
+    }
+}

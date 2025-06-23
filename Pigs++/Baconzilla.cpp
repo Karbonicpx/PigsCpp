@@ -51,8 +51,7 @@ void Baconzilla::mover() {
 
 void Baconzilla::atirarProjetil() {
     sf::Vector2f origem = corpo.getPosition();
-    sf::Vector2f dir(0.f, 1.f); // para baixo
-    Bomba* bomba = new Bomba(origem.x, origem.y, 4.0, dir);
+    Bomba* bomba = new Bomba(origem.x, origem.y, sf::Vector2f(3.0f, 3.0f));
     bomba->executar();
 }
 

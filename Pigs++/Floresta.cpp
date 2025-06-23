@@ -19,7 +19,7 @@ Floresta::~Floresta() {
 
 
 void Floresta::criarTouc() {
-	ent = static_cast<Entidade*>(new Toucinho());
+	ent = static_cast<Entidade*>(new Toucinho(getListaEntidades()));
 }
 
 void Floresta::criarLago() {
