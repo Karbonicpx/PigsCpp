@@ -2,13 +2,16 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Toucinho::Toucinho() : 
+Toucinho::Toucinho(ListaEntidades* lista) :
     Inimigo("textures/Toucinho.png", 35.0f, 35.0f, 0.f, 2),
     tempoAtaque(0),
-    forca((rand() % 5) + 1)
+    forca((rand() % 5) + 1),
+    listaEntidades(lista)
+
 {
     direcao = -1;
 }
+
 Toucinho::~Toucinho() {
     while (!filaBombas.empty()) {
         delete filaBombas.front();
@@ -17,49 +20,40 @@ Toucinho::~Toucinho() {
 }
 
 
-void Toucinho::danificar(Jogador* p) { // chamado quando o projetil colidir com o jogador
-    // Dano ao jogador
+void Toucinho::danificar(Jogador* p) {
     if (p) {
         p->setVidas(p->getVidas() - (forca + getMaldade()));
     }
 }
-void Toucinho::salvar(std::ofstream& arq) {
+    void Toucinho::salvar(std::ofstream & arq) {
     arq << "TOUCINHO ";
     Inimigo::salvarDataBuffer(arq);
     arq << forca << " " << tempoAtaque << std::endl;
 }
+
 void Toucinho::mover() {
-    // fica parado
+    
 }
+
 void Toucinho::tacarBomba() {
     sf::Vector2f origem = corpo.getPosition();
-    sf::Vector2f dir(0.f, 1.f); // Direção para baixo
 
-    filaBombas.push(new Bomba(origem.x, origem.y, 4.0, dir));
+    float dirX = direcao * 3.0f;
+    float dirY = -5.5f;
+
+    sf::Vector2f vel(dirX, dirY);
+
+    // Cria a bomba
+    Bomba* b = new Bomba(origem.x + corpo.getSize().x / 2, origem.y, vel);
+
+    // Adiciona na lista de entidades
+    listaEntidades->listaEntidades.incluir(b);
 }
 
 void Toucinho::executar() {
     tempoAtaque++;
-
-    
     if (tempoAtaque >= 120) {
         tacarBomba();
         tempoAtaque = 0;
-    }
-
-    // Percorrer bombas
-    int tamanho = static_cast<int>(filaBombas.size());
-    for (int i = 0; i < tamanho; i++) {
-        Bomba* b = filaBombas.front();
-        filaBombas.pop();
-
-        b->executar();
-
-        if (!b->isAtivo()) {
-            filaBombas.push(b); // Continua na fila se não explodiu (desativou)
-        }
-        else {
-            delete b; // Desativou, remove
-        }
     }
 }

@@ -94,9 +94,11 @@ void Gerenciador_Colisao::tratarColisoesJogsBombas() {
         // Fazer depois
         if (jog1 != nullptr && verificarColisao(jog1, b)) {
            
+            jog1->setVidas(jog1->getVidas() - b->explodir());
         }
         if (jog2 != nullptr && verificarColisao(jog2, b)) {
-            
+
+            jog2->setVidas(jog1->getVidas() - b->explodir());
         }
     }
 }

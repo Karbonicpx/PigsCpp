@@ -252,41 +252,42 @@ void Fase::criarJogador(const float posX, const float posY) {
 	}
 }
 
-void Fase::gerenciarColisoes() {
-	GC->setLE(lista_entes);
-	GC->executar();
-
+void Fase::gerenciarMorteInimigo() {
 	for (int i = 0; i < lista_entes->listaEntidades.getLen(); i++) {
 
 		Entidade* e = lista_entes->listaEntidades.getItem(i);
 
-		// Verifica se é um personagem
-		Personagem* p = dynamic_cast<Personagem*>(e);
-
-		if (p != nullptr) {
-			if (p->getVidas() <= 0 && dynamic_cast<Jogador*>(p) == nullptr) {
-
-				// Remove da lista
-				lista_entes->listaEntidades.remover(e);
-
-				// Se for inimigo, remove do Gerenciador de Colisão
-				Inimigo* inim = dynamic_cast<Inimigo*>(p);
-				if (inim != nullptr) {
-					GC->removerInimigo(inim);
-				}
-
-				// Libera a memória
-				delete p;
-				p = nullptr;
-
-				// Decrementa len porque a lista foi encurtada após remover
-				lista_entes--;
-			}
-			else if (p->getVidas() <= 0 && dynamic_cast<Jogador*>(p) != nullptr) {
-				
-			}
+		// Se for inimigo, remove do Gerenciador de Colisão caso ele tenha vida menor ou igual a 0
+		Inimigo* inim = dynamic_cast<Inimigo*>(e);
+		if (inim != nullptr && inim->getVidas() <= 0) {
+			GC->removerInimigo(inim);
+			lista_entes--;
 		}
+
 	}
+}
+
+void Fase::gerenciarCriacaoProjeteis() {
+	for (int i = 0; i < lista_entes->listaEntidades.getLen(); i++) {
+
+		Entidade* e = lista_entes->listaEntidades.getItem(i);
+
+		Bomba* b = dynamic_cast<Bomba*>(e);
+		if (b != nullptr) {
+			GC->incluirBomba(b);
+		}
+		else if (b != nullptr && b->isAtivo() == false) {
+			GC->removerBomba(b);
+		}
+
+	}
+}
+
+void Fase::gerenciarColisoes() {
+	GC->setLE(lista_entes);
+	GC->executar();
+	gerenciarMorteInimigo();
+	gerenciarCriacaoProjeteis();
 }
 
 Gerenciador_Colisao* Fase::getGC() const {
