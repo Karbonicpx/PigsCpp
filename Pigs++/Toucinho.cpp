@@ -4,10 +4,10 @@ using namespace PigsCpp::Entidades::Personagens;
 
 Toucinho::Toucinho() : 
     Inimigo("textures/Toucinho.png", 35.0f, 35.0f, 0.f, 2),
-    tempoAtaque(0), 
-    forca((rand() % 5) + 1) {
-    
-  
+    tempoAtaque(0),
+    forca((rand() % 5) + 1)
+{
+    direcao = -1;
 }
 Toucinho::~Toucinho() {
     while (!filaBombas.empty()) {
@@ -38,6 +38,7 @@ void Toucinho::tacarBomba() {
 void Toucinho::executar() {
     tempoAtaque++;
 
+    
     if (tempoAtaque >= 120) {
         tacarBomba();
         tempoAtaque = 0;

@@ -3,7 +3,7 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 Baconzilla::Baconzilla() : 
-    Inimigo("textures/Baconzilla.png", 45.0f, 45.0f, gerarAleatorioFloat(0.2f, 0.3f), 3),
+    Inimigo("textures/Baconzilla.png", 45.0f, 45.0f, gerarAleatorioFloat(0.2f, 0.25f), 3),
     tempoTrocaDirecao(gerarAleatorioFloat(0.5, 1.0f)),
     tamanho((rand() % 3) + 1), // 1 a 3
     forca((rand() % 5) + 1) // 1 a 5
@@ -18,7 +18,7 @@ Baconzilla::~Baconzilla() {
 
 // Método virtual puro
 void Baconzilla::executar() {
-    mover();
+   mover();
 };
 
 void Baconzilla::danificar(Jogador* p) { // chamado quando o projetil colidir com o jogador

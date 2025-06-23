@@ -83,7 +83,7 @@
     <ClCompile Include="Fase.cpp">
       <Filter>Source Files\Fases</Filter>
     </ClCompile>
-    <ClCompile Include="Castelo.cpp">
+    <ClCompile Include="Subterraneo.cpp">
       <Filter>Source Files\Fases</Filter>
     </ClCompile>
     <ClCompile Include="Floresta.cpp">
@@ -115,6 +115,12 @@
     </ClCompile>
     <ClCompile Include="Obstaculo.cpp">
       <Filter>Source Files\Entidades\Abstratas</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Porta.cpp">
+      <Filter>Source Files\Entidades\Obstáculos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -151,7 +157,7 @@
     <ClInclude Include="Fase.h">
       <Filter>Header Files\Fases</Filter>
     </ClInclude>
-    <ClInclude Include="Castelo.h">
+    <ClInclude Include="Subterraneo.h">
       <Filter>Header Files\Fases</Filter>
     </ClInclude>
     <ClInclude Include="Floresta.h">
@@ -183,6 +189,12 @@
     </ClInclude>
     <ClInclude Include="Obstaculo.h">
       <Filter>Header Files\Entidades\Abstratas</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Porta.h">
+      <Filter>Header Files\Entidades\Obstáculos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

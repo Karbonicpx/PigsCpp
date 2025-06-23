@@ -137,7 +137,8 @@
     <ClCompile Include="Bloco.cpp" />
     <ClCompile Include="Espinho.cpp" />
     <ClCompile Include="Floresta.cpp" />
-    <ClCompile Include="Castelo.cpp" />
+    <ClCompile Include="Porta.cpp" />
+    <ClCompile Include="Subterraneo.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Fase.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Lago.cpp" />
     <ClCompile Include="Leitao.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Jogo.cpp" />
@@ -161,7 +163,8 @@
     <ClInclude Include="Bloco.h" />
     <ClInclude Include="Espinho.h" />
     <ClInclude Include="Floresta.h" />
-    <ClInclude Include="Castelo.h" />
+    <ClInclude Include="Porta.h" />
+    <ClInclude Include="Subterraneo.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Fase.h" />
@@ -173,6 +176,7 @@
     <ClInclude Include="Leitao.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Jogo.h" />

@@ -7,6 +7,7 @@
 #include "Inimigo.h"
 #include "Bomba.h"
 #include "Bloco.h"
+#include "Porta.h"
 #include "ListaEntidades.h"
 #include <list>
 #include <vector>
@@ -31,6 +32,9 @@ namespace PigsCpp {
             vector<Inimigo*> LIs; 
             set<Bomba*> LBs;
             ListaEntidades* LEsGC;
+
+            bool trocarFase;
+            int idNovaFase;
             
             Personagens::Jogador* jog1;
             Personagens::Jogador* jog2;
@@ -38,8 +42,10 @@ namespace PigsCpp {
             void tratarColisoesJogsObstacs();
             void tratarColisoesJogsInimgs();
             void tratarColisoesJogsBombas();
+            void tratarColisoesJogsPortas();
             void tratarColisoesEntsBlocos();
             void tratarColisoesInimTroncos();
+            
            
 
         public:
@@ -51,6 +57,9 @@ namespace PigsCpp {
             void incluirBomba(Bomba* b);
             void removerInimigo(Inimigo* ini);
             void removerBomba(Bomba* b);
+            const bool getTrocarFase() const;
+            const int getIdNovaFase() const;
+            void resetarTrocaFase();
 
             void setLE(ListaEntidades* LE);
 

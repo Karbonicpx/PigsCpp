@@ -6,7 +6,9 @@ using namespace sf;
 Gerenciador_Colisao::Gerenciador_Colisao() :
     jog1(nullptr),
     jog2(nullptr),
-    LEsGC(nullptr)
+    LEsGC(nullptr),
+    trocarFase(false),
+    idNovaFase(-1)
 {
     LOs.clear();
     LBs.clear();
@@ -95,6 +97,24 @@ void Gerenciador_Colisao::tratarColisoesJogsBombas() {
         }
         if (jog2 != nullptr && verificarColisao(jog2, b)) {
             
+        }
+    }
+}
+
+void Gerenciador_Colisao::tratarColisoesJogsPortas() {
+    for (int i = 0; i < LEsGC->listaEntidades.getLen(); i++) {
+            
+        Entidade* ent = LEsGC->listaEntidades.getItem(i);
+
+        if (dynamic_cast<Porta*>(ent) != nullptr) {
+
+            
+            dynamic_cast<Porta*>(ent)->verificarEntrada(jog1);
+
+            if (jog2 != nullptr) { dynamic_cast<Porta*>(ent)->verificarEntrada(jog2); }  
+
+            trocarFase = dynamic_cast<Porta*>(ent)->getTrocarFase();
+            idNovaFase = dynamic_cast<Porta*>(ent)->getIdProxFase();
         }
     }
 }
@@ -193,6 +213,18 @@ void Gerenciador_Colisao::removerBomba(Bomba* b) {
     }
 }
 
+const int Gerenciador_Colisao::getIdNovaFase() const {
+    return idNovaFase;
+}
+
+const bool Gerenciador_Colisao::getTrocarFase() const {
+    return trocarFase;
+}
+
+void Gerenciador_Colisao::resetarTrocaFase() {
+    trocarFase = false;
+}
+
 // Executa todas as colisões da fase
 void Gerenciador_Colisao::executar() {
     tratarColisoesJogsObstacs();
@@ -200,4 +232,5 @@ void Gerenciador_Colisao::executar() {
     tratarColisoesJogsBombas();
     tratarColisoesEntsBlocos();
     tratarColisoesInimTroncos();
+    tratarColisoesJogsPortas();
 }

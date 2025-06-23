@@ -121,7 +121,9 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
             maxTroncoCounter++;
             break;
             
-
+        case 81:
+            criarPorta(-1);
+            break;
         default:
             break;
         }

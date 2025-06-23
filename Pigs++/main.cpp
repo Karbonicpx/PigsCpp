@@ -1,11 +1,12 @@
-#include "Jogo.h"
+#include "Menu.h"
 
 using namespace PigsCpp;
 
 int main() {
+    srand((unsigned int)time(NULL));
 
-    Jogo jogoObj;
-    jogoObj.executar();
+    Menu menuObj;
+    menuObj.executar();
 
     return 0;
 

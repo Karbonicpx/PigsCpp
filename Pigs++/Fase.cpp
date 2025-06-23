@@ -161,6 +161,12 @@ void Fase::inicializarEntidades(Entidade* e, const float x, const float y) {
 			e->setPos(x, y - 12.0f);
 			e->setSofreGravidade(false);
 		}
+		else if (dynamic_cast<Toucinho*>(e) != nullptr) {
+			if (x > 300.f && x < 900.f || x < 50.f) {
+				dynamic_cast<Toucinho*>(e)->inverterDir();
+			}
+			e->setPos(x, y);
+		}
 		else e->setPos(x, y);
 		
 
@@ -205,14 +211,18 @@ void Fase::criarLeitao() {
 	ent = static_cast<Entidade*>(new Leitao());
 }
 
-// Fazer depois
+
 void Fase::criarPlataformas() {
 	// ent = static_cast<Entidade*>(new Plataforma());
 }
 
+void Fase::criarPorta(int idFase) {
+	ent = static_cast<Porta*>(new Porta(idFase));
+}
+
+
 // Fazer depois
 void Fase::criarCenario() {
-	texturaFundo.loadFromFile("textures/Fase1BG.png");
 	fundo.setTexture(texturaFundo);
 	fundo.setPosition(sf::Vector2f(0.f, 0.f));
 }
@@ -277,6 +287,10 @@ void Fase::gerenciarColisoes() {
 			}
 		}
 	}
+}
+
+Gerenciador_Colisao* Fase::getGC() const {
+	return GC;
 }
 
 void Fase::executar() {

@@ -14,6 +14,7 @@ Jogador::Jogador(const std::string jTexturePath, const bool ehJ1) :
 	podePular(true),
 	pisandoPoca(false),
 	estaMorto(false),
+	entrandoPorta(false),
 	ehJogador1(ehJ1)
 	
 
@@ -188,6 +189,17 @@ void Jogador::controlarRespawn() {
 	}
 }
 
+bool Jogador::entrouNaPorta() const {
+	
+	if (ehJogador1) {
+		return entrandoPorta && isKeyPressed(Key::W);
+	}
+	else {
+		return entrandoPorta && isKeyPressed(Key::Up);
+	}
+	
+}
+
 // Implementar depois
 void Jogador::salvar() {
 
@@ -200,3 +212,5 @@ void Jogador::setPisandoPoca(const bool pP) { pisandoPoca = pP; }
 void Jogador::setPodePular(const bool pP) { podePular = pP; }
 
 void Jogador::setPosRespawn(const float x, const float y) { posRespawn.x = x; posRespawn.y = y; }
+
+void Jogador::setEntrandoPorta(const bool bB) { entrandoPorta = bB; }

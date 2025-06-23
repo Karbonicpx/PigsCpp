@@ -3,7 +3,7 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 Leitao::Leitao() : 
-    Inimigo("textures/Leitao.png", 25.0f, 25.0f, gerarAleatorioFloat(1.5f, 2.5f), 1),
+    Inimigo("textures/Leitao.png", 25.0f, 25.0f, gerarAleatorioFloat(1.5f, 2.2f), 1),
     raio(gerarAleatorioFloat(20.0f, 30.0f))
 {
     direcao = -1;

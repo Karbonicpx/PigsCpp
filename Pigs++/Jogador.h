@@ -19,8 +19,10 @@ namespace PigsCpp {
 				bool pisandoPoca;
 				bool ehJogador1;
 				bool estaMorto;
+				bool entrandoPorta;
 
 				void apertarTecla(sf::Keyboard::Key tecla, float spdX, float spdY);
+				
 				void iniciarPulo();
 				void atualizarPulo();
 				void controlarRespawn();
@@ -34,10 +36,12 @@ namespace PigsCpp {
 				void mover();
 				void executar();
 				void salvar();
+				bool entrouNaPorta() const ;
 				void setVelocidade(float v);
 				void setPisandoPoca(const bool pP);
 				void setPodePular(const bool pP);
 				void setPosRespawn(const float x, const float y);
+				void setEntrandoPorta(const bool eP);
 
 
 			};
