@@ -8,6 +8,7 @@
 #include "Gerenciador_Grafico.h"
 #include "Gerenciador_Colisao.h"
 #include <ctime>
+#include "SaveManager.h"
 
 namespace PigsCpp {
     class Jogo {

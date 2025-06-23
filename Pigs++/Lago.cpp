@@ -50,8 +50,10 @@ void Lago::obstaculizar(Jogador* p) {
     }
 }
 void Lago::salvar(std::ofstream& arq) {
-
+    arq << "LAGO ";
+    salvarDataBuffer(arq);
+    arq << largura << std::endl;
 }
-void Lago::salvarDataBuffer() {
-
+void Lago::salvarDataBuffer(std::ofstream& arq) {
+    Obstaculo::salvarDataBuffer(arq);
 }

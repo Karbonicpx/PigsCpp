@@ -21,7 +21,7 @@ namespace PigsCpp {
         const bool isAtivo() const;
         void inverterAtivo();
         void executar();
-        void salvar();
+        void salvar(std::ofstream& arq);
 
         const float getVel() const;
         };

@@ -51,6 +51,14 @@ Jogo::~Jogo() {
 
 void Jogo::executar() {
     fase->criarEntidades(&GG);
+    // Para salvar:
+    if (sf::Keyboard::isKeyPressed(Key::F5)) {
+        SaveManager::salvarJogo(fase, "save.txt");
+    }
+    // Para carregar:
+    if (sf::Keyboard::isKeyPressed(Key::F9)) {
+        SaveManager::carregarJogo(fase, "save.txt");
+    }
 
     while (GG.estaAberta()) {
         while (const std::optional<sf::Event> evento = GG.getWindow()->pollEvent()) {

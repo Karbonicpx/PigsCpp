@@ -44,7 +44,6 @@ void Entidade::setSofreGravidade(const bool sG) {
 
 
 
-// Implementar depois
 void Entidade::salvarDataBuffer(std::ofstream& arq) {
 	arq << corpo.getPosition().x << " " << corpo.getPosition().y << " ";
 }

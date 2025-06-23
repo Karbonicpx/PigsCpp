@@ -28,7 +28,7 @@ namespace PigsCpp {
 				virtual void mover() = 0;
 				virtual void executar() = 0;
 				virtual void salvar(std::ofstream& arq) = 0;
-				void salvarDataBuffer();
+				void salvarDataBuffer(std::ofstream& arq);
 				float getVelX();
 			};
 		};

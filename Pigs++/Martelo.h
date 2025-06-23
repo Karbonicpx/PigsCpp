@@ -16,7 +16,7 @@ namespace PigsCpp {
 			void mover();
 			const bool isAtivo() const;
 			void executar();
-			void salvar();
+			void salvar(std::ofstream& arq);
 			const float getDano() const;
 			void desativar();
 		};

@@ -31,6 +31,7 @@ float Personagem::getVelX() {
 	return velocidade;
 }
 
-void Personagem::salvarDataBuffer() {
-
+void Personagem::salvarDataBuffer(std::ofstream& arq) {
+	Entidade::salvarDataBuffer(arq);
+	arq << numVidas << " " << velocidade << " ";
 }

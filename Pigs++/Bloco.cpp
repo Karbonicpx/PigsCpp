@@ -15,8 +15,9 @@ void Bloco::setSize(const float size) { blockSize = size; }
 float Bloco::getSize() const { return blockSize; }
 void Bloco::executar() {}
 
-void Bloco::salvar() {
-
+void Bloco::salvar(std::ofstream& arq) {
+    Entidade::salvarDataBuffer(arq);
+    arq << blockSize << " " << std::endl;
 }
 
 // Método que vai impedir da entidade atravessar o bloco

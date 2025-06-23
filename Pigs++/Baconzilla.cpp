@@ -28,7 +28,9 @@ void Baconzilla::danificar(Jogador* p) { // chamado quando o projetil colidir co
     }
 };
 void Baconzilla::salvar(std::ofstream& arq) {
-    // Implementar logica de salvamento
+    arq << "BACONZILLA ";
+    Inimigo::salvarDataBuffer(arq);
+    arq << forca << " " << tamanho << std::endl;
 };
 
 void Baconzilla::mover() {

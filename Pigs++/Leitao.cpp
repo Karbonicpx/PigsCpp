@@ -26,7 +26,9 @@ void Leitao::danificar(Jogador* p) {
 
 
 void Leitao::salvar(std::ofstream& arq) {
-    // Implementar logica de salvamento
+    arq << "LEITAO ";
+    Inimigo::salvarDataBuffer(arq);
+    arq << raio << std::endl;
 }
 
 
