@@ -9,8 +9,9 @@ namespace PigsCpp {
         class Bomba : public Entidade {
 
         protected:
-        float velocidade;
-        sf::Vector2f direcao;
+        float velocidade; // Velocidade do projétil
+        sf::Vector2f direcao; // Direção do projétil
+        sf::CircleShape forma; // Forma do projétil
         bool ativo; // Quando estiver ativo, ela estará no jogo. Quando ela colidir com alguma coisa, a bomba é removida
 
         public:

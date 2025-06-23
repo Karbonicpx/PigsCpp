@@ -21,8 +21,8 @@ namespace PigsCpp {
                 void executar();
                 void danificar(Jogador* p);
                 void salvar();
-                void mover(); 
-                void atirarProjetil();
+                void mover(); // Pra cumprir com método virtual puro, não utilizar!
+                void atirarProjetil(Jogador* alvo, std::vector<Bomba*>& bombas);
 
             };
         };
