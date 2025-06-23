@@ -78,7 +78,7 @@ void Espinho::obstaculizar(Jogador* p) { // Método chamado quando o jogador coli
         }
     }
 }
-void Espinho::salvar() {
+void Espinho::salvar(std::ofstream& arq) {
 
 }
 void Espinho::salvarDataBuffer() {

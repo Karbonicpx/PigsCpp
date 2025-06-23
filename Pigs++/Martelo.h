@@ -6,7 +6,7 @@ namespace PigsCpp {
 	namespace Entidades {
 		class Martelo : public Entidade {
 		private:
-			int dano;
+			float dano;
 			float velocidade;
 			sf::Vector2f direcao;
 			bool ativo;

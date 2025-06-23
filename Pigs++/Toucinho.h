@@ -24,7 +24,7 @@ namespace PigsCpp {
                 ~Toucinho();
                 void executar();
                 void danificar(Jogador* p);
-                void salvar();
+                void salvar(std::ofstream& arq);
                 void mover();
                 void tacarBomba();
 

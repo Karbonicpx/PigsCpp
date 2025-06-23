@@ -3,7 +3,7 @@
 using namespace PigsCpp::Entidades;
 
 Martelo::Martelo(float x, float y, float vel, sf::Vector2f dir) :
-	Entidade(false, true), dano(10), velocidade(vel), direcao(dir), ativo(true) {
+	Entidade(), dano(10), velocidade(vel), direcao(dir), ativo(true) {
 	setPos(x, y);
 	corpo.setFillColor(sf::Color::Blue);
 }

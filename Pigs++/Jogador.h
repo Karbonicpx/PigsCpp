@@ -23,6 +23,7 @@ namespace PigsCpp {
 				bool pisandoPoca;
 				bool ehJogador1;
 				bool estaMorto;
+				bool pressionouAtaque;
 
 				void apertarTecla(sf::Keyboard::Key tecla, float spdX, float spdY);
 				void iniciarPulo();
@@ -37,7 +38,7 @@ namespace PigsCpp {
                 ~Jogador();
                 void mover();
                 void executar();
-                void salvar();
+                void salvar(std::ofstream& arq);
                 Martelo* usarMartelo(float velocidade);
 				Jogador(const std::string jTexturePath, const bool ehJogador1);
 				void setVelocidade(float v);

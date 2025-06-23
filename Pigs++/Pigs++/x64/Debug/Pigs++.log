@@ -2,14 +2,8 @@
   Bloco.cpp
   Espinho.cpp
   Floresta.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Toucinho.h(21,27): error C2086: 'short PigsCpp::Entidades::Personagens::Toucinho::forca': redefinição
-  (compilando o arquivo fonte 'Floresta.cpp')
-  
   Castelo.cpp
 C:\Users\anacl\PigsCpp\Pigs++\Floresta.h(8,27): error C2504: 'Fase': classe base indefinida
-  (compilando o arquivo fonte 'Castelo.cpp')
-  
-C:\Users\anacl\PigsCpp\Pigs++\Toucinho.h(21,27): error C2086: 'short PigsCpp::Entidades::Personagens::Toucinho::forca': redefinição
   (compilando o arquivo fonte 'Castelo.cpp')
   
   Ente.cpp
@@ -18,38 +12,59 @@ C:\Users\anacl\PigsCpp\Pigs++\Toucinho.h(21,27): error C2086: 'short PigsCpp::En
 C:\Users\anacl\PigsCpp\Pigs++\Floresta.h(8,27): error C2504: 'Fase': classe base indefinida
   (compilando o arquivo fonte 'Fase.cpp')
   
-C:\Users\anacl\PigsCpp\Pigs++\Toucinho.h(21,27): error C2086: 'short PigsCpp::Entidades::Personagens::Toucinho::forca': redefinição
-  (compilando o arquivo fonte 'Fase.cpp')
-  
+C:\Users\anacl\PigsCpp\Pigs++\Fase.cpp(215,27): warning C4834: descartando o valor retornado da função com o atributo [[nodiscard]]
   Gerenciador_Colisao.cpp
+  Gerenciador_Grafico.cpp
   Inimigo.cpp
   Jogador.cpp
+C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(6,10): error C2511: 'PigsCpp::Entidades::Personagens::Jogador::Jogador(const bool)': função membro sobrecarregada não encontrada em 'PigsCpp::Entidades::Personagens::Jogador'
+      C:\Users\anacl\PigsCpp\Pigs++\Jogador.h(8,19):
+      consulte a declaração de 'PigsCpp::Entidades::Personagens::Jogador'
+  
+C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(18,1): error C2550: 'PigsCpp::Entidades::Personagens::Jogador::{ctor}': listas de inicializadores de construtor são permitidas apenas em definições de construtor
+C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(21,6): error C2597: referência inválida para membro não static 'PigsCpp::Entidades::Personagens::Jogador::ehJogador1'
+      C:\Users\anacl\PigsCpp\Pigs++\Jogador.h(24,10):
+      consulte a declaração de 'PigsCpp::Entidades::Personagens::Jogador::ehJogador1'
+  
+C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(21,6): error C2451: uma expressão condicional do tipo 'unknown' não é válida
+      C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(21,6):
+      referência malformada a um membro não estático
+  
+C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(26,12): error C2661: 'PigsCpp::Entidades::Personagens::Personagem::Personagem': nenhuma função sobrecarregada recebe 2 argumentos
+      C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(26,12):
+      ao tentar corresponder a lista de argumentos '(float, int)'
+  
   Lago.cpp
   Leitao.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Leitao.cpp(11,1): error C2059: erro de sintaxe: '<<'
-C:\Users\anacl\PigsCpp\Pigs++\Leitao.cpp(16,1): error C2059: erro de sintaxe: '>>'
   ListaEntidades.cpp
+  Martelo.cpp
+C:\Users\anacl\PigsCpp\Pigs++\Martelo.cpp(6,10): error C2661: 'PigsCpp::Entidades::Entidade::Entidade': nenhuma função sobrecarregada recebe 2 argumentos
+      C:\Users\anacl\PigsCpp\Pigs++\Martelo.cpp(6,10):
+      ao tentar corresponder a lista de argumentos '(bool, bool)'
+  
+C:\Users\anacl\PigsCpp\Pigs++\Martelo.cpp(32,9): warning C4244: 'return': conversão de 'const int' para 'const float', possível perda de dados
   Obstaculo.cpp
   Personagem.cpp
   Jogo.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Toucinho.h(21,27): error C2086: 'short PigsCpp::Entidades::Personagens::Toucinho::forca': redefinição
-  (compilando o arquivo fonte 'Jogo.cpp')
-  
   main.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Toucinho.h(21,27): error C2086: 'short PigsCpp::Entidades::Personagens::Toucinho::forca': redefinição
-  (compilando o arquivo fonte 'main.cpp')
-  
-  Bomba.cpp
-  Toucinho.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Toucinho.h(21,27): error C2086: 'short PigsCpp::Entidades::Personagens::Toucinho::forca': redefinição
-  (compilando o arquivo fonte 'Toucinho.cpp')
-  
-C:\Users\anacl\PigsCpp\Pigs++\Toucinho.cpp(49,16): error C2084: função 'void PigsCpp::Entidades::Personagens::Toucinho::executar(void)' já possui um corpo
-      C:\Users\anacl\PigsCpp\Pigs++\Toucinho.cpp(20,16):
-      ver a definição anterior de "PigsCpp::Entidades::Personagens::Toucinho::executar"
-  
-C:\Users\anacl\PigsCpp\Pigs++\Toucinho.cpp(58,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
   Gerando Código...
   Compilando...
+  Bomba.cpp
+C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(9,49): error C2614: 'PigsCpp::Entidades::Bomba': inicialização de membro inválida: 'forma' não é uma base ou membro
+C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(15,13): error C2661: 'PigsCpp::Entidades::Entidade::Entidade': nenhuma função sobrecarregada recebe 2 argumentos
+      C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(15,13):
+      ao tentar corresponder a lista de argumentos '(bool, bool)'
+  
+C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(23,8): error C2084: função 'PigsCpp::Entidades::Bomba::Bomba(float,float,float,sf::Vector2f)' já possui um corpo
+      C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(7,8):
+      ver a definição anterior de "PigsCpp::Entidades::Bomba::Bomba"
+  
+C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(24,61): error C2614: 'PigsCpp::Entidades::Bomba': inicialização de membro inválida: 'forma' não é uma base ou membro
+C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(26,9): error C2065: 'forma': identificador não declarado
+  Toucinho.cpp
+C:\Users\anacl\PigsCpp\Pigs++\Toucinho.cpp(52,16): error C2084: função 'void PigsCpp::Entidades::Personagens::Toucinho::executar(void)' já possui um corpo
+      C:\Users\anacl\PigsCpp\Pigs++\Toucinho.cpp(23,16):
+      ver a definição anterior de "PigsCpp::Entidades::Personagens::Toucinho::executar"
+  
   Tronco.cpp
   Gerando Código...

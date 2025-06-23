@@ -20,11 +20,7 @@ Toucinho::~Toucinho() {
         filaBombas.pop();
     }
 }
-void Toucinho::executar() {
-    // Fica parado
-    mover();
-    
-}
+
 
 void Toucinho::danificar(Jogador* p) { // chamado quando o projetil colidir com o jogador
     // Dano ao jogador
@@ -32,7 +28,7 @@ void Toucinho::danificar(Jogador* p) { // chamado quando o projetil colidir com 
         p->setVidas(p->getVidas() - (forca + getMaldade()));
     }
 }
-void Toucinho::salvar() {
+void Toucinho::salvar(std::ofstream& arq) {
     // Implementar logica de salvamento
 }
 void Toucinho::mover() {

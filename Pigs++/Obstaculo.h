@@ -22,7 +22,7 @@ namespace PigsCpp {
 			virtual ~Obstaculo();
 			void salvarDataBuffer();
 			virtual void executar() = 0;
-			virtual void salvar() = 0;
+			virtual void salvar(std::ofstream& arq) = 0;
 			virtual void obstaculizar(Jogador* p) = 0;
 			void setDanoso(bool dano);
 			bool getDanoso() const;

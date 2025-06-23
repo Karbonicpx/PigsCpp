@@ -20,7 +20,7 @@ namespace PigsCpp {
                 ~Baconzilla();
                 void executar();
                 void danificar(Jogador* p);
-                void salvar();
+                void salvar(std::ofstream& arq);
                 void mover(); 
                 void atirarProjetil();
 

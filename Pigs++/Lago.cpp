@@ -49,7 +49,7 @@ void Lago::obstaculizar(Jogador* p) {
         p->setPisandoPoca(false);
     }
 }
-void Lago::salvar() {
+void Lago::salvar(std::ofstream& arq) {
 
 }
 void Lago::salvarDataBuffer() {

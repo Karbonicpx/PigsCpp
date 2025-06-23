@@ -15,7 +15,7 @@ namespace PigsCpp {
 			~Espinho();
 			void executar();
 			void obstaculizar(Jogador* p);
-			void salvar();
+			void salvar(std::ofstream& arq);
 			void salvarDataBuffer();
 		};
 	};

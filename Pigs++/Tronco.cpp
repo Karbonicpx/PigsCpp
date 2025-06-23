@@ -88,7 +88,7 @@ void Tronco::obstaculizarIni(Inimigo* ini) {
         ini->setPos(posTronco.x + tamTronco.x, posInimigo.y);
     }
 }
-void Tronco::salvar() {
+void Tronco::salvar(std::ofstream& arq) {
 
 }
 void Tronco::salvarDataBuffer() {

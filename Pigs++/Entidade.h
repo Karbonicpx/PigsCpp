@@ -16,16 +16,16 @@ namespace PigsCpp {
 			bool sofreGravidade;
 			
 
-			// std::ostream buffer; // implementar depois
+			//std::ostream buffer; // implementar depois
 		protected:
-			void salvarDataBuffer(); // implementar depois
+			void salvarDataBuffer(std::ofstream& arq); // implementar depois
 
 		public:
 			Entidade(const std::string texturePath, const float bodyX, const float bodyY, const bool sV, const bool sG);
 			Entidade();
 			virtual ~Entidade();
 			virtual void executar() = 0;
-			virtual void salvar() = 0;
+			virtual void salvar(std::ofstream& arq) = 0;
 
 			void setPos(const float x, const float y);
 			bool getSofreGravidade() const;		
