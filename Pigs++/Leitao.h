@@ -9,7 +9,6 @@ namespace PigsCpp {
             private:
 
                 float raio;
-                
 
             public:
                 Leitao();

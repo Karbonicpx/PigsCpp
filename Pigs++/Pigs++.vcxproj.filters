@@ -42,12 +42,6 @@
     <Filter Include="Source Files\Entidades\Obstáculos">
       <UniqueIdentifier>{bd04a177-ea09-46a5-a2e2-2dfd2fce6c83}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Entidades\Abstratas">
-      <UniqueIdentifier>{013f9ff6-9e07-4910-b0ea-7524f641634c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Entidades\Abstratas">
-      <UniqueIdentifier>{6cd9ff2a-a267-4fbc-8780-d5e3353056d0}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -59,6 +53,12 @@
     <ClCompile Include="Ente.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Entidade.cpp">
+      <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Personagem.cpp">
+      <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
     <ClCompile Include="Jogador.cpp">
       <Filter>Source Files\Entidades</Filter>
     </ClCompile>
@@ -67,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="Gerenciador_Colisao.cpp">
       <Filter>Source Files\Gerenciadores</Filter>
+    </ClCompile>
+    <ClCompile Include="Inimigo.cpp">
+      <Filter>Source Files\Entidades\Inimigos</Filter>
     </ClCompile>
     <ClCompile Include="Leitao.cpp">
       <Filter>Source Files\Entidades\Inimigos</Filter>
@@ -80,6 +83,9 @@
     <ClCompile Include="Baconzilla.cpp">
       <Filter>Source Files\Entidades\Inimigos</Filter>
     </ClCompile>
+    <ClCompile Include="ListaEntidades.cpp">
+      <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
     <ClCompile Include="Fase.cpp">
       <Filter>Source Files\Fases</Filter>
     </ClCompile>
@@ -92,6 +98,9 @@
     <ClCompile Include="Bloco.cpp">
       <Filter>Source Files\Entidades</Filter>
     </ClCompile>
+    <ClCompile Include="Obstaculo.cpp">
+      <Filter>Source Files\Entidades\Obstáculos</Filter>
+    </ClCompile>
     <ClCompile Include="Espinho.cpp">
       <Filter>Source Files\Entidades\Obstáculos</Filter>
     </ClCompile>
@@ -101,20 +110,8 @@
     <ClCompile Include="Lago.cpp">
       <Filter>Source Files\Entidades\Obstáculos</Filter>
     </ClCompile>
-    <ClCompile Include="Entidade.cpp">
-      <Filter>Source Files\Entidades\Abstratas</Filter>
-    </ClCompile>
-    <ClCompile Include="Personagem.cpp">
-      <Filter>Source Files\Entidades\Abstratas</Filter>
-    </ClCompile>
-    <ClCompile Include="ListaEntidades.cpp">
-      <Filter>Source Files\Entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Inimigo.cpp">
-      <Filter>Source Files\Entidades\Abstratas</Filter>
-    </ClCompile>
-    <ClCompile Include="Obstaculo.cpp">
-      <Filter>Source Files\Entidades\Abstratas</Filter>
+    <ClCompile Include="Martelo.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files</Filter>
@@ -130,6 +127,9 @@
     <ClInclude Include="Ente.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Personagem.h">
+      <Filter>Header Files\Entidades</Filter>
+    </ClInclude>
     <ClInclude Include="Jogador.h">
       <Filter>Header Files\Entidades</Filter>
     </ClInclude>
@@ -138,6 +138,9 @@
     </ClInclude>
     <ClInclude Include="Gerenciador_Colisao.h">
       <Filter>Header Files\Gerenciadores</Filter>
+    </ClInclude>
+    <ClInclude Include="Entidade.h">
+      <Filter>Header Files\Entidades</Filter>
     </ClInclude>
     <ClInclude Include="Baconzilla.h">
       <Filter>Header Files\Entidades\Inimigos</Filter>
@@ -154,6 +157,9 @@
     <ClInclude Include="Lista.h">
       <Filter>Header Files\Listas</Filter>
     </ClInclude>
+    <ClInclude Include="Inimigo.h">
+      <Filter>Header Files\Entidades\Inimigos</Filter>
+    </ClInclude>
     <ClInclude Include="Fase.h">
       <Filter>Header Files\Fases</Filter>
     </ClInclude>
@@ -165,6 +171,9 @@
     </ClInclude>
     <ClInclude Include="Bloco.h">
       <Filter>Header Files\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstaculo.h">
+      <Filter>Header Files\Entidades\Obstáculos</Filter>
     </ClInclude>
     <ClInclude Include="ListaEntidades.h">
       <Filter>Header Files\Listas</Filter>
@@ -178,17 +187,8 @@
     <ClInclude Include="Tronco.h">
       <Filter>Header Files\Entidades\Obstáculos</Filter>
     </ClInclude>
-    <ClInclude Include="Personagem.h">
-      <Filter>Header Files\Entidades\Abstratas</Filter>
-    </ClInclude>
-    <ClInclude Include="Entidade.h">
-      <Filter>Header Files\Entidades\Abstratas</Filter>
-    </ClInclude>
-    <ClInclude Include="Inimigo.h">
-      <Filter>Header Files\Entidades\Abstratas</Filter>
-    </ClInclude>
-    <ClInclude Include="Obstaculo.h">
-      <Filter>Header Files\Entidades\Abstratas</Filter>
+    <ClInclude Include="Martelo.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Header Files</Filter>
