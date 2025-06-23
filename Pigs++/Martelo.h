@@ -1,4 +1,4 @@
-#pragma once
+#pragma
 #include "Entidade.h"
 #include <SFML/Graphics.hpp>
 

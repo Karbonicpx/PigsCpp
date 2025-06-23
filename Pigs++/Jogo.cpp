@@ -1,91 +1,115 @@
 #include "Jogo.h"
 
-using namespace PigsCpp::Gerenciadores;
-using namespace PigsCpp::Entidades::Personagens;
-using namespace PigsCpp::Fases;
+using namespace PigsCpp;
+using namespace Gerenciadores;
+using namespace Fases;
+using namespace Entidades::Personagens;
 
-// Construtora: Necessário inicializar as variáveis dentro do construtor porém forá das { },
-// Por conta da versão do C++ de 2003
-
-
-Jogo::Jogo() :
-    jogador2(nullptr), // Inicializando jogador2 como nullptr, caso o jogo queria apenas um jogador
-
-    // O que está acontecendo aqui?
-    // O gerenciador gráfico está no modelo de projeto chamado "singleton"
-    // Nesse modelo, fazemos com que apenas uma instância static de uma classe específica possa existir
-    // Então, estamos fazendo com que GG receba essa instância como variável
-    // Assim, só podendo existir um GG por jogo
-    GG(*Gerenciador_Grafico::getInstancia())
+Jogo::Jogo(int idFase) :
+    jogador1(nullptr),
+    jogador2(nullptr),
+    GG(*Gerenciador_Grafico::getInstancia()),
+    idFase(idFase),
+    fase(nullptr)
 {
+    
 
-    // Inicializa o gerador de números aleatórios
-    srand((unsigned int)time(NULL));
-
-    // Inicializando jogador(es)
+    // Instanciar jogadores
     jogador1 = new Jogador("textures/Jogador1.png", true);
     jogador2 = new Jogador("textures/Jogador2.png", false);
-    fase = new Floresta();
+
+    // Instanciar fase
+    if (idFase == 1) {
+        fase = new Floresta();
+    }
+    else if (idFase == 2) {
+        fase = new Subterraneo();
+    }
+    else {
+        fase = new Floresta(); // fallback
+    }
+
     fase->setJogadores(jogador1, jogador2);
 
-    // Fazendo com que os entes tenham sua variável pGG apontando para a instância única
     Ente::setGG(Gerenciador_Grafico::getInstancia());
-
-
 }
 
 Jogo::~Jogo() {
+    if (fase != nullptr) {
+        delete fase;
+        fase = nullptr;
+    }
+    if (jogador1 != nullptr) {
+        delete jogador1;
+        jogador1 = nullptr;
+    }
+    if (jogador2 != nullptr) {
+        delete jogador2;
+        jogador2 = nullptr;
+    }
 }
 
 void Jogo::executar() {
+    fase->criarEntidades(&GG);
 
-    inicializar(fase, "textures/Floresta.png");
-
-}
-
-void Jogo::inicializar(Fases::Floresta* f, std::string texturePath) {
-    f->criarEntidades(&GG);
-
-    while (GG.estaAberta())
-    {
-        // Loop que vai rodar para cada frame do jogo
-        while (const std::optional event = GG.getWindow()->pollEvent())
-        {
-            // Quando a janela fechar, o jogo fecha
-            if (event->is<sf::Event::Closed>())
+    while (GG.estaAberta()) {
+        while (const std::optional<sf::Event> evento = GG.getWindow()->pollEvent()) {
+            if (evento->is<sf::Event::Closed>()) {
                 GG.fechar();
+            }
         }
 
+        executarEntidades(fase);
+        fase->executar();
 
-        // Aqui onde vai ser executado todos as entidades do jogo
-        executarEntidades(f);
+        // Verifica se precisa trocar de fase
+        if (fase->getGC()->getTrocarFase()) {
 
-        // Tratamento de colisões da fase e gravidade
-        f->executar();
 
-        // Renderização (sempre no ciclo clear --> draw --> display)
+            int idNovaFase = fase->getGC()->getIdNovaFase();
+            // Reseta o estado de troca
+            fase->getGC()->resetarTrocaFase();
+
+            // Libera a fase atual da memória
+            delete fase;
+            fase = nullptr;
+
+            if (idNovaFase == 2) {
+                fase = new Subterraneo();
+            }
+            else {
+                GG.fechar();
+                return;
+            }
+
+            idFase = idNovaFase;
+
+            // Configura jogadores na nova fase
+            fase->setJogadores(jogador1, jogador2);
+            fase->criarEntidades(&GG);
+
+         
+        }
+
         GG.clear();
-        f->desenharTileset(&GG, texturePath);
-        desenharEntidades(f);
+        fase->desenharTileset(&GG, "textures/Floresta.png");
+        desenharEntidades(fase);
         GG.mostrar();
     }
 }
 
-void Jogo::desenharEntidades(Fases::Floresta* f) {
+   
 
+void Jogo::executarEntidades(Fase* f) {
     for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
-
-        Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
-        temp->desenhar();
-    }
-}
-
-void Jogo::executarEntidades(Fases::Floresta* f) {
-    // Toda entidade que faz alguma coisa, deve ter seu método executar, na qual esse loop vai chamar
-    for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
-
         Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
         temp->executar();
     }
+}
 
+void Jogo::desenharEntidades(Fase* f) {
+    for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
+        Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
+        temp->desenhar();
+    }
 }

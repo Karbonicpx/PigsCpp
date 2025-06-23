@@ -8,15 +8,15 @@ namespace PigsCpp {
 	namespace Fases {
 
 		// Fase 2
-		class Castelo : public Fase {
+		class Subterraneo : public Fase {
 
 
 		private:
 			const int maxBaconzillas;
 			const int maxEspinhos;
 		public:
-			Castelo();
-			~Castelo();
+			Subterraneo();
+			~Subterraneo();
 
 			void criarZilla();
 			void criarProjeteis();

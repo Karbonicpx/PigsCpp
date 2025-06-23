@@ -15,10 +15,11 @@ Jogador::Jogador(const std::string jTexturePath, const bool ehJ1) :
 	pisandoPoca(false),
 	estaMorto(false),
 	ehJogador1(ehJ1),
-	direcaoMartelo(1.0f),
-	pressionouAtaque(false)
+	direcaoMartelo(1.0),
+	pressionouAtaque(false),
+	entrandoPorta(false)
 {
-
+	
 };
 Jogador::Jogador() :
 	Personagem(),
@@ -32,10 +33,11 @@ Jogador::Jogador() :
 	estaMorto(false),
 	ehJogador1(true),
 	direcaoMartelo(1.0f),
-	pressionouAtaque(false)
+	pressionouAtaque(false),
+	entrandoPorta(false)
 
 {
-
+	
 };
 Jogador::~Jogador() {
 
@@ -49,11 +51,11 @@ void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 
 		corpo.move(Vector2f(spdX, spdY));
 
+			
 		if (tecla == Key::D)
 		{
 			atualizarDirecaoSprite(1);
 		}
-
 		if (tecla == Key::A)
 		{
 			atualizarDirecaoSprite(-1);
@@ -67,8 +69,9 @@ void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 			atualizarDirecaoSprite(1);
 		}
 
-		if (spdX > 0) direcaoMartelo = 1.f;
-		else if (spdX < 0) direcaoMartelo = -1.f;
+		if (spdX > 0) {direcaoMartelo = 1.f;}
+		else if (spdX < 0) { direcaoMartelo = -1.f; }
+		
 
 	}
 }
@@ -79,7 +82,10 @@ void Jogador::atualizarDirecaoSprite(int direcao) {
 		corpo.setOrigin(sf::Vector2f(0.f, 0.f));
 	}
 	else if (direcao < 0) {
+
 		corpo.setScale(sf::Vector2f(-1.f, 1.f));
+
+
 		corpo.setOrigin(sf::Vector2f(corpo.getSize().x, 0.f));
 	}
 }
@@ -88,6 +94,12 @@ void Jogador::atualizarDirecaoSprite(int direcao) {
 void Jogador::mover() {
 
 
+
+	if (pisandoPoca) { velocidade = 2.5f; }
+	else { velocidade = 3.5f; }
+
+
+	
 	if (pisandoPoca) { velocidade = 2.5f; }
 	else { velocidade = 3.5f; }
 
@@ -106,6 +118,7 @@ void Jogador::mover() {
 			iniciarPulo();
 		}
 
+
 		if (isKeyPressed(Key::Space)) {
 			if (!pressionouAtaque) {
 				Martelo* martelo = usarMartelo(8.0f);
@@ -118,6 +131,7 @@ void Jogador::mover() {
 		else {
 			pressionouAtaque = false;
 		}
+
 
 		if (podePular == false) { atualizarPulo(); }
 	}
@@ -172,6 +186,7 @@ void Jogador::atualizarPulo() {
 	else {
 		// Finalização do pulo
 		setSofreGravidade(true);
+
 	}
 }
 
@@ -208,16 +223,56 @@ Martelo* Jogador::usarMartelo(float velocidade) {
 	sf::Vector2f origem = corpo.getPosition();
 	sf::Vector2f direcao(direcaoMartelo, 0.f); // horizontal
 	return new Martelo(origem.x, origem.y, velocidade, direcao);
+
 }
 
-// Implementar depois
+void Jogador::executar() {
+
+	
+	controlarRespawn();
+
+	if (!estaMorto) mover();
+	
+}
+
+void Jogador::controlarRespawn() {
+	if (numVidas <= 0 && !estaMorto) {
+		// Marca como morto, inicia o timer e deixa invisível
+		estaMorto = true;
+		relogioRespawn.restart();
+		corpo.setFillColor(sf::Color(255, 255, 255, 0)); // Transparente
+	}
+
+	if (estaMorto) {
+		// Verifica se passaram 3 segundos
+		if (relogioRespawn.getElapsedTime().asSeconds() >= 3.0f) {
+			// Respawn
+			numVidas = 1;
+			estaMorto = false;
+			corpo.setFillColor(sf::Color(255, 255, 255, 255)); // Visível novamente
+			setPos(posRespawn.x, posRespawn.y); // Volta pra posição inicial
+			setSofreGravidade(true);
+		}
+	}
+}
+
+bool Jogador::entrouNaPorta() const {
+	
+	if (ehJogador1) {
+		return entrandoPorta && isKeyPressed(Key::W);
+	}
+	else {
+		return entrandoPorta && isKeyPressed(Key::Up);
+	}
+	
+
+}
+
+
 void Jogador::salvar(std::ofstream& arq) {
-	arq << "Jogador "
-		<< corpo.getPosition().x << " "
-		<< corpo.getPosition().y << " "
-		<< getVidas() << " "
-		<< pontos << " "
-		<< ehJogador1 << std::endl;
+	arq << "JOGADOR ";
+	Personagem::salvarDataBuffer(arq);
+	arq << pontos << " " << direcaoMartelo << std::endl;
 }
 
 void Jogador::setVelocidade(float v) { velocidade = v; }
@@ -228,3 +283,4 @@ void Jogador::setPodePular(const bool pP) { podePular = pP; }
 
 void Jogador::setPosRespawn(const float x, const float y) { posRespawn.x = x; posRespawn.y = y; }
 
+void Jogador::setEntrandoPorta(const bool bB) { entrandoPorta = bB; }

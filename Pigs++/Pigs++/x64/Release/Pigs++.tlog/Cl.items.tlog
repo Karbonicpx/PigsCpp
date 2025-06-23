@@ -2,7 +2,9 @@ S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Baconzilla.cpp;S:\Facul\Trabalhos\
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Bloco.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Bloco.obj
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Espinho.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Espinho.obj
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Floresta.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Floresta.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Castelo.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Castelo.obj
+S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Martelo.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Martelo.obj
+S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Porta.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Porta.obj
+S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Subterraneo.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Subterraneo.obj
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Ente.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Ente.obj
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Entidade.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Entidade.obj
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Fase.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Fase.obj
@@ -13,6 +15,7 @@ S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Jogador.cpp;S:\Facul\Trabalhos\FUN
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Lago.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Lago.obj
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Leitao.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Leitao.obj
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\ListaEntidades.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\ListaEntidades.obj
+S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Menu.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Menu.obj
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Obstaculo.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Obstaculo.obj
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Personagem.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Personagem.obj
 S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Jogo.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Release\Jogo.obj

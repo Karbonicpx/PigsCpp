@@ -3,11 +3,10 @@
 using namespace PigsCpp::Entidades;
 
 Martelo::Martelo(float x, float y, float vel, sf::Vector2f dir) :
-	Entidade(), dano(10), velocidade(vel), direcao(dir), ativo(true) {
-	setPos(x, y);
-	corpo.setFillColor(sf::Color::Blue);
+	Entidade("Martelo.png", 33.0f, 13.0f, false, true), dano(10), velocidade(vel), direcao(dir), ativo(true) {
+	setPos(x, y);{
 }
-Martelo::~Martelo(){}
+Martelo::~Martelo() {}
 void Martelo::mover() {
 	if (ativo) {
 		x += direcao.x * velocidade;
@@ -25,8 +24,9 @@ void Martelo::executar() {
 		delete this;
 	}
 }
-void Martelo::salvar() {
-	// Implementar lógica de salvamento
+void Martelo::salvar(std::ofstream& arq) {
+	Entidade::salvarDataBuffer(arq);
+	arq << velocidade << " " << ativo << " " << direcao.x << " " << direcao.y << " " << dano << std::endl;
 }
 const float Martelo::getDano() const {
 	return dano;

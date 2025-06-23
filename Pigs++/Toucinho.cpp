@@ -4,16 +4,11 @@ using namespace PigsCpp::Entidades::Personagens;
 
 Toucinho::Toucinho() : 
     Inimigo("textures/Toucinho.png", 35.0f, 35.0f, 0.f, 2),
-    tempoAtaque(0), 
-    forca((rand() % 5) + 1) {
-    
-  
+    tempoAtaque(0),
+    forca((rand() % 5) + 1)
+{
+    direcao = -1;
 }
-
-/*Toucinho::Toucinho() : Inimigo(0.f), forca(5), tempoAtaque(0) {
-    // Cor do tocinho para visualizacao
-    corpo.setFillColor(sf::Color::Cyan);
-}*/
 Toucinho::~Toucinho() {
     while (!filaBombas.empty()) {
         delete filaBombas.front();
@@ -29,14 +24,12 @@ void Toucinho::danificar(Jogador* p) { // chamado quando o projetil colidir com 
     }
 }
 void Toucinho::salvar(std::ofstream& arq) {
-    // Implementar logica de salvamento
+    arq << "TOUCINHO ";
+    Inimigo::salvarDataBuffer(arq);
+    arq << forca << " " << tempoAtaque << std::endl;
 }
 void Toucinho::mover() {
     // fica parado
-    if (++tempoAtaque > 120) {
-        tacarBomba();
-        tempoAtaque = 0;
-    }
 }
 void Toucinho::tacarBomba() {
     sf::Vector2f origem = corpo.getPosition();
@@ -48,6 +41,7 @@ void Toucinho::tacarBomba() {
 void Toucinho::executar() {
     tempoAtaque++;
 
+    
     if (tempoAtaque >= 120) {
         tacarBomba();
         tempoAtaque = 0;
@@ -69,10 +63,3 @@ void Toucinho::executar() {
         }
     }
 }
-    /*sf::Vector2f dir(0.f, 1.f); // para baixo
-    Bomba* bomba = new Bomba(origem.x, origem.y, 4.0, dir);
-    bombas.push_back(bomba);
-    bomba->executar();
-}*/
-
-

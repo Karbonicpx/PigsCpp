@@ -9,6 +9,7 @@
 #include "Tronco.h"	
 #include "Espinho.h"
 #include "Bloco.h"
+#include "Porta.h"
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisao.h"
 #include "nlohmann/json.hpp"
@@ -54,6 +55,7 @@ namespace PigsCpp {
 			void criarLeitao();
 			void criarPlataformas();
 			void criarCenario();
+			void criarPorta(int idFase);
 			virtual void criarInimigos() = 0;
 			virtual void criarObstaculo() = 0;
 			
@@ -68,6 +70,7 @@ namespace PigsCpp {
 			virtual void desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath);
 			virtual void criarEntidades(Gerenciador_Grafico* GG) = 0;
 
+			Gerenciador_Colisao* getGC() const;
 			ListaEntidades* getListaEntidades() const;
 			void setJogadores(Jogador* pJ1, Jogador* pJ2 = nullptr);
 			void setMapa(std::string jsonPath);
