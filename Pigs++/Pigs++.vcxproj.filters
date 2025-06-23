@@ -122,6 +122,9 @@
     <ClCompile Include="Porta.cpp">
       <Filter>Source Files\Entidades\Obstáculos</Filter>
     </ClCompile>
+    <ClCompile Include="Martelo.cpp">
+      <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -195,6 +198,9 @@
     </ClInclude>
     <ClInclude Include="Porta.h">
       <Filter>Header Files\Entidades\Obstáculos</Filter>
+    </ClInclude>
+    <ClInclude Include="Martelo.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

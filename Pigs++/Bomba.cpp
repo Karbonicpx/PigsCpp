@@ -6,7 +6,9 @@ using namespace sf;
 
 Bomba::Bomba(float x, float y, float vel, sf::Vector2f dir) :
     Entidade("textures/Bomba.png", 13.0f, 16.0f, false, true), 
-    velocidade(vel), direcao(dir), ativo(true), forma(5.0f) {
+    velocidade(vel), direcao(dir), ativo(true) 
+{
+	corpo.setFillColor(sf::Color::Black); // Define a cor do corpo como transparente
     setPos(x, y); // Isso aqui já faz a função de setar a posição inicial
 }
 
@@ -27,7 +29,7 @@ void Bomba::mover() {  // Mover o projétil na direção especificada
     if (ativo) {
         x += direcao.x * velocidade;
         y += direcao.y * velocidade;
-        forma.setPosition(sf::Vector2f(x,y));
+        corpo.setPosition(sf::Vector2f(x,y));
     }
 }
 

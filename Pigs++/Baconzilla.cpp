@@ -49,19 +49,11 @@ void Baconzilla::mover() {
 }
 
 
-void Baconzilla::atirarProjetil(Jogador* alvo, std::vector<Bomba*>& projeteis) {
-    if (!alvo) return;
-
+void Baconzilla::atirarProjetil() {
     sf::Vector2f origem = corpo.getPosition();
-    sf::Vector2f destino = alvo->getCorpo().getPosition();
-    sf::Vector2f direcao = destino - origem;
-    float comprimento = std::sqrt(direcao.x * direcao.x + direcao.y * direcao.y);
-    if (comprimento != 0)
-        direcao /= comprimento;
-
-    float velocidade = 5.0f;
-    Bomba* p = new Bomba(origem.x, origem.y, velocidade, direcao);
-    projeteis.push_back(p);
+    sf::Vector2f dir(0.f, 1.f); // para baixo
+    Bomba* bomba = new Bomba(origem.x, origem.y, 4.0, dir);
+    bomba->executar();
 }
 
 

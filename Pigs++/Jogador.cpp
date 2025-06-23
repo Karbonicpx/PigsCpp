@@ -31,7 +31,8 @@ Jogador::Jogador() :
 	podePular(true),
 	pisandoPoca(false),
 	estaMorto(false),
-	ehJogador1(true)
+	ehJogador1(true),
+	entrandoPorta(false)
 
 {
 	

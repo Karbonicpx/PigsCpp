@@ -1,5 +1,6 @@
 #pragma once
 #include "Personagem.h"
+#include "Martelo.h"
 
 namespace PigsCpp {
 	namespace Entidades {
