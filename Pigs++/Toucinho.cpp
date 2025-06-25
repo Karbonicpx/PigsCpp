@@ -4,8 +4,8 @@ using namespace PigsCpp::Entidades::Personagens;
 
 Toucinho::Toucinho(ListaEntidades* lista) :
     Inimigo("textures/Toucinho.png", 35.0f, 35.0f, 0.f, 2),
-    Atirador(120, lista),
-    forca((rand() % 5) + 1)
+    Atirador(gerarAleatorioFloat(90.f, 120.f), lista),
+    forca((rand() % 4) + 1)
 
 {
     direcao = -1;
@@ -41,10 +41,15 @@ void Toucinho::atirarProjetil() {
     sf::Vector2f vel(dirX, dirY);
 
     // Cria a bomba
-    Bomba* b = new Bomba(origem.x + corpo.getSize().x / 2, origem.y, vel);
-
-    // Adiciona na lista de entidades
-    listaEntidades->listaEntidades.incluir(b);
+    if (dirX < 0) {
+        Bomba* b = new Bomba(origem.x + corpo.getSize().x / 2, origem.y, sf::Vector2f(vel.x - forca, vel.y));
+        listaEntidades->listaEntidades.incluir(b);
+    }
+    else {
+        Bomba* b = new Bomba(origem.x + corpo.getSize().x / 2, origem.y, sf::Vector2f(vel.x + forca, vel.y));
+        listaEntidades->listaEntidades.incluir(b);
+    }
+   
 }
 
 void Toucinho::executar() {

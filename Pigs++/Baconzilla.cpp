@@ -4,7 +4,7 @@ using namespace PigsCpp::Entidades::Personagens;
 
 Baconzilla::Baconzilla(ListaEntidades* lE) : 
     Inimigo("textures/Baconzilla.png", 45.0f, 45.0f, gerarAleatorioFloat(0.2f, 0.25f), 3),
-    Atirador(120, lE),
+    Atirador(gerarAleatorioFloat(90.f, 120.f), lE),
     tempoTrocaDirecao(gerarAleatorioFloat(0.5, 1.0f)),
     tamanho((rand() % 3) + 1), // 1 a 3
     forca((rand() % 5) + 1) // 1 a 5
@@ -65,17 +65,20 @@ void Baconzilla::mover() {
 
 void Baconzilla::atirarProjetil() {
     sf::Vector2f origem = corpo.getPosition();
-
     float dirX = direcao * 3.0f;
     float dirY = -5.5f;
-
     sf::Vector2f vel(dirX, dirY);
 
     // Cria a bomba
-    Bomba* b = new Bomba(origem.x + corpo.getSize().x / 2, origem.y, vel);
-
-    // Adiciona na lista de entidades
-    listaEntidades->listaEntidades.incluir(b);
+    if (dirX < 0) {
+        Bomba* b = new Bomba(origem.x + corpo.getSize().x / 2, origem.y, sf::Vector2f(vel.x - forca, vel.y));
+        listaEntidades->listaEntidades.incluir(b);
+    }
+    else {
+        Bomba* b = new Bomba(origem.x + corpo.getSize().x / 2, origem.y, sf::Vector2f(vel.x + forca, vel.y));
+        listaEntidades->listaEntidades.incluir(b);
+    }
+   
 }
 
 

@@ -5,7 +5,7 @@ using namespace PigsCpp::Entidades::Personagens;
 
 Jogador::Jogador(const std::string jTexturePath, const bool ehJ1, ListaEntidades* lE) :
 	Personagem(jTexturePath, 47.0f, 36.0f, 3.5f, 1),
-	Atirador(120, lE),
+	Atirador(gerarAleatorioFloat(60.f, 90.f), lE),
 	pontos(0),
 	posRespawn(0, 0),
 	alturaMaximaPulo(140.0f),
@@ -177,10 +177,9 @@ void Jogador::atirarProjetil() {
 	if (corpo.getScale().x > 0) {
 
 		// Martelo vai pra direita
-		Martelo* m = new Martelo(origem.x + corpo.getSize().x / 2, origem.y + 15.f, sf::Vector2f(7.f, 0.f));
+		Martelo* m = new Martelo(origem.x, origem.y, sf::Vector2f(10.f, 0.f));
 
 		m->getCorpo().setScale(sf::Vector2f(1.f, 1.f));
-		m->getCorpo().setOrigin(sf::Vector2f(0.f, 0.f));
 
 		// Adiciona na lista de entidades
 		listaEntidades->listaEntidades.incluir(m);
@@ -188,10 +187,9 @@ void Jogador::atirarProjetil() {
 	else {
 
 		// Martelo vai pra esquerda
-		Martelo* m = new Martelo(origem.x + corpo.getSize().x / 2, origem.y + 15.f, sf::Vector2f(-7.f, 0.f));
+		Martelo* m = new Martelo(origem.x, origem.y, sf::Vector2f(-10.f, 0.f));
 
 		m->getCorpo().setScale(sf::Vector2f(-1.f, 1.f));
-		m->getCorpo().setOrigin(sf::Vector2f(corpo.getSize().x, 0.f));
 
 		// Adiciona na lista de entidades
 		listaEntidades->listaEntidades.incluir(m);

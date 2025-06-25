@@ -73,17 +73,19 @@ void Bloco::blocar(Entidade* e) {
     // Colisão no eixo Y (cima ou baixo)
     else {
 
-        // Independente daonde um projetil cair, ele tem que ser desativado
-        if (dynamic_cast<Projetil*>(e) != nullptr) {
-            dynamic_cast<Projetil*>(e)->desativar();
+        // Martelo não conta pois ele é desativado se o jogador lançar ele sobre uma plataforma
+        if (dynamic_cast<Bomba*>(e) != nullptr) {
+            dynamic_cast<Bomba*>(e)->desativar();
         }
 
         
         if (rectEnt.position.y < rectBloco.position.y) {
+            
+            e->setPos(rectEnt.position.x, rectBloco.position.y - rectEnt.size.y);
+            
 
-            // Se não for toucinho ou baconzilla, seta a colisão por cima
-            if (dynamic_cast<Leitao*>(e) == nullptr && dynamic_cast<Baconzilla*>(e) == nullptr) {
-                e->setPos(rectEnt.position.x, rectBloco.position.y - rectEnt.size.y);
+            if (dynamic_cast<Leitao*>(e) != nullptr || dynamic_cast<Baconzilla*>(e) != nullptr) {
+                e->setSofreGravidade(false);
             }
            
 
@@ -93,10 +95,8 @@ void Bloco::blocar(Entidade* e) {
 			}
         }
         else {
-            // Se não for toucinho ou baconzilla, seta a colisão por baixo
-            if (dynamic_cast<Leitao*>(e) == nullptr && dynamic_cast<Baconzilla*>(e) == nullptr) {
-                e->setPos(rectEnt.position.x, rectBloco.position.y + rectBloco.size.y);
-            }
+            
+            e->setPos(rectEnt.position.x, rectBloco.position.y + rectBloco.size.y);
            
 
             if (dynamic_cast<Jogador*>(e) != nullptr) {

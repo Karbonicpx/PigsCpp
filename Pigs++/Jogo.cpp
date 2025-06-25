@@ -86,6 +86,7 @@ void Jogo::executar() {
                 fase = new Subterraneo();
             }
             else {
+                printf("Fechando!");
                 GG.fechar();
                 return;
             }

@@ -2,10 +2,10 @@
 
 using namespace PigsCpp::Fases;
 
-Subterraneo::Subterraneo():                 // 8 - 18          // 4 - 7
-	Fase("fasesjson/Subterraneo.json", (rand() % 9) + 10, (rand() % 5) + 3),
-    maxEspinhos((rand() % 11) + 13), // 0, 1, 2 ... 20 no rand, + 10 - 10, 11 ... 30  
-    maxBaconzillas((rand() % 4) + 1)  // 0, 1, 2, 3 no rand, + 1 - 1, 2, 3, 4
+Subterraneo::Subterraneo():                 // 14 - 21          // 3 - 5
+	Fase("fasesjson/Subterraneo.json", (rand() % 8) + 14, (rand() % 3) + 3),
+    maxEspinhos((rand() % 11) + 11), // 0, 1, 2 ... 20 no rand, + 10 - 10, 11 ... 30  
+    maxBaconzillas((rand() % 2) + 3)  // 0 e 1 no rand, vira 3 e 4
 {
   
 }
@@ -31,7 +31,7 @@ void Subterraneo::criarZilla() {
 
 // Provável que não utilize isso, já que as bombas são criadas a partir de Baconzilla/Toucinho
 void Subterraneo::criarProjeteis() {
-    ent = static_cast<Entidade*>(new Bomba());
+    // ent = dynamic_cast<Entidade*>(new Projetil());
 }
 
 void Subterraneo::criarInimigos() {

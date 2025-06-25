@@ -154,15 +154,13 @@ void Fase::inicializarEntidades(Entidade* e, const float x, const float y) {
 	if (e != nullptr) {
 
 		if (dynamic_cast<Leitao*>(e) != nullptr){
-			e->setPos(x, y + 8.0f);
-			e->setSofreGravidade(false);
+			e->setPos(x, y);
 		}
 		else if (dynamic_cast<Baconzilla*>(e) != nullptr) {
-			e->setPos(x, y - 12.0f);
-			e->setSofreGravidade(false);
+			e->setPos(x, y);
 		}
 		else if (dynamic_cast<Toucinho*>(e) != nullptr) {
-			if (x > 300.f && x < 900.f || x < 50.f) {
+			if (x > 200.f && x < 900.f || x < 50.f) {
 				dynamic_cast<Toucinho*>(e)->inverterDir();
 			}
 			e->setPos(x, y);
@@ -204,20 +202,20 @@ void Fase::aplicarGravidade() {
 }
 
 void Fase::criarBloco() {
-	ent = static_cast<Entidade*>(new Bloco());
+	ent = dynamic_cast<Entidade*>(new Bloco());
 }
 
 void Fase::criarLeitao() {
-	ent = static_cast<Entidade*>(new Leitao());
+	ent = dynamic_cast<Entidade*>(new Leitao());
 }
 
 
 void Fase::criarPlataformas() {
-	// ent = static_cast<Entidade*>(new Plataforma());
+	// ent = dynamic_cast<Entidade*>(new Plataforma());
 }
 
 void Fase::criarPorta(int idFase) {
-	ent = static_cast<Porta*>(new Porta(idFase));
+	ent = dynamic_cast<Porta*>(new Porta(idFase));
 }
 
 
@@ -237,13 +235,12 @@ void Fase::criarJogador(const float posX, const float posY) {
 		j1->operator++();
 
 	}
-	// Se tiver 2, cria os dois
+	// Se tiver 2, cria o segundo
 	else {
 
 		j1->setPos(posX, posY);
 		j1->setPosRespawn(posX, posY);
 		j1->operator++();
-
 		// Cria um segundo jogador do lado do primeiro
 		j2->setPos(posX + j1->getCorpo().getSize().x, posY);
 		j2->setPosRespawn(posX + j1->getCorpo().getSize().x, posY);
