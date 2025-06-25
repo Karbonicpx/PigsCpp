@@ -54,6 +54,7 @@ int Porta::getIdProxFase() {
 }
 
 void Porta::salvar(std::ofstream& arq) {
+    arq << "PORTA ";
     Entidade::salvarDataBuffer(arq);
     arq << " " << idProximaFase << " " << trocarFase << std::endl;
 }

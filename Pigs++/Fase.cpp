@@ -292,14 +292,6 @@ void Fase::gerenciarColisoes() {
 	// gerenciarCriacaoProjeteis();
 }
 
-void Fase::carregarJogo() {
-
-	std::ifstream arq("save.txt");
-	if (!arq.is_open()) {
-		std::cerr << "Erro ao abrir arquivo de salvamento.\n";
-		return;
-	}
-}
 Gerenciador_Colisao* Fase::getGC() const {
 	return GC;
 }
@@ -328,7 +320,6 @@ void Fase::carregarJogo() {
 			j->setVidas(vidas);
 			j->setVelocidade(velocidade);
 			//j->setPontos(pontos);
-			//j->setDirecaoMartelo(direcaoMartelo);
 
 			lista_entes->listaEntidades.incluir(j);
 		}

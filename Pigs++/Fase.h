@@ -76,7 +76,6 @@ namespace PigsCpp {
 			ListaEntidades* getListaEntidades() const;
 			void setJogadores(Jogador* pJ1, Jogador* pJ2 = nullptr);
 			void setMapa(std::string jsonPath);
-			void carregarJogo();
 		};
 	};
 };

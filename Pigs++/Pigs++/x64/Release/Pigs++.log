@@ -1,17 +1,17 @@
 ﻿  Atirador.cpp
   Floresta.cpp
-  Porta.cpp
   SaveManager.cpp
   Subterraneo.cpp
   Fase.cpp
   Gerenciador_Colisao.cpp
+  Lago.cpp
   Menu.cpp
   Obstaculo.cpp
   Jogo.cpp
   main.cpp
   Generating code
-  84 of 2294 functions ( 3.7%) were compiled, the rest were copied from previous compilation.
-    19 functions were new in current compilation
-    29 functions had inline decision re-evaluated but remain unchanged
+  48 of 2306 functions ( 2.1%) were compiled, the rest were copied from previous compilation.
+    8 functions were new in current compilation
+    80 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Pigs++.vcxproj -> S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\x64\Release\Pigs++.exe
