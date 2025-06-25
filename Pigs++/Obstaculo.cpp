@@ -16,8 +16,9 @@ Obstaculo::Obstaculo() :
 Obstaculo::~Obstaculo() {
 
 }
-void Obstaculo::salvarDataBuffer() {
-
+void Obstaculo::salvarDataBuffer(std::ofstream& arq) {
+	Entidade::salvarDataBuffer(arq);  // posição (x, y)
+	arq << danoso << " ";
 }
 void Obstaculo::setDanoso(bool dano) {
 	danoso = dano;

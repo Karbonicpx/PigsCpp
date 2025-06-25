@@ -2,35 +2,32 @@
 
 using namespace PigsCpp::Entidades;
 
-Martelo::Martelo(float x, float y, float vel, sf::Vector2f dir) :
-	Entidade("Martelo.png", 33.0f, 13.0f, false, true), dano(10), velocidade(vel), direcao(dir), ativo(true) {
-	setPos(x, y);
+Martelo::Martelo(float x, float y, sf::Vector2f vel) :
+	Projetil("textures/Martelo.png", 33.0f, 13.0f, x, y, vel, 1),
+	velocidadeGiro(10.f)
+{
+	
 }
 Martelo::~Martelo() {}
-void Martelo::mover() {
-	if (ativo) {
-		x += direcao.x * velocidade;
-		y += direcao.y * velocidade;
-		corpo.setPosition(sf::Vector2f(x, y));
-	}
+
+void Martelo::mover() 
+{
+	corpo.move(velocidade);
 }
-const bool Martelo::isAtivo() const {
-	return ativo;
+
+void Martelo::salvar(std::ofstream& arq) {
+	Entidade::salvarDataBuffer(arq);
+	arq << velocidade.x << " "
+	<< velocidade.y << " " 
+	<< ativo << " " 
+	<< dano << std::endl;
 }
+
 void Martelo::executar() {
-	mover();
-	// Quando for desativado (tocar no jogador, chão ou parede), o martelo é removido do jogo
-	if (!ativo) {
-		delete this;
+
+	if (ativo) mover();
+	else {
+		dano = 0;
+		corpo.setFillColor(sf::Color(255, 255, 255, 0));
 	}
-}
-void Martelo::salvar() {
-	// Implementar lógica de salvamento
-}
-const float Martelo::getDano() const {
-	return dano;
-}
-void Martelo::desativar() {
-	ativo = false;
-	corpo.setFillColor(sf::Color::Transparent); // Torna invisível
 }

@@ -3,7 +3,7 @@
 #include "Inimigo.h"
 #include "Bomba.h"
 #include "ListaEntidades.h"
-#include <queue>
+#include "Atirador.h"
 
 
 using namespace Listas;
@@ -11,15 +11,9 @@ using namespace Listas;
 namespace PigsCpp {
     namespace Entidades {
         namespace Personagens {
-            class Toucinho : public Inimigo {
+            class Toucinho : public Inimigo, Atirador {
             private:
 
-                
-               
-                ListaEntidades* listaEntidades;
-                // Usando isso aqui para ter um fluxo de bombas sendo alocadas e desalocadas da memoria
-                std::queue<Bomba*> filaBombas;
-                int tempoAtaque;
                 short int forca;
 
             public:
@@ -27,9 +21,9 @@ namespace PigsCpp {
                 ~Toucinho();
                 void executar();
                 void danificar(Jogador* p);
-                void salvar();
+                void salvar(std::ofstream& arq);
                 void mover();
-                void tacarBomba();
+                void atirarProjetil();
 
             };
         };

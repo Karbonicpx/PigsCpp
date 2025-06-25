@@ -15,7 +15,14 @@ Leitao::~Leitao() {
 }
 void Leitao::executar() {
     
-    mover();
+    if (numVidas > 0) {
+        mover();
+    }
+    else {
+        nivel_maldade = 0;
+        corpo.setFillColor(sf::Color(255, 255, 255, 0));
+    }
+    
 }
 void Leitao::danificar(Jogador* p) {
     // Dano ao jogador
@@ -25,8 +32,10 @@ void Leitao::danificar(Jogador* p) {
 }
 
 
-void Leitao::salvar() {
-    // Implementar logica de salvamento
+void Leitao::salvar(std::ofstream& arq) {
+    arq << "LEITAO ";
+    Inimigo::salvarDataBuffer(arq);
+    arq << raio << std::endl;
 }
 
 

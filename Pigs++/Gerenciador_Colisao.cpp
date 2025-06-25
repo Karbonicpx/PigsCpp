@@ -11,7 +11,7 @@ Gerenciador_Colisao::Gerenciador_Colisao() :
     idNovaFase(-1)
 {
     LOs.clear();
-    LBs.clear();
+    LPs.clear();
     LIs.clear();
 }
 
@@ -21,9 +21,11 @@ Gerenciador_Colisao::~Gerenciador_Colisao() {
     jog2 = nullptr;
     LEsGC->listaEntidades.limpar();
     LOs.clear();
-    LBs.clear();
+    LPs.clear();
     LIs.clear();
+
     delete(LEsGC);
+    LEsGC = nullptr;
 }
 
 // Setando os jogadores
@@ -63,10 +65,10 @@ void Gerenciador_Colisao::tratarColisoesJogsObstacs() {
     for (std::list<Obstaculo*>::iterator it = LOs.begin(); it != LOs.end(); it++) {
         Obstaculo* obs = *it;
 
-        if (jog1 != nullptr && verificarColisao(jog1, obs)) {
+        if (jog1 != nullptr && jog1->getVidas() > 0 && verificarColisao(jog1, obs)) {
             obs->obstaculizar(jog1);
         }
-        if (jog2 != nullptr && verificarColisao(jog2, obs)) {
+        if (jog2 != nullptr && jog2->getVidas() > 0 && verificarColisao(jog2, obs)) {
             obs->obstaculizar(jog2);
         }
     }
@@ -77,10 +79,10 @@ void Gerenciador_Colisao::tratarColisoesJogsInimgs() {
     for (std::vector<Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
         Inimigo* ini = *it;
 
-        if (jog1 != nullptr && verificarColisao(jog1, ini)) {
+        if (jog1 != nullptr && jog1->getVidas() > 0 && verificarColisao(jog1, ini) && ini->getVidas() > 0) {
             ini->danificar(jog1);
         }
-        if (jog2 != nullptr && verificarColisao(jog2, ini)) {
+        if (jog2 != nullptr && jog2->getVidas() > 0 && verificarColisao(jog2, ini) && ini->getVidas() > 0) {
             ini->danificar(jog2);
         }
     }
@@ -88,17 +90,20 @@ void Gerenciador_Colisao::tratarColisoesJogsInimgs() {
 
 // Jogador vs Bombas
 void Gerenciador_Colisao::tratarColisoesJogsBombas() {
-    for (std::set<Bomba*>::iterator it = LBs.begin(); it != LBs.end(); it++) {
-        Bomba* b = *it;
+    for (std::set<Projetil*>::iterator it = LPs.begin(); it != LPs.end(); it++) {
+        Projetil* p = *it;
 
+        Bomba* b = dynamic_cast<Bomba*>(p);
         // Fazer depois
-        if (jog1 != nullptr && verificarColisao(jog1, b)) {
+        if (jog1 != nullptr && jog1->getVidas() > 0 && verificarColisao(jog1, b)) {
            
-            jog1->setVidas(jog1->getVidas() - b->explodir());
+            jog1->setVidas(jog1->getVidas() - b->colidir());
+            b->desativar();
         }
-        if (jog2 != nullptr && verificarColisao(jog2, b)) {
+        if (jog2 != nullptr && jog2->getVidas() > 0 && verificarColisao(jog2, b)) {
 
-            jog2->setVidas(jog1->getVidas() - b->explodir());
+            jog2->setVidas(jog1->getVidas() - b->colidir());
+            b->desativar();
         }
     }
 }
@@ -186,6 +191,36 @@ void Gerenciador_Colisao::tratarColisoesInimTroncos() {
     }
 }
 
+void Gerenciador_Colisao::tratarColisoesInimMartelos() {
+    for (int i = 0; i < LEsGC->listaEntidades.getLen(); i++) {
+
+        Entidade* ent = LEsGC->listaEntidades.getItem(i);
+        Inimigo* inim = dynamic_cast<Inimigo*>(ent);
+
+        if (inim == nullptr || inim->getId() < 0) {
+            continue;
+        }
+
+        for (int j = 0; j < LEsGC->listaEntidades.getLen(); j++) {
+
+            Entidade* e = LEsGC->listaEntidades.getItem(j);
+            Martelo* m = dynamic_cast<Martelo*>(e);
+
+            if (m == nullptr) {
+                continue;
+            }
+
+            if (verificarColisao(inim, m)) {
+                // Dano ao inimigo
+                inim->setVidas(inim->getVidas() - m->colidir());
+
+                // Desativa o martelo após colisão
+                m->desativar();
+            }
+        }
+    }
+}
+
 // Incluir entidades
 void Gerenciador_Colisao::incluirInimigo(Inimigo* ini) {
     LIs.push_back(ini);
@@ -196,8 +231,8 @@ void Gerenciador_Colisao::incluirObstaculo(Obstaculo* obs) {
     LOs.push_back(obs);
 }
 
-void Gerenciador_Colisao::incluirBomba(Bomba* b) {
-    LBs.insert(b);
+void Gerenciador_Colisao::incluirProjetil(Projetil* p) {
+    LPs.insert(p);
 }
 
 // Remover entidades
@@ -205,13 +240,15 @@ void Gerenciador_Colisao::removerInimigo(Inimigo* ini) {
     std::vector<Inimigo*>::iterator it = std::find(LIs.begin(), LIs.end(), ini);
     if (it != LIs.end()) {
         LIs.erase(it);
+        delete* it;
     }
 }
 
-void Gerenciador_Colisao::removerBomba(Bomba* b) {
-    std::set<Bomba*>::iterator it = std::find(LBs.begin(), LBs.end(), b);
-    if (it != LBs.end()) {
-        LBs.erase(it);
+void Gerenciador_Colisao::removerProjetil(Projetil* p) {
+    std::set<Projetil*>::iterator it = std::find(LPs.begin(), LPs.end(), p);
+    if (it != LPs.end()) {
+        LPs.erase(it);
+        delete* it;
     }
 }
 
@@ -232,7 +269,8 @@ void Gerenciador_Colisao::executar() {
     tratarColisoesJogsObstacs();
     tratarColisoesJogsInimgs();
     tratarColisoesJogsBombas();
-    tratarColisoesEntsBlocos();
-    tratarColisoesInimTroncos();
     tratarColisoesJogsPortas();
+    tratarColisoesInimTroncos();
+    tratarColisoesInimMartelos();
+    tratarColisoesEntsBlocos();
 }

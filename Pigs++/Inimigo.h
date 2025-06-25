@@ -19,10 +19,10 @@ namespace PigsCpp {
                 const int getMaldade() const;
                 void setMaldade(const int m);
                 void inverterDir();
-                void salvarDataBuffer();
+                void salvarDataBuffer(std::ofstream& arq);
                 virtual void executar() = 0;
                 virtual void danificar(Jogador* p) = 0;
-                virtual void salvar() = 0;
+                virtual void salvar(std::ofstream& arq) = 0;
                 virtual void mover() = 0;
 
             };

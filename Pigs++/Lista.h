@@ -83,7 +83,7 @@ namespace PigsCpp {
                 }
                 delete temp;
 				temp = nullptr;
-                len--;
+                this->operator--();
             }
 
             void limpar() {

@@ -5,7 +5,7 @@
 #include "Obstaculo.h"
 #include "Tronco.h"
 #include "Inimigo.h"
-#include "Bomba.h"
+#include "Projetil.h"
 #include "Bloco.h"
 #include "Porta.h"
 #include "ListaEntidades.h"
@@ -30,7 +30,7 @@ namespace PigsCpp {
         private:
             list<Obstaculo*> LOs; 
             vector<Inimigo*> LIs; 
-            set<Bomba*> LBs;
+            set<Projetil*> LPs;
             ListaEntidades* LEsGC;
 
             bool trocarFase;
@@ -45,6 +45,7 @@ namespace PigsCpp {
             void tratarColisoesJogsPortas();
             void tratarColisoesEntsBlocos();
             void tratarColisoesInimTroncos();
+            void tratarColisoesInimMartelos();
             
            
 
@@ -54,9 +55,9 @@ namespace PigsCpp {
             void setJogadores(Personagens::Jogador* j1, Personagens::Jogador* j2);
             void incluirInimigo(Inimigo* ini);
             void incluirObstaculo(Obstaculo* obs);
-            void incluirBomba(Bomba* b);
+            void incluirProjetil(Projetil* b);
             void removerInimigo(Inimigo* ini);
-            void removerBomba(Bomba* b);
+            void removerProjetil(Projetil* b);
             const bool getTrocarFase() const;
             const int getIdNovaFase() const;
             void resetarTrocaFase();

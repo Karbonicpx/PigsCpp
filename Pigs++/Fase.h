@@ -26,7 +26,7 @@ using namespace PigsCpp::Gerenciadores;
 
 // OBS:
 // Código de geração de tilemap adaptado do manual da oficina PETECO,
-// no link: https://github.com/Nixxye/Project-Simas-PETECO/tree/main/Tilemap
+// no link:  https://github.com/Nixxye/Project-Simas-PETECO/tree/main/Tilemap
 namespace PigsCpp {
 
 	namespace Fases {
@@ -65,7 +65,8 @@ namespace PigsCpp {
 			Fase(std::string jsonPath, const int mLG, const int mLT);
 			Fase();
 			~Fase();
-			virtual void executar();	
+			virtual void executar();
+			void carregarJogo();
 			void criarMapa();
 			void inicializarEntidades(Entidade* e, const float x, const float y);
 			virtual void desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath);

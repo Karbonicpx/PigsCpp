@@ -4,19 +4,16 @@ using namespace PigsCpp::Entidades::Personagens;
 
 Toucinho::Toucinho(ListaEntidades* lista) :
     Inimigo("textures/Toucinho.png", 35.0f, 35.0f, 0.f, 2),
-    tempoAtaque(0),
-    forca((rand() % 5) + 1),
-    listaEntidades(lista)
+    Atirador(120, lista),
+    forca((rand() % 5) + 1)
 
 {
     direcao = -1;
 }
 
 Toucinho::~Toucinho() {
-    while (!filaBombas.empty()) {
-        delete filaBombas.front();
-        filaBombas.pop();
-    }
+  
+    listaEntidades = nullptr;
 }
 
 void Toucinho::danificar(Jogador* p) {
@@ -25,15 +22,17 @@ void Toucinho::danificar(Jogador* p) {
     }
 }
 
-void Toucinho::salvar() {
-
+void Toucinho::salvar(std::ofstream& arq) {
+    arq << "TOUCINHO ";
+    Inimigo::salvarDataBuffer(arq);
+    arq << forca << " " << tempoProjetil << std::endl;
 }
 
 void Toucinho::mover() {
     
 }
 
-void Toucinho::tacarBomba() {
+void Toucinho::atirarProjetil() {
     sf::Vector2f origem = corpo.getPosition();
 
     float dirX = direcao * 3.0f;
@@ -49,9 +48,13 @@ void Toucinho::tacarBomba() {
 }
 
 void Toucinho::executar() {
-    tempoAtaque++;
-    if (tempoAtaque >= 120) {
-        tacarBomba();
-        tempoAtaque = 0;
+    if (numVidas > 0) {
+        projetilRecarga();
     }
+    else {
+        nivel_maldade = 0;
+        forca = 0;
+        corpo.setFillColor(sf::Color(255, 255, 255, 0));
+    }
+    
 }

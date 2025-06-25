@@ -16,7 +16,7 @@ namespace PigsCpp {
                 ~Leitao();
                 void executar();
                 void danificar(Jogador* p);
-                void salvar();
+                void salvar(std::ofstream& arq);
                 void mover();
                 float getRaio() const;
                 void setRaio(const float r);

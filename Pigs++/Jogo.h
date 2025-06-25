@@ -26,5 +26,6 @@ namespace PigsCpp {
         void executar();
         void executarEntidades(Fases::Fase* f);
         void desenharEntidades(Fases::Fase* f);
+        Fases::Fase* getFase() const;
     };
 }

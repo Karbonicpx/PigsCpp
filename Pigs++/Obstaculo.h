@@ -20,9 +20,9 @@ namespace PigsCpp {
 			Obstaculo(const std::string texturePath, const float bodyX, const float bodyY, const bool dN);
 			Obstaculo();
 			virtual ~Obstaculo();
-			void salvarDataBuffer();
+			void salvarDataBuffer(std::ofstream& arq);
 			virtual void executar() = 0;
-			virtual void salvar() = 0;
+			virtual void salvar(std::ofstream& arq) = 0;
 			virtual void obstaculizar(Jogador* p) = 0;
 			void setDanoso(bool dano);
 			bool getDanoso() const;

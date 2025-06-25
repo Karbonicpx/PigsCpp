@@ -28,7 +28,7 @@ Fase::Fase() :
 	lista_entes(nullptr),
 	maxLagos(0),
 	maxLeitaos(0),
-	texturaFundo("textures/FundoFloresta.png"),
+	texturaFundo("textures/Fase1BG.png"),
 	fundo(texturaFundo)
 
 {
@@ -261,25 +261,27 @@ void Fase::gerenciarMorteInimigo() {
 		Inimigo* inim = dynamic_cast<Inimigo*>(e);
 		if (inim != nullptr && inim->getVidas() <= 0) {
 			GC->removerInimigo(inim);
-			lista_entes--;
+			lista_entes->listaEntidades.remover(e);
 		}
 
 	}
 }
 
+
 void Fase::gerenciarCriacaoProjeteis() {
 	for (int i = 0; i < lista_entes->listaEntidades.getLen(); i++) {
-
 		Entidade* e = lista_entes->listaEntidades.getItem(i);
+		Projetil* p = dynamic_cast<Projetil*>(e);
 
-		Bomba* b = dynamic_cast<Bomba*>(e);
-		if (b != nullptr) {
-			GC->incluirBomba(b);
+		if (p != nullptr) {
+			if (p->isAtivo()) {
+				GC->incluirProjetil(p);
+			}
+			else {
+				GC->removerProjetil(p);
+				lista_entes->listaEntidades.remover(e);
+			}
 		}
-		else if (b != nullptr && b->isAtivo() == false) {
-			GC->removerBomba(b);
-		}
-
 	}
 }
 
@@ -287,9 +289,17 @@ void Fase::gerenciarColisoes() {
 	GC->setLE(lista_entes);
 	GC->executar();
 	gerenciarMorteInimigo();
-	gerenciarCriacaoProjeteis();
+	// gerenciarCriacaoProjeteis();
 }
 
+void Fase::carregarJogo() {
+
+	std::ifstream arq("save.txt");
+	if (!arq.is_open()) {
+		std::cerr << "Erro ao abrir arquivo de salvamento.\n";
+		return;
+	}
+}
 Gerenciador_Colisao* Fase::getGC() const {
 	return GC;
 }

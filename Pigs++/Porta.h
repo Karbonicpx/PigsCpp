@@ -19,7 +19,7 @@ namespace PigsCpp {
 
             void executar();
             void verificarEntrada(Personagens::Jogador* j);
-            void salvar();
+            void salvar(std::ofstream& arq);
             bool getTrocarFase();
             int getIdProxFase();
            

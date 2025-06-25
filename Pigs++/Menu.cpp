@@ -13,9 +13,11 @@ Menu::Menu() :
     titulo(fonte, "PIGS++", 60),
     opcaoFase1(fonte, "Jogar Fase 1", 40),
     opcaoFase2(fonte, "Jogar Fase 2", 40),
-    opcaoSair(fonte, "Sair", 40)
+    opcaoSair(fonte, "Sair", 40),
+    opcaoCarregar(fonte, "Carregar Jogo", 40),
+    opcaoSalvar(fonte, "Salvar Jogo", 40)
 {
- 
+
     fundo.setPosition(sf::Vector2f(0.f, 0.f));
 
     // Título
@@ -41,6 +43,16 @@ Menu::Menu() :
     opcaoSair.setOutlineColor(sf::Color::Black);
     opcaoSair.setOutlineThickness(4.f);
     opcaoSair.setPosition(sf::Vector2f(700.f, 400.f));
+
+    opcaoSalvar.setFillColor(sf::Color::White);
+    opcaoSalvar.setOutlineColor(sf::Color::Black);
+    opcaoSalvar.setOutlineThickness(4.f);
+    opcaoSalvar.setPosition(sf::Vector2f(700.f, 500.f));
+
+    opcaoCarregar.setFillColor(sf::Color::White);
+    opcaoCarregar.setOutlineColor(sf::Color::Black);
+    opcaoCarregar.setOutlineThickness(4.f);
+    opcaoCarregar.setPosition(sf::Vector2f(700.f, 600.f));
 }
 
 Menu::~Menu() {
@@ -85,64 +97,122 @@ void Menu::desenharMenu() {
     GG->getWindow()->draw(opcaoFase1);
     GG->getWindow()->draw(opcaoFase2);
     GG->getWindow()->draw(opcaoSair);
+    GG->getWindow()->draw(opcaoSalvar);
+    GG->getWindow()->draw(opcaoCarregar);
 }
 
 void Menu::moverBaixo() {
-    if (indiceSelecionado == 2) {
-        indiceSelecionado = 0;
+    if (indiceSelecionado == 0) {
+        indiceSelecionado = 1;
     }
     else if (indiceSelecionado == 1) {
         indiceSelecionado = 2;
     }
+    else if (indiceSelecionado == 2) {
+        indiceSelecionado = 3;
+    }
+    else if (indiceSelecionado == 3) {
+        indiceSelecionado = 4;
+    }
     else {
-        indiceSelecionado = 1;
+        indiceSelecionado = 0;
     }
 
     if (indiceSelecionado == 0) {
         opcaoFase1.setFillColor(sf::Color::Green);
         opcaoFase2.setFillColor(sf::Color::White);
         opcaoSair.setFillColor(sf::Color::White);
+        opcaoSalvar.setFillColor(sf::Color::White);
+        opcaoCarregar.setFillColor(sf::Color::White);
+
     }
     else if (indiceSelecionado == 1) {
         opcaoFase1.setFillColor(sf::Color::White);
         opcaoFase2.setFillColor(sf::Color::Red);
         opcaoSair.setFillColor(sf::Color::White);
+        opcaoSalvar.setFillColor(sf::Color::White);
+        opcaoCarregar.setFillColor(sf::Color::White);
+
     }
 
-    else {
+    else if (indiceSelecionado == 2) {
         opcaoFase1.setFillColor(sf::Color::White);
         opcaoFase2.setFillColor(sf::Color::White);
         opcaoSair.setFillColor(sf::Color::Blue);
+        opcaoSalvar.setFillColor(sf::Color::White);
+        opcaoCarregar.setFillColor(sf::Color::White);
+
+    }
+
+    else if (indiceSelecionado == 3) {
+        opcaoFase1.setFillColor(sf::Color::White);
+        opcaoFase2.setFillColor(sf::Color::White);
+        opcaoSair.setFillColor(sf::Color::White);
+        opcaoSalvar.setFillColor(sf::Color::Magenta);
+        opcaoCarregar.setFillColor(sf::Color::White);
+    }
+    else {
+        opcaoFase1.setFillColor(sf::Color::White);
+        opcaoFase2.setFillColor(sf::Color::White);
+        opcaoSair.setFillColor(sf::Color::White);
+        opcaoSalvar.setFillColor(sf::Color::White);
+        opcaoCarregar.setFillColor(sf::Color::Yellow);
+
     }
 }
 
 void Menu::moverCima() {
 
-    if (indiceSelecionado == 2) {
-        indiceSelecionado = 1;
+    if (indiceSelecionado == 0) {
+        indiceSelecionado = 4;
     }
     else if (indiceSelecionado == 1) {
         indiceSelecionado = 0;
     }
-    else {
+    else if (indiceSelecionado == 2) {
+        indiceSelecionado = 1;
+    }
+    else if (indiceSelecionado == 3) {
         indiceSelecionado = 2;
     }
+    else {
+        indiceSelecionado = 3;
+    }
 
-    if (indiceSelecionado == 2) {
-        opcaoFase1.setFillColor(sf::Color::White);
+    if (indiceSelecionado == 0) {
+        opcaoFase1.setFillColor(sf::Color::Green);
         opcaoFase2.setFillColor(sf::Color::White);
-        opcaoSair.setFillColor(sf::Color::Blue);
+        opcaoSair.setFillColor(sf::Color::White);
+        opcaoSalvar.setFillColor(sf::Color::White);
+        opcaoCarregar.setFillColor(sf::Color::White);
     }
     else if (indiceSelecionado == 1) {
         opcaoFase1.setFillColor(sf::Color::White);
         opcaoFase2.setFillColor(sf::Color::Red);
         opcaoSair.setFillColor(sf::Color::White);
+        opcaoSalvar.setFillColor(sf::Color::White);
+        opcaoCarregar.setFillColor(sf::Color::White);
     }
-
-    else {
-        opcaoFase1.setFillColor(sf::Color::Green);
+    else if (indiceSelecionado == 2) {
+        opcaoFase1.setFillColor(sf::Color::White);
+        opcaoFase2.setFillColor(sf::Color::White);
+        opcaoSair.setFillColor(sf::Color::Blue);
+        opcaoSalvar.setFillColor(sf::Color::White);
+        opcaoCarregar.setFillColor(sf::Color::White);
+    }
+    else if (indiceSelecionado == 3) {
+        opcaoFase1.setFillColor(sf::Color::White);
         opcaoFase2.setFillColor(sf::Color::White);
         opcaoSair.setFillColor(sf::Color::White);
+        opcaoSalvar.setFillColor(sf::Color::Magenta);
+        opcaoCarregar.setFillColor(sf::Color::White);
+    }
+    else {
+        opcaoFase1.setFillColor(sf::Color::White);
+        opcaoFase2.setFillColor(sf::Color::White);
+        opcaoSair.setFillColor(sf::Color::White);
+        opcaoSalvar.setFillColor(sf::Color::White);
+        opcaoCarregar.setFillColor(sf::Color::Yellow);
     }
 }
 
@@ -162,9 +232,17 @@ void Menu::confirmarSelecao() {
         jogo = new Jogo(2);
         jogo->executar();
     }
-
+    else if (indiceSelecionado == 2) {
+        // Salvar Jogo
+        if (jogo)
+            SaveManager::salvarJogo(jogo->getFase(), "save.txt");
+    }
+    else if (indiceSelecionado == 3) {
+        // Carregar Jogo
+        if (jogo)
+            SaveManager::carregarJogo(jogo->getFase());
+    }
     else {
-        // Sair do jogo
         GG->fechar();
     }
 }

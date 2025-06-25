@@ -1,24 +1,21 @@
 #pragma
-#include "Entidade.h"
+#include "Projetil.h"
 #include <SFML/Graphics.hpp>
 
 namespace PigsCpp {
 	namespace Entidades {
-		class Martelo : public Entidade {
+		class Martelo : public Projetil {
 		private:
-			int dano;
-			float velocidade;
-			sf::Vector2f direcao;
-			bool ativo;
+			
+			float velocidadeGiro;
+
 		public:
-			Martelo(float x, float y, float vel, sf::Vector2f dir);
+			Martelo(float x, float y, sf::Vector2f vel);
 			~Martelo();
 			void mover();
-			const bool isAtivo() const;
 			void executar();
-			void salvar();
-			const float getDano() const;
-			void desativar();
+			void salvar(std::ofstream& arq);
+			
 		};
 	};
 };

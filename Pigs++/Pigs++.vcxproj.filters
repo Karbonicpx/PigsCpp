@@ -48,6 +48,12 @@
     <Filter Include="Header Files\Entidades\Abstratas">
       <UniqueIdentifier>{6cd9ff2a-a267-4fbc-8780-d5e3353056d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entidades\Projeteis">
+      <UniqueIdentifier>{b123ffb1-f550-4cec-9980-e67f533963bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entidades\Projeteis">
+      <UniqueIdentifier>{9f5062a9-2c26-45bf-b4ba-f4ffe029b33e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -70,9 +76,6 @@
     </ClCompile>
     <ClCompile Include="Leitao.cpp">
       <Filter>Source Files\Entidades\Inimigos</Filter>
-    </ClCompile>
-    <ClCompile Include="Bomba.cpp">
-      <Filter>Source Files\Entidades</Filter>
     </ClCompile>
     <ClCompile Include="Toucinho.cpp">
       <Filter>Source Files\Entidades\Inimigos</Filter>
@@ -123,7 +126,19 @@
       <Filter>Source Files\Entidades\Obstáculos</Filter>
     </ClCompile>
     <ClCompile Include="Martelo.cpp">
+      <Filter>Source Files\Entidades\Projeteis</Filter>
+    </ClCompile>
+    <ClCompile Include="Bomba.cpp">
+      <Filter>Source Files\Entidades\Projeteis</Filter>
+    </ClCompile>
+    <ClCompile Include="Projetil.cpp">
+      <Filter>Source Files\Entidades\Projeteis</Filter>
+    </ClCompile>
+    <ClCompile Include="Atirador.cpp">
       <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveManager.cpp">
+      <Filter>Source Files\Gerenciadores</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -147,9 +162,6 @@
     </ClInclude>
     <ClInclude Include="Toucinho.h">
       <Filter>Header Files\Entidades\Inimigos</Filter>
-    </ClInclude>
-    <ClInclude Include="Bomba.h">
-      <Filter>Header Files\Entidades</Filter>
     </ClInclude>
     <ClInclude Include="Leitao.h">
       <Filter>Header Files\Entidades\Inimigos</Filter>
@@ -196,11 +208,23 @@
     <ClInclude Include="Menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Porta.h">
-      <Filter>Header Files\Entidades\Obstáculos</Filter>
+    <ClInclude Include="Bomba.h">
+      <Filter>Header Files\Entidades\Projeteis</Filter>
     </ClInclude>
     <ClInclude Include="Martelo.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entidades\Projeteis</Filter>
+    </ClInclude>
+    <ClInclude Include="Projetil.h">
+      <Filter>Header Files\Entidades\Projeteis</Filter>
+    </ClInclude>
+    <ClInclude Include="Atirador.h">
+      <Filter>Header Files\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Porta.h">
+      <Filter>Header Files\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveManager.h">
+      <Filter>Header Files\Gerenciadores</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

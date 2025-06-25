@@ -3,8 +3,9 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 
-Jogador::Jogador(const std::string jTexturePath, const bool ehJ1) :
+Jogador::Jogador(const std::string jTexturePath, const bool ehJ1, ListaEntidades* lE) :
 	Personagem(jTexturePath, 47.0f, 36.0f, 3.5f, 1),
+	Atirador(120, lE),
 	pontos(0),
 	posRespawn(0, 0),
 	alturaMaximaPulo(140.0f),
@@ -15,14 +16,16 @@ Jogador::Jogador(const std::string jTexturePath, const bool ehJ1) :
 	pisandoPoca(false),
 	estaMorto(false),
 	entrandoPorta(false),
-	ehJogador1(ehJ1)
+	ehJogador1(ehJ1),
+	tempoCounterJ1(0),
+	tempoCounterJ2(0)
 	
-
 {
 	
 };
 Jogador::Jogador() :
 	Personagem(),
+	Atirador(0, nullptr),
 	pontos(0),
 	posRespawn(0, 0),
 	alturaMaximaPulo(140.0f),
@@ -32,13 +35,15 @@ Jogador::Jogador() :
 	pisandoPoca(false),
 	estaMorto(false),
 	ehJogador1(true),
-	entrandoPorta(false)
+	entrandoPorta(false),
+	tempoCounterJ1(0),
+	tempoCounterJ2(0)
 
 {
 	
 };
 Jogador::~Jogador() {
-
+	
 }
 
 // Método que vai realizar comportamento de mover o jogador para uma direção
@@ -82,7 +87,6 @@ void Jogador::atualizarDirecaoSprite(int direcao) {
 	}
 }
 
-// Redefinição do método mover de personagem!
 void Jogador::mover() {
 
 	
@@ -160,12 +164,63 @@ void Jogador::atualizarPulo() {
 	}
 }
 
+void Jogador::atirarProjetil() {
+	sf::Vector2f origem = corpo.getPosition();
+
+	float dirX = 3.0f;
+	float dirY = -5.5f;
+
+	sf::Vector2f vel(dirX, dirY);
+
+	// Cria o martelo
+
+	if (corpo.getScale().x > 0) {
+
+		// Martelo vai pra direita
+		Martelo* m = new Martelo(origem.x + corpo.getSize().x / 2, origem.y + 15.f, sf::Vector2f(7.f, 0.f));
+
+		m->getCorpo().setScale(sf::Vector2f(1.f, 1.f));
+		m->getCorpo().setOrigin(sf::Vector2f(0.f, 0.f));
+
+		// Adiciona na lista de entidades
+		listaEntidades->listaEntidades.incluir(m);
+	}
+	else {
+
+		// Martelo vai pra esquerda
+		Martelo* m = new Martelo(origem.x + corpo.getSize().x / 2, origem.y + 15.f, sf::Vector2f(-7.f, 0.f));
+
+		m->getCorpo().setScale(sf::Vector2f(-1.f, 1.f));
+		m->getCorpo().setOrigin(sf::Vector2f(corpo.getSize().x, 0.f));
+
+		// Adiciona na lista de entidades
+		listaEntidades->listaEntidades.incluir(m);
+	}
+	
+
+	
+}
+
 void Jogador::executar() {
 
 	
-	controlarRespawn();
+	tempoCounterJ1++;
+	tempoCounterJ2++;
 
-	if (!estaMorto) mover();
+	controlarRespawn();
+	if (!estaMorto) {
+		mover();
+		if (isKeyPressed(Key::E) && ehJogador1 && tempoCounterJ1 >= tempoProjetil) {
+			atirarProjetil();
+			tempoCounterJ1 = 0;
+		}
+		else if (isKeyPressed(Key::Space) && !ehJogador1 && tempoCounterJ2 >= tempoProjetil) {
+			atirarProjetil();
+			tempoCounterJ2 = 0;
+		}
+	}
+	
+	
 	
 }
 
@@ -179,7 +234,7 @@ void Jogador::controlarRespawn() {
 
 	if (estaMorto) {
 		// Verifica se passaram 3 segundos
-		if (relogioRespawn.getElapsedTime().asSeconds() >= 3.0f) {
+		if (relogioRespawn.getElapsedTime().asSeconds() >= 2.5) {
 			// Respawn
 			numVidas = 1;
 			estaMorto = false;
@@ -202,8 +257,10 @@ bool Jogador::entrouNaPorta() const {
 }
 
 // Implementar depois
-void Jogador::salvar() {
-
+void Jogador::salvar(std::ofstream& arq) {
+	arq << "JOGADOR ";
+	Personagem::salvarDataBuffer(arq);
+	arq << pontos << " " << " " << tempoProjetil << std::endl;
 }
 
 void Jogador::setVelocidade(float v) {velocidade = v;}

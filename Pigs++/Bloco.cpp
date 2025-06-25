@@ -15,8 +15,9 @@ void Bloco::setSize(const float size) { blockSize = size; }
 float Bloco::getSize() const { return blockSize; }
 void Bloco::executar() {}
 
-void Bloco::salvar() {
-
+void Bloco::salvar(std::ofstream& arq) {
+    Entidade::salvarDataBuffer(arq);
+    arq << blockSize << " " << std::endl;
 }
 
 // Método que vai impedir da entidade atravessar o bloco
@@ -45,9 +46,9 @@ void Bloco::blocar(Entidade* e) {
     // Colisão no eixo X (esquerda ou direita)
     if (interWidth < interHeight) {
 
-        // Independente daonde a bomba cair, ela tem que ser deletava
-        if (dynamic_cast<Bomba*>(e) != nullptr) {
-            dynamic_cast<Bomba*>(e)->desativar();
+        // Independente daonde um projetil cair, ele tem que ser desativado
+        if (dynamic_cast<Projetil*>(e) != nullptr) {
+            dynamic_cast<Projetil*>(e)->desativar();
         }
   
         if (rectEnt.position.x < rectBloco.position.x) {
@@ -72,9 +73,9 @@ void Bloco::blocar(Entidade* e) {
     // Colisão no eixo Y (cima ou baixo)
     else {
 
-        // Independente daonde a bomba cair, ela tem que ser deletada
-        if (dynamic_cast<Bomba*>(e) != nullptr) {
-            dynamic_cast<Bomba*>(e)->desativar();
+        // Independente daonde um projetil cair, ele tem que ser desativado
+        if (dynamic_cast<Projetil*>(e) != nullptr) {
+            dynamic_cast<Projetil*>(e)->desativar();
         }
 
         

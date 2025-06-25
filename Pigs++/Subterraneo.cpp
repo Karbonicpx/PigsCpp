@@ -26,10 +26,10 @@ void Subterraneo::criarEspinho() {
 
 void Subterraneo::criarZilla() {
 
-    ent = dynamic_cast<Entidade*>(new Baconzilla());
+    ent = dynamic_cast<Entidade*>(new Baconzilla(getListaEntidades()));
 }
 
-// Provável que não utilize isso, já que as bombas são criadas a partir de Bancozilla/Toucinho
+// Provável que não utilize isso, já que as bombas são criadas a partir de Baconzilla/Toucinho
 void Subterraneo::criarProjeteis() {
     ent = static_cast<Entidade*>(new Bomba());
 }
@@ -90,8 +90,6 @@ void Subterraneo::criarEntidades(Gerenciador_Grafico* GG) {
             if (maxZillaCounter >= maxBaconzillas) {
                 break;
             }
-
-
 
             criarZilla();
             maxZillaCounter++;

@@ -3,6 +3,7 @@
 #include "Inimigo.h"
 #include "Leitao.h"
 #include "Baconzilla.h"
+#include "Projetil.h"
 
 namespace PigsCpp {
 	namespace Entidades {
@@ -18,7 +19,7 @@ namespace PigsCpp {
 			void setSize(const float size);
 			float getSize() const;
 			void executar();
-			void salvar();
+			void salvar(std::ofstream& arq);
 			void blocar(Entidade* e);
 		};
 

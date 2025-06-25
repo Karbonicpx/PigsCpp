@@ -45,6 +45,7 @@ void Inimigo::inverterDir() {
         corpo.setOrigin(sf::Vector2f(corpo.getSize().x, origem.y));
     }
 }
-void Inimigo::salvarDataBuffer(){        // terminar
-
+void Inimigo::salvarDataBuffer(std::ofstream& arq) {
+    Personagem::salvarDataBuffer(arq);
+    arq << nivel_maldade << " " << direcao << " ";
 }

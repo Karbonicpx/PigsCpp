@@ -14,10 +14,6 @@ Jogo::Jogo(int idFase) :
 {
     
 
-    // Instanciar jogadores
-    jogador1 = new Jogador("textures/Jogador1.png", true);
-    jogador2 = new Jogador("textures/Jogador2.png", false);
-
     // Instanciar fase
     if (idFase == 1) {
         fase = new Floresta();
@@ -29,6 +25,9 @@ Jogo::Jogo(int idFase) :
         fase = new Floresta(); // fallback
     }
 
+    // Instanciar jogadores
+    jogador1 = new Jogador("textures/Jogador1.png", true, fase->getListaEntidades());
+    jogador2 = new Jogador("textures/Jogador2.png", false, fase->getListaEntidades());
     fase->setJogadores(jogador1, jogador2);
 
     Ente::setGG(Gerenciador_Grafico::getInstancia());
@@ -112,4 +111,8 @@ void Jogo::desenharEntidades(Fase* f) {
         Entidade* temp = f->getListaEntidades()->listaEntidades.getItem(i);
         temp->desenhar();
     }
+}
+
+Fase* Jogo::getFase() const {
+    return fase;
 }
