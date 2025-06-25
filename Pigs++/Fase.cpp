@@ -309,5 +309,35 @@ void Fase::executar() {
 	aplicarGravidade();
 }
 
+void Fase::carregarJogo() {
+	std::ifstream arq("save.txt");
+	if (!arq.is_open()) {
+		std::cerr << "Erro ao abrir arquivo de salvamento.\n";
+		return;
+	}
+
+	std::string tipo;
+	while (arq >> tipo) {
+		if (tipo == "JOGADOR") {
+			float x, y, velocidade, direcaoMartelo;
+			int vidas, pontos;
+			arq >> x >> y >> vidas >> velocidade >> pontos >> direcaoMartelo;
+
+			Jogador* j = new Jogador();
+			j->setPos(x, y);
+			j->setVidas(vidas);
+			j->setVelocidade(velocidade);
+			//j->setPontos(pontos);
+			//j->setDirecaoMartelo(direcaoMartelo);
+
+			lista_entes->listaEntidades.incluir(j);
+		}
+
+		// Adicione aqui os blocos para: INIMIGO, TRONCO, ESPINHO, BOMBA etc.
+	}
+
+	arq.close();
+}
+
 
 

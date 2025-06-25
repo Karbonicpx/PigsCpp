@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Gerenciador_Grafico.h"
 #include <cstdlib>
+#include <fstream>
 
 // Classe mais abstrata das entidades no projeto, onde vai ter as funções de:
 // Registrar id, acessar o endereço da janela, definir o body das entidades assim como desenhalas
