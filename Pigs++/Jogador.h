@@ -10,9 +10,9 @@ namespace PigsCpp {
 			class Jogador : public Personagem, Atirador
 			{
 			private:
-				
+
 				int pontos;
-				
+
 				sf::Clock relogioPulo;
 				sf::Clock relogioRespawn;
 				sf::Vector2f posRespawn;
@@ -25,10 +25,10 @@ namespace PigsCpp {
 				bool ehJogador1;
 				bool estaMorto;
 				bool entrandoPorta;
-				
+
 
 				void apertarTecla(sf::Keyboard::Key tecla, float spdX, float spdY);
-				
+
 				void iniciarPulo();
 				void atualizarPulo();
 				void controlarRespawn();
@@ -55,4 +55,3 @@ namespace PigsCpp {
 		}
 	}
 }
-

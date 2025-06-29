@@ -20,14 +20,13 @@ Bomba::~Bomba() {}
 
 
 void Bomba::mover() {
-    
+
     velocidade += aceleracao;
     corpo.move(velocidade);
 }
 
 void Bomba::salvar(std::ofstream& arq) {
-    Entidade::salvarDataBuffer(arq);
-    arq << " " << ativo << " " << dano << std::endl;
+    arq << aceleracao.x << aceleracao.y << std::endl;
 }
 
 void Bomba::executar() {

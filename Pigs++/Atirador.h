@@ -18,4 +18,3 @@ namespace PigsCpp::Entidades::Personagens {
 	};
 }
 
-

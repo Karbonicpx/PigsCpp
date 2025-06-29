@@ -82,7 +82,7 @@ namespace PigsCpp {
                     tempAnt->setProx(temp->getProx());
                 }
                 delete temp;
-				temp = nullptr;
+                temp = nullptr;
                 this->operator--();
             }
 

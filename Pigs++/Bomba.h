@@ -1,6 +1,5 @@
 #pragma once 
 #include "Projetil.h"
-#include <SFML/Graphics.hpp>
 
 namespace PigsCpp {
     namespace Entidades {
@@ -19,3 +18,4 @@ namespace PigsCpp {
         };
     }
 }
+

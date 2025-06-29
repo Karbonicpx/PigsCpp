@@ -19,9 +19,9 @@ Jogador::Jogador(const std::string jTexturePath, const bool ehJ1, ListaEntidades
 	ehJogador1(ehJ1),
 	tempoCounterJ1(0),
 	tempoCounterJ2(0)
-	
+
 {
-	
+
 };
 Jogador::Jogador() :
 	Personagem(),
@@ -40,10 +40,10 @@ Jogador::Jogador() :
 	tempoCounterJ2(0)
 
 {
-	
+
 };
 Jogador::~Jogador() {
-	
+	listaEntidades = nullptr;
 }
 
 // Método que vai realizar comportamento de mover o jogador para uma direção
@@ -53,8 +53,8 @@ void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 	if (isKeyPressed(tecla)) {
 
 		corpo.move(Vector2f(spdX, spdY));
-			
-		if (tecla == Key::D) 
+
+		if (tecla == Key::D)
 		{
 			atualizarDirecaoSprite(1);
 		}
@@ -72,7 +72,7 @@ void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 			atualizarDirecaoSprite(1);
 		}
 
-		
+
 	}
 }
 
@@ -82,18 +82,18 @@ void Jogador::atualizarDirecaoSprite(int direcao) {
 		corpo.setOrigin(sf::Vector2f(0.f, 0.f));
 	}
 	else if (direcao < 0) {
-		corpo.setScale(sf::Vector2f(- 1.f, 1.f));
+		corpo.setScale(sf::Vector2f(-1.f, 1.f));
 		corpo.setOrigin(sf::Vector2f(corpo.getSize().x, 0.f));
 	}
 }
 
 void Jogador::mover() {
 
-	
+
 	if (pisandoPoca) { velocidade = 2.5f; }
 	else { velocidade = 3.5f; }
 
-	
+
 	// Jogador 1
 	if (ehJogador1) {
 
@@ -124,11 +124,11 @@ void Jogador::mover() {
 		}
 
 		if (podePular == false) { atualizarPulo(); }
-		
-	}
-	
 
-	
+	}
+
+
+
 }
 
 void Jogador::iniciarPulo() {
@@ -136,7 +136,7 @@ void Jogador::iniciarPulo() {
 	deslocamentoPulo = 0.0f;
 	relogioPulo.restart();
 	setSofreGravidade(false);
-	
+
 }
 
 
@@ -183,6 +183,8 @@ void Jogador::atirarProjetil() {
 
 		// Adiciona na lista de entidades
 		listaEntidades->listaEntidades.incluir(m);
+
+
 	}
 	else {
 
@@ -193,15 +195,16 @@ void Jogador::atirarProjetil() {
 
 		// Adiciona na lista de entidades
 		listaEntidades->listaEntidades.incluir(m);
-	}
-	
 
-	
+	}
+
+
+
 }
 
 void Jogador::executar() {
 
-	
+
 	tempoCounterJ1++;
 	tempoCounterJ2++;
 
@@ -217,9 +220,9 @@ void Jogador::executar() {
 			tempoCounterJ2 = 0;
 		}
 	}
-	
-	
-	
+
+
+
 }
 
 void Jogador::controlarRespawn() {
@@ -231,7 +234,7 @@ void Jogador::controlarRespawn() {
 	}
 
 	if (estaMorto) {
-		// Verifica se passaram 3 segundos
+		// Verifica se passaram 2,5 segundos
 		if (relogioRespawn.getElapsedTime().asSeconds() >= 2.5) {
 			// Respawn
 			numVidas = 1;
@@ -244,14 +247,14 @@ void Jogador::controlarRespawn() {
 }
 
 bool Jogador::entrouNaPorta() const {
-	
+
 	if (ehJogador1) {
 		return entrandoPorta && isKeyPressed(Key::W);
 	}
 	else {
 		return entrandoPorta && isKeyPressed(Key::Up);
 	}
-	
+
 }
 
 // Implementar depois
@@ -261,7 +264,7 @@ void Jogador::salvar(std::ofstream& arq) {
 	arq << pontos << " " << " " << tempoProjetil << std::endl;
 }
 
-void Jogador::setVelocidade(float v) {velocidade = v;}
+void Jogador::setVelocidade(float v) { velocidade = v; }
 
 void Jogador::setPisandoPoca(const bool pP) { pisandoPoca = pP; }
 
@@ -270,3 +273,4 @@ void Jogador::setPodePular(const bool pP) { podePular = pP; }
 void Jogador::setPosRespawn(const float x, const float y) { posRespawn.x = x; posRespawn.y = y; }
 
 void Jogador::setEntrandoPorta(const bool bB) { entrandoPorta = bB; }
+

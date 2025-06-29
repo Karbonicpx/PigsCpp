@@ -13,7 +13,7 @@ Martelo::Martelo(float x, float y, sf::Vector2f vel) :
 }
 Martelo::~Martelo() {}
 
-void Martelo::mover() 
+void Martelo::mover()
 {
 
 	if (velocidade.x < 0) {
@@ -26,26 +26,24 @@ void Martelo::mover()
 		sf::Angle anguloNovo = sf::degrees(angulo + velocidadeGiro);
 		corpo.setRotation(anguloNovo);
 	}
-	
+
 	corpo.move(velocidade);
 }
 
 void Martelo::salvar(std::ofstream& arq) {
-	Entidade::salvarDataBuffer(arq);
 	arq << velocidade.x << " "
-	<< velocidade.y << " " 
-	<< ativo << " " 
-	<< dano << std::endl;
+		<< velocidade.y << " "
+		<< velocidadeGiro << std::endl;
 }
 
 void Martelo::executar() {
 
-	
-	if (ativo) {	
+
+	if (ativo) {
 		mover();
 	}
 	else {
 		corpo.setFillColor(sf::Color(255, 255, 255, 0));
-		dano = 0;	
+		dano = 0;
 	}
 }

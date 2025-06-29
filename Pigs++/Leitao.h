@@ -9,7 +9,7 @@ namespace PigsCpp {
             private:
 
                 float raio;
-                
+
 
             public:
                 Leitao();
@@ -21,7 +21,7 @@ namespace PigsCpp {
                 float getRaio() const;
                 void setRaio(const float r);
 
-                
+
             };
         };
     };

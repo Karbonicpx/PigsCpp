@@ -12,7 +12,7 @@ Jogo::Jogo(int idFase) :
     idFase(idFase),
     fase(nullptr)
 {
-    
+
 
     // Instanciar fase
     if (idFase == 1) {
@@ -51,14 +51,6 @@ Jogo::~Jogo() {
 void Jogo::executar() {
     fase->criarEntidades(&GG);
 
-    // Para salvar:
-    if (sf::Keyboard::isKeyPressed(Key::F5)) {
-        SaveManager::salvarJogo(fase, "save.txt");
-    }
-    // Para carregar:
-    if (sf::Keyboard::isKeyPressed(Key::F9)) {
-        SaveManager::carregarJogo(fase);
-    }
 
     while (GG.estaAberta()) {
         while (const std::optional<sf::Event> evento = GG.getWindow()->pollEvent()) {
@@ -67,38 +59,21 @@ void Jogo::executar() {
             }
         }
 
+        if (fase->getGC()->getTrocarFase()) {
+            GG.fechar();
+        }
+
+        // Para salvar:
+        if (sf::Keyboard::isKeyPressed(Key::F5)) {
+            SaveManager::salvarJogo(fase, "save.txt");
+        }
+        // Para carregar:
+        if (sf::Keyboard::isKeyPressed(Key::F9)) {
+            SaveManager::carregarJogo(fase);
+        }
+
         executarEntidades(fase);
         fase->executar();
-
-        // Verifica se precisa trocar de fase
-        if (fase->getGC()->getTrocarFase()) {
-
-
-            int idNovaFase = fase->getGC()->getIdNovaFase();
-            // Reseta o estado de troca
-            fase->getGC()->resetarTrocaFase();
-
-            // Libera a fase atual da memória
-            delete fase;
-            fase = nullptr;
-
-            if (idNovaFase == 2) {
-                fase = new Subterraneo();
-            }
-            else {
-                printf("Fechando!");
-                GG.fechar();
-                return;
-            }
-
-            idFase = idNovaFase;
-
-            // Configura jogadores na nova fase
-            fase->setJogadores(jogador1, jogador2);
-            fase->criarEntidades(&GG);
-
-         
-        }
 
         GG.clear();
         fase->desenharTileset(&GG, "textures/Floresta.png");
@@ -107,7 +82,7 @@ void Jogo::executar() {
     }
 }
 
-   
+
 
 void Jogo::executarEntidades(Fase* f) {
     for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {

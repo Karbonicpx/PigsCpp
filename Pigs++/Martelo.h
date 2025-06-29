@@ -1,12 +1,11 @@
-#pragma
+#pragma once
 #include "Projetil.h"
-#include <SFML/Graphics.hpp>
 
 namespace PigsCpp {
 	namespace Entidades {
 		class Martelo : public Projetil {
 		private:
-			
+
 			float velocidadeGiro;
 
 		public:
@@ -15,7 +14,7 @@ namespace PigsCpp {
 			void mover();
 			void executar();
 			void salvar(std::ofstream& arq);
-			
+
 		};
 	};
 };

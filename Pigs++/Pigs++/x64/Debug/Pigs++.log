@@ -1,70 +1,54 @@
-﻿  Baconzilla.cpp
-  Bloco.cpp
-  Espinho.cpp
-  Floresta.cpp
-  Castelo.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Floresta.h(8,27): error C2504: 'Fase': classe base indefinida
-  (compilando o arquivo fonte 'Castelo.cpp')
-  
-  Ente.cpp
-  Entidade.cpp
-  Fase.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Floresta.h(8,27): error C2504: 'Fase': classe base indefinida
-  (compilando o arquivo fonte 'Fase.cpp')
-  
-C:\Users\anacl\PigsCpp\Pigs++\Fase.cpp(215,27): warning C4834: descartando o valor retornado da função com o atributo [[nodiscard]]
-  Gerenciador_Colisao.cpp
-  Gerenciador_Grafico.cpp
-  Inimigo.cpp
+﻿  Inimigo.cpp
   Jogador.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(6,10): error C2511: 'PigsCpp::Entidades::Personagens::Jogador::Jogador(const bool)': função membro sobrecarregada não encontrada em 'PigsCpp::Entidades::Personagens::Jogador'
-      C:\Users\anacl\PigsCpp\Pigs++\Jogador.h(8,19):
-      consulte a declaração de 'PigsCpp::Entidades::Personagens::Jogador'
-  
-C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(18,1): error C2550: 'PigsCpp::Entidades::Personagens::Jogador::{ctor}': listas de inicializadores de construtor são permitidas apenas em definições de construtor
-C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(21,6): error C2597: referência inválida para membro não static 'PigsCpp::Entidades::Personagens::Jogador::ehJogador1'
-      C:\Users\anacl\PigsCpp\Pigs++\Jogador.h(24,10):
-      consulte a declaração de 'PigsCpp::Entidades::Personagens::Jogador::ehJogador1'
-  
-C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(21,6): error C2451: uma expressão condicional do tipo 'unknown' não é válida
-      C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(21,6):
-      referência malformada a um membro não estático
-  
-C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(26,12): error C2661: 'PigsCpp::Entidades::Personagens::Personagem::Personagem': nenhuma função sobrecarregada recebe 2 argumentos
-      C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp(26,12):
-      ao tentar corresponder a lista de argumentos '(float, int)'
-  
-  Lago.cpp
-  Leitao.cpp
-  ListaEntidades.cpp
-  Martelo.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Martelo.cpp(6,10): error C2661: 'PigsCpp::Entidades::Entidade::Entidade': nenhuma função sobrecarregada recebe 2 argumentos
-      C:\Users\anacl\PigsCpp\Pigs++\Martelo.cpp(6,10):
-      ao tentar corresponder a lista de argumentos '(bool, bool)'
-  
-C:\Users\anacl\PigsCpp\Pigs++\Martelo.cpp(32,9): warning C4244: 'return': conversão de 'const int' para 'const float', possível perda de dados
-  Obstaculo.cpp
-  Personagem.cpp
   Jogo.cpp
-  main.cpp
   Gerando Código...
-  Compilando...
-  Bomba.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(9,49): error C2614: 'PigsCpp::Entidades::Bomba': inicialização de membro inválida: 'forma' não é uma base ou membro
-C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(15,13): error C2661: 'PigsCpp::Entidades::Entidade::Entidade': nenhuma função sobrecarregada recebe 2 argumentos
-      C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(15,13):
-      ao tentar corresponder a lista de argumentos '(bool, bool)'
-  
-C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(23,8): error C2084: função 'PigsCpp::Entidades::Bomba::Bomba(float,float,float,sf::Vector2f)' já possui um corpo
-      C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(7,8):
-      ver a definição anterior de "PigsCpp::Entidades::Bomba::Bomba"
-  
-C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(24,61): error C2614: 'PigsCpp::Entidades::Bomba': inicialização de membro inválida: 'forma' não é uma base ou membro
-C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp(26,9): error C2065: 'forma': identificador não declarado
-  Toucinho.cpp
-C:\Users\anacl\PigsCpp\Pigs++\Toucinho.cpp(52,16): error C2084: função 'void PigsCpp::Entidades::Personagens::Toucinho::executar(void)' já possui um corpo
-      C:\Users\anacl\PigsCpp\Pigs++\Toucinho.cpp(23,16):
-      ver a definição anterior de "PigsCpp::Entidades::Personagens::Toucinho::executar"
-  
-  Tronco.cpp
-  Gerando Código...
+sfml-window-s-d.lib(VideoMode.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(VideoMode.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(WindowBase.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(WindowBase.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(Window.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(Window.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(Keyboard.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(Keyboard.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(VideoModeImpl.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(VideoModeImpl.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(Cursor.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(Cursor.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(WindowImpl.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(WindowImpl.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(GlResource.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(GlResource.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(GlContext.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(GlContext.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(InputImpl.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(InputImpl.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(CursorImpl.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(CursorImpl.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(JoystickManager.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(JoystickManager.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(SensorManager.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(SensorManager.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(WindowImplWin32.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(WindowImplWin32.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(VulkanImplWin32.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(VulkanImplWin32.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(Context.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(Context.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(WglContext.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(WglContext.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(JoystickImpl.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(JoystickImpl.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-window-s-d.lib(SensorImpl.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-window-s-d.lib(SensorImpl.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(Transformable.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(Transformable.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(Shape.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(Shape.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(RectangleShape.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(RectangleShape.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(Texture.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(Texture.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(RenderTarget.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(RenderTarget.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(Sprite.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(Sprite.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(RenderStates.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(RenderStates.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(RenderWindow.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(RenderWindow.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(Font.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(Font.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(Text.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(Text.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(VertexArray.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(VertexArray.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(GLExtensions.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(GLExtensions.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(GLCheck.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(GLCheck.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(Image.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(Image.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(TextureSaver.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(TextureSaver.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(BlendMode.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(BlendMode.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(StencilMode.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(StencilMode.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(View.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(View.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(Shader.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(Shader.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(VertexBuffer.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(VertexBuffer.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(RenderTextureImplFBO.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(RenderTextureImplFBO.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-graphics-s-d.lib(Glsl.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-graphics-s-d.lib(Glsl.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-system-s-d.lib(Clock.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-system-s-d.lib(Clock.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-system-s-d.lib(String.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-system-s-d.lib(String.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-system-s-d.lib(Err.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-system-s-d.lib(Err.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-system-s-d.lib(Sleep.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-system-s-d.lib(Sleep.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-system-s-d.lib(Vector2.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-system-s-d.lib(Vector2.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-system-s-d.lib(Utils.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-system-s-d.lib(Utils.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+sfml-system-s-d.lib(SleepImpl.obj) : warning LNK4099: PDB '' não foi encontrado 'sfml-system-s-d.lib(SleepImpl.obj)' ou no ''; vinculando objeto quando quando sem nenhuma informação de depuração
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflita com uso de outras bibliotecas; use /NODEFAULTLIB:library
+  Pigs++.vcxproj -> C:\Users\anacl\PigsCpp\Pigs++\x64\Debug\Pigs++.exe

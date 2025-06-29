@@ -17,7 +17,7 @@ Porta::Porta(int idProxima) :
 Porta::~Porta() {}
 
 void Porta::executar() {
-  
+
 }
 
 void Porta::verificarEntrada(Jogador* j) {

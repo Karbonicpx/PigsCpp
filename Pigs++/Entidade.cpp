@@ -9,7 +9,7 @@ Entidade::Entidade(const std::string texturePath, const float bodyX, const float
 	posInicial(0.f),
 	sofreGravidade(sG)
 {
-	  
+
 };
 
 Entidade::Entidade() :
@@ -17,7 +17,8 @@ Entidade::Entidade() :
 	y(0.f),
 	posInicial(0.f),
 	sofreGravidade(false)
-{};
+{
+};
 
 Entidade::~Entidade() {
 
@@ -45,5 +46,4 @@ void Entidade::setSofreGravidade(const bool sG) {
 void Entidade::salvarDataBuffer(std::ofstream& arq) {
 	arq << corpo.getPosition().x << " " << corpo.getPosition().y << " ";
 }
-
 

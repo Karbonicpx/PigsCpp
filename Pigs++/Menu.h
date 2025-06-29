@@ -25,7 +25,7 @@ namespace PigsCpp {
         sf::Text opcaoCarregar;
         sf::Text opcaoSalvar;
 
-        
+
     public:
         Menu();
         ~Menu();

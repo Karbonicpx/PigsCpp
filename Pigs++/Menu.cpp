@@ -233,16 +233,17 @@ void Menu::confirmarSelecao() {
         jogo->executar();
     }
     else if (indiceSelecionado == 2) {
+        GG->fechar();
+    }
+    else if (indiceSelecionado == 3) {
         // Salvar Jogo
         if (jogo)
             SaveManager::salvarJogo(jogo->getFase(), "save.txt");
+
     }
-    else if (indiceSelecionado == 3) {
+    else if (indiceSelecionado == 4) {
         // Carregar Jogo
         if (jogo)
             SaveManager::carregarJogo(jogo->getFase());
-    }
-    else {
-        GG->fechar();
     }
 }

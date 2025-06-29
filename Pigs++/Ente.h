@@ -15,7 +15,7 @@ namespace PigsCpp {
 	using namespace sf;
 	class Ente
 	{
-		
+
 	protected:
 		int idIndividual; // Id individual de cada entidade
 		static int id; // Contador globao
@@ -24,7 +24,7 @@ namespace PigsCpp {
 		Texture* textura;
 
 		static Gerenciador_Grafico* pGG;
-		
+
 
 	public:
 		Ente(const std::string texturePath, const float bodyX, const float bodyY, const bool sV);
@@ -37,7 +37,7 @@ namespace PigsCpp {
 
 		void setSpriteVisivel(const bool sV);
 		static void setGG(Gerenciador_Grafico* gg);
-		
+
 		void desenhar();
 		void operator++();
 		float gerarAleatorioFloat(const float min, const float max);

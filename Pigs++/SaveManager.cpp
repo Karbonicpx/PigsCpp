@@ -34,3 +34,4 @@ void SaveManager::carregarJogo(Fase* fase) {
     fase->carregarJogo();
     arquivo.close();
 }
+

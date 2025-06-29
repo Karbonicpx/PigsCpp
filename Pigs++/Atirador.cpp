@@ -4,7 +4,7 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 
-Atirador::Atirador(const float tempoPrj, ListaEntidades* lista): 
+Atirador::Atirador(const float tempoPrj, ListaEntidades* lista) :
 	tempoProjetil(tempoPrj),
 	listaEntidades(lista),
 	tempoCounter(0)

@@ -1,4 +1,5 @@
 #include "Gerenciador_Grafico.h"
+#include "Ente.h"
 
 using namespace PigsCpp::Gerenciadores;
 using namespace sf;
@@ -16,11 +17,11 @@ Gerenciador_Grafico::Gerenciador_Grafico() {
 
 
 Gerenciador_Grafico::~Gerenciador_Grafico() {
-	
+
 };
 
 // Retornando instancia estática
-Gerenciador_Grafico* Gerenciador_Grafico::getInstancia(){
+Gerenciador_Grafico* Gerenciador_Grafico::getInstancia() {
 	if (instancia == nullptr) {
 		instancia = new Gerenciador_Grafico();
 	}
@@ -58,8 +59,8 @@ void Gerenciador_Grafico::mostrar() {
 
 
 // Desenha o corpo (RectangleShape, sem textura)
-void Gerenciador_Grafico::desenharEnte() {
-	janela->draw(corpo);
+void Gerenciador_Grafico::desenharEnte(Ente* pE) {
+	janela->draw(pE->getCorpo());
 }
 
 // Limpa a janela
