@@ -25,11 +25,7 @@ namespace PigsCpp {
         sf::Text opcaoCarregar;
         sf::Text opcaoSalvar;
 
-<<<<<<< Updated upstream
         
-=======
-
->>>>>>> Stashed changes
     public:
         Menu();
         ~Menu();

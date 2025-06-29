@@ -12,7 +12,7 @@ Fase::Fase(string jsonPath, const int mLG, const int mLT) :
 	maxLeitaos(mLT),
 	texturaFundo("textures/Fase1BG.png"),
 	fundo(texturaFundo)
-
+	
 {
 	GC = new Gerenciador_Colisao();
 	lista_entes = new ListaEntidades();
@@ -32,17 +32,16 @@ Fase::Fase() :
 	fundo(texturaFundo)
 
 {
-
+	
 };
 const float Fase::gravidade(3.0f);
 
 Fase::~Fase() {
 
-
+	lista_entes->listaEntidades.limpar();
 	j1 = nullptr;
 	j2 = nullptr;
 	ent = nullptr;
-	lista_entes->listaEntidades.limpar();
 	delete(lista_entes);
 	delete(GC);
 	lista_entes = nullptr;
@@ -61,7 +60,7 @@ void Fase::setJogadores(Jogador* pJ1, Jogador* pJ2) {
 	GC->setJogadores(j1, j2);
 	lista_entes->listaEntidades.incluir(j1);
 	if (j2 != nullptr) { lista_entes->listaEntidades.incluir(j2); }
-
+		
 }
 
 void Fase::setMapa(string jsonPath) {
@@ -147,18 +146,14 @@ void Fase::desenharTileset(Gerenciador_Grafico* GG, std::string tilesetPath) {
 			}
 		}
 
-		break; // só a camada "Visual"
+		break; // só a camada "Plataformas"
 	}
 }
 
 void Fase::inicializarEntidades(Entidade* e, const float x, const float y) {
 	if (e != nullptr) {
 
-<<<<<<< Updated upstream
 		if (dynamic_cast<Leitao*>(e) != nullptr){
-=======
-		if (dynamic_cast<Leitao*>(e) != nullptr) {
->>>>>>> Stashed changes
 			e->setPos(x, y);
 		}
 		else if (dynamic_cast<Baconzilla*>(e) != nullptr) {
@@ -171,10 +166,10 @@ void Fase::inicializarEntidades(Entidade* e, const float x, const float y) {
 			e->setPos(x, y);
 		}
 		else e->setPos(x, y);
-
+		
 
 		// Se não for bloco ou obstaculo, aumentar o ID
-		if (dynamic_cast<Bloco*>(e) == nullptr || dynamic_cast<Obstaculo*>(e) == nullptr) {
+		if (dynamic_cast<Bloco*>(e) == nullptr || dynamic_cast<Obstaculo*>(e) == nullptr){
 			e->operator++();
 		}
 
@@ -256,17 +251,16 @@ void Fase::criarJogador(const float posX, const float posY) {
 
 void Fase::gerenciarMorteInimigo() {
 	for (int i = 0; i < lista_entes->listaEntidades.getLen(); i++) {
-		Entidade* e = lista_entes->listaEntidades.getItem(i);
-		Inimigo* inim = dynamic_cast<Inimigo*>(e);
 
+		Entidade* e = lista_entes->listaEntidades.getItem(i);
+
+		// Se for inimigo, remove do Gerenciador de Colisão caso ele tenha vida menor ou igual a 0
+		Inimigo* inim = dynamic_cast<Inimigo*>(e);
 		if (inim != nullptr && inim->getVidas() <= 0) {
 			GC->removerInimigo(inim);
 			lista_entes->listaEntidades.remover(e);
-<<<<<<< Updated upstream
-=======
-			delete inim;
->>>>>>> Stashed changes
 		}
+
 	}
 }
 
@@ -283,10 +277,6 @@ void Fase::gerenciarCriacaoProjeteis() {
 			else {
 				GC->removerProjetil(p);
 				lista_entes->listaEntidades.remover(e);
-<<<<<<< Updated upstream
-=======
-				delete p;
->>>>>>> Stashed changes
 			}
 		}
 	}
@@ -296,13 +286,7 @@ void Fase::gerenciarColisoes() {
 	GC->setLE(lista_entes);
 	GC->executar();
 	gerenciarMorteInimigo();
-<<<<<<< Updated upstream
 	// gerenciarCriacaoProjeteis();
-=======
-	gerenciarCriacaoProjeteis();
-
-
->>>>>>> Stashed changes
 }
 
 Gerenciador_Colisao* Fase::getGC() const {
@@ -324,105 +308,24 @@ void Fase::carregarJogo() {
 	std::string tipo;
 	while (arq >> tipo) {
 		if (tipo == "JOGADOR") {
-			float x, y, vidas, velocidade, pontos, direcao;
-			arq >> x >> y >> vidas >> velocidade >> pontos >> direcao;
+			float x, y, velocidade, direcaoMartelo;
+			int vidas, pontos;
+			arq >> x >> y >> vidas >> velocidade >> pontos >> direcaoMartelo;
 
 			Jogador* j = new Jogador();
 			j->setPos(x, y);
-			j->setVidas(static_cast<int>(vidas));
+			j->setVidas(vidas);
 			j->setVelocidade(velocidade);
-<<<<<<< Updated upstream
 			//j->setPontos(pontos);
 
-=======
->>>>>>> Stashed changes
 			lista_entes->listaEntidades.incluir(j);
 		}
-		else if (tipo == "LEITAO") {
-			float x, y, vidas, velocidade, maldade, direcao, raio;
-			arq >> x >> y >> vidas >> velocidade >> maldade >> direcao >> raio;
 
-			Leitao* l = new Leitao();
-			l->setPos(x, y);
-			l->setVidas(static_cast<int>(vidas));
-			lista_entes->listaEntidades.incluir(l);
-		}
-		else if (tipo == "TOUCINHO") {
-			float x, y, vidas, velocidade, maldade, direcao, forca, tempo;
-			arq >> x >> y >> vidas >> velocidade >> maldade >> direcao >> forca >> tempo;
-
-			Toucinho* t = new Toucinho(lista_entes);
-			t->setPos(x, y);
-			t->setVidas(static_cast<int>(vidas));
-			lista_entes->listaEntidades.incluir(t);
-		}
-		else if (tipo == "BACONZILLA") {
-			float x, y, vidas, velocidade, maldade, direcao, forca, tamanho;
-			arq >> x >> y >> vidas >> velocidade >> maldade >> direcao >> forca >> tamanho;
-
-			Baconzilla* b = new Baconzilla(lista_entes);
-			b->setPos(x, y);
-			b->setVidas(static_cast<int>(vidas));
-			lista_entes->listaEntidades.incluir(b);
-		}
-		else if (tipo == "BOMBA") {
-			float x, y;
-			bool ativo;
-			int dano;
-			arq >> x >> y >> ativo >> dano;
-
-			Bomba* b = new Bomba();
-			b->setPos(x, y);
-			if (!ativo) b->desativar();
-			lista_entes->listaEntidades.incluir(b);
-		}
-		else if (tipo == "MARTELO") {
-			float x, y;
-			sf::Vector2f vel;
-			bool ativo;
-			int dano;
-			arq >> x >> y >> vel.x >> vel.y >> ativo >> dano;
-
-			Martelo* m = new Martelo(x, y, vel);
-			if (!ativo) m->desativar();
-			lista_entes->listaEntidades.incluir(m);
-		}
-		else if (tipo == "TRONCO") {
-			float x, y, danoso;
-			arq >> x >> y >> danoso;
-
-			Tronco* t = new Tronco();
-			t->setPos(x, y);
-			t->setDanoso(danoso);
-			lista_entes->listaEntidades.incluir(t);
-		}
-		else if (tipo == "ESPINHO") {
-			float x, y, danoso;
-			arq >> x >> y >> danoso;
-
-			Espinho* e = new Espinho();
-			e->setPos(x, y);
-			e->setDanoso(danoso);
-			lista_entes->listaEntidades.incluir(e);
-		}
-		else if (tipo == "LAGO") {
-			float x, y, danoso;
-			arq >> x >> y >> danoso;
-
-			Lago* l = new Lago();
-			l->setPos(x, y);
-			lista_entes->listaEntidades.incluir(l);
-		}
-		else if (tipo == "BLOCO") {
-			float x, y, tamanho;
-			arq >> x >> y >> tamanho;
-
-			Bloco* b = new Bloco();
-			b->setPos(x, y);
-			b->setSize(tamanho);
-			lista_entes->listaEntidades.incluir(b);
-		}
+		// Adicione aqui os blocos para: INIMIGO, TRONCO, ESPINHO, BOMBA etc.
 	}
 
 	arq.close();
 }
+
+
+

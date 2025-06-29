@@ -2,7 +2,7 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
-Leitao::Leitao() :
+Leitao::Leitao() : 
     Inimigo("textures/Leitao.png", 25.0f, 25.0f, gerarAleatorioFloat(1.5f, 2.2f), 1),
     raio(gerarAleatorioFloat(20.0f, 30.0f))
 {
@@ -14,11 +14,7 @@ Leitao::~Leitao() {
 
 }
 void Leitao::executar() {
-<<<<<<< Updated upstream
     
-=======
-
->>>>>>> Stashed changes
     if (numVidas > 0) {
         mover();
     }
@@ -26,11 +22,7 @@ void Leitao::executar() {
         nivel_maldade = 0;
         corpo.setFillColor(sf::Color(255, 255, 255, 0));
     }
-<<<<<<< Updated upstream
     
-=======
-
->>>>>>> Stashed changes
 }
 void Leitao::danificar(Jogador* p) {
     // Dano ao jogador
@@ -49,7 +41,7 @@ void Leitao::salvar(std::ofstream& arq) {
 
 void Leitao::mover() {
 
-
+    
     sf::Vector2f deslocamento(velocidade * direcao, 0.f);
     corpo.move(deslocamento);
 

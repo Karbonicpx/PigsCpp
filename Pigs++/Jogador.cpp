@@ -19,13 +19,9 @@ Jogador::Jogador(const std::string jTexturePath, const bool ehJ1, ListaEntidades
 	ehJogador1(ehJ1),
 	tempoCounterJ1(0),
 	tempoCounterJ2(0)
-<<<<<<< Updated upstream
 	
-=======
-
->>>>>>> Stashed changes
 {
-
+	
 };
 Jogador::Jogador() :
 	Personagem(),
@@ -44,14 +40,10 @@ Jogador::Jogador() :
 	tempoCounterJ2(0)
 
 {
-
+	
 };
 Jogador::~Jogador() {
-<<<<<<< Updated upstream
 	
-=======
-	listaEntidades = nullptr;
->>>>>>> Stashed changes
 }
 
 // Método que vai realizar comportamento de mover o jogador para uma direção
@@ -61,13 +53,8 @@ void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 	if (isKeyPressed(tecla)) {
 
 		corpo.move(Vector2f(spdX, spdY));
-<<<<<<< Updated upstream
 			
 		if (tecla == Key::D) 
-=======
-
-		if (tecla == Key::D)
->>>>>>> Stashed changes
 		{
 			atualizarDirecaoSprite(1);
 		}
@@ -85,11 +72,7 @@ void Jogador::apertarTecla(Key tecla, float spdX, float spdY) {
 			atualizarDirecaoSprite(1);
 		}
 
-<<<<<<< Updated upstream
 		
-=======
-
->>>>>>> Stashed changes
 	}
 }
 
@@ -99,22 +82,14 @@ void Jogador::atualizarDirecaoSprite(int direcao) {
 		corpo.setOrigin(sf::Vector2f(0.f, 0.f));
 	}
 	else if (direcao < 0) {
-<<<<<<< Updated upstream
 		corpo.setScale(sf::Vector2f(- 1.f, 1.f));
-=======
-		corpo.setScale(sf::Vector2f(-1.f, 1.f));
->>>>>>> Stashed changes
 		corpo.setOrigin(sf::Vector2f(corpo.getSize().x, 0.f));
 	}
 }
 
 void Jogador::mover() {
 
-<<<<<<< Updated upstream
 	
-=======
-
->>>>>>> Stashed changes
 	if (pisandoPoca) { velocidade = 2.5f; }
 	else { velocidade = 3.5f; }
 
@@ -186,48 +161,7 @@ void Jogador::atualizarPulo() {
 	else {
 		// Finalização do pulo
 		setSofreGravidade(true);
-<<<<<<< Updated upstream
-=======
 	}
-}
-
-void Jogador::atirarProjetil() {
-	sf::Vector2f origem = corpo.getPosition();
-
-	float dirX = 3.0f;
-	float dirY = -5.5f;
-
-	sf::Vector2f vel(dirX, dirY);
-
-	// Cria o martelo
-
-	if (corpo.getScale().x > 0) {
-
-		// Martelo vai pra direita
-		Martelo* m = new Martelo(origem.x, origem.y, sf::Vector2f(10.f, 0.f));
-
-		m->getCorpo().setScale(sf::Vector2f(1.f, 1.f));
-
-		// Adiciona na lista de entidades
-		listaEntidades->listaEntidades.incluir(m);
-
-
->>>>>>> Stashed changes
-	}
-	else {
-
-		// Martelo vai pra esquerda
-		Martelo* m = new Martelo(origem.x, origem.y, sf::Vector2f(-10.f, 0.f));
-
-		m->getCorpo().setScale(sf::Vector2f(-1.f, 1.f));
-
-		// Adiciona na lista de entidades
-		listaEntidades->listaEntidades.incluir(m);
-
-	}
-
-
-
 }
 
 void Jogador::atirarProjetil() {
@@ -271,9 +205,6 @@ void Jogador::executar() {
 	tempoCounterJ1++;
 	tempoCounterJ2++;
 
-	tempoCounterJ1++;
-	tempoCounterJ2++;
-
 	controlarRespawn();
 	if (!estaMorto) {
 		mover();
@@ -286,15 +217,9 @@ void Jogador::executar() {
 			tempoCounterJ2 = 0;
 		}
 	}
-<<<<<<< Updated upstream
 	
 	
 	
-=======
-
-
-
->>>>>>> Stashed changes
 }
 
 void Jogador::controlarRespawn() {
@@ -306,11 +231,7 @@ void Jogador::controlarRespawn() {
 	}
 
 	if (estaMorto) {
-<<<<<<< Updated upstream
 		// Verifica se passaram 3 segundos
-=======
-		// Verifica se passaram 2,5 segundos
->>>>>>> Stashed changes
 		if (relogioRespawn.getElapsedTime().asSeconds() >= 2.5) {
 			// Respawn
 			numVidas = 1;
@@ -323,18 +244,14 @@ void Jogador::controlarRespawn() {
 }
 
 bool Jogador::entrouNaPorta() const {
-
+	
 	if (ehJogador1) {
 		return entrandoPorta && isKeyPressed(Key::W);
 	}
 	else {
 		return entrandoPorta && isKeyPressed(Key::Up);
 	}
-<<<<<<< Updated upstream
 	
-=======
-
->>>>>>> Stashed changes
 }
 
 // Implementar depois

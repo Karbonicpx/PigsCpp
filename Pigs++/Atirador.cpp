@@ -4,11 +4,7 @@
 using namespace PigsCpp::Entidades::Personagens;
 
 
-<<<<<<< Updated upstream
 Atirador::Atirador(const float tempoPrj, ListaEntidades* lista): 
-=======
-Atirador::Atirador(const float tempoPrj, ListaEntidades* lista) :
->>>>>>> Stashed changes
 	tempoProjetil(tempoPrj),
 	listaEntidades(lista),
 	tempoCounter(0)

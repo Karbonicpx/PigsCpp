@@ -17,8 +17,5 @@ namespace PigsCpp::Entidades::Personagens {
 		~Atirador();
 	};
 }
-<<<<<<< Updated upstream
 
 
-=======
->>>>>>> Stashed changes

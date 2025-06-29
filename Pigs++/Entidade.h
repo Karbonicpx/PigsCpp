@@ -26,9 +26,9 @@ namespace PigsCpp {
 			virtual void salvar(std::ofstream& arq) = 0;
 
 			void setPos(const float x, const float y);
-			bool getSofreGravidade() const;
+			bool getSofreGravidade() const;		
 			void setSofreGravidade(const bool sV);
-
+			
 		};
 	};
 

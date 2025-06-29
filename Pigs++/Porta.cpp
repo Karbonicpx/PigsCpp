@@ -17,7 +17,7 @@ Porta::Porta(int idProxima) :
 Porta::~Porta() {}
 
 void Porta::executar() {
-
+  
 }
 
 void Porta::verificarEntrada(Jogador* j) {
@@ -57,8 +57,4 @@ void Porta::salvar(std::ofstream& arq) {
     arq << "PORTA ";
     Entidade::salvarDataBuffer(arq);
     arq << " " << idProximaFase << " " << trocarFase << std::endl;
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes

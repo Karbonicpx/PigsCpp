@@ -138,17 +138,7 @@
       <Filter>Source Files\Entidades</Filter>
     </ClCompile>
     <ClCompile Include="SaveManager.cpp">
-<<<<<<< Updated upstream
       <Filter>Source Files\Gerenciadores</Filter>
-=======
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Atirador.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Projetil.cpp">
-      <Filter>Source Files</Filter>
->>>>>>> Stashed changes
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,15 +225,6 @@
     </ClInclude>
     <ClInclude Include="SaveManager.h">
       <Filter>Header Files\Gerenciadores</Filter>
-    </ClInclude>
-    <ClInclude Include="SaveManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Atirador.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Projetil.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,12 +1,12 @@
 #include "Tronco.h"
 
 using namespace PigsCpp::Entidades;
-
-Tronco::Tronco() :
+                                                
+Tronco::Tronco():
     Obstaculo("textures/Tronco.png", 64.0f, 64.0f, false),
     altura((rand() % 5) + 5)  // 5 - 10
 
-{
+{ 
 }
 Tronco::~Tronco() {
 
@@ -15,7 +15,7 @@ void Tronco::executar() {
 
 }
 void Tronco::obstaculizar(Jogador* p) {
-
+    
     sf::Vector2f posTronco = corpo.getPosition();
 
     // Altura influencia diretamente no tamanho do tronco
@@ -31,8 +31,8 @@ void Tronco::obstaculizar(Jogador* p) {
         // Posiciona o jogador em cima do tronco
         p->setPos(posJogador.x, troncoTopo - tamJogador.y);
 
-        // Permite que o jogador pule novamente
-        p->setPodePular(true);
+		// Permite que o jogador pule novamente
+		p->setPodePular(true);
 
     }
     else if (posJogador.x + tamJogador.x > posTronco.x && posJogador.x < posTronco.x) {
@@ -43,7 +43,7 @@ void Tronco::obstaculizar(Jogador* p) {
         // Colisão pela direita
         p->setPos(posTronco.x + tamTronco.x, posJogador.y);
     }
-
+    
 }
 
 // Mesma coisa que obstaculizar, porém para inimigos
@@ -65,10 +65,10 @@ void Tronco::obstaculizarIni(Inimigo* ini) {
 
     }
     else if (posInimigo.x + tamInimigo.x > posTronco.x && posInimigo.x < posTronco.x) {
+        
 
-
-        if (dynamic_cast<Leitao*>(ini) != nullptr)
-        {
+        if (dynamic_cast<Leitao*>(ini) != nullptr) 
+        { 
             ini->inverterDir();
             dynamic_cast<Leitao*>(ini)->setRaio(dynamic_cast<Leitao*>(ini)->getRaio() + 1.f);
         }
@@ -76,7 +76,7 @@ void Tronco::obstaculizarIni(Inimigo* ini) {
         ini->setPos(posTronco.x - tamInimigo.x, posInimigo.y);
     }
     else if (posInimigo.x < posTronco.x + tamTronco.x && posInimigo.x > posTronco.x) {
-
+        
 
         if (dynamic_cast<Leitao*>(ini) != nullptr)
         {

@@ -28,19 +28,14 @@ namespace PigsCpp {
         using namespace std;
         class Gerenciador_Colisao {
         private:
-<<<<<<< Updated upstream
             list<Obstaculo*> LOs; 
             vector<Inimigo*> LIs; 
-=======
-            list<Obstaculo*> LOs;
-            vector<Inimigo*> LIs;
->>>>>>> Stashed changes
             set<Projetil*> LPs;
             ListaEntidades* LEsGC;
 
             bool trocarFase;
             int idNovaFase;
-
+            
             Personagens::Jogador* jog1;
             Personagens::Jogador* jog2;
             const bool verificarColisao(Entidade* ent1, Entidade* ent2);
@@ -51,13 +46,8 @@ namespace PigsCpp {
             void tratarColisoesEntsBlocos();
             void tratarColisoesInimTroncos();
             void tratarColisoesInimMartelos();
-<<<<<<< Updated upstream
             
            
-=======
-
-
->>>>>>> Stashed changes
 
         public:
             Gerenciador_Colisao();

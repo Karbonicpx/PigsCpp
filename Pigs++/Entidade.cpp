@@ -17,8 +17,7 @@ Entidade::Entidade() :
 	y(0.f),
 	posInicial(0.f),
 	sofreGravidade(false)
-{
-};
+{};
 
 Entidade::~Entidade() {
 
@@ -46,8 +45,5 @@ void Entidade::setSofreGravidade(const bool sG) {
 void Entidade::salvarDataBuffer(std::ofstream& arq) {
 	arq << corpo.getPosition().x << " " << corpo.getPosition().y << " ";
 }
-<<<<<<< Updated upstream
 
 
-=======
->>>>>>> Stashed changes

@@ -1,15 +1,15 @@
 #include "Bloco.h"
 
 using namespace PigsCpp::Entidades;
-Bloco::Bloco() :
-    Entidade("textures/Bloco.png", 32.0f, 32.0f, false, false),
+Bloco::Bloco() : 
+    Entidade("textures/Bloco.png", 32.0f, 32.0f, false, false), 
     blockSize(32.0f) {
 
-    // Deixando ele "invisivel"
-    corpo.setFillColor(sf::Color(255, 255, 255, 0));
+	// Deixando ele "invisivel"
+	corpo.setFillColor(sf::Color(255, 255, 255, 0));
 }
 
-Bloco::~Bloco() {}
+Bloco::~Bloco(){}
 
 void Bloco::setSize(const float size) { blockSize = size; }
 float Bloco::getSize() const { return blockSize; }
@@ -23,7 +23,7 @@ void Bloco::salvar(std::ofstream& arq) {
 // Método que vai impedir da entidade atravessar o bloco
 
 void Bloco::blocar(Entidade* e) {
-
+    
     if (e == nullptr) {
         return;
     }
@@ -50,18 +50,18 @@ void Bloco::blocar(Entidade* e) {
         if (dynamic_cast<Projetil*>(e) != nullptr) {
             dynamic_cast<Projetil*>(e)->desativar();
         }
-
+  
         if (rectEnt.position.x < rectBloco.position.x) {
 
             // Se não for toucinho ou baconzilla, seta a colisão pela esquerda
             if (dynamic_cast<Leitao*>(e) == nullptr && dynamic_cast<Baconzilla*>(e) == nullptr) {
                 e->setPos(rectBloco.position.x - rectEnt.size.x, rectEnt.position.y);
             }
-
+              
         }
         else {
             // Pela direita
-
+            
 
             // Se não for toucinho ou baconzilla, seta a colisão pela direita
             if (dynamic_cast<Leitao*>(e) == nullptr && dynamic_cast<Baconzilla*>(e) == nullptr) {
@@ -78,43 +78,31 @@ void Bloco::blocar(Entidade* e) {
             dynamic_cast<Bomba*>(e)->desativar();
         }
 
-
+        
         if (rectEnt.position.y < rectBloco.position.y) {
             
             e->setPos(rectEnt.position.x, rectBloco.position.y - rectEnt.size.y);
             
 
-<<<<<<< Updated upstream
-=======
-            e->setPos(rectEnt.position.x, rectBloco.position.y - rectEnt.size.y);
-
-
->>>>>>> Stashed changes
             if (dynamic_cast<Leitao*>(e) != nullptr || dynamic_cast<Baconzilla*>(e) != nullptr) {
                 e->setSofreGravidade(false);
             }
-
+           
 
             // Se for um jogador tocando no chão, permite ele pular
             if (dynamic_cast<Jogador*>(e) != nullptr) {
                 dynamic_cast<Jogador*>(e)->setPodePular(true);
-            }
+			}
         }
         else {
-<<<<<<< Updated upstream
             
             e->setPos(rectEnt.position.x, rectBloco.position.y + rectBloco.size.y);
            
-=======
-
-            e->setPos(rectEnt.position.x, rectBloco.position.y + rectBloco.size.y);
-
->>>>>>> Stashed changes
 
             if (dynamic_cast<Jogador*>(e) != nullptr) {
                 dynamic_cast<Jogador*>(e)->setSofreGravidade(true);
             }
         }
     }
-
+    
 }

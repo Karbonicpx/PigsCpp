@@ -10,7 +10,7 @@ Floresta::Floresta() :              // 10 - 15         // 3 - 6
     maxToucinhos((rand() % 3) + 3), // 0, 1, 2 no rand, e com + 3 fica 3, 4, 5
     maxTroncos((rand() % 3) + 3) // 0, 1, 2 no rand, e com + 3 fica 3, 4, 5
 {
-
+  
 }
 
 Floresta::~Floresta() {
@@ -19,11 +19,11 @@ Floresta::~Floresta() {
 
 
 void Floresta::criarTouc() {
-    ent = static_cast<Entidade*>(new Toucinho(getListaEntidades()));
+	ent = static_cast<Entidade*>(new Toucinho(getListaEntidades()));
 }
 
 void Floresta::criarLago() {
-    ent = static_cast<Entidade*>(new Lago());
+	ent = static_cast<Entidade*>(new Lago());
 }
 
 // Precisamos fazer uma criação diferente, pois a posição do tronco é só uma no tilemap, na qual vai criar outros 3
@@ -52,13 +52,13 @@ void Floresta::criarTronco(sf::Vector2f pos) {
 
 
 void Floresta::criarInimigos() {
-    criarLeitao();
-    criarTouc();
+	criarLeitao();
+	criarTouc();
 }
 
 
 void Floresta::criarObstaculo() {
-    criarLago();
+	criarLago();
     // criarTronco();
 }
 
@@ -82,7 +82,7 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
             criarBloco();
 
             break;
-        case 74: // Lago (obstáculo)
+		case 74: // Lago (obstáculo)
 
             if (maxLagoCounter >= maxLagos) {
                 break;
@@ -113,14 +113,14 @@ void Floresta::criarEntidades(Gerenciador_Grafico* GG) {
             criarJogador(pos.x, pos.y);
             break;
 
-        case 80: // Tronco (obstáculo sem dano)
+		case 80: // Tronco (obstáculo sem dano)
             if (maxTroncoCounter >= maxTroncos) {
                 break;
             }
             criarTronco(pos);
             maxTroncoCounter++;
             break;
-
+            
         case 81:
             criarPorta(-1);
             break;

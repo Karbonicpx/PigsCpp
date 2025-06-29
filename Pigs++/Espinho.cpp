@@ -2,10 +2,10 @@
 
 using namespace PigsCpp;
 using namespace Entidades;
-
-Espinho::Espinho() :
-    Obstaculo("textures/Espinho.png", 32.0f, 21.0f, true),
-    danosidade((rand() % 3) + 1) { // 1 - 3
+                                                                                        
+Espinho::Espinho():
+    Obstaculo("textures/Espinho.png", 32.0f, 21.0f, true), 
+    danosidade((rand() % 3) + 1)  { // 1 - 3
 }
 Espinho::~Espinho() {
 
