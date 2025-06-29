@@ -12,7 +12,7 @@ namespace PigsCpp {
 			private:
 				
 				int pontos;
-				
+
 				sf::Clock relogioPulo;
 				sf::Clock relogioRespawn;
 				sf::Vector2f posRespawn;
@@ -27,8 +27,9 @@ namespace PigsCpp {
 				bool entrandoPorta;
 				
 
+
 				void apertarTecla(sf::Keyboard::Key tecla, float spdX, float spdY);
-				
+
 				void iniciarPulo();
 				void atualizarPulo();
 				void controlarRespawn();
@@ -55,4 +56,3 @@ namespace PigsCpp {
 		}
 	}
 }
-

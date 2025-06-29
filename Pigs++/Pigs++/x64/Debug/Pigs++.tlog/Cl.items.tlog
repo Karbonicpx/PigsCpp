@@ -1,29 +1,28 @@
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Baconzilla.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Baconzilla.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Bloco.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Bloco.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Botao.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Botao.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Espinho.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Espinho.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Estado.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Estado.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Floresta.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Floresta.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Castelo.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Castelo.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Ente.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Ente.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Entidade.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Entidade.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Fase.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Fase.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\GerenciadorEstados.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\GerenciadorEstados.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Gerenciador_Colisao.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Gerenciador_Colisao.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Gerenciador_Grafico.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Gerenciador_Grafico.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Inimigo.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Inimigo.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Jogador.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Jogador.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Lago.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Lago.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Leitao.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Leitao.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\ListaEntidades.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\ListaEntidades.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Menu.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Menu.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\MenuEscolherFase.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\MenuEscolherFase.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\MenuEscolherJogadores.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\MenuEscolherJogadores.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\MenuPrincipal.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\MenuPrincipal.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Obstaculo.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Obstaculo.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Personagem.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Personagem.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Jogo.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Jogo.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\main.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\main.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Bomba.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Bomba.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Toucinho.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Toucinho.obj
-S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Tronco.cpp;S:\Facul\Trabalhos\FUND PROG 2\PigsCpp\Pigs++\Pigs++\x64\Debug\Tronco.obj
+C:\Users\anacl\PigsCpp\Pigs++\Atirador.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Atirador.obj
+C:\Users\anacl\PigsCpp\Pigs++\Baconzilla.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Baconzilla.obj
+C:\Users\anacl\PigsCpp\Pigs++\Bloco.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Bloco.obj
+C:\Users\anacl\PigsCpp\Pigs++\Espinho.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Espinho.obj
+C:\Users\anacl\PigsCpp\Pigs++\Floresta.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Floresta.obj
+C:\Users\anacl\PigsCpp\Pigs++\Martelo.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Martelo.obj
+C:\Users\anacl\PigsCpp\Pigs++\Porta.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Porta.obj
+C:\Users\anacl\PigsCpp\Pigs++\Projetil.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Projetil.obj
+C:\Users\anacl\PigsCpp\Pigs++\SaveManager.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\SaveManager.obj
+C:\Users\anacl\PigsCpp\Pigs++\Subterraneo.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Subterraneo.obj
+C:\Users\anacl\PigsCpp\Pigs++\Ente.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Ente.obj
+C:\Users\anacl\PigsCpp\Pigs++\Entidade.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Entidade.obj
+C:\Users\anacl\PigsCpp\Pigs++\Fase.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Fase.obj
+C:\Users\anacl\PigsCpp\Pigs++\Gerenciador_Colisao.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Gerenciador_Colisao.obj
+C:\Users\anacl\PigsCpp\Pigs++\Gerenciador_Grafico.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Gerenciador_Grafico.obj
+C:\Users\anacl\PigsCpp\Pigs++\Inimigo.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Inimigo.obj
+C:\Users\anacl\PigsCpp\Pigs++\Jogador.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Jogador.obj
+C:\Users\anacl\PigsCpp\Pigs++\Lago.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Lago.obj
+C:\Users\anacl\PigsCpp\Pigs++\Leitao.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Leitao.obj
+C:\Users\anacl\PigsCpp\Pigs++\ListaEntidades.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\ListaEntidades.obj
+C:\Users\anacl\PigsCpp\Pigs++\Menu.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Menu.obj
+C:\Users\anacl\PigsCpp\Pigs++\Obstaculo.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Obstaculo.obj
+C:\Users\anacl\PigsCpp\Pigs++\Personagem.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Personagem.obj
+C:\Users\anacl\PigsCpp\Pigs++\Jogo.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Jogo.obj
+C:\Users\anacl\PigsCpp\Pigs++\main.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\main.obj
+C:\Users\anacl\PigsCpp\Pigs++\Bomba.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Bomba.obj
+C:\Users\anacl\PigsCpp\Pigs++\Toucinho.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Toucinho.obj
+C:\Users\anacl\PigsCpp\Pigs++\Tronco.cpp;C:\Users\anacl\PigsCpp\Pigs++\Pigs++\x64\Debug\Tronco.obj

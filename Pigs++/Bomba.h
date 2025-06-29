@@ -1,6 +1,9 @@
 #pragma once 
 #include "Projetil.h"
+<<<<<<< Updated upstream
 #include <SFML/Graphics.hpp>
+=======
+>>>>>>> Stashed changes
 
 namespace PigsCpp {
     namespace Entidades {

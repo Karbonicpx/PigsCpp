@@ -3,13 +3,13 @@
 using namespace PigsCpp::Entidades;
 
 Obstaculo::Obstaculo(const std::string texturePath, const float bodyX, const float bodyY, const bool dN) :
-	Entidade(texturePath, bodyX, bodyY, true, false), 
-	danoso(dN){
+	Entidade(texturePath, bodyX, bodyY, true, false),
+	danoso(dN) {
 
 }
 
-Obstaculo::Obstaculo() : 
-	Entidade(), 
+Obstaculo::Obstaculo() :
+	Entidade(),
 	danoso(false) {
 
 }

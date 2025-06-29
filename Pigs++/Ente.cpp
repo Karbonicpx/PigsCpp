@@ -20,7 +20,7 @@ Ente::Ente() :
 	idIndividual(-1),
 	spriteVisivel(false),
 	textura(new Texture("textures/Template.png"))
-	
+
 {
 	corpo.setTexture(textura);
 };
@@ -31,7 +31,7 @@ Gerenciador_Grafico* Ente::pGG(nullptr);
 
 
 Ente::~Ente() {
-	
+
 	delete textura;
 	textura = nullptr;
 };
@@ -45,7 +45,7 @@ sf::RectangleShape& Ente::getCorpo() {
 	return corpo;
 };
 
-bool Ente::getSpriteVisivel() const  {
+bool Ente::getSpriteVisivel() const {
 	return spriteVisivel;
 }
 
@@ -54,8 +54,8 @@ void Ente::setSpriteVisivel(const bool sV) {
 }
 
 // Sobrecarga do ++, que vai aumentar o id
-void Ente::operator++() 
-{ 
+void Ente::operator++()
+{
 	idIndividual = id;
 	id++;
 };
@@ -63,8 +63,7 @@ void Ente::operator++()
 
 // E aqui, o ente vai servir de parâmetro pro gerenciador gráfico desenhar ele
 void Ente::desenhar() {
-	pGG->setCorpo(corpo);
-	pGG->desenharEnte();
+	pGG->desenharEnte(this);
 };
 
 // Setando a instância do gerenciador gráfico dentro da classe ente

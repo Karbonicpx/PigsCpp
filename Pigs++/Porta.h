@@ -11,7 +11,7 @@ namespace PigsCpp {
             bool podeEntrar;
             int idProximaFase; // Ex: 2 Fase 2,  -1,  sair do jogo
             bool trocarFase;
-           
+
 
         public:
             Porta(int idProxima);
@@ -22,7 +22,7 @@ namespace PigsCpp {
             void salvar(std::ofstream& arq);
             bool getTrocarFase();
             int getIdProxFase();
-           
+
         };
     }
 }

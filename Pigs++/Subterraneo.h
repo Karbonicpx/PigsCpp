@@ -27,9 +27,8 @@ namespace PigsCpp {
 			void criarPlataformas();
 			void criarObstaculo();
 			void criarEntidades(Gerenciador_Grafico* GG);
-			
+
 		};
 
 	}
 }
-

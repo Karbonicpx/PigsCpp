@@ -23,7 +23,7 @@ const int Personagem::getVidas() const {
 	return numVidas;
 }
 
-void Personagem::setVidas(const int v)  {
+void Personagem::setVidas(const int v) {
 	numVidas = v;
 }
 

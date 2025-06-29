@@ -2,12 +2,19 @@
 
 using namespace PigsCpp::Fases;
 
+<<<<<<< Updated upstream
 Subterraneo::Subterraneo():                 // 14 - 21          // 3 - 5
 	Fase("fasesjson/Subterraneo.json", (rand() % 8) + 14, (rand() % 3) + 3),
     maxEspinhos((rand() % 11) + 11), // 0, 1, 2 ... 20 no rand, + 10 - 10, 11 ... 30  
     maxBaconzillas((rand() % 2) + 3)  // 0 e 1 no rand, vira 3 e 4
+=======
+Subterraneo::Subterraneo() :                 // 14 - 21          // 3 - 5
+    Fase("fasesjson/Subterraneo.json", (rand() % 8) + 14, (rand() % 3) + 3),
+    maxEspinhos((rand() % 11) + 11), // 0, 1, 2 ... 20 no rand, + 10 - 10, 11 ... 30  
+    maxBaconzillas((rand() % 1) + 3)  // 0 e 1 no rand, vira 3 e 4
+>>>>>>> Stashed changes
 {
-  
+
 }
 
 Subterraneo::~Subterraneo() {
@@ -17,11 +24,11 @@ Subterraneo::~Subterraneo() {
 
 
 void Subterraneo::criarLago() {
-	ent = dynamic_cast<Entidade*>(new Lago());
+    ent = dynamic_cast<Entidade*>(new Lago());
 }
 
 void Subterraneo::criarEspinho() {
-	ent = dynamic_cast<Entidade*>(new Espinho());
+    ent = dynamic_cast<Entidade*>(new Espinho());
 }
 
 void Subterraneo::criarZilla() {
@@ -35,18 +42,18 @@ void Subterraneo::criarProjeteis() {
 }
 
 void Subterraneo::criarInimigos() {
-	criarZilla();
-	criarLeitao();
+    criarZilla();
+    criarLeitao();
 }
 
 
 void Subterraneo::criarObstaculo() {
-	criarLago();
-	criarEspinho();
+    criarLago();
+    criarEspinho();
 }
 
 void Subterraneo::criarEntidades(Gerenciador_Grafico* GG) {
-    
+
     int maxZillaCounter = 0;
     int maxEspinhoCounter = 0;
     int maxLeitaoCounter = 0;

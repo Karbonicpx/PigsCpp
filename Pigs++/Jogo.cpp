@@ -12,8 +12,11 @@ Jogo::Jogo(int idFase) :
     idFase(idFase),
     fase(nullptr)
 {
-    
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     // Instanciar fase
     if (idFase == 1) {
         fase = new Floresta();
@@ -51,6 +54,7 @@ Jogo::~Jogo() {
 void Jogo::executar() {
     fase->criarEntidades(&GG);
 
+<<<<<<< Updated upstream
     // Para salvar:
     if (sf::Keyboard::isKeyPressed(Key::F5)) {
         SaveManager::salvarJogo(fase, "save.txt");
@@ -59,6 +63,8 @@ void Jogo::executar() {
     if (sf::Keyboard::isKeyPressed(Key::F9)) {
         SaveManager::carregarJogo(fase);
     }
+=======
+>>>>>>> Stashed changes
 
     while (GG.estaAberta()) {
         while (const std::optional<sf::Event> evento = GG.getWindow()->pollEvent()) {
@@ -67,9 +73,23 @@ void Jogo::executar() {
             }
         }
 
+        if (fase->getGC()->getTrocarFase()) {
+            GG.fechar();
+        }
+
+        // Para salvar:
+        if (sf::Keyboard::isKeyPressed(Key::F5)) {
+            SaveManager::salvarJogo(fase, "save.txt");
+        }
+        // Para carregar:
+        if (sf::Keyboard::isKeyPressed(Key::F9)) {
+            SaveManager::carregarJogo(fase);
+        }
+
         executarEntidades(fase);
         fase->executar();
 
+<<<<<<< Updated upstream
         // Verifica se precisa trocar de fase
         if (fase->getGC()->getTrocarFase()) {
 
@@ -100,6 +120,8 @@ void Jogo::executar() {
          
         }
 
+=======
+>>>>>>> Stashed changes
         GG.clear();
         fase->desenharTileset(&GG, "textures/Floresta.png");
         desenharEntidades(fase);
@@ -107,7 +129,7 @@ void Jogo::executar() {
     }
 }
 
-   
+
 
 void Jogo::executarEntidades(Fase* f) {
     for (int i = 0; i < f->getListaEntidades()->listaEntidades.getLen(); i++) {
@@ -125,4 +147,8 @@ void Jogo::desenharEntidades(Fase* f) {
 
 Fase* Jogo::getFase() const {
     return fase;
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

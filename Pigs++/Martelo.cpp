@@ -13,7 +13,11 @@ Martelo::Martelo(float x, float y, sf::Vector2f vel) :
 }
 Martelo::~Martelo() {}
 
+<<<<<<< Updated upstream
 void Martelo::mover() 
+=======
+void Martelo::mover()
+>>>>>>> Stashed changes
 {
 
 	if (velocidade.x < 0) {
@@ -26,26 +30,47 @@ void Martelo::mover()
 		sf::Angle anguloNovo = sf::degrees(angulo + velocidadeGiro);
 		corpo.setRotation(anguloNovo);
 	}
+<<<<<<< Updated upstream
 	
+=======
+
+>>>>>>> Stashed changes
 	corpo.move(velocidade);
 }
 
 void Martelo::salvar(std::ofstream& arq) {
+<<<<<<< Updated upstream
 	Entidade::salvarDataBuffer(arq);
 	arq << velocidade.x << " "
 	<< velocidade.y << " " 
 	<< ativo << " " 
 	<< dano << std::endl;
+=======
+	arq << velocidade.x << " "
+		<< velocidade.y << " "
+		<< velocidadeGiro << std::endl;
+>>>>>>> Stashed changes
 }
 
 void Martelo::executar() {
 
+<<<<<<< Updated upstream
 	
 	if (ativo) {	
+=======
+
+	if (ativo) {
+>>>>>>> Stashed changes
 		mover();
 	}
 	else {
 		corpo.setFillColor(sf::Color(255, 255, 255, 0));
+<<<<<<< Updated upstream
 		dano = 0;	
 	}
 }
+=======
+		dano = 0;
+	}
+}
+>>>>>>> Stashed changes

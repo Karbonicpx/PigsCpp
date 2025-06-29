@@ -82,7 +82,11 @@ namespace PigsCpp {
                     tempAnt->setProx(temp->getProx());
                 }
                 delete temp;
+<<<<<<< Updated upstream
 				temp = nullptr;
+=======
+                temp = nullptr;
+>>>>>>> Stashed changes
                 this->operator--();
             }
 

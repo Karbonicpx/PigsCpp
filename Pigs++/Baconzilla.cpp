@@ -2,12 +2,17 @@
 
 using namespace PigsCpp::Entidades::Personagens;
 
+<<<<<<< Updated upstream
 Baconzilla::Baconzilla(ListaEntidades* lE) : 
+=======
+Baconzilla::Baconzilla(ListaEntidades* lE) :
+>>>>>>> Stashed changes
     Inimigo("textures/Baconzilla.png", 45.0f, 45.0f, gerarAleatorioFloat(0.2f, 0.25f), 3),
     Atirador(gerarAleatorioFloat(90.f, 120.f), lE),
     tempoTrocaDirecao(gerarAleatorioFloat(0.5, 1.0f)),
-    tamanho((rand() % 3) + 1), // 1 a 3
+    tamanho((rand() % 2) + 1), // 1 a 2
     forca((rand() % 5) + 1) // 1 a 5
+<<<<<<< Updated upstream
    
 {
     velocidade = gerarAleatorioFloat(0.1f, 0.2f);
@@ -16,6 +21,17 @@ Baconzilla::Baconzilla(ListaEntidades* lE) :
 };
 Baconzilla::~Baconzilla() {
    
+=======
+
+{
+    velocidade = gerarAleatorioFloat(0.1f, 0.2f);
+    direcao = -1;
+
+>>>>>>> Stashed changes
+};
+
+Baconzilla::~Baconzilla() {
+    listaEntidades = nullptr;
 };
 
 // Método virtual puro
@@ -30,7 +46,11 @@ void Baconzilla::executar() {
         forca = 0;
         corpo.setFillColor(sf::Color(255, 255, 255, 0));
     }
+<<<<<<< Updated upstream
    
+=======
+
+>>>>>>> Stashed changes
 };
 
 void Baconzilla::danificar(Jogador* p) { // chamado quando o projetil colidir com o jogador
@@ -68,6 +88,7 @@ void Baconzilla::atirarProjetil() {
     float dirX = direcao * 3.0f;
     float dirY = -5.5f;
     sf::Vector2f vel(dirX, dirY);
+<<<<<<< Updated upstream
 
     // Cria a bomba
     if (dirX < 0) {
@@ -80,5 +101,17 @@ void Baconzilla::atirarProjetil() {
     }
    
 }
+=======
+>>>>>>> Stashed changes
 
+    // Cria a bomba
+    if (dirX < 0) {
+        Bomba* b = new Bomba(origem.x + corpo.getSize().x / 2, origem.y, sf::Vector2f(vel.x - forca, vel.y));
+        listaEntidades->listaEntidades.incluir(b);
+    }
+    else {
+        Bomba* b = new Bomba(origem.x + corpo.getSize().x / 2, origem.y, sf::Vector2f(vel.x + forca, vel.y));
+        listaEntidades->listaEntidades.incluir(b);
+    }
 
+}

@@ -12,10 +12,17 @@ Toucinho::Toucinho(ListaEntidades* lista) :
 }
 
 Toucinho::~Toucinho() {
+<<<<<<< Updated upstream
   
     listaEntidades = nullptr;
 }
 
+=======
+
+    listaEntidades = nullptr;
+}
+
+>>>>>>> Stashed changes
 void Toucinho::danificar(Jogador* p) {
     if (p) {
         p->setVidas(p->getVidas() - (forca + getMaldade()));
@@ -29,7 +36,7 @@ void Toucinho::salvar(std::ofstream& arq) {
 }
 
 void Toucinho::mover() {
-    
+
 }
 
 void Toucinho::atirarProjetil() {
@@ -49,7 +56,11 @@ void Toucinho::atirarProjetil() {
         Bomba* b = new Bomba(origem.x + corpo.getSize().x / 2, origem.y, sf::Vector2f(vel.x + forca, vel.y));
         listaEntidades->listaEntidades.incluir(b);
     }
+<<<<<<< Updated upstream
    
+=======
+
+>>>>>>> Stashed changes
 }
 
 void Toucinho::executar() {
@@ -61,5 +72,10 @@ void Toucinho::executar() {
         forca = 0;
         corpo.setFillColor(sf::Color(255, 255, 255, 0));
     }
+<<<<<<< Updated upstream
     
 }
+=======
+
+}
+>>>>>>> Stashed changes

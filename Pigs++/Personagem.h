@@ -11,7 +11,7 @@ namespace PigsCpp {
 
 	namespace Entidades {
 
-		namespace Personagens {	
+		namespace Personagens {
 
 			class Personagem : public Entidade {
 
@@ -34,6 +34,3 @@ namespace PigsCpp {
 		};
 	};
 };
-
-
-

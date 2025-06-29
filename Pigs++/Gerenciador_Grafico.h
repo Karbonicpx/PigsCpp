@@ -8,6 +8,11 @@
  dirigida por eles, realizada em 30/05/2025, das 17:00 as 19:00, na sala do PETECO.
 */
 
+
+namespace PigsCpp {
+    class Ente;
+}
+
 using namespace sf;
 
 namespace PigsCpp {
@@ -37,7 +42,7 @@ namespace PigsCpp {
             void setCorpo(RectangleShape corpo);
             const bool estaAberta() const;
             void clear();
-            void desenharEnte();
+            void desenharEnte(Ente* pE);
             void mostrar();
             void fechar();
         };
